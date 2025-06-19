@@ -6,34 +6,18 @@ export const ContextAPIAbout = () => {
 
   return (
     <section
-      className={`p-4 h-lvh font-display tracking-wider flex flex-col justify-center items-center bg-amber-200 text-black`}>
+      className={`p-4 h-lvh font-display tracking-wider flex flex-col justify-center items-center bg-amber-200 text-black`}
+    >
       <h1>Passing Props Using Context API</h1>
-      <div>
-        <table>
-          <tr>
-            <td>
-              <table>
-                <tr>
-                  <td>
-                    <h1>Basic Info</h1>
-                  </td>
-                </tr>
-                <tr>
-                  <td>FullName:-</td>
-                  <td>{bioInfo.FullName}</td>
-                </tr>
-                <tr>
-                  <td>FirstName:-</td>
-                  <td>{bioInfo.FirstName}</td>
-                </tr>
-                <tr>
-                  <td>LastName:</td>
-                  <td>{bioInfo.LastName}</td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
+      <div className={`justify-center items-center`}>
+        <h1>Basic Info</h1>
+        <p>
+          FullName:-{bioInfo.FullName}
+          <br />
+          FirstName:-{bioInfo.FirstName}
+          <br />
+          LastName:-{bioInfo.LastName}
+        </p>
       </div>
     </section>
   );

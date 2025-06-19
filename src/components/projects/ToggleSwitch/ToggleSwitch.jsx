@@ -1,5 +1,5 @@
 import { useState } from "react";
-import cssModules from "../ToggleSwitch/ToggleSwitch.module.css";
+import cssModules from "./ToggleSwitch.module.css";
 import { IoIosSwitch } from "react-icons/io";
 
 /* Notes:-

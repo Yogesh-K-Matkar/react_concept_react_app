@@ -4,8 +4,8 @@ import { PokemonCard } from "./PokemonCards";
 
 /* Notes:-
     
-    Type to Promise Methods to fetch response:-
-    1. Promise.all :- When any of Single Promise is not full filled/failed in array of Promises then all Promises will be failed.
+    Type to Promise Methods to fetch reponse:-
+    1. Promise.all :- When any of Single Promise is not fullfilled/failed in array of Promisess then all Promisess will be failed.
     2. Promise.allsettled
     3. Promise.race
 

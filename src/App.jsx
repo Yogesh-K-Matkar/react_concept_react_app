@@ -14,8 +14,8 @@ import { EventPropagation } from "./components/EventPropagation.jsx";
 import { State, SiblingNoState } from "./components/State.jsx";
 import { DerivedState } from "./components/DerivedState.jsx";
 import { LiftStateUp } from "./components/LiftStateUp.jsx";
-import { ToggleSwitch } from "./projects/ToggleSwitch/ToggleSwitch.jsx";
-import { Todos } from "./projects/Todo/Todos.jsx";
+import { ToggleSwitch } from "./components/projects/ToggleSwitch/ToggleSwitch.jsx";
+import { Todos } from "./components/projects/Todo/Todos.jsx";
 import ShortCircuit from "./components/ShortCircuit.jsx";
 import {
   UseStateHookCounter,
@@ -30,7 +30,14 @@ import { UseEffectChallenge } from "./components/hooks/useEffect/UseEffectChalle
 import { UseEffectCleanup } from "./components/hooks/useEffect/UseEffectCleanup.jsx";
 import { HowNotToFetchAPI } from "./components/hooks/useEffect/HowNotToFetchAPI.jsx";
 import { SinglePokemonCatch } from "./components/hooks/useEffect/CatchSinglePokemon.jsx";
-import { PokemonSeries } from "./projects/PokemonSeries/PokemonSeries.jsx";
+import { PokemonSeries } from "./components/projects/PokemonSeries/PokemonSeries.jsx";
+import { UseRefsIndex } from "./components/hooks/useRefs/UseRefsIndex.jsx";
+import { ForwardRef } from "./components/hooks/useRefs/ForwardRef.jsx";
+import { UseIdIndex } from "./components/hooks/useId/UseIdIndex.jsx";
+import { PDParent } from "./components/PropDrilling.jsx";
+import { BioProvider } from "./components/hooks/ContextAPI/ContextAPIIndex.jsx";
+import { ContextAPIHome } from "./components/hooks/ContextAPI/ContextAPIHome.jsx";
+import { ContextAPIAbout } from "./components/hooks/ContextAPI/ContextAPIAbout.jsx";
 
 /* Notes:-
 1. HTML code inside component is converted in React element(means Virtual DOM) by babel then derived to Final DOM UI
@@ -117,12 +124,20 @@ export const GroupOfSameComponent = () => {
       <RegistrationFormCustomize />
       <LoginForm />
       <ContactForm />
-      {/* <UseEffectIndex />
+      {/*  <UseEffectIndex />
       <UseEffectChallenge />
       <UseEffectCleanup /> */}
       <HowNotToFetchAPI />
       <SinglePokemonCatch />
       <PokemonSeries />
+      <UseRefsIndex />
+      <ForwardRef />
+      <UseIdIndex />
+      <PDParent />
+      <BioProvider>
+        <ContextAPIHome />
+        <ContextAPIAbout />
+      </BioProvider>
       <Footer />
     </>
   );

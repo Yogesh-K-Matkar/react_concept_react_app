@@ -74,7 +74,7 @@ const NetflixSeries = () => {
 
   return (
     <>
-      <h1>Typeso Of Variables</h1>
+      <h1>Types Of Variables</h1>
       <img src={reactLogo} width="20%" height="20%" />
       <br />
       <div>

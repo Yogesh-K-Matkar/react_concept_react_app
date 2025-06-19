@@ -15,8 +15,11 @@ export const HowNotToFetchAPI = () => {
 
   return (
     <div
-      className={`${cssModule["pokemon-container"]} ${cssModule["pokemon-effect-container"]}`}>
-      <h1 className={cssModule["card-heading"]}>data:</h1>
+      className={`${cssModule["pokemon-container"]} ${cssModule["pokemon-effect-container"]}`}
+    >
+      <h1 className={cssModule["card-heading"]}>
+        Listing Data Using useEffect Through FetchAPI Call
+      </h1>
       <ul>
         {apiData.map((currItem) => {
           return (

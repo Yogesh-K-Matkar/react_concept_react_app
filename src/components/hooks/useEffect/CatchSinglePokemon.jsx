@@ -6,7 +6,7 @@ import cssModule from "./Pokemon.module.css";
    1. Using Promises:-
          fetchAPI(url).then
 
-   2. Uisng async await mechanism
+   2. Using async await mechanism
 
       async () => {
         const apidata=await fetchAPI(url);
@@ -70,7 +70,8 @@ export const SinglePokemonCatch = () => {
 
   return (
     <section
-      className={`${cssModule["pokemon-container"]} ${cssModule["pokemon-effect-container"]}`}>
+      className={`${cssModule["pokemon-container"]} ${cssModule["pokemon-effect-container"]}`}
+    >
       <header>
         <h1 className={cssModule["card-heading"]}>Lets Catch Pokemon:</h1>
       </header>

@@ -26,7 +26,7 @@ export const LoginForm = () => {
   return (
     <form onSubmit={(e) => handleLoginDetails(e)}>
       <div className={cssModules["container"]}>
-        <h1 className={cssModules["title"]}>Login Form</h1>
+        <h1 className={cssModules["title"]}>Login Form (Using UseState)</h1>
         <div className={cssModules["card"]}>
           <label htmlFor="username">
             <b>Username</b>

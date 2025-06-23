@@ -20,24 +20,29 @@ import ShortCircuit from "./components/ShortCircuit.jsx";
 import {
   UseStateHookCounter,
   UseStateChallenge,
-} from "./components/hooks/useState/UseStateIndex.jsx";
-import { RegistrationForm } from "./components/hooks/useState/Registration.jsx";
-import { RegistrationFormCustomize } from "./components/hooks/useState/RegistrationCustomize.jsx";
-import { LoginForm } from "./components/hooks/useState/LoginForm.jsx";
-import { ContactForm } from "./components/hooks/useState/ContactForm.jsx";
-import { UseEffectIndex } from "./components/hooks/useEffect/UseEffectIndex.jsx";
-import { UseEffectChallenge } from "./components/hooks/useEffect/UseEffectChallenge.jsx";
-import { UseEffectCleanup } from "./components/hooks/useEffect/UseEffectCleanup.jsx";
-import { HowNotToFetchAPI } from "./components/hooks/useEffect/HowNotToFetchAPI.jsx";
-import { SinglePokemonCatch } from "./components/hooks/useEffect/CatchSinglePokemon.jsx";
+} from "./components/hooks/UseState/UseStateIndex.jsx";
+import { RegistrationForm } from "./components/hooks/UseState/Registration.jsx";
+import { RegistrationFormCustomize } from "./components/hooks/UseState/RegistrationCustomize.jsx";
+import { LoginForm } from "./components/hooks/UseState/LoginForm.jsx";
+import { ContactForm } from "./components/hooks/UseState/ContactForm.jsx";
+import { UseEffectIndex } from "./components/hooks/UseEffect/UseEffectIndex.jsx";
+import { UseEffectChallenge } from "./components/hooks/UseEffect/UseEffectChallenge.jsx";
+import { UseEffectCleanup } from "./components/hooks/UseEffect/UseEffectCleanup.jsx";
+import { HowNotToFetchAPI } from "./components/hooks/UseEffect/HowNotToFetchAPI.jsx";
+import { SinglePokemonCatch } from "./components/hooks/UseEffect/CatchSinglePokemon.jsx";
 import { PokemonSeries } from "./components/projects/PokemonSeries/PokemonSeries.jsx";
-import { UseRefsIndex } from "./components/hooks/useRefs/UseRefsIndex.jsx";
-import { ForwardRef } from "./components/hooks/useRefs/ForwardRef.jsx";
-import { UseIdIndex } from "./components/hooks/useId/UseIdIndex.jsx";
+import { UseRefsIndex } from "./components/hooks/UseRefs/UseRefsIndex.jsx";
+import { ForwardRef } from "./components/hooks/UseRefs/ForwardRef.jsx";
+import { UseIdIndex } from "./components/hooks/UseId/UseIdIndex.jsx";
 import { PDParent } from "./components/PropDrilling.jsx";
 import { BioProvider } from "./components/hooks/ContextAPI/ContextAPIIndex.jsx";
 import { ContextAPIHome } from "./components/hooks/ContextAPI/ContextAPIHome.jsx";
 import { ContextAPIAbout } from "./components/hooks/ContextAPI/ContextAPIAbout.jsx";
+import {
+  ThemeProvider,
+  DarkLightTheme,
+} from "./components/hooks/ContextAPI/DarkLight.jsx";
+import { UseReducerIndex } from "./components/hooks/UseReducer/UseReducerIndex.jsx";
 
 /* Notes:-
 1. HTML code inside component is converted in React element(means Virtual DOM) by babel then derived to Final DOM UI
@@ -138,6 +143,10 @@ export const GroupOfSameComponent = () => {
         <ContextAPIHome />
         <ContextAPIAbout />
       </BioProvider>
+      <ThemeProvider>
+        <DarkLightTheme />
+      </ThemeProvider>
+      <UseReducerIndex />
       <Footer />
     </>
   );

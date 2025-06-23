@@ -1,8 +1,13 @@
-import { useContext } from "react";
-import { BioContextStore } from "./ContextAPIIndex";
+//import { useContext } from "react";
+//import { useContext } from "./ContextAPIIndex";
+
+import { useBioCustomContext } from "./ContextAPIIndex";
 
 export const ContextAPIAbout = () => {
-  const { bioInfo } = useContext(BioContextStore);
+  //const { bioInfo } = useContext(BioContextStore);
+
+  //Replace by customeHook
+  const { bioInfo } = useBioCustomContext();
 
   return (
     <section

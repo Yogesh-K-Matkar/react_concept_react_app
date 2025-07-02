@@ -161,10 +161,4 @@ export const SeriesUsingProps = () => {
   );
 };
 
-export const Header = () => {
-  return <p>copyright @react19tutorials</p>;
-};
 
-export const Footer = () => {
-  return <p>copyright @react19tutorials</p>;
-};

@@ -1,25 +1,24 @@
-export const PDParent = () => {
+export const PropDrillingParent = () => {
   return (
     <section
-      className={`p-4 h-lvh font-display tracking-wider flex flex-col justify-center items-center bg-amber-200 text-white`}
-    >
+      className={`p-4 h-lvh font-display tracking-wider flex flex-col justify-center items-center bg-amber-200 text-white`}>
       <h1>Hello Parent</h1>
-      <PDChild data="RECT CHILD JS" />
+      <PropDrillingChild data="RECT CHILD JS" />
     </section>
   );
 };
 
-const PDChild = (prop) => {
+const PropDrillingChild = (prop) => {
   const { data } = prop;
   return (
     <section>
       <h1>Hello Child</h1>
-      <PDGrandChild data={data} />
+      <PropDrillingGrandChild data={data} />
     </section>
   );
 };
 
-const PDGrandChild = (prop) => {
+const PropDrillingGrandChild = (prop) => {
   const { data } = prop;
   return (
     <section>

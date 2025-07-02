@@ -1,12 +1,11 @@
 import React, { useState, version } from "react";
 import reactLogo from "/react.svg";
 import viteLogo from "/vite.svg";
-import "./App.css";
+import "./ReactFrameworkApp.css";
+import { Practices } from "./components/Practices.jsx";
 import NetflixSeries, {
   SeriesUsingLoopMap,
   SeriesUsingProps,
-  Header,
-  Footer,
 } from "./components/NetflixSeries.jsx";
 import { EventHandling } from "./components/EventHandling.jsx";
 import { EventProps } from "./components/EventProps.jsx";
@@ -34,7 +33,7 @@ import { PokemonSeries } from "./components/projects/PokemonSeries/PokemonSeries
 import { UseRefsIndex } from "./components/hooks/UseRefs/UseRefsIndex.jsx";
 import { ForwardRef } from "./components/hooks/UseRefs/ForwardRef.jsx";
 import { UseIdIndex } from "./components/hooks/UseId/UseIdIndex.jsx";
-import { PDParent } from "./components/PropDrilling.jsx";
+import { PropDrillingParent } from "./components/PropDrilling.jsx";
 import { BioProvider } from "./components/hooks/ContextAPI/ContextAPIIndex.jsx";
 import { ContextAPIHome } from "./components/hooks/ContextAPI/ContextAPIHome.jsx";
 import { ContextAPIAbout } from "./components/hooks/ContextAPI/ContextAPIAbout.jsx";
@@ -43,6 +42,9 @@ import {
   DarkLightTheme,
 } from "./components/hooks/ContextAPI/DarkLight.jsx";
 import { UseReducerIndex } from "./components/hooks/UseReducer/UseReducerIndex.jsx";
+import { ReactMemoIndex } from "./components/hooks/Memo/ReactMemoIndex.jsx";
+import { UseMemoIndex } from "./components/hooks/Memo/UseMemoIndex.jsx";
+import { UseCallbackIndex } from "./components/hooks/Memo/UseCallbackIndex.jsx";
 
 /* Notes:-
 1. HTML code inside component is converted in React element(means Virtual DOM) by babel then derived to Final DOM UI
@@ -56,23 +58,22 @@ import { UseReducerIndex } from "./components/hooks/UseReducer/UseReducerIndex.j
    Then comes concept of React as Fragments, eg. const ComponentName=()=>{ return(<>jsx multiple element</>); }
 */
 
-export const Intro = () => {
-  return (
-    // Fragment
-    <>
-      <h2 className="text-3xl font-bold underline">
-        Hello, Welcome to React version {version} with Bun package manager
-      </h2>
-      <CreateElm />
-    </>
-  );
-};
-
-export function App() {
+export function ReactApp() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
+    <PageStructureWithOutRouting>
+      <Intro />
+
+      <br />
+      <hr />
+      <br />
+
+      <h1>
+        <u>
+          <b> First Practice Demo </b>
+        </u>
+      </h1>
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -93,19 +94,84 @@ export function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </>
+
+      <br />
+      <hr />
+      <br />
+
+      <h1>
+        <u>
+          <b> Second Practice Demo </b>
+        </u>
+      </h1>
+      <Practices />
+
+      <br />
+      <hr />
+      <br />
+
+      <h1>
+        <u>
+          <b>
+            Concepts and Practice of React/ReactJS Framework along with
+            Examples.
+          </b>
+        </u>
+      </h1>
+      <GroupOfSameComponent />
+      <EventManagement />
+      <StateManagementHooks />
+
+      <br />
+      <hr />
+      <br />
+    </PageStructureWithOutRouting>
   );
 }
 
-export const CreateElm = () => {
-  return React.createElement("h1", null, "Create dynamic h1 tag");
+const PageStructureWithOutRouting = ({ children }) => {
+  return (
+    <>
+      <Header />
+      {children}
+      <Footer />
+    </>
+  );
+};
+
+const Header = () => {
+  return <h1>Welcome, React/ReactJS {version} Frameworks</h1>;
+};
+
+const Footer = () => {
+  return <h1>Thank You!!</h1>;
+};
+
+const Intro = () => {
+  return (
+    // Fragment
+    <>
+      <h2 className="text-3xl font-bold underline">
+        Hello, Welcome to React version {version} with NPM/Bun package manager
+      </h2>
+      <CreateElm />
+    </>
+  );
+};
+
+const CreateElm = () => {
+  //Create dynamic h1 tag
+  return React.createElement(
+    "h1",
+    null,
+    "Learn React/ReactJS Framework Language"
+  );
 };
 
 export const GroupOfSameComponent = () => {
   return (
     <>
       {/* Reusability of same component multiple times without replicating same jsx code*/}
-      <Header />
       <NetflixSeries />
       <NetflixSeries />
       <NetflixSeries />
@@ -113,9 +179,38 @@ export const GroupOfSameComponent = () => {
       <NetflixSeries />
       <SeriesUsingLoopMap />
       <SeriesUsingProps />
+    </>
+  );
+};
+
+export const EventManagement = () => {
+  return (
+    <>
       <EventHandling />
       <EventProps />
       <EventPropagation />
+    </>
+  );
+};
+
+export const StateManagementHooks = () => {
+  return (
+    <>
+      <UseStateHook />
+      <UseEffectHook />
+      <UseRefsHook />
+      <UseIdHook />
+      <UseReducerHook />
+      <ReactMemo />
+      <UseMemoHook />
+      <UseCallBackHook />
+    </>
+  );
+};
+
+const UseStateHook = () => {
+  return (
+    <>
       <State />
       <SiblingNoState />
       <DerivedState />
@@ -129,16 +224,44 @@ export const GroupOfSameComponent = () => {
       <RegistrationFormCustomize />
       <LoginForm />
       <ContactForm />
+    </>
+  );
+};
+
+const UseEffectHook = () => {
+  return (
+    <>
       {/*  <UseEffectIndex />
-      <UseEffectChallenge />
-      <UseEffectCleanup /> */}
+    <UseEffectChallenge />
+    <UseEffectCleanup /> */}
       <HowNotToFetchAPI />
       <SinglePokemonCatch />
       <PokemonSeries />
+    </>
+  );
+};
+
+const UseRefsHook = () => {
+  return (
+    <>
       <UseRefsIndex />
       <ForwardRef />
+    </>
+  );
+};
+
+const UseIdHook = () => {
+  return (
+    <>
       <UseIdIndex />
-      <PDParent />
+    </>
+  );
+};
+
+const UseReducerHook = () => {
+  return (
+    <>
+      <PropDrillingParent />
       <BioProvider>
         <ContextAPIHome />
         <ContextAPIAbout />
@@ -147,7 +270,30 @@ export const GroupOfSameComponent = () => {
         <DarkLightTheme />
       </ThemeProvider>
       <UseReducerIndex />
-      <Footer />
+    </>
+  );
+};
+
+const ReactMemo = () => {
+  return (
+    <>
+      <ReactMemoIndex />
+    </>
+  );
+};
+
+const UseMemoHook = () => {
+  return (
+    <>
+      <UseMemoIndex />
+    </>
+  );
+};
+
+const UseCallBackHook = () => {
+  return (
+    <>
+      <UseCallbackIndex />
     </>
   );
 };

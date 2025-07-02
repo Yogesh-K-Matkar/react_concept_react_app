@@ -1,6 +1,24 @@
 import { useState } from "react";
 import cssModule from "../Hooks.module.css";
 
+/*
+Notes:-
+
+A. State Management Hook:-
+
+1 . useState:- 
+    useState hook when state variable value gets updated it render then components where it us defined.
+
+        Syntax:- const [State Variable,Set State Variable Function]= useState(Initial State Variable Value)
+        Syntax:- const [State Variable,Set State Variable Function]= useState(Initial State Variable Value)
+
+           State Variable/Initial State Variable Value  can store any type of value such as {}-Object,[]-Array,""-String,1234-Number
+           State Variable/Initial State Variable Value  can store any type of value such as {}-Object,[]-Array,""-String,1234-Number
+
+
+
+*/
+
 export const UseStateHookCounter = () => {
   const [stateHook, setUseStateHook] = useState(0);
 

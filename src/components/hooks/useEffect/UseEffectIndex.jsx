@@ -1,6 +1,27 @@
 import { useEffect, useState } from "react";
 import cssModule from "../Index.module.css";
 
+/* 
+Notes:-
+
+B Logical Hooks:-
+
+1. useEffect:- 
+        Secondary logic performed based on changes occur in dependencies such as StateVariable value change.
+        
+        Syntax:- useEffect(
+ 			                     ()=>{
+				                          //Your side effect code				                               
+                                  return Value;                               
+  
+                                  return ()=>{
+					                                      //Cleanup code	
+					                                    };
+				                        },
+                                [dependencies]);
+
+*/
+
 export const UseEffectIndex = () => {
   return (
     <div className={cssModule["container"]}>
@@ -32,10 +53,14 @@ const UserEffectEx2 = () => {
   }, [count]);
 
   return (
-    <>
-      <p>Count:- {count}</p>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-    </>
+    <section
+      className={`p-4 h-lvh font-display tracking-wider flex flex-col justify-center items-center bg-amber-200  text-black`}>
+      <h1>useEffect hook!</h1>
+      <div className={`justify-center items-center`}>
+        <p>Count:- {count}</p>
+        <button onClick={() => setCount(count + 1)}>Increment</button>
+      </div>
+    </section>
   );
 };
 

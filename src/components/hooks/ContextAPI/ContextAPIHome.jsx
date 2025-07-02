@@ -24,9 +24,8 @@ export const ContextAPIHome = () => {
 
   return (
     <section
-      className={`p-4 h-lvh font-display tracking-wider flex flex-col justify-center items-center bg-amber-200  text-black`}
-    >
-      <h1>Passing Props Using Context API</h1>
+      className={`p-4 h-lvh font-display tracking-wider flex flex-col justify-center items-center bg-amber-200  text-black`}>
+      <h1>Passing Props Using Context API(Using useContext hook!)</h1>
       <div className={`justify-center items-center`}>
         <h1>Basic Info</h1>
         <p>

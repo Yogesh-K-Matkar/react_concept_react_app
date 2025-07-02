@@ -2,9 +2,9 @@
 import { createContext, use } from "react";
 
 /* Notes:-
-   State Management:-
+ A  State Management:-
  
-    4. Context Hook:- 
+    5. Context Hook:- 
 
       Prop Drilling:-
         Passing Props through Source Component to sub-sequent child component until it reach to required destination component.
@@ -23,7 +23,7 @@ import { createContext, use } from "react";
                                   E.g. useContext acts as Consumer which uses required Stored Product from delivered by Delivery Boy.
 
 
-    5. Custom Hook:-
+    6. Custom Hook:-
 
            Requirement of custom hook is when want to put multiple times calling of same react hooks into created custom hook & then calling that custom hook to reduce code of multiple calling same hooks.
 
@@ -36,7 +36,7 @@ import { createContext, use } from "react";
        b. Custom hooks is create upon as wrapper of same react hook that is used multiple times in multiple component to avoid DRY principle.
 
 
-    6. use Hook:-
+    7. use Hook:-
            Is replacement to useContext hook which has limitation of defining at top of component but 'use' hook can be call within condition, looping logic which gives more flexibility.
 
 

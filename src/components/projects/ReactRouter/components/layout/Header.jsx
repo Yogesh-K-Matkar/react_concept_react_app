@@ -12,6 +12,10 @@ Notes:-
 */
 
 export const Header = () => {
+  const getNavLinkStyle = ({ isActive }) => {
+    return { color: isActive ? "cyan" : "black" };
+  };
+
   return (
     <>
       <header className="section-navbar">
@@ -37,17 +41,28 @@ export const Header = () => {
           <nav className="navbar">
             <ul>
               <li className="nav-item">
-                <NavLink to="/" className="nav-link">
+                <NavLink
+                  to="/"
+                  className={({ isActive }) =>
+                    isActive ? "nav-link activelink" : "nav-link"
+                  }>
                   Home
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/about" className="nav-link">
+                <NavLink
+                  to="/about"
+                  style={({ isActive }) => {
+                    return { color: isActive ? "red" : "black" };
+                  }}>
                   About
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/movie" className="nav-link">
+                <NavLink
+                  to="/movie"
+                  className="nav-link"
+                  style={getNavLinkStyle}>
                   Movie
                 </NavLink>
               </li>

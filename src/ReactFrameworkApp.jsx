@@ -58,7 +58,7 @@ import { UseCallbackIndex } from "./components/hooks/Memo/UseCallbackIndex.jsx";
    Then comes concept of React as Fragments, eg. const ComponentName=()=>{ return(<>jsx multiple element</>); }
 */
 
-export function ReactApp() {
+function ReactApp() {
   const [count, setCount] = useState(0);
 
   return (
@@ -297,3 +297,5 @@ const UseCallBackHook = () => {
     </>
   );
 };
+
+export default ReactApp;

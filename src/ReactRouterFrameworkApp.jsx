@@ -5,6 +5,7 @@ import { About } from "./components/projects/ReactRouter/pages/About";
 import { Movie } from "./components/projects/ReactRouter/pages/Movie";
 import { Contact } from "./components/projects/ReactRouter/pages/Contact";
 import { AppLayout } from "./components/projects/ReactRouter/components/layout/AppLayout";
+import { ErrorPage } from "./components/projects/ReactRouter/pages/ErrorPage";
 
 /* 
 Notes:-
@@ -62,7 +63,7 @@ REACT-ROUTER(v7.6+):-(Separate from REACT)
 
 */
 
-export const ReactRouterApp = () => {
+const ReactRouterApp = () => {
   const routeLinks = createBrowserRouter([
     {
       path: "/",
@@ -73,6 +74,7 @@ export const ReactRouterApp = () => {
         { path: "/movie", element: <Movie /> },
         { path: "/contact", element: <Contact /> },
       ],
+      errorElement: <ErrorPage />,
     },
   ]);
 
@@ -90,3 +92,5 @@ export const ReactRouterApp = () => {
     </>
   );
 };
+
+export default ReactRouterApp;

@@ -89,6 +89,10 @@ a:hover {
     color: #535bf2;
 }
 
+.activelink {
+    color: blueviolet !important;
+}
+
 /*! layout */
 .container {
     max-width: 142rem;

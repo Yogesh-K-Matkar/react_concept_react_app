@@ -4,10 +4,40 @@ import { NavLink } from "react-router-dom";
 Notes:-
 
 1. Due to <a> html tag when link is click their is full postback of page so no use of <a> anchor html tags in React.
-   Therefore in React in-built component as <NavLink> is provided in place on <a> anchor tag or any navigation html tag.
+   Therefore in React in-built component as <NavLink> is provided in place on <a> anchor tag or any navigation html tag to avoid postback/refresh of entire                         	page. In <NavLink> their is 'to' attribute replace with <a> tag 'href' attribute.
 
-2.
-   
+  Syntax:- 
+    HTML Tag:-
+               <a href="#">Link</a>
+
+    
+    In React:-
+              <NavLink to="#">Link</NavLink>
+
+2. Active Link is concept of highlighting current selected Link based on colour of Link is different from all other non-selected Link colour.
+
+   Their are 3-way of adding 'active' CssClass with 'nav-link' CssClass
+
+   1.className with inline function , 2. style with inline function ,3. style with function call
+
+
+3. useNavigate Hook:- This hook is use to navigate specially to immediate previous URL/Page. Can also navigate to any URL/Page.
+
+      Syntax:-
+
+             import { useNavigate } from "react-router-dom";
+             
+             const navigate = useNavigate();
+           
+
+
+              <button className="btn btnclose" onClick={() => navigate(-1)}>
+          		Go Back
+              </button>
+
+
+       Note:-  -1 mean previous page
+                / mean home page 
 
 */
 

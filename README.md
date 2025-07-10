@@ -826,6 +826,7 @@ Eg:-
 
        1.  In above element <AppLayout> is component which consist of Header and Footer section which common for entire application.
        2.  Children are included dynamically in Body section between Header section & Footer section by <Outlet> react router component based on associated 	   path gets 	   called on clicking of link which is generated using <NavLink> react router component.
+       3. Loader prop of children takes JSON data that return's from function through fetchAPI() as api data.
 
   d. errorElement :- It holds component which gets render when associated element components error occur due to syntax, logical etc.
 
@@ -839,7 +840,7 @@ Eg:-
 
     
     In React:-
-              <NavLink to="#">Link</a>
+              <NavLink to="#">Link</NavLink>
 
 5. Active Link is concept of highlighting current selected Link based on colour of Link is different from all other non-selected Link colour.
 
@@ -916,3 +917,10 @@ Eg:-
        Note:-  -1 mean previous page
                 / mean home page 
 
+   3. useLoaderData :- This hook is use to get data from loader function which is defined in routes children array object.
+
+      Syntax:-
+
+             import { useLoaderData } from "react-router-dom";
+
+             const data = useLoaderData();

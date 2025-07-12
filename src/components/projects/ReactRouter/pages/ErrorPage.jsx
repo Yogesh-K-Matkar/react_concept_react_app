@@ -50,17 +50,34 @@ Notes:-
     	},
       ]);
   
+  2. useNavigate Hook:- This hook is use to navigate specially to immediate previous URL/Page. Can also navigate to any URL/Page.
+
+      Syntax:-
+
+             import { useNavigate } from "react-router-dom";
+             
+             const navigate = useNavigate();
+           
+
+
+              <button className="btn btnclose" onClick={() => navigate(-1)}>
+          		Go Back
+              </button>
+
+
+       Note:-  -1 mean previous page
+                / mean home page 
 
 */
 
 export const ErrorPage = () => {
-  const error = useRouteError();
-  const navigate = useNavigate();
+  const hookRouteError = useRouteError();
+  const hookNavigate = useNavigate();
 
-  console.log(error);
-  console.log(navigate);
+  console.log(hookRouteError);
+  console.log(hookNavigate);
 
-  if (error.status === 404) {
+  if (hookRouteError.status === 404) {
     return (
       <section className="error-section">
         <div id="error-text">
@@ -81,7 +98,7 @@ export const ErrorPage = () => {
           Go Back To Home Page
         </NavLink>
         <br />
-        <button className="btn btnclose" onClick={() => navigate(-1)}>
+        <button className="btn btnclose" onClick={() => hookNavigate(-1)}>
           Go Back
         </button>
       </section>

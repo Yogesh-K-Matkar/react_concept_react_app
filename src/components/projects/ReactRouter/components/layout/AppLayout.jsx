@@ -1,6 +1,7 @@
 import { Header } from "./Header";
 import { Footer } from "./Footer";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigation } from "react-router-dom";
+import { Loading } from "./Loading";
 /*
 Notes:-
 
@@ -11,6 +12,12 @@ Notes:-
 
 */
 export const AppLayout = () => {
+  const hookNavigation = useNavigation();
+
+  console.log(hookNavigation);
+
+  if (hookNavigation.state === "loading") return <Loading />;
+
   return (
     <>
       <Header />

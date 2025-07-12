@@ -534,7 +534,7 @@ a. useEffect:- Secondary logic performed based on changes occur in dependencies 
     	useEffect(
 
 ()=>{
-//Your side effect code   
+//Your side effect code  
  return Value;
 
                                 return ()=>{
@@ -639,7 +639,6 @@ A. Upload Files from VS Code to GitHub:-
      > git push origin main
 
      k. Refresh GitHub repository of project deployed ,it will show all publish files.
-
 
 B. Deploying from GitHub to Netlify :-
 
@@ -878,7 +877,17 @@ HTML Tag:-
         Note:- -1 mean previous page
         / mean home page
 
-    3.  useLoaderData :- This hook is use to get data from loader function which is defined in routes children array object.
+    3.  useNavigation :- This hook is use to get information about current navigation state such as location, action, etc.
+
+        Syntax:-
+
+               import { useNavigation } from "react-router-dom";
+
+               const navigation = useNavigation();
+
+        Note:- navigation.state can be used to check current state of navigation such as loading, idle, etc.
+
+    4.  useLoaderData :- This hook is use to get data from loader function which is defined in routes children array object.
 
         Syntax:-
 

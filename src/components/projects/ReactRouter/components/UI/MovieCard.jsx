@@ -2,10 +2,10 @@ import { NavLink } from "react-router-dom";
 import "./Card.css";
 
 export const MovieCard = (props) => {
-  const { key, movieData } = props;
+  const { movieData } = props;
   const { imdbID, Title, Year, Type, Poster } = movieData;
 
-  console.log(Title, Year, Type, Poster);
+  //console.log(Title, Year, Type, Poster);
 
   return (
     <li className="hero-container">

@@ -21,23 +21,7 @@ Notes:-
    1.className with inline function , 2. style with inline function ,3. style with function call
 
 
-3. useNavigate Hook:- This hook is use to navigate specially to immediate previous URL/Page. Can also navigate to any URL/Page.
 
-      Syntax:-
-
-             import { useNavigate } from "react-router-dom";
-             
-             const navigate = useNavigate();
-           
-
-
-              <button className="btn btnclose" onClick={() => navigate(-1)}>
-          		Go Back
-              </button>
-
-
-       Note:-  -1 mean previous page
-                / mean home page 
 
 */
 

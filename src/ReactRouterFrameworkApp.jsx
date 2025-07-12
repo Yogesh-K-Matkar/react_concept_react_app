@@ -98,6 +98,8 @@ REACT-ROUTER(v7.6+):-(Separate from REACT)
     a. useRouteError:- This hook is used to access error information when a route
     b. useLoaderData:- This hook is used to access data loaded by the loader function associated with a route.
     c. useNavigate:- This hook is used to programmatically navigate to different routes.
+    d. useNavigation:- This hook is use to get information about current navigation state such as location, action, etc
+
 
 */
 
@@ -109,7 +111,7 @@ const ReactRouterApp = () => {
       children: [
         { path: "/", element: <Home /> },
         { path: "/about", element: <About /> },
-        { path: "/movie", element: <Movie />, loader : getMoviesData },
+        { path: "/movie", element: <Movie />, loader: getMoviesData },
         { path: "/contact", element: <Contact /> },
       ],
       errorElement: <ErrorPage />,

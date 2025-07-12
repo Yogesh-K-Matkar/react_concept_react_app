@@ -2,15 +2,15 @@ import { useLoaderData } from "react-router-dom";
 import { MovieCard } from "../components/UI/MovieCard";
 
 export const Movie = () => {
-  const moviesData = useLoaderData();
+  const hookMoviesData = useLoaderData();
 
-  console.log(moviesData);
+  //console.log(hookMoviesData);
 
   const getMoviesUI = () => {
     return (
-      moviesData && (
+      hookMoviesData && (
         <ul className="container grid grid-four-cols">
-          {moviesData.Search.map((curMovie) => {
+          {hookMoviesData.Search.map((curMovie) => {
             return <MovieCard key={curMovie.imdbID} movieData={curMovie} />;
           })}
         </ul>

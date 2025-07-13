@@ -18,7 +18,7 @@ export const PokemonSeries = () => {
 
   const [searchPokemon, setSearchPokemon] = useState("");
 
-  const API = "https://pokeapi.co/api/v2/pokemon?limit=649";
+  const API = import.meta.env.VITE_POKEMON_API_URL; //"https://pokeapi.co/api/v2/pokemon?limit=649";
 
   const fetchPokemon = async () => {
     try {

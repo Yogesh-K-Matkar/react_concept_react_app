@@ -815,6 +815,20 @@ HTML Tag:-
 
 6.  Hooks In React Router:-
 
+    const routeLinks = createBrowserRouter([
+    {
+    path: "/",
+    element: <AppLayout />,
+    children: [
+    { path: "/", element: <Home /> },
+    { path: "/about", element: <About /> },
+    { path: "/movie", element: <Movie />, loader: getMovieData },
+    { path: "/contact", element: <Contact /> },
+    ],
+    errorElement:<ErrorPage />,
+    },
+    ]);
+
     1.  useRouteError :- This hook provide error details means cause of error which gives details of Type Of Error and error, status, statusText, etc.
 
         Syntax:-
@@ -887,10 +901,37 @@ HTML Tag:-
 
         Note:- navigation.state can be used to check current state of navigation such as loading, idle, etc.
 
-    4.  useLoaderData :- This hook is use to get data from loader function which is defined in routes children array object.
+    4.  useLoaderData :- This hook is use to get data from loader function which is defined in routes children array object.State property of hook is used to know the current
+        state of data loading such as loading, idle, etc.
 
-        Syntax:-
+            Syntax:-
 
-               import { useLoaderData } from "react-router-dom";
+                   import { useLoaderData } from "react-router-dom";
 
-               const data = useLoaderData();
+                   const data = useLoaderData();
+
+7.  .env File :-
+    This file is used to store environment variables such as API keys, URLs, etc. It should not be committed to version control for security reasons.
+
+    (Note:- .env file should be placed at the root of the project directory.)
+
+    Syntax:-
+
+    In React project below is the example of .env file,
+
+    Alway append REACT (FOLLED BY UNDERSCROLL 'APP' UNDERSCROLL) before variable name to make it accessible in React application.
+
+    REACT_APP_API_KEY=your_api_key_here
+    REACT_APP_API_URL=https://api.example.com
+
+    import (REACT.meta.env.REACT_APP_API_KEY) from "react"; --To Access Environment Variables
+
+    But in Vite project below is the example of .env file,
+
+    Alway append VITE(FOLLED BY UNDERSCROLL) before variable name to make it accessible in React application.
+
+    VITE_API_KEY=your_api_key_here
+    VITE_API_URL=https://api.example.com
+
+    import.meta.env.VITE_API_KEY from "react";  
+    --To Access Environment Variables

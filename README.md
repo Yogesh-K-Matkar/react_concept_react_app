@@ -910,6 +910,22 @@ HTML Tag:-
 
                    const data = useLoaderData();
 
+    5.  useParams(OLD React version below 6.4) :- This hook is used to access dynamic route parameters from the URL.
+
+        Syntax:-
+
+               import { useParams } from "react-router-dom";
+
+               const params = useParams();
+
+        Note:- params object will contain key-value pairs of dynamic route parameters defined in the path.
+
+        Example: If the path is "/movie/:movieID", then params will be an object like { movieID: "123" }.
+
+        ABOVE React version 6.4+,
+
+        Passing {params} object as prop to component or function where dynamic route parameter is required.
+
 7.  .env File :-
     This file is used to store environment variables such as API keys, URLs, etc. It should not be committed to version control for security reasons.
 
@@ -935,3 +951,17 @@ HTML Tag:-
 
     import.meta.env.VITE_API_KEY from "react";  
     --To Access Environment Variables
+
+8.  Dynamic Routing:-
+    Dynamic routing is used to create routes based on data or user input. It allows you to create routes that can change at runtime.
+
+    Syntax:-
+    In React Router, dynamic routing can be achieved by using route parameters in the path.
+
+    Example:-
+
+    ```jsx
+    <path="/movie/:movieID" element={<Movie />} />
+    ```
+
+    In this example, `:movieID` is a route dynamic parameter that can be accessed in the `Movie` component using the `useParams` hook.

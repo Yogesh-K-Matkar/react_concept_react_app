@@ -15,9 +15,9 @@ export const MovieCard = (props) => {
         </div>
         <div className="ticket-container">
           <div className="ticket__content">
-            {/* <NavLink to={`/movie/${imdbID}`}> */}
-            <button className="ticket__buy-btn">Watch Now</button>
-            {/* </NavLink> */}
+            <NavLink to={`/movie/${imdbID}`}>
+              <button className="ticket__buy-btn">Watch Now</button>
+            </NavLink>
           </div>
         </div>
       </div>

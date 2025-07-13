@@ -20,9 +20,9 @@ export const Movie = () => {
 
   return (
     <>
-      <h1>
+      <h1 style={{ "padding-top": "20px" }}>
         <b>
-          <u>Movie Page</u>
+          <u>List of Movies</u>
         </b>
       </h1>
       <br />

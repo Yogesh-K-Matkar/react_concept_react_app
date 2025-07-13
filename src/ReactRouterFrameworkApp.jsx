@@ -6,7 +6,11 @@ import { Movie } from "./components/projects/ReactRouter/pages/Movie";
 import { Contact } from "./components/projects/ReactRouter/pages/Contact";
 import { AppLayout } from "./components/projects/ReactRouter/components/layout/AppLayout";
 import { ErrorPage } from "./components/projects/ReactRouter/pages/ErrorPage";
-import { getMoviesData } from "./components/projects/ReactRouter/api/GetAPIData";
+import {
+  getMoviesData,
+  getMoviesDataByParams,
+} from "./components/projects/ReactRouter/api/GetAPIData";
+import { MovieDetails } from "./components/projects/ReactRouter/components/UI/MovieDetailCard";
 
 /* 
 Notes:-
@@ -112,6 +116,11 @@ const ReactRouterApp = () => {
         { path: "/", element: <Home /> },
         { path: "/about", element: <About /> },
         { path: "/movie", element: <Movie />, loader: getMoviesData },
+        {
+          path: "/movie/:movieID",
+          element: <MovieDetails />,
+          loader: getMoviesDataByParams,
+        },
         { path: "/contact", element: <Contact /> },
       ],
       errorElement: <ErrorPage />,

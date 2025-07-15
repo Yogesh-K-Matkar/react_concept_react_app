@@ -11,6 +11,7 @@ import {
   getMoviesDataByParams,
 } from "./components/projects/ReactRouter/api/GetAPIData";
 import { MovieDetails } from "./components/projects/ReactRouter/components/UI/MovieDetailCard";
+import { submitContactFormData } from "./components/projects/ReactRouter/pages/Contact";
 
 /* 
 Notes:-
@@ -103,7 +104,64 @@ REACT-ROUTER(v7.6+):-(Separate from REACT)
     b. useLoaderData:- This hook is used to access data loaded by the loader function associated with a route.
     c. useNavigate:- This hook is used to programmatically navigate to different routes.
     d. useNavigation:- This hook is use to get information about current navigation state such as location, action, etc
+    e. useParams(React version below v6.4):- This hook is use to get request parameter pass in browser URL.
+       But (React version above v6.4+) provides new concept introduce instead of using useParams() hook,
+       to get request parameter special {params} object as paramter to component/function. 
 
+5.  .env File :-
+    This file is used to store environment variables such as API keys, URLs, etc. It should not be committed to version control for security reasons.
+
+    (Note:- .env file should be placed at the root of the project directory.)
+
+    Syntax:-
+
+    In React project below is the example of .env file,
+
+    Alway append REACT (FOLLED BY UNDERSCROLL 'APP' UNDERSCROLL) before variable name to make it accessible in React application.
+
+    REACT_APP_API_KEY=your_api_key_here
+    REACT_APP_API_URL=https://api.example.com
+
+    import (REACT.meta.env.REACT_APP_API_KEY) from "react"; --To Access Environment Variables
+
+    But in Vite project below is the example of .env file,
+
+    Alway append VITE(FOLLED BY UNDERSCROLL) before variable name to make it accessible in React application.
+
+    VITE_API_KEY=your_api_key_here
+    VITE_API_URL=https://api.example.com
+
+    import.meta.env.VITE_API_KEY from "react";  
+    --To Access Environment Variables
+
+6.  Dynamic Routing:-
+    Dynamic routing is used to create routes based on data or user input. It allows you to create routes that can change at runtime.
+
+    Syntax:-
+    In React Router, dynamic routing can be achieved by using route parameters in the path.
+
+    Example:-
+
+    ```jsx
+    <path="/movie/:movieID" element={<Movie />} />
+    ```
+
+    In this example, `:movieID` is a route dynamic parameter that can be accessed in the `Movie` component using the `useParams` hook.
+
+7. Form Submission:-
+    React Router provides a way to handle form submissions using the `action` prop in the route configuration. This allows you to handle form data submission and processing.
+
+    Syntax:-
+    In the route configuration, you can define an `action` function that will be called when the form is submitted.
+
+    Example:
+    In route configuration, action prop is used to handle form submission and process the form data as below.
+
+    ```jsx
+    { path: "/contact", element: <Contact />, action: submitContactFormData}.
+    ```
+
+    Then, passing {request} object as prop to function where formData() function retrun response which is then converted in object format through object.fromEntries() which further used for processing array like structure data to convert to object format.
 
 */
 
@@ -121,7 +179,11 @@ const ReactRouterApp = () => {
           element: <MovieDetails />,
           loader: getMoviesDataByParams,
         },
-        { path: "/contact", element: <Contact /> },
+        {
+          path: "/contact",
+          element: <Contact />,
+          action: submitContactFormData,
+        },
       ],
       errorElement: <ErrorPage />,
     },

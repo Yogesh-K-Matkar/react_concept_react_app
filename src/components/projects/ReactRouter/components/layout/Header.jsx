@@ -47,7 +47,7 @@ export const Header = () => {
 
         <div className="container">
           <div className="navbar-brand">
-            <NavLink to="index">
+            <NavLink to="/">
               <p>MoviesFlix</p>
             </NavLink>
           </div>
@@ -59,7 +59,8 @@ export const Header = () => {
                   to="/"
                   className={({ isActive }) =>
                     isActive ? "nav-link activelink" : "nav-link"
-                  }>
+                  }
+                >
                   Home
                 </NavLink>
               </li>
@@ -68,7 +69,8 @@ export const Header = () => {
                   to="/about"
                   style={({ isActive }) => {
                     return { color: isActive ? "red" : "black" };
-                  }}>
+                  }}
+                >
                   About
                 </NavLink>
               </li>
@@ -76,7 +78,8 @@ export const Header = () => {
                 <NavLink
                   to="/movie"
                   className="nav-link"
-                  style={getNavLinkStyle}>
+                  style={getNavLinkStyle}
+                >
                   Movie
                 </NavLink>
               </li>

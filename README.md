@@ -229,6 +229,7 @@ Practicle Points:-
 
 2. Each JSX element/expression must have one parent element, which means if you try to return multiple elements
    React will throw and error.
+   Error: Adjacent JSX elements must be wrapped in an enclosing tag.
 
 3. Every JSX tag needs to be closed. You can self-closing tags for elements that don't have
    children, eg. <img src="url" />
@@ -236,13 +237,22 @@ Practicle Points:-
 4. To avoid rewriting/redundancy of same code multiple times create a single component and reuse it multiple where required in
    same jsx or another jsx(import component function from particular jsx where componenet function is defined).
 
-5. Imported Components/Component Function from another JSX(App.jsx) as above eg. App, Intro, GropOfSameComponent (Components Name)
+5. Imported Components/Component from another JSX(ReactFrameworkApp.jsx) as below
+   eg. ReactApp (Components Name)
 
 6. Used imported component eg. <Intro />
    <App />
    <GroupOfSameComponent />
 
-7. To avoid using non-required <div> tag to combine multiple element into one before return jsx from component function and also to avoid DOM to create unwanted <div> element. Then comes concept of React as Fragments, eg. const ComponentName=()=>{ return(<>jsx multiple element</>); }
+7. To avoid using non-required <div> tag to combine multiple element into one before return jsx from component function and also to avoid DOM to create unwanted <div> element. Then comes React concept of Fragments ,
+   eg.
+   const ComponentName=()=>{
+   return(
+   <>
+   jsx multiple element
+   </>
+   );
+   }
 
 8. Concept of dynamic variable where we can assign derived value generated from JS function, expression or operations that can be shown at specific location with jsx.
 
@@ -252,7 +262,7 @@ Practicle Points:-
 
 11. Concept of logical variable where we can assign derived value generated from JS function, expression or operations that can be shown at specific location with jsx based on Condition using Conditional Operators/Logic such Ternary, IF-ELSE block, etc.
 
-12. Incase of importing Export Default component then while import any name be used without curly braces.
+12. Incase of importing Export Default component then while import any component name be used without curly braces.
     eg. import NetflixSeries from "./components/NetflixSeries"; (Where export component name is NetflixSeries)
 
 13. While in case importing Export Named component then while import same Component name to be used with curly braces {ComponentName}
@@ -457,6 +467,9 @@ Practicle Points:-
     To get:- localStoreage.getItem("keyname");
 
 30. When any control is bind with state variable(control is moving from uncontrolled to controlled). In React maximum are uncontrolled component by default until unless its values bind with state variable..
+
+Controlled Data Hooks:- useState,useEffect
+UnControlled Data Hooks:- useRefs,useId
 
 31. use prefix are all hooks.
 
@@ -791,8 +804,9 @@ b. element :- It holds component which gets render when associated path display 
 c. children:- It also hold array of path along with child component which is going to render in Page Body section.
 
        1.  In above element <AppLayout> is component which consist of Header and Footer section which common for entire application.
-       2.  Children are included dynamically in Body section between Header section & Footer section by <Outlet> react router component based on associated 	   path gets 	   called on clicking of link which is generated using <NavLink> react router component.
-       3. Loader prop of children takes JSON data that return's from function through fetchAPI() as api data.
+       2.  Children are included dynamically in Body section between Header section & Footer section by <Outlet> react router component based on associated 	   path gets called on clicking of link which is generated using <NavLink> react router component.
+       3.  loader prop of children takes function that return's JSON data from function through fetchAPI() as API data.
+       4.  action prop of children takes function that return's JSON data from function through formData() that is used to UPDATE different fields data submited in component by Form action.
 
 d. errorElement :- It holds component which gets render when associated element components error occur due to syntax, logical etc.
 
@@ -822,8 +836,8 @@ HTML Tag:-
     children: [
     { path: "/", element: <Home /> },
     { path: "/about", element: <About /> },
-    { path: "/movie", element: <Movie />, loader: getMovieData },
-    { path: "/contact", element: <Contact /> },
+    { path: "/movie", element: <Movie />, loader: getMoviesDataByParams },
+    { path: "/contact", element: <Contact />, action: submitContactFormData},
     ],
     errorElement:<ErrorPage />,
     },
@@ -910,21 +924,27 @@ HTML Tag:-
 
                    const data = useLoaderData();
 
-    5.  useParams(OLD React version below 6.4) :- This hook is used to access dynamic route parameters from the URL.
+    5.  Dynamic Route Parameters:-
 
-        Syntax:-
+        Dynamic route parameters are used to access dynamic values from the URL.
 
-               import { useParams } from "react-router-dom";
+        1. Calling component in route with dynamic route parameter in path
 
-               const params = useParams();
+           useParams(OLD React version below 6.4) :- This hook is used to access dynamic route parameters from the URL when doind through component call in loader prop of route.
 
-        Note:- params object will contain key-value pairs of dynamic route parameters defined in the path.
+           Syntax:-
 
-        Example: If the path is "/movie/:movieID", then params will be an object like { movieID: "123" }.
+           import { useParams } from "react-router-dom";
 
-        ABOVE React version 6.4+,
+           const params = useParams();
 
-        Passing {params} object as prop to component or function where dynamic route parameter is required.
+           Note:- params object will contain key-value pairs of dynamic route parameters defined in the path.
+
+           Example: If the path is "/movie/:movieID", then params will be an object like { movieID: "123" }.
+
+        2. Calling function in route with dynamic route parameter in loader prop of route
+
+           Note:- {params} object is passed as prop to function where dynamic route parameter is required.
 
 7.  .env File :-
     This file is used to store environment variables such as API keys, URLs, etc. It should not be committed to version control for security reasons.
@@ -961,7 +981,54 @@ HTML Tag:-
     Example:-
 
     ```jsx
-    <path="/movie/:movieID" element={<Movie />} />
+    { path: "/movie/:movieID", element: <Movie />, loader: getMoviesDataByParams }
     ```
 
+    1. Calling component in route with dynamic route parameter in path
+
     In this example, `:movieID` is a route dynamic parameter that can be accessed in the `Movie` component using the `useParams` hook.
+
+    2. Calling function in route with dynamic route parameter in loader prop of route
+
+    In this example, `:movieID` is a route dynamic parameter that can be accessed in the `getMoviesDataByParams` function by passing the `params` object as a prop.
+
+    ```jsx
+    export const getMoviesDataByParams = async ({ params }) => {
+      let movieID = params.movieID;
+      const data = await resp.json();
+      return data;
+    };
+    ```
+
+9.  Form Submission:-
+    React Router provides a way to handle form submissions using the `action` prop in the route configuration. This allows you to handle form data submission and processing.
+
+    Syntax:-
+    In the route configuration, you can define an `action` function that will be called when the form is submitted.
+
+    Example:
+    In route configuration, action prop is used to handle form submission and process the form data as below.
+
+    ```jsx
+    { path: "/contact", element: <Contact />, action: submitContactFormData}.
+    ```
+
+    Then, passing {request} object as prop to function where formData() function retrun response which is then converted in object format through object.fromEntries() which further used for processing array like structure data to convert to object format.
+
+    ```jsx
+    export const submitContactFormData = async ({ request }) => {
+      try {
+        const resp = await request.formData();
+
+        console.log(resp);
+
+        const actualresp = Object.formEntries(resp);
+
+        console.log(actualresp);
+
+        return actualresp;
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    ```

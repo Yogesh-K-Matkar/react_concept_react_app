@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
+import viteLogo from "/vite.svg";
 
 export const Footer = () => {
   return (
     <footer className="section-footer">
       <div className="footer-container container">
         <div className="content_1">
-          <img src="~/public/images/logo.png" alt="logo" />
+          <img src={viteLogo} alt="logo" />
           <p>
             Welcome to Yogesh EcomStore, your ultimate destination for
             cutting-edge gadgets!

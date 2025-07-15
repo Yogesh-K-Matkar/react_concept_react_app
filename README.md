@@ -70,10 +70,16 @@ VS Code Editior Shortcuts:-
 Terminal show/hide(cntrl+`),Solution File/Folder Structure show/hide(cntrl+b),Focus on top search(cntrl+p, cntrl+shift+p)
 
 How to create file and folder through Terminal cmd.
-a. Move inside into folder cd <FolderName>
-b. Move outside from folder cd..
-c. Create folder mkdir <NewFolderName>
-d. Create any type of such as jsx, json, css, image. code <NewFileName.extension>
+a. Move inside into folder
+cd <FolderName>
+b. Move outside from folder
+cd..
+c. Create folder
+mkdir <NewFolderName>
+d. Create any type of such as jsx, json, css, image.
+code <NewFileName.extension>
+e. To open current folder in explorer from terminal cmd
+explorer .
 
 ---
 

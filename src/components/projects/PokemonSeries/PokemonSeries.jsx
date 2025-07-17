@@ -1,8 +1,50 @@
 import { useEffect, useState } from "react";
 import "./PokemonSeries.css";
 import { PokemonCard } from "./PokemonCards";
+import axios from "axios";
 
 /* Notes:-
+
+ 2 Third Party API Access APIMethods:-
+ 
+  To ways to call and get data 
+    
+  A fetchAPI():-
+
+   a. Using Promises:-
+         fetchAPI(url).then
+
+   b. Using async await mechanism
+
+      async () => {
+        const apidata=await fetchAPI(url);
+        }
+
+  B Axios():-(Better Then fetch() as it has more features and is more user-friendly)
+     
+      Axios is promise-based HTTP client request/response handling library.It is third-party library not from React.
+      That's way need to install axios.
+
+       A.1 First install axios  
+        Syntax:- 
+              npm install axios
+
+  Benifites:-
+
+  1. Easier syntax and cleaner code.
+  2. Automatic JSON transformation without extra code.
+  3. Built-in error handling.
+  4. Supports old browsers. 
+
+   a. Using Promises:-
+         axios(url).then
+
+   b. Using async await mechanism
+
+      async () => {
+        const apidata=await axios(url);
+        }
+
     
     Type to Promise Methods to fetch reponse:-
     1. Promise.all :- When any of Single Promise is not fullfilled/failed in array of Promisess then all Promisess will be failed.
@@ -20,15 +62,24 @@ export const PokemonSeries = () => {
 
   const API = import.meta.env.VITE_POKEMON_API_URL; //"https://pokeapi.co/api/v2/pokemon?limit=649";
 
-  const fetchPokemon = async () => {
+  const fetchPokemon = async (APIAccessMethod) => {
     try {
-      const res = await fetch(API);
-      const data = await res.json();
+      let res, data;
+
+      console.log(APIAccessMethod);
+
+      if (APIAccessMethod === "axios") {
+        res = await axios.get(API);
+        data = await res.data;
+      } else {
+        res = await fetch(API);
+        data = await res.json();
+      }
 
       //console.log(data);
 
       const fetchPokemonList = data.results;
-      //console.log(fetchPokemonList);
+      console.log(fetchPokemonList);
 
       if (fetchPokemonList.length > 0) {
         const fetchPokemonDetailPromises = fetchPokemonList.map(
@@ -37,8 +88,14 @@ export const PokemonSeries = () => {
 
             const API = fetchPokemonListItem.url;
 
-            const res = await fetch(API);
-            const data = await res.json();
+            if (APIAccessMethod === "axios") {
+              res = await axios.get(API);
+              data = await res.data;
+            } else {
+              res = await fetch(API);
+              data = await res.json();
+            }
+
             //console.log(data);
 
             return data;
@@ -61,7 +118,8 @@ export const PokemonSeries = () => {
   };
 
   useEffect(() => {
-    fetchPokemon();
+    const APIAccessMethod = import.meta.env.VITE_API_ACCESS_METHOD;
+    fetchPokemon(APIAccessMethod);
   }, []);
 
   if (loading) {

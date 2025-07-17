@@ -69,7 +69,8 @@ export const UseReducerIndex = () => {
 
   return (
     <section
-      className={`p-4 h-lvh font-display tracking-wider flex flex-col justify-center items-center bg-amber-200  text-black`}>
+      className={`p-4 h-lvh font-display tracking-wider flex flex-col justify-center items-center bg-amber-200  text-black`}
+    >
       <h1>Using useReducer hook!</h1>
       <h1>{state.count}</h1>
       <button onClick={() => dispatch({ type: "INCREMENT" })}>Increment</button>

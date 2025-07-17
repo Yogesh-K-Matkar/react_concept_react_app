@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 // import "./ReactFrameworkIndex.css";
-// import  ReactApp  from "./ReactFrameworkApp.jsx";
+// import ReactApp from "./ReactFrameworkApp.jsx";
 import "./ReactRouterFrameworkIndex.css";
 import ReactRouterApp from "./ReactRouterFrameworkApp.jsx";
 
@@ -11,8 +11,8 @@ import ReactRouterApp from "./ReactRouterFrameworkApp.jsx";
 */
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    {/* <ReactApp /> */}
-    <ReactRouterApp />
-  </StrictMode>
+  // <StrictMode>
+  //    <ReactApp />
+  // </StrictMode>
+  <ReactRouterApp />
 );

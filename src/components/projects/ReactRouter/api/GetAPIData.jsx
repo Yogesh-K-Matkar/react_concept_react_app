@@ -1,47 +1,107 @@
+import axios from "axios";
+import { getMovies } from "../services/GetAxiosServices";
+
 //Function
 export const getMoviesData = async () => {
+  const apiAccessMethod = import.meta.env.VITE_API_ACCESS_METHOD;
+
   try {
-    let api_key = import.meta.env.VITE_MOVIES_API_KEY;
+    const apiKey = import.meta.env.VITE_MOVIES_API_KEY;
+    //console.log(apiKey);
 
-    console.log(api_key);
+    const baseURL = import.meta.env.VITE_MOVIES_API_BASEURL;
+    const apiURL = `?i=tt3896198&apikey=${apiKey}&s=titanic&page1`;
 
-    const resp = await fetch(
-      `https://www.omdbapi.com/?i=tt3896198&apikey=${api_key}&s=titanic&page1`
-    );
+    let resp = null,
+      data = null;
 
-    const data = await resp.json();
+    if (apiAccessMethod === "axios") {
+      const apiCallCompanyStandard = import.meta.env
+        .VITE_API_CALLING_USING_AXIOS_COMPANY_STANDARD;
+
+      if (apiCallCompanyStandard === "true") {
+        resp = await getMovies(apiURL);
+
+        //console.log(resp);
+      } else {
+        resp = await axios.get(baseURL + apiURL);
+
+        //console.log(resp);
+      }
+      data = await resp.data;
+    } else {
+      resp = await fetch(baseURL + apiURL);
+
+      //console.log(resp);
+
+      data = await resp.json();
+    }
 
     console.log(data);
 
     return data;
   } catch (error) {
-    console.log(error);
+    if (apiAccessMethod === "axios") {
+      console.error("Error message:", error.message);
+      console.error("Error status:", error.response.status);
+      console.error("Error data:", error.response.data);
+    } else {
+      console.log(error);
+    }
   }
 };
 
 export const getMoviesDataByParams = async ({ params }) => {
   console.log(params);
-
   console.log(params.movieID);
 
-  let api_key = import.meta.env.VITE_MOVIES_API_KEY;
-  let movieID = params.movieID;
+  const apiAccessMethod = import.meta.env.VITE_API_ACCESS_METHOD;
 
   try {
-    let api_key = import.meta.env.VITE_MOVIES_API_KEY;
+    const apiKey = import.meta.env.VITE_MOVIES_API_KEY;
+    console.log(apiKey);
 
-    console.log(api_key);
+    const movieID = params.movieID;
 
-    const resp = await fetch(
-      `https://www.omdbapi.com/?i=${movieID}&apikey=${api_key}`
-    );
+    const baseURL = import.meta.env.VITE_MOVIES_API_BASEURL;
+    const apiURL = `?i=${movieID}&apikey=${apiKey}`;
 
-    const data = await resp.json();
+    let resp = null,
+      data = null;
+
+    if (apiAccessMethod === "axios") {
+      const apiCallCompanyStandard = import.meta.env
+        .VITE_API_CALLING_USING_AXIOS_COMPANY_STANDARD;
+
+      if (apiCallCompanyStandard === "true") {
+        resp = await getMovies(apiURL);
+
+        console.log(resp);
+      } else {
+        resp = await axios.get(baseURL + apiURL);
+
+        console.log(resp);
+      }
+
+      data = await resp.data;
+    } else {
+      const resp = await fetch(baseURL + apiURL);
+
+      console.log(resp);
+
+      data = await resp.json();
+    }
 
     console.log(data);
 
     return data;
   } catch (error) {
-    console.log(error);
+    if (apiAccessMethod === "axios") {
+      console.error("Error message:", error.message);
+      console.error("Error status:", error.response.status);
+      console.error("Error data:", error.response.data);
+    } else {
+      console.log(error);
+    }
   }
 };

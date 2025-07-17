@@ -20,7 +20,7 @@ export const Movie = () => {
 
   return (
     <>
-      <h1 style={{ "padding-top": "20px" }}>
+      <h1 style={{ "margin-top": "20px" }}>
         <b>
           <u>List of Movies</u>
         </b>

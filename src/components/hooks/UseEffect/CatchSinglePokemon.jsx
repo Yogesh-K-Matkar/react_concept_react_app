@@ -1,15 +1,46 @@
 import { useEffect, useState } from "react";
 import cssModule from "./Pokemon.module.css";
+import axios from "axios";
 
 /* Notes:-
-   To ways to call and get data from third party API
-   1. Using Promises:-
+  2 Third Party API Access APIMethods:-
+ 
+  To ways to call and get data 
+    
+  A fetchAPI():-
+
+   a. Using Promises:-
          fetchAPI(url).then
 
-   2. Using async await mechanism
+   b. Using async await mechanism
 
       async () => {
         const apidata=await fetchAPI(url);
+        }
+
+  B Axios():-(Better Then fetch() as it has more features and is more user-friendly)
+     
+      Axios is promise-based HTTP client request/response handling library.It is third-party library not from React.
+      That's way need to install axios.
+
+       A.1 First install axios  
+        Syntax:- 
+              npm install axios
+
+  Benifites:-
+
+  1. Easier syntax and cleaner code.
+  2. Automatic JSON transformation without extra code.
+  3. Built-in error handling.
+  4. Supports old browsers. 
+
+   a. Using Promises:-
+         axios(url).then
+
+   b. Using async await mechanism
+
+      async () => {
+        const apidata=await axios(url);
         }
 
 
@@ -21,6 +52,7 @@ export const SinglePokemonCatch = () => {
   const [error, setError] = useState(null);
 
   const API = "https://pokeapi.co/api/v2/pokemon/pikachu";
+  const APIAccessMethod = import.meta.env.VITE_API_ACCESS_METHOD;
 
   //Using Promises
   //   const fetchPokemon = () => {
@@ -40,9 +72,27 @@ export const SinglePokemonCatch = () => {
   //Using async await
   const fetchPokemon = async () => {
     try {
-      const res = await fetch(API);
-      const data = await res.json();
-      setPokemon(data);
+      let res = null,
+        data = null,
+        errmsg = null;
+
+      console.log(APIAccessMethod);
+
+      if (APIAccessMethod === "axios") {
+        res = await axios.get(API);
+        data = await res.data;
+        errmsg = new Error("API Data Fetch Successfully Using axios().");
+      } else {
+        res = await fetch(API);
+        data = await res.json();
+        errmsg = new Error("API Data Fetch Successfully Using fetchAPI().");
+      }
+
+      if (data != null) {
+        setPokemon(data);
+        console.log(errmsg);
+      }
+
       setLoading(false);
     } catch (error) {
       console.log(error);

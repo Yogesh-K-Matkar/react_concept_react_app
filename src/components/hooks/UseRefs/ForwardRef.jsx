@@ -46,7 +46,7 @@ const BeforeReact19Input = forwardRef((props, ref) => {
   return (
     <div>
       <label htmlFor={label}>{label}</label>
-      <input type="text" id={label} name={label} ref={ref} />;
+      <input type="text" id={label} name={label} ref={ref} />
     </div>
   );
 });

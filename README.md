@@ -1190,7 +1190,7 @@ Extra Features of React:
 
 (IMPORTANT:-
 
-//This logic of using axios is followed in real scenarioes in IT Companies for calling api's
+//This logic of using axios is followed in real scenarios in IT Companies for calling api's
 
 import axios from "axios";
 

@@ -6,10 +6,10 @@ export const getMoviesData = async () => {
   const apiAccessMethod = import.meta.env.VITE_API_ACCESS_METHOD;
 
   try {
-    const apiKey = import.meta.env.VITE_MOVIES_API_KEY;
+    const apiKey = import.meta.env.VITE_MOVIES_OMDBAPI_KEY;
     //console.log(apiKey);
 
-    const baseURL = import.meta.env.VITE_MOVIES_API_BASEURL;
+    const baseURL = import.meta.env.VITE_MOVIES_OMDBAPI_BASEURL;
     const apiURL = `?i=tt3896198&apikey=${apiKey}&s=titanic&page1`;
 
     let resp = null,
@@ -58,12 +58,12 @@ export const getMoviesDataByParams = async ({ params }) => {
   const apiAccessMethod = import.meta.env.VITE_API_ACCESS_METHOD;
 
   try {
-    const apiKey = import.meta.env.VITE_MOVIES_API_KEY;
+    const apiKey = import.meta.env.VITE_MOVIES_OMDBAPI_KEY;
     console.log(apiKey);
 
     const movieID = params.movieID;
 
-    const baseURL = import.meta.env.VITE_MOVIES_API_BASEURL;
+    const baseURL = import.meta.env.VITE_MOVIES_OMDBAPI_BASEURL;
     const apiURL = `?i=${movieID}&apikey=${apiKey}`;
 
     let resp = null,

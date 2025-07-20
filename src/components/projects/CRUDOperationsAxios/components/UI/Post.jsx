@@ -1,5 +1,5 @@
 export const Post = (props) => {
-  const { data } = props;
+  const { data, handleDeletePost } = props;
 
   //console.log(props);
   //console.log(data);
@@ -12,7 +12,9 @@ export const Post = (props) => {
       <p>Title: {title}</p>
       <p>Body: {body}</p>
       <button>Edit</button>
-      <button className="btn-delete">Delete</button>
+      <button className="btn-delete" onClick={() => handleDeletePost(id)}>
+        Delete
+      </button>
     </li>
   );
 };

@@ -2,12 +2,12 @@
 
 import axios from "axios";
 
-const getBaseURL = () => {
-  return import.meta.env.VITE_MOVIES_API_BASEURL;
+const getOMDBAPIBaseURL = () => {
+  return import.meta.env.VITE_MOVIES_OMDBAPI_BASEURL;
 };
 
 // 1. Create a reusable Axios instance
-const api = axios.create({ baseURL: getBaseURL() });
+const api = axios.create({ baseURL: getOMDBAPIBaseURL() });
 
 // 2. Define a function to fetch movie data
 export const getMovies = (apiURL) => {

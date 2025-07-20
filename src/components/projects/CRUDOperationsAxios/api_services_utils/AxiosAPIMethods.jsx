@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const initAPI = axios.create({
-  baseURL: "https://jsonplaceholder.typicode.com",
+  baseURL: import.meta.env.VITE_POSTS_JSONPLACEHOLDERTYPECODEAPI_BASEURL,
 });
 
 //GET Method
@@ -11,11 +11,16 @@ export const getCall = (getURL) => {
 };
 
 //POST Method
-// export const postCall = (postURL) => {
-//   return initAPI.post(postURL);
-// };
+export const postCall = (postURL) => {
+  return initAPI.post(postURL);
+};
 
 //PUT
 // export const PostCall = (apiURL) => {
 //   return initAPI.post("");
 // };
+
+//DELETE Method
+export const deleteCall = (deleteURL) => {
+  return initAPI.delete(deleteURL);
+};

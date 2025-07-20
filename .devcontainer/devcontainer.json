@@ -1,0 +1,10 @@
+{
+  "name": "free-tier-codespace",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20", 
+   "features": {},
+  "hostRequirements": {
+    "cpus": 2,
+    "memory": "4gb"
+  },
+  "postCreateCommand": "npm install"
+}

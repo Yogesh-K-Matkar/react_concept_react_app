@@ -34,8 +34,8 @@ export const CRUDOperationsAxios = () => {
   };
 
   return (
-    <>
+    <section className="main-section">
       <Posts lstData={lstPosts} />
-    </>
+    </section>
   );
 };

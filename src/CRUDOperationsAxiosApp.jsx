@@ -2,7 +2,7 @@ import { CRUDOperationsAxios } from "./components/projects/CRUDOperationsAxios/p
 
 const CRUDOperationsAxiosApp = () => {
   return (
-    <section className="main-section">
+    <section>
       <CRUDOperationsAxios />
     </section>
   );

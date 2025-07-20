@@ -5,13 +5,13 @@ export const Posts = (props) => {
 
   console.log(lstData);
   return (
-    <section className="section-posts">
-      <ul>
+    <section className="section-post">
+      <ol>
         {lstData.map((curEle) => {
           const { id } = curEle;
           return <Post key={id} data={curEle} />;
         })}
-      </ul>
+      </ol>
     </section>
   );
 };

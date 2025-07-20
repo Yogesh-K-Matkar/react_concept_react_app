@@ -6,6 +6,7 @@ import { createRoot } from "react-dom/client";
 // import ReactRouterApp from "./ReactRouterFrameworkApp.jsx";
 // import "./ReactRouterFrameworkIndex.css";
 //import { CRUDOperationsAxiosApp } from "./components/CRUDOperationsAxiosApp";
+//import "./CRUDOperationsAxiosIndex.css";
 const ReactApp = React.lazy(() => import("./ReactFrameworkApp"));
 const ReactRouterApp = React.lazy(() => import("./ReactRouterFrameworkApp"));
 const CRUDOperationsAxiosApp = React.lazy(() =>
@@ -27,6 +28,7 @@ const LoadComponent = () => {
           <ReactApp />
         </>
       );
+
     case "REACTROUTERAPP":
       import("./ReactRouterFrameworkIndex.css");
       return (
@@ -38,6 +40,7 @@ const LoadComponent = () => {
           <ReactRouterApp />
         </>
       );
+
     case "FULLSTACKAXIOSAPP":
       import("./CRUDOperationsAxiosIndex.css");
       return (
@@ -52,7 +55,6 @@ const LoadComponent = () => {
 
     default:
       return <div>More Upcoming Concept ....</div>;
-      break;
   }
 };
 

@@ -1,5 +1,18 @@
 export const Post = (props) => {
-  const { userId, id, title, body } = props;
+  const { data } = props;
 
-  return <li></li>;
+  //console.log(props);
+  //console.log(data);
+
+  // Destructuring the properties from props
+  const { id, title, body } = data;
+
+  return (
+    <li>
+      <p>Title: {title}</p>
+      <p>Body: {body}</p>
+      <button>Edit</button>
+      <button className="btn-delete">Delete</button>
+    </li>
+  );
 };

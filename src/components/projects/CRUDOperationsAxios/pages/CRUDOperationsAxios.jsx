@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getCall, deleteCall } from "../api_services_utils/AxiosAPIMethods";
 import { LoadPosts } from "../components/UI/LoadPosts";
+import { AddPost } from "../components/UI/AddPost";
 
 export const CRUDOperationsAxios = () => {
   const initLstPosts = [];

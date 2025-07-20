@@ -902,17 +902,17 @@ B.
     Eg:-
 
     const routeLinks = createBrowserRouter([
-    {
-    path: "/",
-    element: <AppLayout />,
-    children: [
-    { path: "/", element: <Home /> },
-    { path: "/about", element: <About /> },
-    { path: "/movie", element: <Movie /> },
-    { path: "/contact", element: <Contact /> },
-    ],
-    errorElement:<ErrorPage />,
-    },
+      {
+        path: "/",
+        element: <AppLayout />,
+        children: [
+                      { path: "/", element: <Home /> },
+                      { path: "/about", element: <About /> },
+                      { path: "/movie", element: <Movie /> },
+                      { path: "/contact", element: <Contact /> },
+                  ],
+        errorElement:<ErrorPage />,
+      },
     ]);
 
      <RouterProvider router={router} />
@@ -954,18 +954,18 @@ Props of createBrowserRouter:-
 6.  Hooks In React Router:-
 
     const routeLinks = createBrowserRouter([
-    {
-    path: "/",
-    element: <AppLayout />,
-    children: [
-    { path: "/", element: <Home /> },
-    { path: "/about", element: <About /> },
-    { path: "/movie", element: <Movie />, loader: getMoviesDataByParams },
-    { path: "/contact", element: <Contact />, action: submitContactFormData},
-    ],
-    errorElement:<ErrorPage />,
-    },
-    ]);
+      {
+        path: "/",
+        element: <AppLayout />,
+        children: [
+                    { path: "/", element: <Home /> },
+                    { path: "/about", element: <About /> },
+                    { path: "/movie", element: <Movie />, loader: getMoviesDataByParams },
+                    { path: "/contact", element: <Contact />, action: submitContactFormData},
+                  ],
+        errorElement:<ErrorPage />,
+      },
+      ]);
 
     a. useRouteError:- This hook provides error details, meaning the cause of the error, which gives details of the Type Of Error and error, status, statusText, etc.
 
@@ -1165,85 +1165,94 @@ Extra Features of React:
 
 1. HTTP Method(CRUD Methods):-
 
-   a. POST(Create-C):-
-    The POST method is used to send data to the server to create a new resource. It is commonly used for submitting forms or uploading files.
+  a. POST(Create-C):-
+      The POST method is used to send data to the server to create a new resource. It is commonly used for submitting forms or uploading files.
+
+      Syntax:-
+
+      ```jsx
+      import axios from "axios";
+
+      const createResource = async (data) => {
+        try {
+          const response = await axios.post("https://api.example.com/resources", data);
+          console.log("Resource created:", response.data);
+        } catch (error) {
+          console.error("Error creating resource:", error);
+        }
+      };
+      ```
+
+  b. GET(Read-R):-
+      The GET method is used to retrieve data from the server. It is commonly used for fetching resources or displaying data to the user.
+
+      Syntax:-
+
+      ```jsx
+      import axios from "axios";
+
+      const fetchResource = async (id) => {
+        try {
+          const response = await axios.get(`https://api.example.com/resources/${id}`);
+          console.log("Resource fetched:", response.data);
+        } catch (error) {
+          console.error("Error fetching resource:", error);
+        }
+      };
+      ```
+
+  c. PUT(Update-U):-
+      The PUT method is used to update an existing resource on the server. It is commonly used for updating data or replacing a resource.
+      
+      Syntax:-
+      
+      ```jsx
+      import axios from "axios";
+
+      const updateResource = async (id, data) => {
+        try {
+          const response = await axios.put(`https://api.example.com/resources/${id}`, data);
+          console.log("Resource updated:", response.data);
+        } catch (error) {
+          console.error("Error updating resource:", error);
+        }
+      };
+      ```  
+
+      The PATCH method is also used for updating a resource, but it is typically used for partial updates, meaning only the fields that need to be changed are sent in the request body.
+  
+      Syntax:-
+  
+      ```jsx  
+      import axios from "axios";
+
+      const patchResource = async (id, data) => {
+        try {
+          const response = await axios.patch(`https://api.example.com/resources/${id}`, data);
+          console.log("Resource patched:", response.data);
+        } catch (error) {
+          console.error("Error patching resource:", error);
+        }
+      };
+      ```
+
+
+
+  d. DELETE(Delete-D):-
+    The DELETE method is used to delete a resource on the server. It is commonly used for removing data or resources.
     Syntax:-
     ```jsx
     import axios from "axios";
 
-    const createResource = async (data) => {
+    const deleteResource = async (id) => {
       try {
-        const response = await axios.post("https://api.example.com/resources", data);
-        console.log("Resource created:", response.data);
+        const response = await axios.delete(`https://api.example.com/resources/${id}`);
+        console.log("Resource deleted:", response.data);
       } catch (error) {
-        console.error("Error creating resource:", error);
+        console.error("Error deleting resource:", error);
       }
     };
     ```
-
-   b. GET(Read-R):-
-   The GET method is used to retrieve data from the server. It is commonly used for fetching resources or displaying data to the user.
-   Syntax:-
-   ```jsx
-   import axios from "axios";
-
-   const fetchResource = async (id) => {
-     try {
-       const response = await axios.get(`https://api.example.com/resources/${id}`);
-       console.log("Resource fetched:", response.data);
-     } catch (error) {
-       console.error("Error fetching resource:", error);
-     }
-   };
-   ```
-   c. PUT(Update-U):-
-   The PUT method is used to update an existing resource on the server. It is commonly used for updating data or replacing a resource.
-   Syntax:-
-   ```jsx
-   import axios from "axios";
-
-   const updateResource = async (id, data) => {
-     try {
-       const response = await axios.put(`https://api.example.com/resources/${id}`, data);
-       console.log("Resource updated:", response.data);
-     } catch (error) {
-       console.error("Error updating resource:", error);
-     }
-   };
-   ```  
-
-    The PATCH method is also used for updating a resource, but it is typically used for partial updates, meaning only the fields that need to be changed are sent in the request body.
-    Syntax:-
-    ```jsx  
-    import axios from "axios";
-
-    const patchResource = async (id, data) => {
-      try {
-        const response = await axios.patch(`https://api.example.com/resources/${id}`, data);
-        console.log("Resource patched:", response.data);
-      } catch (error) {
-        console.error("Error patching resource:", error);
-      }
-    };
-    ```
-
-
-
-   d. DELETE(Delete-D):-
-   The DELETE method is used to delete a resource on the server. It is commonly used for removing data or resources.
-   Syntax:-
-   ```jsx
-   import axios from "axios";
-
-   const deleteResource = async (id) => {
-     try {
-       const response = await axios.delete(`https://api.example.com/resources/${id}`);
-       console.log("Resource deleted:", response.data);
-     } catch (error) {
-       console.error("Error deleting resource:", error);
-     }
-   };
-   ```
 
 2. AXIOS (Alternative to fetch()):-
    AXIOS is a promise-based HTTP client for the browser and Node.js. It is used to make HTTP requests to APIs and handle responses.

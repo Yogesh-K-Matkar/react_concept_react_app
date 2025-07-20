@@ -232,25 +232,39 @@ bun install react@rc react-dom@rc
 
 Step 7: Extensions:
 
-7.1. npm Intellisense
-7.2. Path Intellisense
-7.3. Prettier - Code formatter
-7.4. vscode-icons
-7.5. Code Runner
-7.6. Code Spell Checker
-7.7. Auto Close Tag
-7.8. Auto Comment
-7.9. Better Comments
-7.10. Auto Rename Tag
-7.11. Babel JavaScript
-7.12. Bootstrap 5 Quick Snippets
-7.13. Bootstrap Class Autocomplete
-7.14. Bootstrap IntelliSense
-7.15. CSS Navigation
-7.16. CSS Peek
-7.17. css-auto-prefix
-7.18. GitHub Pull Requests
-7.19. Atom One Dark Theme
+7.1. Auto Close Tag
+7.2. Auto Comment
+7.3. Auto Import
+7.4. Auto Rename Tag
+7.5. Babel JavaScript
+7.6. Better Comments
+7.7. Bootstrap 5 Quick Snippets
+7.8. Bootstrap Class Autocomplete
+7.9. Bootstrap IntelliSense
+7.10. Code Runner
+7.11. Code Spell Checker
+7.12. CSS Navigation
+7.13. CSS Peek
+7.14. css-auto-prefix
+7.15. ES7+ React/Redux/React-Native snippets
+7.16. ESLint
+7.17. GitHub Copilot
+7.18. GitHub Copilot Chat
+7.19. GitHub Pull Requests
+7.20. Import Cost
+7.21. IntelliCode
+7.22. JavaScript (ES6) code snippets
+7.23. Live Server
+7.24. Markdown All in One
+7.25. Markdown Preview Enhanced
+7.26. npm Intellisense
+7.27. Path Intellisense
+7.28. Prettier - Code formatter
+7.29. React PropTypes Generate
+7.30. Tailwind CSS IntelliSense
+7.31. Thunder Client
+7.32. vscode-icons
+
 
 +++++++++++++++++++++++++++++++
 

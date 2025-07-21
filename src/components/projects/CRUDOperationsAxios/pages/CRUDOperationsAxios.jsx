@@ -56,7 +56,7 @@ export const CRUDOperationsAxios = () => {
   return (
     <section className="main-section">
       <section className="section-form">
-        <AddPost />
+        <AddPost lstData={lstPosts} setLstPosts={setLstPosts} />
       </section>
       <section className="section-post">
         <LoadPosts lstData={lstPosts} handleDeletePost={handleDeletePost} />

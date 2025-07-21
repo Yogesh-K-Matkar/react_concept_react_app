@@ -15,7 +15,7 @@ const CRUDOperationsAxiosApp = React.lazy(() =>
 
 let AppConcept = import.meta.env.VITE_APP_CONCEPT;
 
-const LoadComponent = () => {
+export const LoadComponent = () => {
   switch (AppConcept) {
     case "REACTAPP":
       import("./ReactFrameworkIndex.css");
@@ -45,7 +45,12 @@ const LoadComponent = () => {
       import("./CRUDOperationsAxiosIndex.css");
       return (
         <>
-          <h1 style={{ marginTop: "2rem", marginBottom: "5rem" }}>
+          <h1
+            style={{
+              marginTop: "2rem",
+              marginBottom: "5rem",
+              color: "Highlight",
+            }}>
             <u>Project 3. Full Stack CRUD Operation Using Axios Concept</u>
           </h1>
           <br />

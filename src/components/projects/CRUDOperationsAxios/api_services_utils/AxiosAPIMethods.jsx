@@ -11,8 +11,8 @@ export const getCall = (getURL) => {
 };
 
 //POST Method
-export const postCall = (postURL) => {
-  return initAPI.post(postURL);
+export const postCall = (postURL, postData) => {
+  return initAPI.post(postURL, postData);
 };
 
 //PUT

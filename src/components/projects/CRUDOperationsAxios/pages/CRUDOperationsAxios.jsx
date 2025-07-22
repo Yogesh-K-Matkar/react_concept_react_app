@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
-import { getCall, deleteCall } from "../api_services_utils/AxiosAPIMethods";
+import {
+  getCall,
+  deleteCall,
+  postCall,
+} from "../api_services_utils/AxiosAPIMethods";
 import { LoadPosts } from "../components/UI/LoadPosts";
 import { AddPost } from "../components/UI/AddPost";
 
@@ -53,10 +57,37 @@ export const CRUDOperationsAxios = () => {
     }
   };
 
+  const handleCreatePost = (post) => {
+    try {
+      if (apiAccessMethod === "axios") {
+        addData(`/posts`, post);
+      }
+    } catch (error) {
+      console.error("Error Message ", error.message);
+      console.error("Error Status ", error.response.status);
+      console.error("Error Data ", error.response.data);
+    }
+  };
+
+  const addData = async (URL, payload) => {
+    const res = await postCall(URL, payload);
+
+    if (res.status === 201) {
+      console.log("Post added successfully");
+
+      setLstPosts([...lstPosts, res.data]);
+    } else {
+      console.error("Error Message ", res.error.message);
+      console.error("Error Status ", res.error.status);
+      console.error("Failed to add post");
+    }
+  };
+
   return (
     <section className="main-section">
       <section className="section-form">
-        <AddPost lstData={lstPosts} setLstPosts={setLstPosts} />
+        <AddPost handleCreatePost={handleCreatePost} />
+        {/* lstData={lstPosts} setLstPosts={setLstPosts} */}
       </section>
       <section className="section-post">
         <LoadPosts lstData={lstPosts} handleDeletePost={handleDeletePost} />

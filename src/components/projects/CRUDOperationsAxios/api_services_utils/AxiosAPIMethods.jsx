@@ -4,23 +4,25 @@ const initAPI = axios.create({
   baseURL: import.meta.env.VITE_POSTS_JSONPLACEHOLDERTYPECODEAPI_BASEURL,
 });
 
-//GET Method
-export const getCall = (getURL) => {
+//POST Method -CREATE -C
+export const postCall = async (postURL, postData) => {
+  return await initAPI.post(postURL, postData);
+};
+
+//GET Method -READ -R
+export const getCall = async (getURL) => {
   console.log(getURL);
-  return getURL === "" ? initAPI.get("/posts") : initAPI.get(getURL);
+  return getURL === ""
+    ? await initAPI.get("/posts")
+    : await initAPI.get(getURL);
 };
 
-//POST Method
-export const postCall = (postURL, postData) => {
-  return initAPI.post(postURL, postData);
+//PUT Method -UPDATE -U
+export const putCall = (putURL, putData) => {
+  return initAPI.put(putURL, putData);
 };
 
-//PUT
-// export const PostCall = (apiURL) => {
-//   return initAPI.post("");
-// };
-
-//DELETE Method
-export const deleteCall = (deleteURL) => {
-  return initAPI.delete(deleteURL);
+//DELETE Method  -DELETE -D
+export const deleteCall = async (deleteURL) => {
+  return await initAPI.delete(deleteURL);
 };

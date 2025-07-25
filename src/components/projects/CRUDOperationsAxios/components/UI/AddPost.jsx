@@ -1,24 +1,79 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const AddPost = (props) => {
-  const { handleCreatePost } = props;
+  const apiAccessMethod = import.meta.env.VITE_API_ACCESS_METHOD;
 
-  const initAddPost = { title: "", body: "" };
-  const [addedPost, setAddPost] = useState(initAddPost);
+  const { addPostData, getEditPostData, putPostData } = props;
+
+  const initPost = { title: "", body: "" };
+  const [post, setPost] = useState(initPost);
 
   const handleInputValue = (ev) => {
     const { name, value } = ev.target;
 
-    setAddPost((prevState) => {
+    setPost((prevState) => {
       return { ...prevState, [name]: value };
     });
   };
 
+  // post
+  const handleAddPost = (post) => {
+    console.log("Post");
+    try {
+      if (apiAccessMethod === "axios") {
+        addPostData(`/posts`, post);
+      }
+    } catch (error) {
+      console.error("Error Message ", error.message);
+      console.error("Error Status ", error.response.status);
+      console.error("Error Data ", error.response.data);
+    }
+  };
+
+  // edit and update
+  let isPostEdit = getEditPostData.title === "" ? false : true;
+
+  useEffect(() => {
+    try {
+      console.log("Edit");
+
+      isPostEdit
+        ? setPost((prevState) => {
+            return {
+              ...prevState,
+              id: getEditPostData.id,
+              title: getEditPostData.title,
+              body: getEditPostData.body,
+            };
+          })
+        : "";
+    } catch (error) {
+      console.log(error);
+    }
+  }, [getEditPostData]);
+
+  const handlePutPost = (post) => {
+    console.log("Put");
+
+    try {
+      if (apiAccessMethod === "axios") {
+        putPostData(`/posts/${post.id}`, post);
+      }
+    } catch (error) {
+      console.error("Error Message ", error.message);
+      console.error("Error Status ", error.response.status);
+      console.error("Error Data ", error.response.data);
+    }
+  };
+
+  //ACTION - ADD or UPDATE ON EDIT
+
   const handleSubmitPost = (ev) => {
     ev.preventDefault();
     try {
-      handleCreatePost(addedPost);
-      setAddPost(initAddPost);
+      const action = ev.nativeEvent.submitter.value;
+      action === "Add" ? handleAddPost(post) : handlePutPost(post);
+      setPost(initPost);
     } catch (error) {
       console.error("Error Message ", error.message);
       console.error("Error Status ", error.response.status);
@@ -36,7 +91,7 @@ export const AddPost = (props) => {
           id="title"
           name="title"
           placeholder="Title"
-          value={addedPost.title}
+          value={post.title}
           onChange={(ev) => handleInputValue(ev)}
         />
       </div>
@@ -48,11 +103,13 @@ export const AddPost = (props) => {
           id="body"
           name="body"
           placeholder="Body"
-          value={addedPost.body}
+          value={post.body}
           onChange={(ev) => handleInputValue(ev)}
         />
       </div>
-      <button type="submit">Add</button>
+      <button type="submit" value={isPostEdit ? "Update" : "Add"}>
+        {isPostEdit ? "Update" : "Add"}
+      </button>
     </form>
   );
 };

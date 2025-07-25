@@ -265,7 +265,6 @@ Step 7: Extensions:
 7.31. Thunder Client
 7.32. vscode-icons
 
-
 +++++++++++++++++++++++++++++++
 
 A. Steps for Hosting Application with Synchronous Update:-
@@ -693,6 +692,8 @@ B.2. Pull Request :-
 
     import { useReducer } from "react";
 
+    const initState=0;
+
            const reducer=(state, action)=>{
                   if(action.type=="increment"){
                    return state+1;
@@ -702,10 +703,11 @@ B.2. Pull Request :-
          }
            }
 
-           const [state,dispatch]=useReducer(reducer,0)
+           const [state,dispatch]=useReducer(reducer,initState)
 
-          --> dispatch function with type object, which internally calls the reducer function and sets the  type parameter to the action parameter based on which
-              For different actions, can perform different logic and return a new state value
+          --> dispatch function with type object, which internally calls the reducer function and sets the     type parameter to the action parameter based on which.
+
+              For different actions, can perform different logic and return a new state value of structure as of initState
 
     B. Logical:-
     a. useEffect:- Secondary logic is performed based on changes that occur in dependencies, such as StateVariable value change.
@@ -916,17 +918,17 @@ B.
     Eg:-
 
     const routeLinks = createBrowserRouter([
-      {
-        path: "/",
-        element: <AppLayout />,
-        children: [
-                      { path: "/", element: <Home /> },
-                      { path: "/about", element: <About /> },
-                      { path: "/movie", element: <Movie /> },
-                      { path: "/contact", element: <Contact /> },
-                  ],
-        errorElement:<ErrorPage />,
-      },
+    {
+    path: "/",
+    element: <AppLayout />,
+    children: [
+    { path: "/", element: <Home /> },
+    { path: "/about", element: <About /> },
+    { path: "/movie", element: <Movie /> },
+    { path: "/contact", element: <Contact /> },
+    ],
+    errorElement:<ErrorPage />,
+    },
     ]);
 
      <RouterProvider router={router} />
@@ -968,18 +970,18 @@ Props of createBrowserRouter:-
 6.  Hooks In React Router:-
 
     const routeLinks = createBrowserRouter([
-      {
-        path: "/",
-        element: <AppLayout />,
-        children: [
-                    { path: "/", element: <Home /> },
-                    { path: "/about", element: <About /> },
-                    { path: "/movie", element: <Movie />, loader: getMoviesDataByParams },
-                    { path: "/contact", element: <Contact />, action: submitContactFormData},
-                  ],
-        errorElement:<ErrorPage />,
-      },
-      ]);
+    {
+    path: "/",
+    element: <AppLayout />,
+    children: [
+    { path: "/", element: <Home /> },
+    { path: "/about", element: <About /> },
+    { path: "/movie", element: <Movie />, loader: getMoviesDataByParams },
+    { path: "/contact", element: <Contact />, action: submitContactFormData},
+    ],
+    errorElement:<ErrorPage />,
+    },
+    ]);
 
     a. useRouteError:- This hook provides error details, meaning the cause of the error, which gives details of the Type Of Error and error, status, statusText, etc.
 
@@ -1179,8 +1181,8 @@ Extra Features of React:
 
 1. HTTP Method(CRUD Methods):-
 
-  a. POST(Create-C):-
-      The POST method is used to send data to the server to create a new resource. It is commonly used for submitting forms or uploading files.
+a. POST(Create-C):-
+The POST method is used to send data to the server to create a new resource. It is commonly used for submitting forms or uploading files.
 
       Syntax:-
 
@@ -1197,8 +1199,8 @@ Extra Features of React:
       };
       ```
 
-  b. GET(Read-R):-
-      The GET method is used to retrieve data from the server. It is commonly used for fetching resources or displaying data to the user.
+b. GET(Read-R):-
+The GET method is used to retrieve data from the server. It is commonly used for fetching resources or displaying data to the user.
 
       Syntax:-
 
@@ -1215,11 +1217,11 @@ Extra Features of React:
       };
       ```
 
-  c. PUT(Update-U):-
-      The PUT method is used to update an existing resource on the server. It is commonly used for updating data or replacing a resource.
-      
+c. PUT(Update-U):-
+The PUT method is used to update an existing resource on the server. It is commonly used for updating data or replacing a resource.
+
       Syntax:-
-      
+
       ```jsx
       import axios from "axios";
 
@@ -1231,13 +1233,13 @@ Extra Features of React:
           console.error("Error updating resource:", error);
         }
       };
-      ```  
+      ```
 
       The PATCH method is also used for updating a resource, but it is typically used for partial updates, meaning only the fields that need to be changed are sent in the request body.
-  
+
       Syntax:-
-  
-      ```jsx  
+
+      ```jsx
       import axios from "axios";
 
       const patchResource = async (id, data) => {
@@ -1250,13 +1252,12 @@ Extra Features of React:
       };
       ```
 
+d. DELETE(Delete-D):-
+The DELETE method is used to delete a resource on the server. It is commonly used for removing data or resources.
+Syntax:-
 
-
-  d. DELETE(Delete-D):-
-    The DELETE method is used to delete a resource on the server. It is commonly used for removing data or resources.
-    Syntax:-
-    ```jsx
-    import axios from "axios";
+````jsx
+import axios from "axios";
 
     const deleteResource = async (id) => {
       try {
@@ -1276,30 +1277,30 @@ Extra Features of React:
 
    ```bash
    npm install axios
-   ```
+````
 
-   Example of using AXIOS to make a GET request:
+Example of using AXIOS to make a GET request:
 
-   ```jsx
-   import axios from "axios";
+```jsx
+import axios from "axios";
 
-   const fetchData = async () => {
-     try {
-       const response = await axios.get("https://api.example.com/data");
-       console.log(response.data);
-     } catch (error) {
-       console.error("Error fetching data:", error);
-     }
-   };
-   ```
+const fetchData = async () => {
+  try {
+    const response = await axios.get("https://api.example.com/data");
+    console.log(response.data);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
+```
 
 (
-    IMPORTANT:-
+IMPORTANT:-
 
 //This logic of using axios is followed in real scenarios in IT Companies for calling api's
 
     import axios from "axios";
-    
+
     // 1. Create a reusable Axios instance
     const api = axios.create({ baseURL: "https://www.omdbapi.com/" });
 
@@ -1309,4 +1310,5 @@ Extra Features of React:
 
         return api.get(`?i=tt3896198&apikey=${api_key}&s=titanic&page1`);
     };
+
 )

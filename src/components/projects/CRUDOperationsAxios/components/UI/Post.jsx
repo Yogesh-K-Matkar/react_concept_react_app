@@ -10,18 +10,25 @@ export const Post = (props) => {
   //const { id, title, body } = data;
 
   //edit
-  const handleEditPost = (editPost) => {
+  const handleEditPost = (ev, editPost) => {
+    ev.preventDefault();
     console.log("Edit");
-
-    getEditPostData(editPost);
+    try {
+      getEditPostData(editPost);
+    } catch (error) {
+      console.error("Error Message ", error.message);
+      console.error("Error Status ", error.response.status);
+      console.error("Error Data ", error.response.data);
+    }
   };
 
   //delete
-  const handleDeletePost = (id) => {
+  const handleDeletePost = (ev, id) => {
+    ev.preventDefault();
     console.log("Delete");
     try {
       if (apiAccessMethod === "axios") {
-        deletePostData(`/posts/${id}`, id);
+        deletePostData(id);
       }
     } catch (error) {
       console.error("Error Message ", error.message);
@@ -34,8 +41,11 @@ export const Post = (props) => {
     <li>
       <p>Title: {data.title}</p>
       <p>Body: {data.body}</p>
-      <button onClick={() => handleEditPost(data)}>Edit</button>
-      <button className="btn-delete" onClick={() => handleDeletePost(data.id)}>
+      <button onClick={(ev) => handleEditPost(ev, data)}>Edit</button>
+      <button
+        className="btn-delete"
+        onClick={(ev) => handleDeletePost(ev, data.id)}
+      >
         Delete
       </button>
     </li>

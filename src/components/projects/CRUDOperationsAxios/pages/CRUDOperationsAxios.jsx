@@ -4,14 +4,14 @@ import {
   postCall,
   putCall,
   deleteCall,
-} from "../api_services_utils/AxiosAPIMethods";
+} from "../services/AxiosAPIMethods";
 import { LoadPosts } from "../components/UI/LoadPosts";
 import { AddPost } from "../components/UI/AddPost";
 
 export const CRUDOperationsAxios = () => {
   const apiAccessMethod = import.meta.env.VITE_API_ACCESS_METHOD;
 
-  const initPost = { title: "", body: "" };
+  const initPost = { userId: 1, id: 0, title: "", body: "" };
   const initLstPosts = [initPost];
 
   //get
@@ -21,7 +21,7 @@ export const CRUDOperationsAxios = () => {
     console.log("Load");
     try {
       if (apiAccessMethod === "axios") {
-        getPostsData("/posts");
+        getPostsData();
       }
     } catch (error) {
       console.error("Error Message ", error.message);
@@ -30,21 +30,19 @@ export const CRUDOperationsAxios = () => {
     }
   }, []);
 
-  const getPostsData = async (URL) => {
-    const res = await getCall(URL);
+  const getPostsData = async () => {
+    const res = await getCall();
     setLstPosts(res.data);
     console.log(lstPosts);
     console.log("Post loaded successfully");
   };
 
   //post
-  const addPostData = async (URL, payload) => {
-    const res = await postCall(URL, payload);
+  const addPostData = async (payLoad) => {
+    const res = await postCall(payLoad);
 
     if (res.status === 201) {
       console.log("Post added successfully");
-      res.data.userId = 1;
-      res.data.id = lstPosts.length + 1;
       setLstPosts([...lstPosts, res.data]);
     } else {
       console.error("Error Message ", res.error.message);
@@ -54,8 +52,8 @@ export const CRUDOperationsAxios = () => {
   };
 
   //delete
-  const deletePostData = async (URL, id) => {
-    const res = await deleteCall(URL);
+  const deletePostData = async (id) => {
+    const res = await deleteCall(id);
 
     if (res.status === 200) {
       console.log("Post deleted successfully");
@@ -71,12 +69,20 @@ export const CRUDOperationsAxios = () => {
   const [getEditPost, setGetEditPost] = useState(initPost);
 
   const getEditPostData = (editPost) => {
-    setGetEditPost(editPost);
+    setGetEditPost((prevState) => {
+      return {
+        ...prevState,
+        userId: editPost.userId,
+        id: editPost.id,
+        title: editPost.title,
+        body: editPost.body,
+      };
+    });
   };
 
   // put
-  const putPostData = async (URL, payload) => {
-    const res = await putCall(URL, payload);
+  const putPostData = async (payLoad) => {
+    const res = await putCall(payLoad);
 
     if (res.status === 200) {
       console.log("Post updated successfully");

@@ -7,10 +7,16 @@ import { createRoot } from "react-dom/client";
 // import "./ReactRouterFrameworkIndex.css";
 //import { CRUDOperationsAxiosApp } from "./components/CRUDOperationsAxiosApp";
 //import "./CRUDOperationsAxiosIndex.css";
+//import { DynamicAccordionStaticJSONApp } from "./components/DynamicAccordionStaticJSONApp";
+//import "./DynamicAccordionStaticJSONIndex.css";
+
 const ReactApp = React.lazy(() => import("./ReactFrameworkApp"));
 const ReactRouterApp = React.lazy(() => import("./ReactRouterFrameworkApp"));
 const CRUDOperationsAxiosApp = React.lazy(() =>
   import("./CRUDOperationsAxiosApp")
+);
+const DynamicAccordionStaticJSONApp = React.lazy(() =>
+  import("./DynamicAccordionStaticJSONApp")
 );
 
 let AppConcept = import.meta.env.VITE_APP_CONCEPT;
@@ -50,11 +56,30 @@ export const LoadComponent = () => {
               marginTop: "2rem",
               marginBottom: "5rem",
               color: "Highlight",
-            }}>
+            }}
+          >
             <u>Project 3. Full Stack CRUD Operation Using Axios Concept</u>
           </h1>
           <br />
           <CRUDOperationsAxiosApp />
+        </>
+      );
+
+    case "DYNAMICACCORDIONSTATICJSONAPP":
+      import("./DynamicAccordionStaticJSONIndex.css");
+      return (
+        <>
+          <h1
+            style={{
+              marginTop: "2rem",
+              marginBottom: "5rem",
+              color: "Highlight",
+            }}
+          >
+            <u>Project 4. Dynamic Accordion Using Axios Concept</u>
+          </h1>
+          <br />
+          <DynamicAccordionStaticJSONApp />
         </>
       );
 

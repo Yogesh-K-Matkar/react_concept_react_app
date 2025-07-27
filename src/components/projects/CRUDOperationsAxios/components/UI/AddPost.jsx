@@ -5,7 +5,7 @@ export const AddPost = (props) => {
 
   const { addPostData, getEditPostData, putPostData } = props;
 
-  const initPost = { title: "", body: "" };
+  const initPost = { userId: 1, title: "", body: "" };
   const [post, setPost] = useState(initPost);
 
   const handleInputValue = (ev) => {
@@ -21,7 +21,7 @@ export const AddPost = (props) => {
     console.log("Post");
     try {
       if (apiAccessMethod === "axios") {
-        addPostData(`/posts`, post);
+        addPostData(post);
       }
     } catch (error) {
       console.error("Error Message ", error.message);
@@ -57,7 +57,7 @@ export const AddPost = (props) => {
 
     try {
       if (apiAccessMethod === "axios") {
-        putPostData(`/posts/${post.id}`, post);
+        putPostData(post);
       }
     } catch (error) {
       console.error("Error Message ", error.message);

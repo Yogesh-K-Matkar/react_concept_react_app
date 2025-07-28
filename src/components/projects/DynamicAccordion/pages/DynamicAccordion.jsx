@@ -6,6 +6,7 @@ export const DynamicAccordion = () => {
   console.log(faqData);
 
   const [faqs, setFaqs] = useState([]);
+  const [activeId, setActiveId] = useState(0);
 
   useEffect(() => {
     const fetchData = () => {
@@ -20,6 +21,12 @@ export const DynamicAccordion = () => {
     fetchData();
   }, []);
 
+  const handleToggle = (id) => {
+    setActiveId((prevState) => {
+      return prevState === id ? "false" : id;
+    });
+  };
+
   return (
     <>
       <h1>
@@ -29,7 +36,14 @@ export const DynamicAccordion = () => {
       <ul className="section-accordion">
         {faqs.map((curFaq) => {
           let id = curFaq.id;
-          return <Accordion key={id} faqData={curFaq} />;
+          return (
+            <Accordion
+              key={id}
+              faqData={curFaq}
+              isActive={activeId === id ? true : false}
+              handleToggle={handleToggle}
+            />
+          );
         })}
       </ul>
     </>

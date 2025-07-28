@@ -58,6 +58,10 @@ button:hover {
 
 /* ================================================ */
 
+.active-btn{
+    background-color: hsl(0, 80%, 48%);
+}
+
 .section-accordion {
     width: 60%;
     margin: auto;

@@ -48,7 +48,7 @@ button {
     -moz-transition: all 0.5s ease;
     -ms-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
-}
+} 
 
 button:hover {
     background-color: hsl(160, 80%, 48%);

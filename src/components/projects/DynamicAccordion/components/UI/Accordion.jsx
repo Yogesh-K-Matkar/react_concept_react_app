@@ -1,11 +1,11 @@
 export const Accordion = (props) => {
-  const { faqData, isActive, handleToggle } = props;
+  const { faqData, isActiveTab, handleToggleTab } = props;
   const { id, question, answer } = faqData;
 
   const handleButton = (ev, id) => {
     ev.preventDefault();
     try {
-      handleToggle(id);
+      handleToggleTab(id);
     } catch (error) {
       console.error("Error Message ", error.message);
       console.error("Error Status ", error.response.status);
@@ -18,12 +18,12 @@ export const Accordion = (props) => {
         <div className="accordion-grid">
           <p>{question}</p>
           <button
-            className={isActive ? "active-btn" : ""}
+            className={isActiveTab ? "active-btn" : ""}
             onClick={(ev) => handleButton(ev, id)}>
-            {isActive ? "Close" : "Show"}
+            {isActiveTab ? "Close" : "Show"}
           </button>
         </div>
-        <p>{isActive ? answer : ""}</p>
+        <p>{isActiveTab ? answer : ""}</p>
       </li>
     </>
   );

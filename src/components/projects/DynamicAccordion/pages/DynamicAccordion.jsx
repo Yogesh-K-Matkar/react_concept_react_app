@@ -6,7 +6,7 @@ export const DynamicAccordion = () => {
   console.log(faqData);
 
   const [faqs, setFaqs] = useState([]);
-  const [activeId, setActiveId] = useState(0);
+  const [activeTabId, setActiveTabId] = useState(0);
 
   useEffect(() => {
     const fetchData = () => {
@@ -21,9 +21,9 @@ export const DynamicAccordion = () => {
     fetchData();
   }, []);
 
-  const handleToggle = (id) => {
-    setActiveId((prevState) => {
-      return prevState === id ? "false" : id;
+  const handleToggleTab = (id) => {
+    setActiveTabId((prevState) => {
+      return prevState === id ? 0 : id;
     });
   };
 
@@ -40,8 +40,8 @@ export const DynamicAccordion = () => {
             <Accordion
               key={id}
               faqData={curFaq}
-              isActive={activeId === id ? true : false}
-              handleToggle={handleToggle}
+              isActiveTab={activeTabId === id ? true : false}
+              handleToggleTab={handleToggleTab}
             />
           );
         })}

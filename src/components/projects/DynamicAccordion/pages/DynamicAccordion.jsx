@@ -25,7 +25,7 @@ export const DynamicAccordion = () => {
     setActiveTabId((prevState) => {
       return prevState === id ? 0 : id;
     });
-  };
+  }; 
 
   return (
     <>

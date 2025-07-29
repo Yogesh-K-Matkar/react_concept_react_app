@@ -11,20 +11,18 @@ export const Accordion = (props) => {
       console.error("Error Status ", error.response.status);
       console.error("Error Data ", error.response.data);
     }
-  };
+  }; 
   return (
-    <>
-      <li>
-        <div className="accordion-grid">
-          <p>{question}</p>
-          <button
-            className={isActiveTab ? "active-btn" : ""}
-            onClick={(ev) => handleButton(ev, id)}>
-            {isActiveTab ? "Close" : "Show"}
-          </button>
-        </div>
-        <p>{isActiveTab ? answer : ""}</p>
-      </li>
-    </>
+    <li>
+      <div className="accordion-grid">
+        <p>{question}</p>
+        <button
+          className={isActiveTab ? "active-btn" : ""}
+          onClick={(ev) => handleButton(ev, id)}>
+          {isActiveTab ? "Close" : "Show"}
+        </button>
+      </div>
+      <p>{isActiveTab ? answer : ""}</p>
+    </li>
   );
 };

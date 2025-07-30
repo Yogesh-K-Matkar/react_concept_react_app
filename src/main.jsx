@@ -9,6 +9,8 @@ import { createRoot } from "react-dom/client";
 //import "./CRUDOperationsAxiosIndex.css";
 //import { DynamicAccordionStaticJSONApp } from "./components/DynamicAccordionStaticJSONApp";
 //import "./DynamicAccordionStaticJSONIndex.css";
+//import { ResponsiveNavBarApp } from "./components/ResponsiveNavBarApp";
+//import "./ResponsiveNavBarIndex.css";
 
 const ReactApp = React.lazy(() => import("./ReactFrameworkApp"));
 const ReactRouterApp = React.lazy(() => import("./ReactRouterFrameworkApp"));
@@ -18,6 +20,7 @@ const CRUDOperationsAxiosApp = React.lazy(() =>
 const DynamicAccordionStaticJSONApp = React.lazy(() =>
   import("./DynamicAccordionStaticJSONApp")
 );
+const ResponsiveNavBarApp = React.lazy(() => import("./ResponsiveNavBarApp"));
 
 let AppConcept = import.meta.env.VITE_APP_CONCEPT;
 
@@ -56,8 +59,7 @@ export const LoadComponent = () => {
               marginTop: "2rem",
               marginBottom: "5rem",
               color: "Highlight",
-            }}
-          >
+            }}>
             <u>Project 3. Full Stack CRUD Operation Using Axios Concept</u>
           </h1>
           <br />
@@ -74,12 +76,28 @@ export const LoadComponent = () => {
               marginTop: "2rem",
               marginBottom: "5rem",
               color: "Highlight",
-            }}
-          >
+            }}>
             <u>Project 4. Dynamic Accordion Using Axios Concept</u>
           </h1>
           <br />
           <DynamicAccordionStaticJSONApp />
+        </>
+      );
+
+    case "RESPONSIVENAVBARAPP":
+      import("./ResponsiveNavBarIndex.css");
+      return (
+        <>
+          <h1
+            style={{
+              marginTop: "2rem",
+              marginBottom: "5rem",
+              color: "Highlight",
+            }}>
+            <u>Project 5. Responsive Navbar Concept</u>
+          </h1>
+          <br />
+          <ResponsiveNavBarApp />
         </>
       );
 

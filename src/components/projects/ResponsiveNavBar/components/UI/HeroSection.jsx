@@ -24,8 +24,8 @@ export const HeroSection = () => {
                 alt="Illustration"
               />
             </div>
-          </div>
-        </div>
+          </div> 
+        </div> 
       </main>
     </>
   );

@@ -17,7 +17,7 @@ button {
     letter-spacing: 0.1rem;
 }
 
-li {
+ li {
     list-style: none;
 }
 
@@ -61,7 +61,7 @@ header {
 nav ul {
     display: flex;
     justify-content: flex-end;
-    /* background-color: yellow; */
+    /* background-color: yellow;  */
     gap: 3.2rem;
 }
 
@@ -77,7 +77,7 @@ nav ul {
 
     .ham-menu {
         display: inline-block;
-        /* justify-content: flex-end; */
+        justify-content: flex-end; 
         text-align: end;
     }
 

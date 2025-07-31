@@ -1,7 +1,9 @@
 import axios from "axios";
 
+let apiBaseURL = import.meta.env.VITE_POSTS_JSONPLACEHOLDERTYPECODEAPI_BASEURL;
+
 const initAPI = axios.create({
-  baseURL: import.meta.env.VITE_POSTS_JSONPLACEHOLDERTYPECODEAPI_BASEURL,
+  baseURL: apiBaseURL,
 });
 
 //POST Method -CREATE -C

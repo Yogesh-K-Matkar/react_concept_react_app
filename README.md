@@ -361,7 +361,7 @@ B.2. Pull Request :-
 
     JSX code render 2 time during development due to React.StrictMode tag, which is then removed when the code is published.
 
-2.  Each JSX element/expression must have one parent element, which means if you try to return multiple elements
+2.  Each JSX element/expression must combine/enclosed using one parent JSX element, which means if you try to return multiple elements
     React will throw an error.
     Error: Adjacent JSX elements must be wrapped in an enclosing tag.
 

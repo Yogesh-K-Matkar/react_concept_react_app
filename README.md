@@ -629,14 +629,14 @@ B.2. Pull Request :-
 23. Derived State means a variable value comes from a State Variable.
 
 
-25. LiftingStateUp means when the state is defined in children and the same is needed by children at the same node level,
+24. LiftingStateUp means when the state is defined in children and the same is needed by children at the same node level,
     so we need to move the state to its parent, where both children are calling. This can be done through passing a function as a prop to the child,
     where the value from the child is passed to the parent via the parent function passed as a prop to set the State in the parent.
     Then the same state is passed as a prop to another child that requires the same state value.
 
     That means State is common to multiple states at the same level of the child component.
 
-26. React Icons for icons image from multiple sources(Font Awesome icons, Material UI icons, etc) at one place
+25. React Icons for icons image from multiple sources(Font Awesome icons, Material UI icons, etc) at one place
     To access icons, first need to install using Terminal cmd
     eg bun install react-icons
 
@@ -647,17 +647,17 @@ B.2. Pull Request :-
     <IconComponentName style={{color:"blue"}}/>
 
 
-28. To store & retain any value on refresh of the browser without a database.
+26. To store & retain any value on refresh of the browser without a database.
 
     To set:- localStoreage.setItem("keyname","data");
     To get:- localStoreage.getItem("keyname");
 
-29. When any control is bound with a state variable(control is moving from uncontrolled to controlled). In React, most components are uncontrolled components by default unless their values are bound to a state variable..
+27. When any control is bound with a state variable(control is moving from uncontrolled to controlled). In React, most components are uncontrolled components by default unless their values are bound to a state variable..
 
     Controlled Data Hooks:- useState
     UnControlled Data Hooks:- useRefs
 
-30. The 'use' prefixes in a function name is all React Hooks.
+28. The 'use' prefixes in a function name is all React Hooks.
 
     2 Types Of Hooks:-
 
@@ -771,7 +771,7 @@ reduce the delay that occurs to a minimum in getting the actual result from othe
                                   			     return Value;
                                        	 }, [dependencies]);
 
-30. Two Third Party API Access APIMethods:-
+29. Two Third Party API Access APIMethods:-
 
 To ways to call and get data
 
@@ -822,11 +822,11 @@ b. Using async await mechanism
         const apidata=await axios(url);
         }
 
-31. Prop Drilling:-
+30. Prop Drilling:-
     Passing Props through Source Component to subsequent child components until it reaches to the required destination component.
     To solve the above problems ContextAPI concept comes into the picture.
 
-32. ContextAPI: This concept helps in passing data to the required destination component directly without passing through subsequent components.
+31. ContextAPI: This concept helps in passing data to the required destination component directly without passing through subsequent components.
     ContextAPI is mainly used when a scenario of the same data is required by multiple child components.
 
     Syntax:-
@@ -841,7 +841,7 @@ b. Using async await mechanism
     3. useContext(Consumer/Destination Component):- A hook that allows you to consume a context.
        E.g. useContext acts as a Consumer that uses the required Stored Product delivered by the Delivery Boy.
 
-33. Custom Hooks:- Requirement of custom hook is when we want to put multiple calls of the same React hooks into a created custom hook & then calling that custom hook to reduce the code of multiple calls to the same hooks.
+32. Custom Hooks:- Requirement of custom hook is when we want to put multiple calls of the same React hooks into a created custom hook & then calling that custom hook to reduce the code of multiple calls to the same hooks.
 
         Syntax:-
              const useCustomHook1=()=>{
@@ -852,7 +852,7 @@ b. Using async await mechanism
     a. All custom hooks can be prefixed with 'use' basic rule of hooks.
     b. Custom hooks are created as a wrapper of the same React hook that is used multiple times in multiple components to avoid the DRY(Do Not Repeat Yourself) principle.
 
-34. use Hook:- Is a replacement to the useContext hook, which has the limitation of defining at the top of the component, but the 'use' hook can be called within a condition, a looping logic, which gives more flexibility.
+33. use Hook:- Is a replacement to the useContext hook, which has the limitation of defining at the top of the component, but the 'use' hook can be called within a condition, a looping logic, which gives more flexibility.
 
     E.g.
 
@@ -867,7 +867,7 @@ b. Using async await mechanism
     ({myName,myAge}=use(BioContext))
     }
 
-35. Memo:-(HOC-Higher Order Component)- Prevent unnecessary rendering of entire child component due to parent component rendering as child component is wrapped inside parent component
+34. Memo:-(HOC-Higher Order Component)- Prevent unnecessary rendering of entire child component due to parent component rendering as child component is wrapped inside parent component
 
         Syntax:- export child components as below with a memo hook wrap around
 

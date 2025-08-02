@@ -534,7 +534,7 @@ B.2. Pull Request :-
 19. Event Handler passing as props can be used in concepts such as Form Handling, User Interaction, State Management, and Callback Function.
 
 20. Event Function is defined in Parent Component & passed as Props to Child Component, & then Child Component decides when to call Parent Component Event Function.
-    Which is passed as Props using an Event Handler by the Child Component.
+    So Parent Component pass Event Function as Props as Event Handler to the Child Component.
 
 21. Event Propagation, propagate means moving & Event Propagation means moving each element and the occurrence of the event until it reaches the target event.
 

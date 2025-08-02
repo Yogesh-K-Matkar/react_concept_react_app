@@ -375,9 +375,9 @@ B.2. Pull Request :-
 
 6. Types of Component:- 2 Types of Component Declaration 
 
-  a. Functional Component:- Modern ECMAScript ES6 way of declaring Component.
+   a. Functional Component:- Modern ECMAScript ES6 way of declaring Component.
 
-  b. Class Component:- Old way.
+   b. Class Component:- Old way.
 
 7. Types of Functional Component:-
 

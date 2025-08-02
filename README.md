@@ -373,7 +373,22 @@ B.2. Pull Request :-
 5.  Concept of logical variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX based on a Condition
     using Conditional Operators/Logic such as Ternary, IF-ELSE block, etc.
 
-6. Types of Component:- 2 Types of Component Declaration 
+6. Logic on collection by using method map(),filter() and reudce()
+
+        const users=[{ id: 1, name: "Alice", age: 25 },
+        	            { id: 2, name: "Bob", age: 35 }]
+
+        a. map():- Used for looping in a collection or array.
+        	eg  users.map((u)=><User name={u.name} age={u.age}>)
+
+        b. filter():- It's like a WHERE condition to get a customised collection based on the condition
+        	 e.g. users.flter((u)=>u.age<35)
+
+        c. reduce():- It does computation on the collection and returns the required value
+        	e.g. users.reduc((calulatedval,u)=>return calulatedval + u.age,0)
+
+
+7. Types of Component:- 2 Types of Component Declaration 
 
    a. Functional Component:- Modern ECMAScript ES6 way of declaring Component.
 
@@ -579,19 +594,6 @@ B.2. Pull Request :-
 
 23. Derived State means a variable value comes from a State Variable.
 
-24. Logic on collection by using method map(),filter() and reudce()
-
-        const users=[{ id: 1, name: "Alice", age: 25 },
-        	            { id: 2, name: "Bob", age: 35 }]
-
-        a. map():- Used for looping in a collection or array.
-        	eg  users.map((u)=><User name={u.name} age={u.age}>)
-
-        b. filter():- It's like a WHERE condition to get a customised collection based on the condition
-        	 e.g. users.flter((u)=>u.age<35)
-
-        c. reduce():- It does computation on the collection and returns the required value
-        	e.g. users.reduc((calulatedval,u)=>return calulatedval + u.age,0)
 
 25. LiftingStateUp means when the state is defined in children and the same is needed by children at the same node level,
     so we need to move the state to its parent, where both children are calling. This can be done through passing a function as a prop to the child,

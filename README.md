@@ -368,13 +368,29 @@ B.2. Pull Request :-
 3.  Every JSX tag needs to be closed. You can use self-closing tags for elements that don't have
     children, eg, < img src="url"/ >
 
-4.  To avoid rewriting/redundancy of the same code multiple times, create a single component and reuse it multiple times where required in the
-    same JSX or another JSX (import component function from a particular JSX where the component function is defined).
+4.  Concept of dynamic variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX.
 
-5.  Imported Components/Component from another JSX(ReactFrameworkApp.jsx) as below
+5.  Concept of logical variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX based on a Condition
+    using Conditional Operators/Logic such as Ternary, IF-ELSE block, etc.
+
+6. Types of Component:- 2 Types of Component Declaration 
+
+  a. Functional Component:- Modern ECMAScript ES6 way of declaring Component.
+
+  b. Class Component:- Old way.
+
+7.Types of Functional Component:-
+
+   a. Default Functional Component :- In case of importing the Export Default component, then while importing any component name be used without curly braces.
+    eg. import NetflixSeries from "./components/NetflixSeries"; (Where export component name is NetflixSeries)
+
+    b. Named Functional Component :- In case of importing Export Named component, then while importing the same Component name to be used with curly braces {ComponentName}
+    eg. import {NetflixSeries} from "./components/NetflixSeries"; (Where export component name is NetflixSeries)
+
+8. Define/Use imported Components/Component from another JSX(ReactFrameworkApp.jsx) as below
     eg, < ReactApp / > (Component Name)
 
-6.  To avoid using a non-required < div > tag to combine multiple elements into one before returning JSX from the component function, and also to avoid DOM to create an unwanted < div > element.
+9. To avoid using a non-required < div > tag to combine multiple elements into one before returning JSX from the component function, and also to avoid DOM to create an unwanted < div > element.
     Then comes the React concept of Fragments,
     eg.
     const ComponentName=()=>{
@@ -385,23 +401,15 @@ B.2. Pull Request :-
     );
     }
 
-7. Default Functional Component :- In case of importing the Export Default component, then while importing any component name be used without curly braces.
-    eg. import NetflixSeries from "./components/NetflixSeries"; (Where export component name is NetflixSeries)
+10.  To avoid rewriting/redundancy of the same code multiple times, create a single component and reuse it multiple times where required in the
+    same JSX or another JSX (import component function from a particular JSX where the component function is defined).
 
-8. Named Functional Component :- In case of importing Export Named component, then while importing the same Component name to be used with curly braces {ComponentName}
-    eg. import {NetflixSeries} from "./components/NetflixSeries"; (Where export component name is NetflixSeries)
-
-9.  Concept of dynamic variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX.
-
-10.  Concept of logical variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX based on a Condition
-    using Conditional Operators/Logic such as Ternary, IF-ELSE block, etc.
+11. Instead of for loop their is map() for looping on collection/array. In React map(), each element must have a key prop to differentiate each element generated while looping using map().
 
 
-12. Instead of for loop their is map() for looping on collection/array. In React map(), each element must have a key prop to differentiate each element generated while looping using map().
+12. Props in React, which are known as attributes in C#, can be passed from a unidirectional(1-direction) Parent component to calling child components as separate properties and consumed in the child component as props as a parameter that combines all properties of the child component defined by the Parent component while calling the Child component, except the key property.
 
-13. Props in React, which are known as attributes in C#, can be passed from a unidirectional(1-direction) Parent component to calling child components as separate properties and consumed in the child component as props as a parameter that combines all properties of the child component defined by the Parent component while calling the Child component, except the key property.
-
-14. While passing the integer value prop/attribute over the child component, pass it like this
+13. While passing the integer value prop/attribute over the child component, pass it like this
     eg. id={integer_value}
     And string value prop/attribute over child component pass like this
     eg. name="string_value"

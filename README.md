@@ -379,7 +379,7 @@ B.2. Pull Request :-
 
   b. Class Component:- Old way.
 
-7.Types of Functional Component:-
+7. Types of Functional Component:-
 
    a. Default Functional Component :- In case of importing the Export Default component, then while importing any component name be used without curly braces.
 

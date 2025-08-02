@@ -401,7 +401,7 @@ B.2. Pull Request :-
 
 13. Props in React, which are known as attributes in C#, can be passed from a unidirectional(1-direction) Parent component to calling child components as separate properties and consumed in the child component as props as a parameter that combines all properties of the child component defined by the Parent component while calling the Child component, except the key property.
 
-14. While padding the integer value prop/attribute over the child component, pass it like this
+14. While passing the integer value prop/attribute over the child component, pass it like this
     eg. id={integer_value}
     And string value prop/attribute over child component pass like this
     eg. name="string_value"

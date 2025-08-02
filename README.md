@@ -545,8 +545,14 @@ B.2. Pull Request :-
         1. Event Capture means propagating/moving from the Parent Element to the Target Action Element and triggering all occurrence event functions in the path while moving.
         2. Event Bubbling means propagating/moving from Target Action Element to Parent Element and triggering all occurrence event functions in the path while moving.
 
-    But to avoid the unwanted triggering of event functions other than the Target Action Event Function, we have to use
-    e.g. event.stopPropagation() -- stop after triggering a single target event.
+    But to avoid the unwanted triggering of Parent Component event functions other than the Target Action Event Function, we have to use
+    e.g. event.stopPropagation(); -- stop after triggering a single target event.
+
+    If Target control is bind with multiple other event 
+    rather then onClick such as onChange,onBlur, 
+    then to stop such events begin call.
+    e.g. event.stopImmediatePropagation(); 
+
 
 22. States - useState Hook:-
 

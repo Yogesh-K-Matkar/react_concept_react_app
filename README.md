@@ -366,7 +366,7 @@ B.2. Pull Request :-
     Error: Adjacent JSX elements must be wrapped in an enclosing tag.
 
 3.  Every JSX tag needs to be closed. You can use self-closing tags for elements that don't have
-    children, eg, img src="url"/
+    children, eg, <img src="url"/>
 
 4.  To avoid rewriting/redundancy of the same code multiple times, create a single component and reuse it multiple times where required in the
     same JSX or another JSX (import component function from a particular JSX where the component function is defined).
@@ -374,7 +374,7 @@ B.2. Pull Request :-
 5.  Imported Components/Component from another JSX(ReactFrameworkApp.jsx) as below
     eg, <ReactApp /> (Component Name)
 
-6.  To avoid using a non-required div-tag to combine multiple elements into one before returning JSX from the component function, and also to avoid DOM to create an unwanted <div> element.
+6.  To avoid using a non-required <div> tag to combine multiple elements into one before returning JSX from the component function, and also to avoid DOM to create an unwanted <div> element.
     Then comes the React concept of Fragments,
     eg.
     const ComponentName=()=>{

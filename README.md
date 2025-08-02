@@ -385,18 +385,17 @@ B.2. Pull Request :-
     );
     }
 
-7.  Concept of dynamic variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX.
+7. In case of importing the Export Default component, then while importing any component name be used without curly braces.
+    eg. import NetflixSeries from "./components/NetflixSeries"; (Where export component name is NetflixSeries)
 
-8.  Concept of logical variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX based on a Condition
-    using Conditional Operators/Logic such as Ternary, IF-ELSE block, etc.
+8. In case of importing Export Named component, then while importing the same Component name to be used with curly braces {ComponentName}
+    eg. import {NetflixSeries} from "./components/NetflixSeries"; (Where export component name is NetflixSeries)
 
 9.  Concept of dynamic variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX.
 
-10. In case of importing the Export Default component, then while importing any component name be used without curly braces.
-    eg. import NetflixSeries from "./components/NetflixSeries"; (Where export component name is NetflixSeries)
+10.  Concept of logical variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX based on a Condition
+    using Conditional Operators/Logic such as Ternary, IF-ELSE block, etc.
 
-11. In case of importing Export Named component, then while importing the same Component name to be used with curly braces {ComponentName}
-    eg. import {NetflixSeries} from "./components/NetflixSeries"; (Where export component name is NetflixSeries)
 
 12. Instead of for loop their is map() for looping on collection/array. In React map(), each element must have a key prop to differentiate each element generated while looping using map().
 

@@ -400,7 +400,7 @@ B.2. Pull Request :-
          eg. const obj={id:1,name:"a"};
              const obj1={...obj,id:2,name:"b"};
 
-               console.log(obj1)  // {id:1,name:"b"}   //Expand object properties to update value of required property
+               console.log(obj1)  // {id:2,name:"b"}   //Expand object properties to update value of required property
 
 
 5. Concept of dynamic variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX.

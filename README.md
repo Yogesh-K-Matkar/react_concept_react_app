@@ -385,10 +385,10 @@ B.2. Pull Request :-
     );
     }
 
-7. In case of importing the Export Default component, then while importing any component name be used without curly braces.
+7. Default Functional Component :- In case of importing the Export Default component, then while importing any component name be used without curly braces.
     eg. import NetflixSeries from "./components/NetflixSeries"; (Where export component name is NetflixSeries)
 
-8. In case of importing Export Named component, then while importing the same Component name to be used with curly braces {ComponentName}
+8. Named Functional Component :- In case of importing Export Named component, then while importing the same Component name to be used with curly braces {ComponentName}
     eg. import {NetflixSeries} from "./components/NetflixSeries"; (Where export component name is NetflixSeries)
 
 9.  Concept of dynamic variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX.

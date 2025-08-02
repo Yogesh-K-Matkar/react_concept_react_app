@@ -548,10 +548,8 @@ B.2. Pull Request :-
     But to avoid the unwanted triggering of Parent Component event functions other than the Target Action Event Function, we have to use
     e.g. event.stopPropagation(); -- stop after triggering a single target event.
 
-    If Target control is bind with multiple other event 
-    rather then onClick such as onChange,onBlur, 
-    then to stop such events begin call.
-    e.g. event.stopImmediatePropagation(); 
+    If Target control is bind with multiple other event rather then onClick such as onChange,onBlur then to stop such events begin call.
+    e.g. event.stopImmediatePropagation();
 
 
 22. States - useState Hook:-

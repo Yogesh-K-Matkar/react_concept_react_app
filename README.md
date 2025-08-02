@@ -655,6 +655,7 @@ B.2. Pull Request :-
 27. When any control is bound with a state variable(control is moving from uncontrolled to controlled). In React, most components are uncontrolled components by default unless their values are bound to a state variable..
 
     Controlled Data Hooks:- useState
+
     UnControlled Data Hooks:- useRefs
 
 28. The 'use' prefixes in a function name is all React Hooks.

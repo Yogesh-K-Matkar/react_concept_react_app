@@ -385,7 +385,7 @@ B.2. Pull Request :-
 
     eg. import NetflixSeries from "./components/NetflixSeries"; (Where export component name is NetflixSeries)
 
-    b. Named Functional Component :- In case of importing Export Named component, then while importing the same Component name to be used with curly braces {ComponentName}
+    b. Named Functional Component :- In case of importing Export Named component, then while importing the same Component name to be used with curly braces.
 
     eg. import {NetflixSeries} from "./components/NetflixSeries"; (Where export component name is NetflixSeries)
 

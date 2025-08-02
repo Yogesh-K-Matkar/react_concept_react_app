@@ -368,12 +368,85 @@ B.2. Pull Request :-
 3.  Every JSX tag needs to be closed. You can use self-closing tags for elements that don't have
     children, eg, < img src="url"/ >
 
-4.  Concept of dynamic variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX.
+4. Working/Processing on Objects
 
-5.  Concept of logical variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX based on a Condition
+    A. Destructuring Object Properties:-
+    Destructuring is a way to extract properties from an object and assign them to variables.
+    It allows you to unpack values from arrays or properties from objects into distinct variables.
+
+         eg. const obj={id:1,name:"a",age:25};
+
+           const {id,name,age}=obj;
+
+           console.log(id);   //1
+           console.log(name); //a
+           console.log(age);  //25
+
+    B.Spread Operator expand collection, array & object.
+
+    B.1. Collection or Array(Merge Element of same type in below case array1 & array2 is type array):-
+
+         eg var array1=["a","b","c"];
+            var array2=["x","y","z"];
+
+            var mergearray1=[...array1,"x"];
+            var mergearray12=[...array1,...array2];
+
+            console.log(mergearray1);           //["a","b","c","x"]
+            console.log(mergearray12);          //["a","b","c","x","y","z"]
+
+    B.2. Object(Update Object Property):-
+
+         eg. const obj={id:1,name:"a"};
+             const obj1={...obj,id:2,name:"b"};
+
+               console.log(obj1)  // {id:1,name:"b"}   //Expand object properties to update value of required property
+
+
+5. Concept of dynamic variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX.
+
+6.  Concept of logical variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX based on a Condition
     using Conditional Operators/Logic such as Ternary, IF-ELSE block, etc.
 
-6. Logic on collection by using method map(),filter() and reudce()
+
+7. Types of Component:- 2 Types of Component Declaration 
+
+   a. Functional Component:- Modern ECMAScript ES6 way of declaring Component.
+
+   b. Class Component:- Old way.
+
+8. Types of Functional Component:-
+
+   a. Default Functional Component :- In case of importing the Export Default component, then while importing any component name be used without curly braces.
+
+    eg. import NetflixSeries from "./components/   NetflixSeries";
+(Where export component name is NetflixSeries)
+
+   b. Named Functional Component :- In case of importing Export Named component, then while importing the same Component name to be used with curly braces.
+
+    eg. import { NetflixSeries } from "./components/NetflixSeries"; 
+(Where export component name is NetflixSeries)
+
+9. Define/Use imported Components/Component from another JSX(ReactFrameworkApp.jsx) as below
+    eg, < ReactApp / > (Component Name)
+
+10. To avoid using a non-required < div > tag to combine multiple elements into one before returning JSX from the component function, and also to avoid DOM to create an unwanted < div > element.
+    Then comes the React concept of Fragments,
+    eg.
+    const ComponentName=()=>{
+    return(
+    <>
+    jsx multiple elements
+    </>
+    );
+    }
+
+11. To avoid rewriting/redundancy of the same code multiple times, create a single component and reuse it multiple times where required in the
+    same JSX or another JSX (import component function from a particular JSX where the component function is defined).
+
+12. Instead of for loop their is map() for looping on collection/array. In React map(), each element must have a key prop to differentiate each element generated while looping using map().
+
+13. Logic on collection by using method map(),filter() and reudce()
 
         const users=[{ id: 1, name: "Alice", age: 25 },
         	            { id: 2, name: "Bob", age: 35 }]
@@ -387,46 +460,7 @@ B.2. Pull Request :-
         c. reduce():- It does computation on the collection and returns the required value
         	e.g. users.reduc((calulatedval,u)=>return calulatedval + u.age,0)
 
-
-7. Types of Component:- 2 Types of Component Declaration 
-
-   a. Functional Component:- Modern ECMAScript ES6 way of declaring Component.
-
-   b. Class Component:- Old way.
-
-7. Types of Functional Component:-
-
-   a. Default Functional Component :- In case of importing the Export Default component, then while importing any component name be used without curly braces.
-
-    eg. import NetflixSeries from "./components/   NetflixSeries";
-(Where export component name is NetflixSeries)
-
-   b. Named Functional Component :- In case of importing Export Named component, then while importing the same Component name to be used with curly braces.
-
-    eg. import { NetflixSeries } from "./components/NetflixSeries"; 
-(Where export component name is NetflixSeries)
-
-8. Define/Use imported Components/Component from another JSX(ReactFrameworkApp.jsx) as below
-    eg, < ReactApp / > (Component Name)
-
-9. To avoid using a non-required < div > tag to combine multiple elements into one before returning JSX from the component function, and also to avoid DOM to create an unwanted < div > element.
-    Then comes the React concept of Fragments,
-    eg.
-    const ComponentName=()=>{
-    return(
-    <>
-    jsx multiple elements
-    </>
-    );
-    }
-
-10.  To avoid rewriting/redundancy of the same code multiple times, create a single component and reuse it multiple times where required in the
-    same JSX or another JSX (import component function from a particular JSX where the component function is defined).
-
-11. Instead of for loop their is map() for looping on collection/array. In React map(), each element must have a key prop to differentiate each element generated while looping using map().
-
-
-12. Props is way of passing attributes as parameter to Component in React, and can be passed from a unidirectional(1-direction) Parent component to calling child components as separate properties and consumed in the child component as props as a parameter that combines all properties of the child component defined by the Parent component while calling the Child component, except the key property.
+14. Props is way of passing attributes as parameter to Component in React, and can be passed from a unidirectional(1-direction) Parent component to calling child components as separate properties and consumed in the child component as props as a parameter that combines all properties of the child component defined by the Parent component while calling the Child component, except the key property.
 
 13. While passing the integer value prop/attribute over the child component, pass it like this
     eg. id={integer_value}
@@ -612,39 +646,6 @@ B.2. Pull Request :-
     Use the icon component where a specific icon is required within the component
     <IconComponentName style={{color:"blue"}}/>
 
-27. Working/Processing on Objects
-
-    A. Destructuring Object Properties:-
-    Destructuring is a way to extract properties from an object and assign them to variables.
-    It allows you to unpack values from arrays or properties from objects into distinct variables.
-
-         eg. const obj={id:1,name:"a",age:25};
-
-           const {id,name,age}=obj;
-
-           console.log(id);   //1
-           console.log(name); //a
-           console.log(age);  //25
-
-    B.Spread Operator expand collection, array & object.
-
-    B.1. Collection or Array(Merge Element of same type in below case array1 & array2 is type array):-
-
-         eg var array1=["a","b","c"];
-            var array2=["x","y","z"];
-
-            var mergearray1=[...array1,"x"];
-            var mergearray12=[...array1,...array2];
-
-            console.log(mergearray1);           //["a","b","c","x"]
-            console.log(mergearray12);          //["a","b","c","x","y","z"]
-
-    B.2. Object(Update Object Property):-
-
-         eg. const obj={id:1,name:"a"};
-             const obj1={...obj,id:2,name:"b"};
-
-               console.log(obj1)  // {id:1,name:"b"}   //Expand object properties to update value of required property
 
 28. To store & retain any value on refresh of the browser without a database.
 

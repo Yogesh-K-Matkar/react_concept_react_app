@@ -421,7 +421,7 @@ B.2. Pull Request :-
 
         (Instead, create a const object variable and assign the CSS object used that const variable)
 
-        eg. const btn_stryle = { margin: "1.2rem 0" };
+        eg. let btn_stryle = { margin: "1.2rem 0" };
 
         style = {btn_stryle}
 

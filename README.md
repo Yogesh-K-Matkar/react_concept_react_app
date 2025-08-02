@@ -383,14 +383,12 @@ B.2. Pull Request :-
 
    a. Default Functional Component :- In case of importing the Export Default component, then while importing any component name be used without curly braces.
 
-    eg. import NetflixSeries from "./components/NetflixSeries"; 
-
+    eg. import NetflixSeries from "./components/   NetflixSeries";
 (Where export component name is NetflixSeries)
 
    b. Named Functional Component :- In case of importing Export Named component, then while importing the same Component name to be used with curly braces.
 
-    eg. import {NetflixSeries} from "./components/NetflixSeries"; 
-
+    eg. import { NetflixSeries } from "./components/NetflixSeries"; 
 (Where export component name is NetflixSeries)
 
 8. Define/Use imported Components/Component from another JSX(ReactFrameworkApp.jsx) as below

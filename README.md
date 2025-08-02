@@ -411,7 +411,7 @@ B.2. Pull Request :-
 11. Instead of for loop their is map() for looping on collection/array. In React map(), each element must have a key prop to differentiate each element generated while looping using map().
 
 
-12. Props in React, which are known as attributes in C#, can be passed from a unidirectional(1-direction) Parent component to calling child components as separate properties and consumed in the child component as props as a parameter that combines all properties of the child component defined by the Parent component while calling the Child component, except the key property.
+12. Props is way of passing attributes as parameter to Component in React, and can be passed from a unidirectional(1-direction) Parent component to calling child components as separate properties and consumed in the child component as props as a parameter that combines all properties of the child component defined by the Parent component while calling the Child component, except the key property.
 
 13. While passing the integer value prop/attribute over the child component, pass it like this
     eg. id={integer_value}

@@ -366,7 +366,7 @@ B.2. Pull Request :-
     Error: Adjacent JSX elements must be wrapped in an enclosing tag.
 
 3.  Every JSX tag needs to be closed. You can use self-closing tags for elements that don't have
-    children, eg, <img src="url"/>
+    children, eg, < img src="url"/ >
 
 4.  To avoid rewriting/redundancy of the same code multiple times, create a single component and reuse it multiple times where required in the
     same JSX or another JSX (import component function from a particular JSX where the component function is defined).

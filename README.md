@@ -372,9 +372,9 @@ B.2. Pull Request :-
     same JSX or another JSX (import component function from a particular JSX where the component function is defined).
 
 5.  Imported Components/Component from another JSX(ReactFrameworkApp.jsx) as below
-    eg, <ReactApp /> (Component Name)
+    eg, < ReactApp / > (Component Name)
 
-6.  To avoid using a non-required <div> tag to combine multiple elements into one before returning JSX from the component function, and also to avoid DOM to create an unwanted <div> element.
+6.  To avoid using a non-required <div> tag to combine multiple elements into one before returning JSX from the component function, and also to avoid DOM to create an unwanted < div > element.
     Then comes the React concept of Fragments,
     eg.
     const ComponentName=()=>{

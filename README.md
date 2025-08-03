@@ -718,7 +718,7 @@ B.2. Pull Request :-
 
     const initState=0;
 
-           const reducer=(state, action)=>{
+           const customeReducerName=(state, action)=>{
                   if(action.type=="increment"){
                    return state+1;
          }
@@ -727,7 +727,7 @@ B.2. Pull Request :-
          }
            }
 
-           const [state,customDispatchFunctionName]=useReducer(reducer,initState)
+           const [state,customDispatchFunctionName]=useReducer(customeReducerName,initState)
 
           --> dispatch function with type object, which internally calls the reducer function and sets the     type parameter to the action parameter based on which.
 

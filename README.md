@@ -785,11 +785,13 @@ reduce the delay that occurs to a minimum in getting the actual result from othe
 30. ContextAPI: This concept helps in passing data to the required destination component directly without passing through subsequent components.
     ContextAPI is mainly used when a scenario of the same data is required by multiple child components.
 
-    Syntax:-
-    import { createContext, useContext } from "react";
+    
 
     a. createContext(Source Component):- Creates a Context object which acts like a Component.
        
+       Syntax:-
+            import { createContext } from "react";
+
        E.g. //1st Step
 
             export const BioContextStore = createContext();
@@ -828,6 +830,10 @@ reduce the delay that occurs to a minimum in getting the actual result from othe
       Provider acts as Distributor/Delivery Person of the WholeSeller that takes a variety of Products and stores them in Tempo.
 
     c. useContext(Consumer/Destination Component):- A hook that allows you to consume a context.
+
+       Syntax:-
+         import { useContext } from "react"; 
+
        E.g. useContext acts as a Consumer that uses the required Stored Product delivered by the Delivery Boy.
 
 31. Custom Hooks:- Requirement of custom hook is when we want to put multiple calls of the same React hooks into a created custom hook & then calling that custom hook to reduce the code of multiple calls to the same hooks.

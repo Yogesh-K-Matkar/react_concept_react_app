@@ -879,7 +879,10 @@ reduce the delay that occurs to a minimum in getting the actual result from othe
     ({myName,myAge}=use(BioContext))
     }
 
-33. Memo:-(HOC-Higher Order Component)- Prevent unnecessary rendering of entire child component due to parent component rendering as child component is wrapped inside parent component
+33. Memo:-(HOC-Higher Order Component)- 
+    Prevent unnecessary rendering of entire child component due to parent component rendering as child component is wrapped inside parent component
+
+    Component inside Memo is only gets render when any of props value inside Component is change else it's skips Component from re-rendering.
 
         Syntax:- export child components as below with a memo hook wrap around
 

@@ -575,22 +575,27 @@ B.2. Pull Request :-
 18. Event Handler in JS, such as onClick, onChange, onSubmit, etc, which then call Syntactic Event Handler Function in React, should be written as a function name such as handleClick, handleChange,handleSubmit, etc
     This is known as the Syntactic Event Handler Function.
 
-    Type Of Function:- 1. Named Function is only calling the function name, not the function.
+    Type Of Function:- 
+
+        1. Named Function is only calling the function name, not the function.
+
     e.g. onClick={handleButtonClick} (Not like this onClick={handleButtonClick()})
 
         2. Arrow Function with event as parameter to get Syntactic Event object
+
            e.g. onClick={(event)=>handleButtonClick(event)}
 
         3. Inline Function With Syntactic Event Object
 
-    e.g. onClick={(event) => console.log(event)}
+            e.g. onClick={(event) => console.log(event)}
 
         4. Inline Arrow Normal Function
-               e.g. onClick={() =>{ console.log("Hi")}}
+
+            e.g. onClick={() =>{ console.log("Hi")}}
 
         5. Arrow function passing parameters/arguments
 
-    e.g. onClick={(event) => handleButtonClick3(event, "Raju")}>
+            e.g. onClick={(event) => handleButtonClick3(event, "Raju")}>
 
 19. Event Handler passing as props can be used in concepts such as Form Handling, User Interaction, State Management, and Callback Function.
 

@@ -791,6 +791,7 @@ reduce the delay that occurs to a minimum in getting the actual result from othe
     a. createContext(Source Component):- Creates a Context object which acts like a Component.
        
        E.g. //1st Step
+
             export const BioContextStore = createContext();
 
        createContext objects act as a wholesaler that sells multiple products.

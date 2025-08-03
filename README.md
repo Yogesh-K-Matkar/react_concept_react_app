@@ -577,23 +577,23 @@ B.2. Pull Request :-
 
     Type Of Function:- 
 
-        1. Named Function is only calling the function name, not the function.
+        a. Named Function is only calling the function name, not the function.
 
-    e.g. onClick={handleButtonClick} (Not like this onClick={handleButtonClick()})
+           e.g. onClick={handleButtonClick} (Not like this onClick={handleButtonClick()})
 
-        2. Arrow Function with event as parameter to get Syntactic Event object
+        b. Arrow Function with event as parameter to get Syntactic Event object
 
            e.g. onClick={(event)=>handleButtonClick(event)}
 
-        3. Inline Function With Syntactic Event Object
+        c. Inline Function With Syntactic Event Object
 
             e.g. onClick={(event) => console.log(event)}
 
-        4. Inline Arrow Normal Function
+        d. Inline Arrow Normal Function
 
             e.g. onClick={() =>{ console.log("Hi")}}
 
-        5. Arrow function passing parameters/arguments
+        e. Arrow function passing parameters/arguments
 
             e.g. onClick={(event) => handleButtonClick3(event, "Raju")}>
 

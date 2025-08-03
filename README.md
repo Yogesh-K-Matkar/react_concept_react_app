@@ -802,7 +802,8 @@ reduce the delay that occurs to a minimum in getting the actual result from othe
 
        E.g.//2nd Step
 
-            export const BioProvider = ({ children })=>                                        {
+            export const BioProvider = ({ children })=>
+            {
             const bioInfo = 
             {
                  FullName: "Yogesh Matkar",
@@ -836,7 +837,8 @@ reduce the delay that occurs to a minimum in getting the actual result from othe
                     <BioContextStore.Provider        value={personBioDetails}>
                          {children}
                     </BioContextStore.Provider>
-                  ); }; 
+                  ); 
+             }; 
 
       Provider acts as Distributor/Delivery Person of the WholeSeller that takes a variety of Products and stores them in Tempo.
 

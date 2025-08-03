@@ -789,7 +789,10 @@ reduce the delay that occurs to a minimum in getting the actual result from othe
     import { createContext, useContext } from "react";
 
     1. createContext(Source Component):- Creates a Context object which acts like a Component.
-       E.g. createContext objects act as a wholesaler that sells multiple products.
+       E.g. //1st Step
+            export const BioContextStore = createContext();
+
+       createContext objects act as a wholesaler that sells multiple products.
 
     2. Provider:- It works as a component whose property of the Context object is created using createContext that provides the context value to its children.
        E.g. Provider acts as Distributor/Delivery Person of the WholeSeller that takes a variety of Products and stores them in Tempo.

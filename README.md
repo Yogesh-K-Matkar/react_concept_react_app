@@ -777,7 +777,65 @@ reduce the delay that occurs to a minimum in getting the actual result from othe
                                   			     return Value;
                                        	 }, [dependencies]);
 
-29. Two Third Party API Access APIMethods:-
+
+29. Prop Drilling:-
+    Passing Props through Source Component to subsequent child components until it reaches to the required destination component.
+    To solve the above problems ContextAPI concept comes into the picture.
+
+30. ContextAPI: This concept helps in passing data to the required destination component directly without passing through subsequent components.
+    ContextAPI is mainly used when a scenario of the same data is required by multiple child components.
+
+    Syntax:-
+    import { createContext, useContext } from "react";
+
+    1. createContext(Source Component):- Creates a Context object which acts like a Component.
+       E.g. createContext objects act as a wholesaler that sells multiple products.
+
+    2. Provider:- It works as a component whose property of the Context object is created using createContext that provides the context value to its children.
+       E.g. Provider acts as Distributor/Delivery Person of the WholeSeller that takes a variety of Products and stores them in Tempo.
+
+    3. useContext(Consumer/Destination Component):- A hook that allows you to consume a context.
+       E.g. useContext acts as a Consumer that uses the required Stored Product delivered by the Delivery Boy.
+
+31. Custom Hooks:- Requirement of custom hook is when we want to put multiple calls of the same React hooks into a created custom hook & then calling that custom hook to reduce the code of multiple calls to the same hooks.
+
+        Syntax:-
+             const useCustomHook1=()=>{
+                         	const hookObject=useContext(BioContext);
+                         	return hookObject;
+                         }
+
+    a. All custom hooks can be prefixed with 'use' basic rule of hooks.
+    b. Custom hooks are created as a wrapper of the same React hook that is used multiple times in multiple components to avoid the DRY(Do Not Repeat Yourself) principle.
+
+32. use Hook:- Is a replacement to the useContext hook, which has the limitation of defining at the top of the component, but the 'use' hook can be called within a condition, a looping logic, which gives more flexibility.
+
+    E.g.
+
+    import { use } from "react";
+
+    const newHook=true;
+
+    let myName,myAge;
+
+    if(newHook)
+    {
+    ({myName,myAge}=use(BioContext))
+    }
+
+33. Memo:-(HOC-Higher Order Component)- Prevent unnecessary rendering of entire child component due to parent component rendering as child component is wrapped inside parent component
+
+        Syntax:- export child components as below with a memo hook wrap around
+
+                 import { memo } from "react";
+
+                 export default memo(Childcomponent);
+
+                          OR
+
+                 export const Childcomponent=memo(()=>{return <>Child Component</>});
+
+34. Two Third Party API Access APIMethods:-
 
 To ways to call and get data
 
@@ -827,63 +885,6 @@ b. Using async await mechanism
       async () => {
         const apidata=await axios(url);
         }
-
-30. Prop Drilling:-
-    Passing Props through Source Component to subsequent child components until it reaches to the required destination component.
-    To solve the above problems ContextAPI concept comes into the picture.
-
-31. ContextAPI: This concept helps in passing data to the required destination component directly without passing through subsequent components.
-    ContextAPI is mainly used when a scenario of the same data is required by multiple child components.
-
-    Syntax:-
-    import { createContext, useContext } from "react";
-
-    1. createContext(Source Component):- Creates a Context object which acts like a Component.
-       E.g. createContext objects act as a wholesaler that sells multiple products.
-
-    2. Provider:- It works as a component whose property of the Context object is created using createContext that provides the context value to its children.
-       E.g. Provider acts as Distributor/Delivery Person of the WholeSeller that takes a variety of Products and stores them in Tempo.
-
-    3. useContext(Consumer/Destination Component):- A hook that allows you to consume a context.
-       E.g. useContext acts as a Consumer that uses the required Stored Product delivered by the Delivery Boy.
-
-32. Custom Hooks:- Requirement of custom hook is when we want to put multiple calls of the same React hooks into a created custom hook & then calling that custom hook to reduce the code of multiple calls to the same hooks.
-
-        Syntax:-
-             const useCustomHook1=()=>{
-                         	const hookObject=useContext(BioContext);
-                         	return hookObject;
-                         }
-
-    a. All custom hooks can be prefixed with 'use' basic rule of hooks.
-    b. Custom hooks are created as a wrapper of the same React hook that is used multiple times in multiple components to avoid the DRY(Do Not Repeat Yourself) principle.
-
-33. use Hook:- Is a replacement to the useContext hook, which has the limitation of defining at the top of the component, but the 'use' hook can be called within a condition, a looping logic, which gives more flexibility.
-
-    E.g.
-
-    import { use } from "react";
-
-    const newHook=true;
-
-    let myName,myAge;
-
-    if(newHook)
-    {
-    ({myName,myAge}=use(BioContext))
-    }
-
-34. Memo:-(HOC-Higher Order Component)- Prevent unnecessary rendering of entire child component due to parent component rendering as child component is wrapped inside parent component
-
-        Syntax:- export child components as below with a memo hook wrap around
-
-                 import { memo } from "react";
-
-                 export default memo(Childcomponent);
-
-                          OR
-
-                 export const Childcomponent=memo(()=>{return <>Child Component</>});
 
     +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

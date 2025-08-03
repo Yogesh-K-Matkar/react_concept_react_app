@@ -800,7 +800,7 @@ reduce the delay that occurs to a minimum in getting the actual result from othe
 
        E.g.//2nd Step
 
-            export const BioProvider = ({ children })                     = > {
+            export const BioProvider = ({ children })=>                                   {
             const bioInfo = {
     FullName: "Yogesh Matkar",
     FirstName: "Yogesh",

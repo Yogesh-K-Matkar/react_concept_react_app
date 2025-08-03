@@ -797,7 +797,35 @@ reduce the delay that occurs to a minimum in getting the actual result from othe
        createContext objects act as a wholesaler that sells multiple products.
 
     b. Provider:- It works as a component whose property of the Context object is created using createContext that provides the context value to its children.
-       E.g. Provider acts as Distributor/Delivery Person of the WholeSeller that takes a variety of Products and stores them in Tempo.
+
+       E.g.//2nd Step
+
+            export const BioProvider = ({ children }) => {
+  const bioInfo = {
+    FullName: "Yogesh Matkar",
+    FirstName: "Yogesh",
+    LastName: "Matkar",
+  };
+
+  const addressInfo = {
+    Address: { City: "Mumbai", State: "Maharashtra", Pincode: "400065" },
+  };
+
+  const personBioDetails = {
+    bioInfo: bioInfo,
+    addressInfo: addressInfo,
+  };
+
+  //const bioDetails = { FirstName: "Yogesh", LastName: "Matkar" };
+
+  return (
+    <BioContextStore.Provider value={personBioDetails}>
+      {children}
+    </BioContextStore.Provider>
+  );
+}; 
+
+      Provider acts as Distributor/Delivery Person of the WholeSeller that takes a variety of Products and stores them in Tempo.
 
     c. useContext(Consumer/Destination Component):- A hook that allows you to consume a context.
        E.g. useContext acts as a Consumer that uses the required Stored Product delivered by the Delivery Boy.

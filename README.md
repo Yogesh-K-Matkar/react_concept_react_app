@@ -802,30 +802,41 @@ reduce the delay that occurs to a minimum in getting the actual result from othe
 
        E.g.//2nd Step
 
-            export const BioProvider = ({ children })=>                                   {
-            const bioInfo = {
-    FullName: "Yogesh Matkar",
-    FirstName: "Yogesh",
-    LastName: "Matkar",
-  };
+            export const BioProvider = ({ children })=>                                        {
+            const bioInfo = 
+            {
+                 FullName: "Yogesh Matkar",
+                 FirstName: "Yogesh",
+                 LastName: "Matkar",
+             };
 
-            const addressInfo = {
-    Address: { City: "Mumbai", State: "Maharashtra", Pincode: "400065" },
-  };
+            const addressInfo = 
+            {
+                 Address: 
+                         { 
+                             City: "Mumbai", 
+                             State: "Maharashtra",                            Pincode: "400065" 
+                         },
+            };
 
-            const personBioDetails = {
-    bioInfo: bioInfo,
-    addressInfo: addressInfo,
-  };
+            const personBioDetails = 
+            {
+                  bioInfo: bioInfo,
+                  addressInfo: addressInfo,
+             };
 
-           //const bioDetails = { FirstName: "Yogesh", LastName: "Matkar" };
+           //const bioDetails = 
+            { 
+                  FirstName: "Yogesh", 
+                  LastName: "Matkar" 
+             };
 
            return (
-    <BioContextStore.Provider value={personBioDetails}>
-      {children}
-    </BioContextStore.Provider>
-  );
-}; 
+                    <BioContextStore.Provider        value={personBioDetails}>
+                         {children}
+                    </BioContextStore.Provider>
+                  );
+      }; 
 
       Provider acts as Distributor/Delivery Person of the WholeSeller that takes a variety of Products and stores them in Tempo.
 

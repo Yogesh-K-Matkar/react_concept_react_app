@@ -789,6 +789,7 @@ reduce the delay that occurs to a minimum in getting the actual result from othe
     import { createContext, useContext } from "react";
 
     1. createContext(Source Component):- Creates a Context object which acts like a Component.
+       
        E.g. //1st Step
             export const BioContextStore = createContext();
 

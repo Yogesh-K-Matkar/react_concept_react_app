@@ -847,7 +847,11 @@ reduce the delay that occurs to a minimum in getting the actual result from othe
        Syntax:-
          import { useContext } from "react"; 
 
-       E.g. useContext acts as a Consumer that uses the required Stored Product delivered by the Delivery Boy.
+       E.g. //3rd step
+
+            const { bioInfo, addressInfo } = useContext(BioContextStore);
+
+       useContext acts as a Consumer that uses the required Stored Product delivered by the Delivery Boy.
 
 31. Custom Hooks:- Requirement of custom hook is when we want to put multiple calls of the same React hooks into a created custom hook & then calling that custom hook to reduce the code of multiple calls to the same hooks.
 

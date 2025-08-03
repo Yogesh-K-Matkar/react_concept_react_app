@@ -800,25 +800,25 @@ reduce the delay that occurs to a minimum in getting the actual result from othe
 
        E.g.//2nd Step
 
-            export const BioProvider = ({ children }) => {
-  const bioInfo = {
+            export const BioProvider = ({ children })                     = > {
+            const bioInfo = {
     FullName: "Yogesh Matkar",
     FirstName: "Yogesh",
     LastName: "Matkar",
   };
 
-  const addressInfo = {
+            const addressInfo = {
     Address: { City: "Mumbai", State: "Maharashtra", Pincode: "400065" },
   };
 
-  const personBioDetails = {
+            const personBioDetails = {
     bioInfo: bioInfo,
     addressInfo: addressInfo,
   };
 
-  //const bioDetails = { FirstName: "Yogesh", LastName: "Matkar" };
+           //const bioDetails = { FirstName: "Yogesh", LastName: "Matkar" };
 
-  return (
+           return (
     <BioContextStore.Provider value={personBioDetails}>
       {children}
     </BioContextStore.Provider>

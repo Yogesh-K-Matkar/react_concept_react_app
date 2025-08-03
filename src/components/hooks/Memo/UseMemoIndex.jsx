@@ -20,7 +20,7 @@ B Logical Hooks:-
 
 */
 
-const CPUHighConsumtionLogic = () => {
+const CPUHighConsumptionLogic = () => {
   //Calculation function
   const sum = () => {
     console.log("Calculating Sum...");
@@ -44,10 +44,11 @@ export const UseMemoIndex = () => {
   return (
     <>
       <section
-        className={`p-4 h-lvh font-display tracking-wider flex flex-col justify-center items-center bg-amber-200  text-black`}>
+        className={`p-4 h-lvh font-display tracking-wider flex flex-col justify-center items-center bg-amber-200  text-black`}
+      >
         <h1>Using useMemo hook!</h1>
         <div className={`justify-center items-center`}>
-          <CPUHighConsumtionLogic />
+          <CPUHighConsumptionLogic />
           <br />
           <button onClick={() => setCount(count + 1)}>Re-render Parent</button>
           <p>Parent re-renders: {count}</p>

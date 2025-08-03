@@ -35,7 +35,7 @@ export const UseReducerIndex = () => {
     dec: 2,
   };
 
-  const reducer = (state, action) => {
+  const myReducer = (state, action) => {
     console.log(state, action);
 
     // if (action.type === "INCREMENT") {
@@ -65,7 +65,7 @@ export const UseReducerIndex = () => {
     }
   };
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, myDispatch] = useReducer(myReducer, initialState);
 
   return (
     <section
@@ -73,9 +73,13 @@ export const UseReducerIndex = () => {
     >
       <h1>Using useReducer hook!</h1>
       <h1>{state.count}</h1>
-      <button onClick={() => dispatch({ type: "INCREMENT" })}>Increment</button>
-      <button onClick={() => dispatch({ type: "DECREMENT" })}>Decrement</button>
-      <button onClick={() => dispatch({ type: "RESET" })}>Reset</button>
+      <button onClick={() => myDispatch({ type: "INCREMENT" })}>
+        Increment
+      </button>
+      <button onClick={() => myDispatch({ type: "DECREMENT" })}>
+        Decrement
+      </button>
+      <button onClick={() => myDispatch({ type: "RESET" })}>Reset</button>
     </section>
   );
 };

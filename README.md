@@ -727,7 +727,7 @@ B.2. Pull Request :-
          }
            }
 
-           const [state,dispatch]=useReducer(reducer,initState)
+           const [state,customDispatchFunctionName]=useReducer(reducer,initState)
 
           --> dispatch function with type object, which internally calls the reducer function and sets the     type parameter to the action parameter based on which.
 

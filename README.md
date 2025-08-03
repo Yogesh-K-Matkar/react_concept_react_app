@@ -788,17 +788,17 @@ reduce the delay that occurs to a minimum in getting the actual result from othe
     Syntax:-
     import { createContext, useContext } from "react";
 
-    1. createContext(Source Component):- Creates a Context object which acts like a Component.
+    a. createContext(Source Component):- Creates a Context object which acts like a Component.
        
        E.g. //1st Step
             export const BioContextStore = createContext();
 
        createContext objects act as a wholesaler that sells multiple products.
 
-    2. Provider:- It works as a component whose property of the Context object is created using createContext that provides the context value to its children.
+    b. Provider:- It works as a component whose property of the Context object is created using createContext that provides the context value to its children.
        E.g. Provider acts as Distributor/Delivery Person of the WholeSeller that takes a variety of Products and stores them in Tempo.
 
-    3. useContext(Consumer/Destination Component):- A hook that allows you to consume a context.
+    c. useContext(Consumer/Destination Component):- A hook that allows you to consume a context.
        E.g. useContext acts as a Consumer that uses the required Stored Product delivered by the Delivery Boy.
 
 31. Custom Hooks:- Requirement of custom hook is when we want to put multiple calls of the same React hooks into a created custom hook & then calling that custom hook to reduce the code of multiple calls to the same hooks.

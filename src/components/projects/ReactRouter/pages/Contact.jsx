@@ -22,11 +22,11 @@ import contact from "../assets/images/contact.png";
 
 export const submitContactFormData = async ({ request }) => {
   try {
-    const resp = await request.formData();
+    const resp = await request.formData(); // formData() function returns a FormData object containing the form data submitted by the user.
 
     console.log(resp);
 
-    const data = Object.fromEntries(resp);
+    const data = Object.fromEntries(resp); // Converts the FormData object into a plain object, where each key corresponds to a form field name and each value corresponds to the submitted value.
 
     console.log(data);
 

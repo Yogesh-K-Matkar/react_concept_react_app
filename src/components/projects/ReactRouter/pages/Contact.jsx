@@ -47,6 +47,7 @@ export const Contact = () => {
         <div className="section-contact">
           <div className="grid grid-two--cols">
             <div className="contact-content">
+              {/* Form POST */}
               <Form method="POST" action="/contact">
                 <div className="grid grid-two-cols mb-3">
                   <div>

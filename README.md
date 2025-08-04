@@ -358,33 +358,32 @@ B.2. Pull Request :-
 Practical Points:-
 
 1.  DOM Reconciliation:  
-    React uses a Virtual DOM to efficiently update the UI. When a component's state changes, React creates a new Virtual DOM tree by Babel and compares it with the previous
-one to determine the minimal set of changes needed to update the actual DOM.
+    React uses a Virtual DOM to efficiently update the UI. When a component's state changes, React creates a new Virtual DOM tree by Babel and compares it with the previous one to determine the minimal set of changes needed to update the actual DOM.
 
 2.  JSX code render 2 time during development due to React.StrictMode tag, which is then removed when the code is published.
 
 3.  Each JSX element/expression must combine/enclosed using one parent JSX element, which means if you try to return multiple elements
-    
+
     React will throw an error.
 
     Error: Adjacent JSX elements must be wrapped in an enclosing tag.
 
-4.  Every JSX tag needs to be closed. You can use self-closing tags for elements that don't have children 
-    
-    e.g. 
-        
+4.  Every JSX tag needs to be closed. You can use self-closing tags for elements that don't have children
+
+    e.g.
+
         < img src="url"/ >
 
-5. Working/Processing on Objects
+5.  Working/Processing on Objects
 
     5.1. Destructuring Object Properties:-
 
     Destructuring is a way to extract properties from an object and assign them to variables.
-    
+
     It allows you to unpack values from arrays or properties from objects into distinct variables.
 
-    e.g. 
-          
+    e.g.
+
         const obj={id:1,name:"a",age:25};
 
         const {id,name,age}=obj;
@@ -392,10 +391,10 @@ one to determine the minimal set of changes needed to update the actual DOM.
         console.log(id);   //1
         console.log(name); //a
         console.log(age);  //25
-    
-    ----------------
 
-    5.2.Spread Operator expand collection, array & object.
+    ***
+
+    5.2. Spread Operator expand collection, array & object.
 
     5.2.1 Collection or Array(Merge Element of same type in below case array1 & array2 is type array):-
 
@@ -412,52 +411,50 @@ one to determine the minimal set of changes needed to update the actual DOM.
 
     5.2.2 Object(Update Object Property):-
 
-    e.g. 
-           
+    e.g.
+
         const obj={id:1,name:"a"};
         const obj1={...obj,id:2,name:"b"};
 
         console.log(obj1)  // {id:2,name:"b"}   //Expand object properties to update value of required property
 
+6.  Concept of dynamic variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX.
 
-6. Concept of dynamic variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX.
+7.  Concept of logical variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX based on a Condition using Conditional Operators/Logic such as Ternary, IF-ELSE block, etc.
 
-7. Concept of logical variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX based  on a Condition using Conditional Operators/Logic such as Ternary, IF-ELSE block, etc.
+8.  Types of Component:- 2 Types of Component Declaration
 
+    8.1. Functional Component:- Modern ECMAScript ES6 way of declaring Component.
 
-8. Types of Component:- 2 Types of Component Declaration
+    8.2. Class Component:- Old way.
 
-   8.1. Functional Component:- Modern ECMAScript ES6 way of declaring Component.
+9.  Types of Functional Component:-
 
-   8.2. Class Component:- Old way.
+    9.1. Default Functional Component :- In case of importing the Export Default component, then while importing any component name be used without curly braces.
 
-9. Types of Functional Component:-
+    e.g.
 
-   9.1. Default Functional Component :- In case of importing the Export Default component, then while importing any component name be used without curly braces.
+         import NetflixSeries from "./components/NetflixSeries";
+         (Where export component name is NetflixSeries)
 
-    e.g. 
+    9.2. Named Functional Component :- In case of importing Export Named component, then while importing the same Component name to be used with curly braces.
 
-        import NetflixSeries from "./components/NetflixSeries";
-        (Where export component name is NetflixSeries)
+    e.g.
 
-   9.2. Named Functional Component :- In case of importing Export Named component, then while importing the same Component name to be used with curly braces.
-
-    e.g. 
-        
-        import { NetflixSeries } from "./components/NetflixSeries"; 
-        (Where export component name is NetflixSeries)
+         import { NetflixSeries } from "./components/NetflixSeries";
+         (Where export component name is NetflixSeries)
 
 10. Define/Use imported Components/Component from another JSX(ReactFrameworkApp.jsx) as below
-    
-    e.g. 
-        
+
+    e.g.
+
         < ReactApp / > (Component Name)
 
 11. To avoid using a non-required < div > tag to combine multiple elements into one before returning JSX from the component function, and also to avoid DOM to create an unwanted < div > element.
     Then comes the React concept of Fragments,
-    
+
     e.g.
-    
+
         const ComponentName=()=>
         {
           return(
@@ -467,44 +464,44 @@ one to determine the minimal set of changes needed to update the actual DOM.
                 );
         }
 
-12. To avoid rewriting/redundancy of the same code multiple times, create a single component and reuse it multiple times where required in the same JSX or another JSX 
+12. To avoid rewriting/redundancy of the same code multiple times, create a single component and reuse it multiple times where required in the same JSX or another JSX
     (import component function from a particular JSX where the component function is defined).
 
-13. Instead of for loop their is map() for looping on collection/array. In React map(), each element must have a key prop to differentiate each element generated while looping using map().
+13. Instead of FOR/FOREACH loop their is map() for looping on collection/array. In React map(), each element must have a key prop to differentiate each element generated while looping using map().
 
 14. Logic on collection by using method map(),filter() and reduce()
 
     e.g.
 
         const users=[{ id: 1, name: "Alice", age: 25 },
-       	            { id: 2, name: "Bob", age: 35 }]
+
+    { id: 2, name: "Bob", age: 35 }]
 
         14.1. map():- Used for looping in a collection or array.
         	e.g.
-          
+
                 users.map((u)=><User name={u.name} age={u.age}>)
 
         14.2. filter():- It's like a WHERE condition to get a customized collection based on the condition
-        	 e.g. 
+        	 e.g.
 
                 users.filter((u)=>u.age<35)
 
         14.3. reduce():- It does computation on the collection and returns the required value
-        	e.g. 
-              
+        	e.g.
+
               users.reduce((derivedCalculatedValue,u)=>{return derivedCalculatedValue + u.age},0)
 
 15. Props is way of passing attributes as parameter to Component in React, and can be passed from a unidirectional(1-direction) Parent component to calling child components as separate properties and consumed in the child component as props as a parameter that combines all properties of the child component defined by the Parent component while calling the Child component, except the key property.
 
 16. While passing the integer value prop/attribute over the child component, pass it like this
-    
+
     16.1. Integer prop/attribute over child component pass like this
-        
+
         id={integer_value}
-        
-        
+
     16.2. String value prop/attribute over child component pass like this
-    
+
         name="string_value"
 
     (IMP:- As per ECMAScript (ES6) rule, if in an object structure like { Name: Name }, when key and value are the same, then define the object like this {Name})
@@ -523,27 +520,27 @@ one to determine the minimal set of changes needed to update the actual DOM.
     e.g.
 
         style={{ margin: "1.2rem 0" }}
-    
+
                 OR
 
         Define the style object separately, then define it as a variable and then use it in the style prop
-        
+
         const btn_style = { margin: "1.2rem 0" };
 
         style = {btn_style}
 
     18.3. Conditionally applying CSS
 
-      18.3.1. Based on the Ternary operator, apply styling
+    18.3.1. Based on the Ternary operator, apply styling
 
-      e.g.
-        
+    e.g.
+
          className={i>0?"className1": "className2"}
 
-      18.3.2. When you want to append a className with a condition that derives another className based on the condition,
-      meaning append a string with an expression done below by using Template Literal
+    18.3.2. When you want to append a className with a condition that derives another className based on the condition,
+    meaning append a string with an expression done below by using Template Literal
 
-      e.g.
+    e.g.
 
          className={`className1 ${i>0?"className2": "className3"}`}
 
@@ -561,49 +558,13 @@ one to determine the minimal set of changes needed to update the actual DOM.
 
          style={cssModule["abc"]} OR style={cssModule["a-b-c"]} can be use commonly
 
-    18.5. Styled-Components:-
-    In styled-component, first need to install using the Terminal cmd
+    18.5. Using Tailwind v4 CSS:-
 
-    e.g. 
-          
-         bun install styled-components
-
-    Import,
-    e.g. 
-          
-         import styled from "styled-components"
-
-    Then, using a styled object can access a React component and apply the style to it.
-
-    2 ways to apply styled-components:-
-
-    18.5.1. Template Literals:-
-
-    e.g.
-
-        const Button=styled.button`color:grey`;
-
-    	    style.button --> button is a tag, eg p, h, button, span
-
-    18.5.2. Style Object:-
-
-    e.g.
-
-        const Button=styled.button(
-          {
-            color: grey,
-          }
-        );
-
-     		  style.button --> button is a tag, eg p, h, button, span
-
-    18.6. Using Tailwind v4 CSS:-
-
-    18.6.1. Install through Terminal cmd:-
+    18.5.1. Install through Terminal cmd:-
 
         npm install tailwindcss @tailwindcss/vite
 
-    18.6.2. Configure the Vite plugin
+    18.5.2. Configure the Vite plugin
 
         import tailwindcss from '@tailwindcss/vite'
 
@@ -613,7 +574,7 @@ one to determine the minimal set of changes needed to update the actual DOM.
                      ],
         })
 
-    18.6.3. Import Tailwind CSS
+    18.5.3. Import Tailwind CSS
 
         @import "tailwindcss";
 
@@ -623,60 +584,95 @@ one to determine the minimal set of changes needed to update the actual DOM.
     Notes:- In TailwindCSS,
 
     1. Need to you can set dynamic values within [], such as
-        
+
     e.g.
-        
+
         py-[3.2rem]
 
-
     2. If CSS is getting overridden by default CSS, then '!' symbol before each overridden CSS class
-        
+
     e.g.
-        
+
         !py-6
 
     )
 
+    18.6. Styled-Components:-
+    In styled-component, first need to install using the Terminal cmd
+
+    e.g.
+
+         bun install styled-components
+
+    Import,
+    e.g.
+
+         import styled from "styled-components"
+
+    Then, using a styled object can access a React component and apply the style to it.
+
+    2 ways to apply styled-components:-
+
+    18.6.1. Template Literals:-
+
+    e.g.
+
+        const Button=styled.button`color:grey`;
+
+            style.button --> button is a tag, eg p, h, button, span
+
+    18.6.2. Style Object:-
+
+    e.g.
+
+        const Button=styled.button(
+          {
+            color: grey,
+          }
+        );
+
+    style.button --> button is a tag, eg p, h, button, span
+
 19. Custom Error:-
     To show custom error message, use the below syntax
 
-    e.g.  
+    e.g.
 
         let customError=new Error("Custom Error Message");
 
 20. Event Handler in JS, such as onClick, onChange, onSubmit, etc, which then call Syntactic Event Handler Function in React, should be written as a function name such as handleClick, handleChange,handleSubmit, etc
     This is known as the Syntactic Event Handler Function.
 
-    Type Of Function:- 
+    Type Of Function:-
 
     20.1. Named Function is only calling the function name, not the function.
 
-    e.g. 
-          
+    e.g.
+
         onClick={handleButtonClick} (Not like this onClick={handleButtonClick()})
 
     20.2. Arrow Function with event as parameter to get Syntactic Event object
 
-    e.g. 
-          
+    e.g.
+
         onClick={(event)=>handleButtonClick(event)}
 
     20.3. Inline Function With Syntactic Event Object
 
-    e.g. 
-          
+    e.g.
+
         onClick={(event) => console.log(event)}
 
     20.4. Inline Arrow Normal Function
 
-    e.g. 
-            
+    e.g.
+
         onClick={() =>{ console.log("Hi")}}
 
     20.5. Arrow function passing parameters/arguments
 
-    e.g. 
-          
+    e.g.
+
         onClick={(event) => handleButtonClick3(event, "User1")}
 
 21. Event Handler passing as props can be used in concepts such as Form Handling, User Interaction, State Management, and Callback Function.
@@ -694,24 +690,23 @@ one to determine the minimal set of changes needed to update the actual DOM.
         23.2. Event Bubbling means propagating/moving from Target Action Element to Parent Element and triggering all occurrence event functions in the path while moving.
 
     But to avoid the unwanted triggering of Parent Component event functions other than the Target Action Event Function, we have to use
-    
-    e.g. 
-    
-      event.stopPropagation(); -- stop after triggering a single target event.
+
+    e.g.
+
+    event.stopPropagation(); -- stop after triggering a single target event.
 
     If Target control is bind with multiple other event rather then onClick such as onChange,onBlur then to stop such events begin call.
-    
-    e.g. 
-      
-      event.stopImmediatePropagation();
 
+    e.g.
+
+    event.stopImmediatePropagation();
 
 24. States - useState Hook:-
 
     24.1. Values that need to be rendered in JSX code after update, then need to use the concept of State to maintain the value across multiple updates.
 
     24.2. The state is made of 2 components, one is the State Variable, and another is the setter function that updates the State Variable.
-       e.g. const [state variable, setter function to set state variable] = useState(initial state variable value)
+    e.g. const [state variable, setter function to set state variable] = useState(initial state variable value)
 
     24.3. To maintain value on multiple renders of the JSX, the useState function concept comes in that sets the initial value in the State Variable.
 
@@ -728,33 +723,32 @@ one to determine the minimal set of changes needed to update the actual DOM.
 
     That means State is common to multiple states at the same level of the child component.
 
-25. React Icons for icons image from multiple sources(Font Awesome icons, Material UI icons, etc) at one place
+27. React Icons for icons image from multiple sources(Font Awesome icons, Material UI icons, etc) at one place
     To access icons, first need to install using Terminal cmd
     eg bun install react-icons
 
     Then import where needed to show the icon
-    
+
     e.g.
-    
-       import { IconComponentName } from "react-icons/io";
+
+    import { IconComponentName } from "react-icons/io";
 
     Use the icon component where a specific icon is required within the component
-    
-      <IconComponentName style={{color:"blue"}}/>
 
+    <IconComponentName style={{color:"blue"}}/>
 
-26. To store & retain any value on refresh of the browser without a database.
+28. To store & retain any value on refresh of the browser without a database.
 
     To set:- localStorage.setItem("keyname","data");
     To get:- localStorage.getItem("keyname");
 
-27. When any control is bound with a state variable(control is moving from uncontrolled to controlled). In React, most components are uncontrolled components by default unless their values are bound to a state variable..
+29. When any control is bound with a state variable(control is moving from uncontrolled to controlled). In React, most components are uncontrolled components by default unless their values are bound to a state variable..
 
     Controlled Data Hooks:- useState
 
     UnControlled Data Hooks:- useRefs
 
-28. The 'use' prefixes in a function name is all React Hooks.
+30. The 'use' prefixes in a function name is all React Hooks.
 
     2 Types Of Hooks:-
 
@@ -779,7 +773,7 @@ one to determine the minimal set of changes needed to update the actual DOM.
 
 
         Syntax:-
-          
+
           import { useRef } from "react";
 
           const username=useRef(null);
@@ -795,15 +789,15 @@ one to determine the minimal set of changes needed to update the actual DOM.
         --After React v19 release, ref can be accessed as props.
 
     28.1.3. useId:- useId hook returns uniqueid. Don't use it to generate an ID for each field, as it will violate the accessibility rule of the form.
-        
+
         Syntax:-
-          
+
           import { useId } from "react";
 
           const uniqueid=useId();
 
     28.1.4. useReducer:- This hook is similar to the useState hook, but for the entry value of each control, we have to create a separate useState hook.
-    But useReducer provides an action parameter for the reducer function, so based on the action type, different state values can be returned instead of creating a separate  function for each control, similar to the useState hook concept.
+    But useReducer provides an action parameter for the reducer function, so based on the action type, different state values can be returned instead of creating a separate function for each control, similar to the useState hook concept.
 
         Syntax:-
 
@@ -851,9 +845,9 @@ one to determine the minimal set of changes needed to update the actual DOM.
 
     28.2.2. useMemo:- This hook is used to skip unnecessary value re-calculation of value, if the value is already in cache, which will reduce the delay that occurs to a minimum in getting the actual result from other necessary components
 
-       Syntax:- Syntax similar to the useEffect hook
+    Syntax:- Syntax similar to the useEffect hook
 
-    	   import { useMemo } from "react";
+           import { useMemo } from "react";
 
          const memoizedValue=useMemo(
                                	     ()=>{
@@ -861,12 +855,12 @@ one to determine the minimal set of changes needed to update the actual DOM.
                                   			     return Value;
                                       	 }, [dependencies]);
 
-      e.g.
+    e.g.
 
-        const CPUHighConsumptionLogic = () => 
+        const CPUHighConsumptionLogic = () =>
         {
           //Calculation function
-          const sum = () =>   
+          const sum = () =>
           {
               console.log("Calculating Sum...");
 
@@ -875,7 +869,7 @@ one to determine the minimal set of changes needed to update the actual DOM.
                   i += 1;
               }
               return i;
-          };    
+          };
 
           //const total = sum();
 
@@ -889,7 +883,7 @@ one to determine the minimal set of changes needed to update the actual DOM.
 
     28.2.3. useCallBack:- This hook is used to skip unnecessary function re-execution if the value is already in cache, which will reduce the delay that occurs to a minimum in getting the actual result from other necessary components
 
-       Syntax:- Syntax similar to the useEffect hook
+    Syntax:- Syntax similar to the useEffect hook
 
          const memoizedValue=useCallBack(
                                	     ()=>{
@@ -897,85 +891,83 @@ one to determine the minimal set of changes needed to update the actual DOM.
                                   			     return Value;
                                        	 }, [dependencies]);
 
-       So when the component is rendered, it will only calculate callBack function and cache the result.
-       If the component is re-rendered, it will use the cached value instead of re-calling callBack again as value is not changed, thus improving performance.
+    So when the component is rendered, it will only calculate callBack function and cache the result.
+    If the component is re-rendered, it will use the cached value instead of re-calling callBack again as value is not changed, thus improving performance.
 
-
-29. Prop Drilling:-
+31. Prop Drilling:-
     Passing Props through Source Component to subsequent child components until it reaches to the required destination component.
     To solve the above problems ContextAPI concept comes into the picture.
 
-30. ContextAPI: This concept helps in passing data to the required destination component directly without passing through subsequent components.
+32. ContextAPI: This concept helps in passing data to the required destination component directly without passing through subsequent components.
     ContextAPI is mainly used when a scenario of the same data is required by multiple child components.
-   
 
     30.1. createContext(Source Component):- Creates a Context object which acts like a Component.
-       
-       Syntax:-
-            import { createContext } from "react";
 
-       e.g. //1st Step
+    Syntax:-
+    import { createContext } from "react";
+
+    e.g. //1st Step
 
             export const BioContextStore = createContext();
 
-       createContext objects act as a wholesaler that sells multiple products.
+    createContext objects act as a wholesaler that sells multiple products.
 
     30.2. Provider:- It works as a component whose property of the Context object is created using createContext that provides the context value to its children.
 
-       e.g.//2nd Step
+    e.g.//2nd Step
 
             export const BioProvider = ({ children })=>
             {
-            const bioInfo = 
+            const bioInfo =
             {
                  FullName: "Yogesh Matkar",
                  FirstName: "Yogesh",
                  LastName: "Matkar",
              };
 
-            const addressInfo = 
+            const addressInfo =
             {
-                 Address: 
-                         { 
-                             City: "Mumbai", 
-                             State: "Maharashtra", 
-                             Pincode: "400065" 
+                 Address:
+                         {
+                             City: "Mumbai",
+                             State: "Maharashtra",
+                             Pincode: "400065"
                          },
             };
 
-            const personBioDetails = 
+            const personBioDetails =
             {
                   bioInfo: bioInfo,
                   addressInfo: addressInfo,
              };
 
-           //const bioDetails = 
-            { 
-                  FirstName: "Yogesh", 
-                  LastName: "Matkar" 
+           //const bioDetails =
+            {
+                  FirstName: "Yogesh",
+                  LastName: "Matkar"
              };
 
            return (
                     <BioContextStore.Provider        value={personBioDetails}>
                          {children}
                     </BioContextStore.Provider>
-                  ); 
-             }; 
+                  );
+             };
 
-      Provider acts as Distributor/Delivery Person of the WholeSeller that takes a variety of Products and stores them in Tempo.
+    Provider acts as Distributor/Delivery Person of the WholeSeller that takes a variety of Products and stores them in Tempo.
 
     30.3. useContext(Consumer/Destination Component):- A hook that allows you to consume a context.
 
-       Syntax:-
-         import { useContext } from "react"; 
+    Syntax:-
+    import { useContext } from "react";
 
-       e.g. //3rd step
+    e.g. //3rd step
 
             const { bioInfo, addressInfo } = useContext(BioContextStore);
 
-       useContext acts as a Consumer that uses the required Stored Product delivered by the Delivery Boy.
+    useContext acts as a Consumer that uses the required Stored Product delivered by the Delivery Boy.
 
-31. Custom Hooks:- Requirement of custom hook is when we want to put multiple calls of the same React hooks into a created custom hook & then calling that custom hook to reduce the code of multiple calls to the same hooks.
+33. Custom Hooks:- Requirement of custom hook is when we want to put multiple calls of the same React hooks into a created custom hook & then calling that custom hook to reduce the code of multiple calls to the same hooks.
 
         Syntax:-
              const useCustomHook1=()=>{
@@ -986,21 +978,21 @@ one to determine the minimal set of changes needed to update the actual DOM.
     31.1. All custom hooks can be prefixed with 'use' basic rule of hooks.
     31.2. Custom hooks are created as a wrapper of the same React hook that is used multiple times in multiple components to avoid the DRY(Do Not Repeat Yourself) principle.
 
-32. use Hook:- Is a replacement to the useContext hook, which has the limitation of defining at the top of the component, but the 'use' hook can be called within a condition, a looping logic, which gives more flexibility.
+34. use Hook:- Is a replacement to the useContext hook, which has the limitation of defining at the top of the component, but the 'use' hook can be called within a condition, a looping logic, which gives more flexibility.
 
     e.g.
 
-      import { use } from "react";
+    import { use } from "react";
 
-      const newHook = true;
+    const newHook = true;
 
-      let myName, myAge;
+    let myName, myAge;
 
-      if (newHook) {
-        ({ myName, myAge } = use(BioContext));
-      }
+    if (newHook) {
+    ({ myName, myAge } = use(BioContext));
+    }
 
-33. Memo:-(HOC-Higher Order Component)- 
+35. Memo:-(HOC-Higher Order Component)-
     Prevent unnecessary rendering of entire child component due to parent component rendering as child component is wrapped inside parent component
 
     Component inside Memo is only gets render when any of props value inside Component is change else it's skips Component from re-rendering.
@@ -1015,14 +1007,14 @@ one to determine the minimal set of changes needed to update the actual DOM.
 
                  export const Childcomponent=memo(()=>{return <>Child Component</>});
 
-34. Two Third Party API Access APIMethods:-
+36. Two Third Party API Access APIMethods:-
 
     Two ways to call and get data
 
     34.1. fetch():-
 
         34.1.1. Using Promises:-
-                
+
           e.g.
 
                 fetch(url).then
@@ -1031,14 +1023,14 @@ one to determine the minimal set of changes needed to update the actual DOM.
 
           e.g.
 
-                async () => 
+                async () =>
                 {
                             const apiData=await fetch(url);
                 }
 
     34.2. Axios():-(Better Then fetch() as it has more features and is more user-friendly)
 
-          Axios is promise-based HTTP client request/response handling library.It is third-party library not from React.    
+          Axios is promise-based HTTP client request/response handling library.It is third-party library not from React.
           That's why need to install axios.
 
           Benefits:-
@@ -1049,7 +1041,7 @@ one to determine the minimal set of changes needed to update the actual DOM.
             4. Supports old browsers.
 
         34.2.1. First install axios
-          
+
           Syntax:-
 
               npm install axios
@@ -1057,7 +1049,7 @@ one to determine the minimal set of changes needed to update the actual DOM.
               import axios from 'axios';
 
         34.2.1.1. Axios Using Promises:-
-                        
+
                   e.g.
 
                         axios(url).then
@@ -1072,7 +1064,7 @@ one to determine the minimal set of changes needed to update the actual DOM.
 
                   e.g.
 
-                        async () => 
+                        async () =>
                         {
                             const apiData=await axios(url);
                         }
@@ -1100,7 +1092,7 @@ B.
 
     Syntax:- Two ways to create a route
 
-    3.1.  Old (Using helper createRoutesFromElements):
+    3.1. Old (Using helper createRoutesFromElements):
 
             import { createBrowserRouter } from "react-router-dom";
 
@@ -1115,8 +1107,8 @@ B.
 
              <RouterProvider router={router} />
 
-    3.2.  New:-
-        import { createBrowserRouter } from "react-router-dom";
+    3.2. New:-
+    import { createBrowserRouter } from "react-router-dom";
 
              const router = createBrowserRouter([
                      { path: "/", element: <Home/>  },
@@ -1134,37 +1126,37 @@ B.
     Eg:-
 
     const routeLinks = createBrowserRouter(
-      [
-        {
-          path: "/",
-          element: <AppLayout />,
-          children: [
-                      { path: "/", element: <Home /> },
-                      { path: "/about", element: <About /> },
-                      { path: "/movie", element: <Movie /> },
-                      { path: "/contact", element: <Contact /> }
-                    ],
-          errorElement: <ErrorPage />,
-        },
-      ]
-      );
+    [
+    {
+    path: "/",
+    element: <AppLayout />,
+    children: [
+    { path: "/", element: <Home /> },
+    { path: "/about", element: <About /> },
+    { path: "/movie", element: <Movie /> },
+    { path: "/contact", element: <Contact /> }
+    ],
+    errorElement: <ErrorPage />,
+    },
+    ]
+    );
 
-     <RouterProvider router={router} />
+     <RouterProvider router={routeLinks} />
 
     Props of createBrowserRouter:-
 
-      1. path:- It accepts a navigation path name, which is displayed in the browser URL.
+    1. path:- It accepts a navigation path name, which is displayed in the browser URL.
 
-      2. element:- It holds a component that gets rendered when the associated path is displayed in the browser URL
+    2. element:- It holds a component that gets rendered when the associated path is displayed in the browser URL
 
-      3. children:- It also holds an array of paths along with a child component, which is going to render in the  Page Body section.
+    3. children:- It also holds an array of paths along with a child component, which is going to render in the Page Body section.
 
-          1.  In the above element <AppLayout> is a component that consists of a Header and a Footer section, which is common for the entire application.
-          2.  Children are included dynamically in the Body section between the Header section & Footer section by <Outlet> react router component, based on the associated path, gets called on clicking of the link which is generated using <NavLink> react router component.
-          3.  Loader prop of children takes a function that returns JSON data from the function through fetchAPI() as API data.
-          4.  Action prop of children takes a function that returns JSON data from the function through formData() that is used to UPDATE different fields of data submitted in the component by Form action.
+       1. In the above element <AppLayout> is a component that consists of a Header and a Footer section, which is common for the entire application.
+       2. Children are included dynamically in the Body section between the Header section & Footer section by <Outlet> react router component, based on the associated path, gets called on clicking of the link which is generated using <NavLink> react router component.
+       3. Loader prop of children takes a function that returns JSON data from the function through fetchAPI() as API data.
+       4. Action prop of children takes a function that returns JSON data from the function through formData() that is used to UPDATE different fields of data submitted in the component by Form action.
 
-      4. errorElement:- It holds the component that gets rendered when the associated element component's error occurs due to syntax, logic, etc.
+    4. errorElement:- It holds the component that gets rendered when the associated element component's error occurs due to syntax, logic, etc.
 
 4.  Due to the <a> HTML tag, when a link is clicked, there is a full postback of the page, so no use of <a> anchor HTML tags in React.
     Therefore, in React, the built-in component <NavLink> is provided in place of the <a> anchor tag or any navigation HTML tag to avoid postback/refresh of the entire page.
@@ -1172,12 +1164,12 @@ B.
 
     Syntax:-
 
-      HTML Tag:-
-          
+    HTML Tag:-
+
           < a href="#" >Link< /a >
 
-      In React:-
-          
+    In React:-
+
           < NavLink to="#" >Link< /NavLink >
 
 5.  Active Link is a concept of highlighting the current selected Link based on the color of the Link is different from all other non-selected Link colors.
@@ -1193,18 +1185,17 @@ B.
     import { createBrowserRouter, RouterProvider } from "react-router-dom";
     import { useRouteError } from "react-router-dom";
 
-
     const routeLinks = createBrowserRouter([
     {
-       path: "/",
-       element: <AppLayout />,
-       children: [
-                   { path: "/", element: <Home /> },
-                   { path: "/about", element: <About /> },
-                   { path: "/movie", element: <Movie />, loader: getMoviesDataByParams },
-                   { path: "/contact", element: <Contact />, action: submitContactFormData },
-                 ],
-        errorElement: <ErrorPage />,
+    path: "/",
+    element: <AppLayout />,
+    children: [
+    { path: "/", element: <Home /> },
+    { path: "/about", element: <About /> },
+    { path: "/movie", element: <Movie />, loader: getMoviesDataByParams },
+    { path: "/contact", element: <Contact />, action: submitContactFormData },
+    ],
+    errorElement: <ErrorPage />,
     },
     ]);
 
@@ -1220,7 +1211,7 @@ B.
 
         6.1.1. Using errorElement key -- Best way
 
-               e.g.                
+               e.g.
 
                 const routeLinks = createBrowserRouter([
                 {
@@ -1256,7 +1247,7 @@ B.
 
     6.2. useNavigate:- This hook is used to navigate, especially to the immediate previous URL/Page. Can also navigate to any URL/Page.
 
-       Syntax:-
+    Syntax:-
 
              import { useNavigate } from "react-router-dom";
 
@@ -1271,7 +1262,7 @@ B.
 
     6.3. useNavigation:- This hook is used to get information about the current navigation state, such as location, action, etc.
 
-       Syntax:-
+    Syntax:-
 
             import { useNavigation } from "react-router-dom";
 
@@ -1281,12 +1272,11 @@ B.
 
     6.4. useLoaderData:- This hook is used to get data from the loader function, which is defined in the route's children array object.State property of the hook is used to know the current state of data loading, such as loading, idle, etc.
 
-       Syntax:-
+    Syntax:-
 
             import { useLoaderData } from "react-router-dom";
 
             const data = useLoaderData();
-
 
 7.  Dynamic Route Parameters:-
 
@@ -1296,7 +1286,7 @@ B.
 
     useParams(OLD React version below 6.4):- This hook is used to access dynamic route parameters from the URL when using through component call in the loader prop of the route.
 
-       Syntax:-
+    Syntax:-
 
            import { useParams } from "react-router-dom";
 
@@ -1339,7 +1329,7 @@ B.
     Dynamic routing is used to create routes based on data or user input. It allows you to create routes that can change at runtime.
 
         Syntax:-
-            
+
             In React Router, dynamic routing can be achieved by using route parameters in the path.
 
         e.g.
@@ -1357,11 +1347,11 @@ B.
              In this example, `:movieID` is a route dynamic parameter that can be accessed in the `getMoviesDataByParams` function by passing the `params` object as a prop.
 
               ```jsx
-                    export const getMoviesDataByParams = async ({ params }) => 
+                    export const getMoviesDataByParams = async ({ params }) =>
                     {
                            let movieID = params.movieID;
                            const data = await resp.json();
-                            
+
                             return data;
                     };
               ```
@@ -1382,7 +1372,7 @@ B.
                  Then, passing the {request} object as a prop to a function where the formData() function returns a response, which is then converted to an object format through object.fromEntries(), which is further used                 for processing array-like structure data to convert to object format.
 
                  ```jsx
-                       export const submitContactFormData = async ({ request }) => 
+                       export const submitContactFormData = async ({ request }) =>
                        {
                          try {
                                  const resp = await request.formData();
@@ -1408,57 +1398,57 @@ Extra Features of React:
 
 +++++++++++++++++++++++++++++++++++++++++
 
-1. AXIOS (Alternative to fetch()):-
-   AXIOS is a promise-based HTTP client for the browser and Node.js. It is used to make HTTP requests to APIs and handle responses.
+1.  AXIOS (Alternative to fetch()):-
+    AXIOS is a promise-based HTTP client for the browser and Node.js. It is used to make HTTP requests to APIs and handle responses.
 
-   Syntax:-
-      
-        To install AXIOS, use the following command in the terminal:
+    Syntax:-
 
-        ```jsx
-            npm install axios
-        ````
+         To install AXIOS, use the following command in the terminal:
 
-        Example of using AXIOS to make a GET request:
+         ```jsx
+             npm install axios
+         ````
 
-        ```jsx
-            
+         Example of using AXIOS to make a GET request:
+
+         ```jsx
+
+             import axios from "axios";
+
+             const fetchData = async () =>
+             {
+               try {
+                     const response = await axios.get("https://api.example.com/data");
+                     console.log(response.data);
+                   } catch (error) {
+                     console.error("Error fetching data:", error);
+                 }
+             };
+         ```
+
+    (
+    IMPORTANT:-
+
+         //This logic of using axios is followed in real scenarios in IT Companies for calling api's
+
             import axios from "axios";
 
-            const fetchData = async () => 
-            {
-              try {
-                    const response = await axios.get("https://api.example.com/data");
-                    console.log(response.data);
-                  } catch (error) {
-                    console.error("Error fetching data:", error);
-                }
-            };  
-        ```
+         // 1. Create a reusable Axios instance
 
-      ( 
-        IMPORTANT:-
+             const api = axios.create({ baseURL: "https://www.omdbapi.com/" });
 
-        //This logic of using axios is followed in real scenarios in IT Companies for calling api's
+         // 2. Define a function to fetch movie data
 
-           import axios from "axios";
+             export const getMovies = () =>
+             {
+                 let api_key = import.meta.env.VITE_MOVIES_API_KEY;
 
-        // 1. Create a reusable Axios instance
-            
-            const api = axios.create({ baseURL: "https://www.omdbapi.com/" });
+                 return api.get(`?i=tt3896198&apikey=${api_key}&s=titanic&page1`);
+             };
 
-        // 2. Define a function to fetch movie data
-            
-            export const getMovies = () => 
-            {
-                let api_key = import.meta.env.VITE_MOVIES_API_KEY;
+    )
 
-                return api.get(`?i=tt3896198&apikey=${api_key}&s=titanic&page1`);
-            };
-
-      )
-
-2. HTTP Method(CRUD Methods):-
+2.  HTTP Method(CRUD Methods):-
 
 2.1. POST(Create-C):-
 The POST method is used to send data to the server to create a new resource. It is commonly used for submitting forms or uploading files.
@@ -1538,7 +1528,7 @@ Syntax:-
       ```jsx
           import axios from "axios";
 
-          const deleteResource = async (id) => 
+          const deleteResource = async (id) =>
           {
             try {
                   const response = await axios.delete(`https://api.example.com/resources/${id}`);
@@ -1548,5 +1538,3 @@ Syntax:-
             }
           };
       ```
-
-

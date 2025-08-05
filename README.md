@@ -368,15 +368,29 @@ Practical Points:-
 
     Error: Adjacent JSX elements must be wrapped in an enclosing tag.
 
-4.  Every JSX tag needs to be closed. You can use self-closing tags for elements that don't have children
+4.  To avoid using a non-required < div > tag to combine multiple elements into one before returning JSX from the component function, and also to avoid DOM to create an unwanted < div > element.
+    Then comes the React concept of Fragments,
+
+    e.g.
+
+        const ComponentName=()=>
+        {
+          return(
+                  <>
+                    jsx multiple elements
+                  </>
+                );
+        }
+
+5.  Every JSX tag needs to be closed. You can use self-closing tags for elements that don't have children
 
     e.g.
 
         < img src="url"/ >
 
-5.  Working/Processing on Objects
+6.  Working/Processing on Objects
 
-    5.1. Destructuring Object Properties:-
+    6.1. Destructuring Object Properties:-
 
     Destructuring is a way to extract properties from an object and assign them to variables.
 
@@ -394,9 +408,9 @@ Practical Points:-
 
     ***
 
-    5.2. Spread Operator expand collection, array & object.
+    6.2. Spread Operator expand collection, array & object.
 
-    5.2.1 Collection or Array(Merge Element of same type in below case array1 & array2 is type array):-
+    6.2.1 Collection or Array(Merge Element of same type in below case array1 & array2 is type array):-
 
     e.g.
 
@@ -409,7 +423,7 @@ Practical Points:-
         console.log(mergearray1);           //["a","b","c","x"]
         console.log(mergearray12);          //["a","b","c","x","y","z"]
 
-    5.2.2 Object(Update Object Property):-
+    6.2.2 Object(Update Object Property):-
 
     e.g.
 
@@ -418,51 +432,37 @@ Practical Points:-
 
         console.log(obj1)  // {id:2,name:"b"}   //Expand object properties to update value of required property
 
-6.  Concept of dynamic variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX.
+7.  Concept of dynamic variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX.
 
-7.  Concept of logical variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX based on a Condition using Conditional Operators/Logic such as Ternary, IF-ELSE block, etc.
+8.  Concept of logical variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX based on a Condition using Conditional Operators/Logic such as Ternary, IF-ELSE block, etc.
 
-8.  Types of Component:- 2 Types of Component Declaration
+9.  Types of Component:- 2 Types of Component Declaration
 
-    8.1. Functional Component:- Modern ECMAScript ES6 way of declaring Component.
+    9.1. Functional Component:- Modern ECMAScript ES6 way of declaring Component.
 
-    8.2. Class Component:- Old way.
+    9.2. Class Component:- Old way.
 
-9.  Types of Functional Component:-
+10. Types of Functional Component:-
 
-    9.1. Default Functional Component :- In case of importing the Export Default component, then while importing any component name be used without curly braces.
+    10.1. Default Functional Component :- In case of importing the Export Default component, then while importing any component name be used without curly braces.
 
     e.g.
 
          import NetflixSeries from "./components/NetflixSeries";
          (Where export component name is NetflixSeries)
 
-    9.2. Named Functional Component :- In case of importing Export Named component, then while importing the same Component name to be used with curly braces.
+    10.2. Named Functional Component :- In case of importing Export Named component, then while importing the same Component name to be used with curly braces.
 
     e.g.
 
          import { NetflixSeries } from "./components/NetflixSeries";
          (Where export component name is NetflixSeries)
 
-10. Define/Use imported Components/Component from another JSX(ReactFrameworkApp.jsx) as below
+11. Define/Use imported Components/Component from another JSX(ReactFrameworkApp.jsx) as below
 
     e.g.
 
         < ReactApp / > (Component Name)
-
-11. To avoid using a non-required < div > tag to combine multiple elements into one before returning JSX from the component function, and also to avoid DOM to create an unwanted < div > element.
-    Then comes the React concept of Fragments,
-
-    e.g.
-
-        const ComponentName=()=>
-        {
-          return(
-                  <>
-                    jsx multiple elements
-                  </>
-                );
-        }
 
 12. To avoid rewriting/redundancy of the same code multiple times, create a single component and reuse it multiple times where required in the same JSX or another JSX
     (import component function from a particular JSX where the component function is defined).
@@ -474,8 +474,7 @@ Practical Points:-
     e.g.
 
         const users=[{ id: 1, name: "Alice", age: 25 },
-
-    { id: 2, name: "Bob", age: 35 }]
+                     { id: 2, name: "Bob", age: 35 }]
 
         14.1. map():- Used for looping in a collection or array.
         	e.g.
@@ -558,7 +557,7 @@ Practical Points:-
 
          style={cssModule["abc"]} OR style={cssModule["a-b-c"]} can be use commonly
 
-    18.5. Using Tailwind v4 CSS:-
+    18.5. Using Tailwind v4 CSS (Third Party):-
 
     18.5.1. Install through Terminal cmd:-
 
@@ -597,7 +596,9 @@ Practical Points:-
 
     )
 
-    18.6. Styled-Components:-
+19. Different Source of UI Controls :
+
+    19.1. Styled-Components (Third Party):-
     In styled-component, first need to install using the Terminal cmd
 
     e.g.
@@ -613,7 +614,7 @@ Practical Points:-
 
     2 ways to apply styled-components:-
 
-    18.6.1. Template Literals:-
+    19.1.1. Template Literals:-
 
     e.g.
 
@@ -621,7 +622,7 @@ Practical Points:-
 
             style.button --> button is a tag, eg p, h, button, span
 
-    18.6.2. Style Object:-
+    19.1.2. Style Object:-
 
     e.g.
 
@@ -633,54 +634,54 @@ Practical Points:-
 
     style.button --> button is a tag, eg p, h, button, span
 
-19. Custom Error:-
+20. Custom Error:-
     To show custom error message, use the below syntax
 
     e.g.
 
         let customError=new Error("Custom Error Message");
 
-20. Event Handler in JS, such as onClick, onChange, onSubmit, etc, which then call Syntactic Event Handler Function in React, should be written as a function name such as handleClick, handleChange,handleSubmit, etc
+21. Event Handler in JS, such as onClick, onChange, onSubmit, etc, which then call Syntactic Event Handler Function in React, should be written as a function name such as handleClick, handleChange,handleSubmit, etc
     This is known as the Syntactic Event Handler Function.
 
     Type Of Function:-
 
-    20.1. Named Function is only calling the function name, not the function.
+    21.1. Named Function is only calling the function name, not the function.
 
     e.g.
 
         onClick={handleButtonClick} (Not like this onClick={handleButtonClick()})
 
-    20.2. Arrow Function with event as parameter to get Syntactic Event object
+    21.2. Arrow Function with event as parameter to get Syntactic Event object
 
     e.g.
 
         onClick={(event)=>handleButtonClick(event)}
 
-    20.3. Inline Function With Syntactic Event Object
+    21.3. Inline Function With Syntactic Event Object
 
     e.g.
 
         onClick={(event) => console.log(event)}
 
-    20.4. Inline Arrow Normal Function
+    21.4. Inline Arrow Normal Function
 
     e.g.
 
         onClick={() =>{ console.log("Hi")}}
 
-    20.5. Arrow function passing parameters/arguments
+    21.5. Arrow function passing parameters/arguments
 
     e.g.
 
         onClick={(event) => handleButtonClick3(event, "User1")}
 
-21. Event Handler passing as props can be used in concepts such as Form Handling, User Interaction, State Management, and Callback Function.
+22. Event Handler passing as props can be used in concepts such as Form Handling, User Interaction, State Management, and Callback Function.
 
-22. Event Function is defined in Parent Component & passed as Props to Child Component, & then Child Component decides when to call Parent Component Event Function.
+23. Event Function is defined in Parent Component & passed as Props to Child Component, & then Child Component decides when to call Parent Component Event Function.
     So Parent Component pass Event Function as Props as Event Handler to the Child Component.
 
-23. Event Propagation, propagate means moving & Event Propagation means moving each element and the occurrence of the event until it reaches the target event.
+24. Event Propagation, propagate means moving & Event Propagation means moving each element and the occurrence of the event until it reaches the target event.
 
     Event Propagation has 3 components (Capture, Target & Bubbling)
 
@@ -701,29 +702,29 @@ Practical Points:-
 
     event.stopImmediatePropagation();
 
-24. States - useState Hook:-
+25. States - useState Hook:-
 
-    24.1. Values that need to be rendered in JSX code after update, then need to use the concept of State to maintain the value across multiple updates.
+    25.1. Values that need to be rendered in JSX code after update, then need to use the concept of State to maintain the value across multiple updates.
 
-    24.2. The state is made of 2 components, one is the State Variable, and another is the setter function that updates the State Variable.
+    25.2. The state is made of 2 components, one is the State Variable, and another is the setter function that updates the State Variable.
     e.g. const [state variable, setter function to set state variable] = useState(initial state variable value)
 
-    24.3. To maintain value on multiple renders of the JSX, the useState function concept comes in that sets the initial value in the State Variable.
+    25.3. To maintain value on multiple renders of the JSX, the useState function concept comes in that sets the initial value in the State Variable.
 
-    24.4. Any function that starts with the word 'use', then that function in React is known as a concept called hook function.
+    25.4. Any function that starts with the word 'use', then that function in React is known as a concept called hook function.
 
-    24.5. Component gets rendered when State Variables defined within it get updated, then all Child Components defined within it are also rendered.
+    25.5. Component gets rendered when State Variables defined within it get updated, then all Child Components defined within it are also rendered.
 
-25. Derived State means a variable value comes from a State Variable.
+26. Derived State means a variable value comes from a State Variable.
 
-26. LiftingStateUp means when the state is defined in children and the same is needed by children at the same node level,
+27. LiftingStateUp means when the state is defined in children and the same is needed by children at the same node level,
     so we need to move the state to its parent, where both children are calling. This can be done through passing a function as a prop to the child,
     where the value from the child is passed to the parent via the parent function passed as a prop to set the State in the parent.
     Then the same state is passed as a prop to another child that requires the same state value.
 
     That means State is common to multiple states at the same level of the child component.
 
-27. React Icons for icons image from multiple sources(Font Awesome icons, Material UI icons, etc) at one place
+28. React Icons for icons image from multiple sources(Font Awesome icons, Material UI icons, etc) at one place
     To access icons, first need to install using Terminal cmd
     eg bun install react-icons
 
@@ -737,23 +738,23 @@ Practical Points:-
 
     <IconComponentName style={{color:"blue"}}/>
 
-28. To store & retain any value on refresh of the browser without a database.
+29. To store & retain any value on refresh of the browser without a database.
 
     To set:- localStorage.setItem("keyname","data");
     To get:- localStorage.getItem("keyname");
 
-29. When any control is bound with a state variable(control is moving from uncontrolled to controlled). In React, most components are uncontrolled components by default unless their values are bound to a state variable..
+30. When any control is bound with a state variable(control is moving from uncontrolled to controlled). In React, most components are uncontrolled components by default unless their values are bound to a state variable..
 
     Controlled Data Hooks:- useState
 
     UnControlled Data Hooks:- useRefs
 
-30. The 'use' prefixes in a function name is all React Hooks.
+31. The 'use' prefixes in a function name is all React Hooks.
 
     2 Types Of Hooks:-
 
-    28.1. State Management:-
-    28.1.1 useState:- The useState hook, when the state variable value gets updated, it renders the components where it is defined.
+    31.1. State Management:-
+    31.1.1 useState:- The useState hook, when the state variable value gets updated, it renders the components where it is defined.
 
         Syntax:-
 
@@ -763,7 +764,7 @@ Practical Points:-
 
            State Variable/Initial State Variable Value  can store any type of value, such as {}-Object,[]-Array,""-String,1234-Number
 
-    28.1.2. useRefs:- The useRefs hook is used when control values are not tightly bound by any useState hook state variable, meaning an uncontrolled component.
+    31.1.2. useRefs:- The useRefs hook is used when control values are not tightly bound by any useState hook state variable, meaning an uncontrolled component.
     To work on an uncontrolled stateless form or component, then for storing uncontrolled control value useRefs hook is used.
     In vanilla JS, we are accessing the value of the control using the below syntax
 
@@ -788,7 +789,7 @@ Practical Points:-
         --Before React v19 release forwardRef function (props,ref)=>{} is used
         --After React v19 release, ref can be accessed as props.
 
-    28.1.3. useId:- useId hook returns uniqueid. Don't use it to generate an ID for each field, as it will violate the accessibility rule of the form.
+    31.1.3. useId:- useId hook returns uniqueid. Don't use it to generate an ID for each field, as it will violate the accessibility rule of the form.
 
         Syntax:-
 
@@ -796,7 +797,7 @@ Practical Points:-
 
           const uniqueid=useId();
 
-    28.1.4. useReducer:- This hook is similar to the useState hook, but for the entry value of each control, we have to create a separate useState hook.
+    31.1.4. useReducer:- This hook is similar to the useState hook, but for the entry value of each control, we have to create a separate useState hook.
     But useReducer provides an action parameter for the reducer function, so based on the action type, different state values can be returned instead of creating a separate function for each control, similar to the useState hook concept.
 
         Syntax:-
@@ -823,8 +824,8 @@ Practical Points:-
 
               For different actions.type property, can perform different logic and return a new state value of structure as of initStateValue
 
-    28.2. Logical:-
-    28.2.1. useEffect:- Secondary logic is performed based on changes that occur in dependencies, such as StateVariable value change.
+    31.2. Logical:-
+    31.2.1. useEffect:- Secondary logic is performed based on changes that occur in dependencies, such as StateVariable value change.
 
         Syntax:-
 
@@ -843,7 +844,7 @@ Practical Points:-
                       };
         		      }, [dependencies]);
 
-    28.2.2. useMemo:- This hook is used to skip unnecessary value re-calculation of value, if the value is already in cache, which will reduce the delay that occurs to a minimum in getting the actual result from other necessary components
+    31.2.2. useMemo:- This hook is used to skip unnecessary value re-calculation of value, if the value is already in cache, which will reduce the delay that occurs to a minimum in getting the actual result from other necessary components
 
     Syntax:- Syntax similar to the useEffect hook
 
@@ -881,7 +882,7 @@ Practical Points:-
         So when the CPUHighConsumptionLogic component is rendered, it will only calculate the sum once and cache the result.
         If the component is re-rendered, it will use the cached value instead of recalculating again as value is not changed, thus improving performance.
 
-    28.2.3. useCallBack:- This hook is used to skip unnecessary function re-execution if the value is already in cache, which will reduce the delay that occurs to a minimum in getting the actual result from other necessary components
+    31.2.3. useCallBack:- This hook is used to skip unnecessary function re-execution if the value is already in cache, which will reduce the delay that occurs to a minimum in getting the actual result from other necessary components
 
     Syntax:- Syntax similar to the useEffect hook
 
@@ -894,14 +895,14 @@ Practical Points:-
     So when the component is rendered, it will only calculate callBack function and cache the result.
     If the component is re-rendered, it will use the cached value instead of re-calling callBack again as value is not changed, thus improving performance.
 
-31. Prop Drilling:-
+32. Prop Drilling:-
     Passing Props through Source Component to subsequent child components until it reaches to the required destination component.
     To solve the above problems ContextAPI concept comes into the picture.
 
-32. ContextAPI: This concept helps in passing data to the required destination component directly without passing through subsequent components.
+33. ContextAPI: This concept helps in passing data to the required destination component directly without passing through subsequent components.
     ContextAPI is mainly used when a scenario of the same data is required by multiple child components.
 
-    30.1. createContext(Source Component):- Creates a Context object which acts like a Component.
+    33.1. createContext(Source Component):- Creates a Context object which acts like a Component.
 
     Syntax:-
     import { createContext } from "react";
@@ -912,7 +913,7 @@ Practical Points:-
 
     createContext objects act as a wholesaler that sells multiple products.
 
-    30.2. Provider:- It works as a component whose property of the Context object is created using createContext that provides the context value to its children.
+    33.2. Provider:- It works as a component whose property of the Context object is created using createContext that provides the context value to its children.
 
     e.g.//2nd Step
 
@@ -956,7 +957,7 @@ Practical Points:-
 
     Provider acts as Distributor/Delivery Person of the WholeSeller that takes a variety of Products and stores them in Tempo.
 
-    30.3. useContext(Consumer/Destination Component):- A hook that allows you to consume a context.
+    33.3. useContext(Consumer/Destination Component):- A hook that allows you to consume a context.
 
     Syntax:-
     import { useContext } from "react";
@@ -967,7 +968,7 @@ Practical Points:-
 
     useContext acts as a Consumer that uses the required Stored Product delivered by the Delivery Boy.
 
-33. Custom Hooks:- Requirement of custom hook is when we want to put multiple calls of the same React hooks into a created custom hook & then calling that custom hook to reduce the code of multiple calls to the same hooks.
+34. Custom Hooks:- Requirement of custom hook is when we want to put multiple calls of the same React hooks into a created custom hook & then calling that custom hook to reduce the code of multiple calls to the same hooks.
 
         Syntax:-
              const useCustomHook1=()=>{
@@ -975,10 +976,10 @@ Practical Points:-
                          	return hookObject;
                          }
 
-    31.1. All custom hooks can be prefixed with 'use' basic rule of hooks.
-    31.2. Custom hooks are created as a wrapper of the same React hook that is used multiple times in multiple components to avoid the DRY(Do Not Repeat Yourself) principle.
+    34.1. All custom hooks can be prefixed with 'use' basic rule of hooks.
+    34.2. Custom hooks are created as a wrapper of the same React hook that is used multiple times in multiple components to avoid the DRY(Do Not Repeat Yourself) principle.
 
-34. use Hook:- Is a replacement to the useContext hook, which has the limitation of defining at the top of the component, but the 'use' hook can be called within a condition, a looping logic, which gives more flexibility.
+35. use Hook:- Is a replacement to the useContext hook, which has the limitation of defining at the top of the component, but the 'use' hook can be called within a condition, a looping logic, which gives more flexibility.
 
     e.g.
 
@@ -992,7 +993,7 @@ Practical Points:-
     ({ myName, myAge } = use(BioContext));
     }
 
-35. Memo:-(HOC-Higher Order Component)-
+36. Memo:-(HOC-Higher Order Component)-
     Prevent unnecessary rendering of entire child component due to parent component rendering as child component is wrapped inside parent component
 
     Component inside Memo is only gets render when any of props value inside Component is change else it's skips Component from re-rendering.
@@ -1007,19 +1008,19 @@ Practical Points:-
 
                  export const Childcomponent=memo(()=>{return <>Child Component</>});
 
-36. Two Third Party API Access APIMethods:-
+37. Two Third Party API Access APIMethods:-
 
     Two ways to call and get data
 
-    34.1. fetch():-
+    37.1. fetch():-
 
-        34.1.1. Using Promises:-
+        37.1.1. Using Promises:-
 
           e.g.
 
                 fetch(url).then
 
-        34.1.2. Using async await mechanism
+        37.1.2. Using async await mechanism
 
           e.g.
 
@@ -1028,7 +1029,7 @@ Practical Points:-
                             const apiData=await fetch(url);
                 }
 
-    34.2. Axios():-(Better Then fetch() as it has more features and is more user-friendly)
+    37.2. Axios():-(Better Then fetch() as it has more features and is more user-friendly)
 
           Axios is promise-based HTTP client request/response handling library.It is third-party library not from React.
           That's why need to install axios.
@@ -1040,7 +1041,7 @@ Practical Points:-
             3. Built-in error handling.
             4. Supports old browsers.
 
-        34.2.1. First install axios
+        37.2.1. First install axios
 
           Syntax:-
 
@@ -1048,7 +1049,7 @@ Practical Points:-
 
               import axios from 'axios';
 
-        34.2.1.1. Axios Using Promises:-
+        37.2.1.1. Axios Using Promises:-
 
                   e.g.
 
@@ -1060,7 +1061,7 @@ Practical Points:-
                      2. Promise.allsettled
                      3. Promise.race
 
-        34.2.1.2. Axios Using async await mechanism
+        37.2.1.2. Axios Using async await mechanism
 
                   e.g.
 

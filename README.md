@@ -438,9 +438,9 @@ Practical Points:-
 
 9.  Types of Component:- 2 Types of Component Declaration
 
-    9.1. Functional Component:- Modern ECMAScript ES6 way of declaring Component.
+    9.1. Functional Component:-JS functions returning JSX. With Hooks, can manage state and effects.Preferred currently in projects.
 
-    9.2. Class Component:- Old way.
+    9.2. Class Component:- ES6 classes extending React.Component. Uses render method and state.Legacy projects only.
 
 10. Types of Functional Component:-
 
@@ -506,6 +506,10 @@ Practical Points:-
     (IMP:- As per ECMAScript (ES6) rule, if in an object structure like { Name: Name }, when key and value are the same, then define the object like this {Name})
 
 17. To pass HTML content as JSX/string within opening and closing component tags, then a special prop is used, denoted as children, to access those elements.
+
+    e.g.
+
+        const { children } = props;
 
 18. CSS Style- grid or flex-box. CSS always give it to the parent tag.
     Instead of defining a class prop for applying a CSS class, use the className prop.
@@ -754,7 +758,7 @@ Practical Points:-
     2 Types Of Hooks:-
 
     31.1. State Management:-
-    31.1.1 useState:- The useState hook, when the state variable value gets updated, it renders the components where it is defined.
+    31.1.1 useState(DOM element manipulation with re-rendering):- The useState hook, when the state variable value gets updated, it renders the components where it is defined.
 
         Syntax:-
 
@@ -764,7 +768,7 @@ Practical Points:-
 
            State Variable/Initial State Variable Value  can store any type of value, such as {}-Object,[]-Array,""-String,1234-Number
 
-    31.1.2. useRefs:- The useRefs hook is used when control values are not tightly bound by any useState hook state variable, meaning an uncontrolled component.
+    31.1.2. useRefs(DOM element manipulation without re-rendering):- The useRefs hook is used when control values are not tightly bound by any useState hook state variable, meaning an uncontrolled component.
     To work on an uncontrolled stateless form or component, then for storing uncontrolled control value useRefs hook is used.
     In vanilla JS, we are accessing the value of the control using the below syntax
 
@@ -832,7 +836,6 @@ Practical Points:-
            import { useEffect } from "react";
 
 
-
            useEffect(
 
                ()=>{
@@ -843,6 +846,11 @@ Practical Points:-
         			            //Cleanup code
                       };
         		      }, [dependencies]);
+
+
+        (Imp:- Cleanup Code execute
+                 1. When Component Unmount mean component does not render in JSX based on condition
+                 2. When dependencies changes useEffect re-render.)
 
     31.2.2. useMemo:- This hook is used to skip unnecessary value re-calculation of value, if the value is already in cache, which will reduce the delay that occurs to a minimum in getting the actual result from other necessary components
 

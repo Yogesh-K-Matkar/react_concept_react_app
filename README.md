@@ -1845,6 +1845,7 @@ Interview Question 2025:-
         }
 
         export default Counter;
+        ```
 
         Defines a reducer managing count state with 3 actions: increment, decrement, reset.
 
@@ -1854,12 +1855,403 @@ Interview Question 2025:-
 
     In summary, useReducer is a powerful hook for managing complex, action-driven state in React functional components, offering a clean and scalable way to handle state transitions through a reducer function and dispatched actions.
 
-    d. useContext
-    e. useMemo
-    f. useCallBack
-    g. useRef
+    1.4. useContext :- Enabling global or shared state to be accessed easily across deeply nested components without prop drilling
+
+    1.4.1 What is useContext?
+
+        A hook that reads and subscribes to a React Context.
+
+        It accepts a Context object created by React.createContext() and returns the current context value from the nearest matching Context Provider in the component tree.
+
+        If no Provider is found, it returns the default value passed to createContext.
+
+    1.4.2 Why use useContext?
+
+        To share data globally or across multiple components efficiently, avoiding the need to pass props through many component levels ("prop drilling").
+
+        To manage global state such as themes, authentication status, user settings, or any data that many components need.
+
+        To simplify component hierarchies by reducing the complexity and verbosity of passing props manually.
+
+        To ensure components automatically re-render when context values change.
+
+    1.4.3 How to use useContext?
+
+        Create a context with a default value using:
+
+        ```js
+        const MyContext = React.createContext(defaultValue);
+        ```
+
+        Wrap components that need access to the context with the <MyContext.Provider> and pass the value to share:
+
+        ```jsx
+        <MyContext.Provider value={someValue}>
+            <YourComponent />
+        </MyContext.Provider>
+        ```
+
+        Access context values in any functional component using the hook:
+
+        ```js
+        const value = useContext(MyContext);
+        ```
+
+        The component now consumes the shared context value and will update automatically when that value changes.
+
+    1.4.4 When to use useContext?
+
+        When you want to avoid prop drilling for values needed in many nested components.
+
+        When you need shared, global state or configuration like themes, authentication info, language settings, or user preferences.
+
+        When you want components to reactively update based on context changes.
+
+        When your data flow fits naturally into a provider-consumer pattern across your app or a subtree of components.
+
+        e.g
+
+        ```js
+        import React, { createContext, useContext, useState } from "react";
+
+        // Create a context with a default value
+        const UserContext = createContext("Guest");
+
+        function App() {
+        const [user, setUser] = useState("Jesse Hall");
+
+        return (
+            <UserContext.Provider value={user}>
+            <h1>Hello {user}!</h1>
+            <ComponentA />
+            </UserContext.Provider>
+        );
+        }
+
+        function ComponentA() {
+        return <ComponentB />;
+        }
+
+        function ComponentB() {
+        return <ComponentC />;
+        }
+
+        function ComponentC() {
+        const user = useContext(UserContext); // Consume context value here
+
+        return <h2>Welcome back, {user}!</h2>;
+        }
+        ```
+
+        Here, UserContext shares the user value globally.
+
+        ComponentC accesses the user value directly using useContext, without receiving it as props through intermediate components.
+
+        Changing user with setUser will cause all consuming components to update.
+
+    In summary:
+    What Hook to consume React Context values
+    Why To share and manage data globally without prop drilling
+    How CreateContext → Provider → useContext hook to consume
+    When For global/shared state like themes, auth, settings, etc.
+
+    The useContext hook is a fundamental tool for managing shared application states in React function components, providing an elegant and efficient pattern to deal with cross-component data communication.
+
+    1.5. useMemo :- Optimize performance by memoizing (caching) the result of expensive calculations so they don't have to be recomputed on every render unless their dependencies change.
+
+    1.5.1 What is useMemo?
+
+        useMemo is a built-in React Hook that takes two arguments: a function that computes a value, and a dependency array.
+
+        It returns a memoized value — the cached result of the computation — and recomputes it only when one or more dependencies change.
+
+        This avoids recomputing expensive calculations on every render, improving performance.
+
+        e.g
+
+        ```js
+        const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+        ```
+
+    1.5.2 Why use useMemo?
+    To avoid costly recalculations of values or functions on every render if inputs haven’t changed.
+
+        To prevent unnecessary rendering or complex computations that slow down UI responsiveness.
+
+        To improve performance especially in components with heavy computations or many child components.
+
+        Helps you write more efficient, declarative functional components without manually caching values.
+
+    1.5.3 How to use useMemo?
+
+        Import useMemo from React:
+
+        ```js
+        import React, { useMemo } from 'react';
+        ```
+
+        Inside your functional component, call useMemo, passing a function returning the computed value and a dependency array:
+
+        ```js
+        const memoizedResult = useMemo(() => {
+        // Expensive computation here
+        return expensiveFunction(data);
+        }, [data]); // Only recompute if 'data' changes
+        ```
+
+        Use memoizedResult in your component JSX or logic.
+
+        React will reuse the cached memoizedResult on renders where dependencies do not change.
+
+    1.5.4 When to use useMemo?
+    When you have expensive calculations or operations that don’t need to run on every render.
+
+        To memoize derived data or computed values used in rendering.
+
+        To avoid unnecessary re-renders of child components by memoizing props or values passed.
+
+        In rendering lists with complex sorting, filtering, or computations.
+
+        When you want to optimize performance-critical UI components.
+
+        e.g
+
+        ```js
+        import React, { useState, useMemo } from 'react';
+
+        function ExpensiveCalculation({ number }) {
+            const factorial = useMemo(() => {
+                function factorialOf(n) {
+                    return n <= 1 ? 1 : n * factorialOf(n - 1);
+                }
+                console.log('Computing factorial...');
+                return factorialOf(number);
+            }, [number]);
+
+            return (
+                <div>
+                <p>Factorial of {number} is {factorial}</p>
+                </div>
+            );
+        }
+
+        export default function App() {
+            const [count, setCount] = useState(5);
+
+            return (
+                <>
+                <ExpensiveCalculation number={count} />
+                <button onClick={() => setCount(count + 1)}>Increment</button>
+                </>
+            );
+        }
+        ```
+
+        The factorial is recalculated only if number changes.
+
+        Clicking the button renders the component but the expensive factorial calculation runs only when needed.
+
+    Summary:
+    What A React hook that memoizes expensive calculations
+    Why To optimize rendering performance by caching results
+    How Pass a function and dependency array to useMemo
+    When When you want to avoid recomputing values unless deps change
+
+    useMemo improves efficiency by caching and reusing computational results and is particularly useful for performance optimization in React functional components.
+
+    1.6. useCallBack :- Built-in hook that memoizes a callback function and returns the same function instance between renders unless its dependencies change. This helps optimize React components by preventing unnecessary re-creations of functions and avoids unwanted re-renders in child components that receive these callbacks as props.
+
+    1.6.1 What is useCallback?
+
+        A React hook that takes a function and a dependency array, and returns a memoized version of the function that only changes if the dependencies change.
+
+        It preserves the same function reference across renders if dependencies are unchanged.
+
+        Helps maintain referential integrity of callback functions between renders.
+
+    1.6.2 Why use useCallback?
+
+        In React, new callback function instances are created on every render by default, which breaks referential equality.
+
+        Passing these new functions as props to child components can cause unnecessary re-renders, even if nothing meaningful changed.
+
+        Memoizing callbacks with useCallback prevents these unnecessary re-renders, improving app performance.
+
+        It's especially useful when passing callback props to optimized child components wrapped in React.memo or similar.
+
+    1.6.3 How to use useCallback?
+
+        Import useCallback from React.
+
+        Wrap your callback function with useCallback, passing a dependency array:
+
+        ```js
+        const memoizedCallback = useCallback(() => {
+        // function logic here
+        }, [dependencies]);
+        ```
+
+        Use this memoized callback in your component or pass it as props to children.
+
+        The callback will only be recreated if dependencies change, otherwise the same function reference is reused.
+
+    1.6.4 When to use useCallback?
+
+        When passing callback functions to child components that rely on reference equality to avoid unnecessary re-renders.
+
+        For event handlers and any functions created inside functional components that would otherwise be recreated each render.
+
+        When optimizing performance in larger or complex React apps where re-rendering costs are significant.
+
+        To improve performance in components wrapped with React.memo or custom shouldComponentUpdate logic.
+
+        e.g
+
+        ```js
+        import React, { useState, useCallback } from 'react';
+
+        function Parent() {
+            const [count, setCount] = useState(0);
+
+            // Memoize callback to prevent its recreation unless 'count' changes
+            const increment = useCallback(() => {
+                setCount(c => c + 1);
+            }, []);
+
+            return (
+                <>
+                <Child onClick={increment} />
+                <p>Count: {count}</p>
+                </>
+            );
+        }
+
+        const Child = React.memo(({ onClick }) => {
+            console.log("Child rendered");
+            return <button onClick={onClick}>Increment</button>;
+        });
+        ```
+
+        Without useCallback, the onClick function would be a new instance every render, causing Child to re-render.
+
+        With useCallback, the same function instance is passed, so Child only re-renders when necessary.
+
+    Summary:
+    What Hook that memoizes a function, returning the same function instance unless dependencies change
+    Why To optimize performance, preventing unnecessary re-creation of functions and re-renders
+    How Wrap callback function inside useCallback with dependency array
+    When When passing callbacks to children, especially optimized components needing stable references
+
+    This hook is essential for optimizing performance in React applications by reducing unnecessary renders related to function references.
+
+    1.7 useRef :- Built-in hook that provides a way to create a mutable reference object whose .current property persists across component re-renders without causing the component to re-render when updated.
+
+        1.7.1 What is useRef?
+
+            useRef returns a mutable ref object with the shape { current: initialValue }.
+
+            The ref object is persistent for the lifetime of the component instance.
+
+            It allows you to hold onto mutable values that do not trigger re-render when changed.
+
+            It can also be used to directly reference and interact with DOM elements.
+
+        1.7.2 Why use useRef?
+
+            Accessing DOM elements directly: To manipulate input fields, focus elements, scroll positions, or perform animations imperatively.
+
+            Persisting mutable values: Store values across renders (like timers, previous state values, or any mutable data) without triggering re-render.
+
+            Avoiding re-renders: Unlike state, updating a ref does not cause the component to render again, which is useful for performance optimizations.
+
+            Storing previous values: Useful for tracking previous state or props without causing additional renders.
+
+        1.7.4 How to use useRef?
+
+            Import useRef from React:
+
+            ```js
+            import { useRef } from 'react';
+            ```
+
+            Create a ref inside your component with an initial value:
+
+            ```js
+            const myRef = useRef(initialValue);
+            ```
+
+            For DOM access, attach the ref to a JSX element:
+
+            ```jsx
+            <input ref={myRef} />
+            ```
+
+            Access or mutate the ref's current value:
+
+            ```js
+            myRef.current // to read
+            myRef.current = newValue // to update
+            ```
+
+            Use it in event handlers or effects to manipulate elements or values:
+
+            ```js
+            const handleClick = () => {
+                myRef.current.focus();
+            }
+            ```
+
+        1.7.4 When to use useRef?
+
+            When you need to access or manipulate a DOM element directly (e.g., focusing an input, measuring size).
+
+            To persist mutable values across renders without causing re-renders (like timers or previous state values).
+
+            If you want to store values that need to survive across renders but don't affect the UI.
+
+            When you want to track previous props or state values without triggering an update cycle.
+
+            To avoid unnecessary state updates and improve performance in certain scenarios.
+
+            e.g useRef for DOM access:
+
+            ```js
+            import React, { useRef } from 'react';
+
+            function TextInput() {
+                const inputRef = useRef(null);
+
+                const focusInput = () => {
+                    inputRef.current.focus();  // Imperatively focus the input
+                };
+
+                return (
+                    <div>
+                    <input ref={inputRef} type="text" placeholder="Click button to focus me" />
+                    <button onClick={focusInput}>Focus Input</button>
+                    </div>
+                );
+            }
+
+            export default TextInput;
+            ```
+
+            Here, inputRef points to the DOM <input> element.
+
+            Clicking the button calls focusInput which focuses the input directly.
+
+            No re-render is triggered when inputRef.current is mutated.
+
+    Summary:
+    What React hook to create a mutable ref object persisting across renders without causing re-render
+    Why To access DOM nodes/imperatively manipulate them, or hold mutable values between renders efficiently
+    How Declare with useRef(initialValue), attach to JSX ref attribute, modify/read .current property
+    When Access DOM elements, store mutable non-rendering state, avoid performance costs, track previous values
+    This hook is essential for any interaction where direct DOM manipulation or persistent mutable values are required without triggering renders, optimizing React functional components.
 
 2.  HOC(Higher Order Component):- It is design pattern.
+
+    ![alt text](HOC.png)
 
     2.1 What is an HOC?
     An HOC is a function that accepts a component and returns a new component that wraps the original one, providing additional props, behavior, or side effects.

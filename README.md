@@ -2365,3 +2365,16 @@ Interview Question 2025:-
         Unmounting: Cleanup before component is removed.
 
     This lifecycle system allows controlled handling of side effects and efficient updates in React applications.
+
+4.  State Management Concepts:-
+
+    4.1 State
+    4.2 Props
+    4.3 Prop Drilling
+    4.4 ShitingUp State,Function
+
+5.  Redux / Zustand :-
+
+    5.1 Redux(RTK) :-
+
+    5.2 Zustand(Newer Concept) :-

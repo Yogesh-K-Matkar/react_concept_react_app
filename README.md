@@ -357,7 +357,7 @@ B.2. Pull Request :-
 
 Practical Points:-
 
-1.  DOM Reconciliation:  
+1.  DOM Reconciliation / Diffing Algorithm:  
     React uses a Virtual DOM to efficiently update the UI. When a component's state changes, React creates a new Virtual DOM tree by Babel and compares it with the previous one to determine the minimal set of changes needed to update the actual DOM.
 
 2.  JSX code render 2 time during development due to React.StrictMode tag, which is then removed when the code is published.
@@ -1547,3 +1547,375 @@ Syntax:-
             }
           };
       ```
+
++++++++++++++++++++++++++++++++++++++++++++
+YouTube:- Top 12 React Interview Questions 🔥 for Freshers & Experienced | Preparation 2025 🚀
+
+Interview Question 2025:-
+
+1.  Hooks:-(Sequence Follow)
+
+    1.1. useState :- Manage state (data that changes over time and affects rendering)
+
+    1.1.1 What is useState?
+
+        A hook that lets you add state to functional components.
+
+        It returns an array with two elements: the current state value and a function to update it.
+
+        Syntax:
+
+                ```js
+                const [state, setState] = useState(initialValue);
+                ```
+
+        Here, state is the current value, and setState is the function to update it
+
+    1.1.2 Why use useState?
+
+        To manage local component data that changes dynamically, such as input fields, counters, toggles, and more.
+
+        It triggers React to re-render the component when the state changes, ensuring the UI stays updated automatically.
+
+        It simplifies state management in functional components, which traditionally did not support state before hooks.
+
+    1.1.3 How to use useState?
+
+        Import useState from React:
+
+        ```js
+        import { useState } from 'react';
+        ```
+        Declare a state variable and an updater function inside your component:
+
+        ```js
+        const [count, setCount] = useState(0);
+        ```
+        Use the state variable in your JSX to reflect current state:
+
+        ```jsx
+        <p>{count}</p>
+        ```
+        Call the updater function to change the state and trigger UI updates:
+
+        ```js
+        setCount(count + 1);
+        ```
+        React will re-render the component with the new state value.
+
+    1.1.4 When to use useState?
+
+        When you need to track and update data that changes over time in a component, such as form input, toggles, counters, fetched data flags, or UI visibility.
+
+        For local state management inside a single component.
+
+        To replace class component state management with a simpler, function-based API.
+
+        When you want your component to re-render in response to state changes.
+
+        e.g
+
+        ```js
+        import React, { useState } from "react";
+
+        function Counter() {
+        const [count, setCount] = useState(0);
+
+        return (
+            <div>
+            <p>You clicked {count} times</p>
+            <button onClick={() => setCount(count + 1)}>Click me</button>
+            </div>
+        );
+        }
+        ```
+
+        Initializes count to 0.
+
+        Updates count on button click and re-renders text with new count.
+
+    In summary, useState is the fundamental way to add and manage state in React functional components. It enables reactivity and interactive UI updates by preserving component state across renders and triggering re-renders when state changes occur.
+
+    1.2. useEffect :- Side effects functionality (data fetching, DOM manipulation, setting up subscriptions, or timers) which normally occur outside the rendering process.
+
+    1.2.1 What is useEffect?
+    It is a hook that runs side-effect code after React has updated the DOM.
+
+        You provide it with a callback function containing the side effect logic.
+
+        It can optionally take a dependency array, which controls when the effect runs.
+
+        Syntax:
+
+        ```js
+        useEffect(() => {
+        // side effect logic
+        return () => {
+            // optional cleanup logic
+        };
+        }, [dependencies]);
+        ```
+
+    1.2.2 Why use useEffect?
+    To handle operations that do not directly affect rendering but need to happen as a result of renders, like:
+
+        Fetching data from APIs.
+
+        Direct DOM updates.
+
+        Setting up event listeners or subscriptions.
+
+        Running timers.
+
+        It replaces lifecycle methods like componentDidMount, componentDidUpdate, and componentWillUnmount used in class components.
+
+        Allows separation of side effects from UI rendering logic in functional components.
+
+        React guarantees effects run after the DOM updates, ensuring you operate on the latest UI.
+
+    1.2.3 How to use useEffect?
+
+        Import it from React:
+
+        ```js
+        import React, { useEffect } from 'react';
+        ```
+        Use it inside a functional component:
+
+        ```js
+        useEffect(() => {
+        // side effect logic here
+        // e.g., fetch data, update document title
+        return () => {
+            // cleanup logic here (optional)
+        };
+        }, [dependencies]); // dependency array controls when effect runs
+        ```
+
+        The effect runs:
+
+        After initial render if dependencies array is empty.
+
+        After every render if dependencies are omitted.
+
+        Only when dependencies change if dependencies array is specified.
+
+    1.2.4 When to use useEffect?
+
+        For any operation that requires interacting with external systems or APIs after rendering.
+
+        When you want to:
+
+        Fetch or update data asynchronously after render.
+
+        Set up and clean up subscriptions or event listeners.
+
+        Perform direct DOM updates or side effects not handled by React rendering.
+
+        Manage timers or intervals.
+
+        Whenever you need to replicate lifecycle methods behavior in functional components.
+
+        To re-run side effects conditionally based on changes in state or props by specifying dependencies.
+
+        e.g
+
+        ```js
+        import React, { useState, useEffect } from 'react';
+
+        function Counter() {
+        const [count, setCount] = useState(0);
+
+        useEffect(() => {
+            document.title = `You clicked ${count} times`;
+        }, [count]); // run effect only when count changes
+
+        return (
+            <div>
+            <p>You clicked {count} times</p>
+            <button onClick={() => setCount(count + 1)}>Click me</button>
+            </div>
+        );
+        }
+        ```
+
+        The effect updates the document title after every render where count changes.
+
+        If you omit [count], it would update after every render.
+
+        Passing an empty array [] would run it only once after the initial render.
+
+    Summary:
+    What: useEffect runs side effects in functional components.
+    Why: To handle effects that need to interact with external systems after rendering.
+    How: Provide a callback inside useEffect, optionally include dependencies to control execution.
+    When: Use it whenever you need to handle asynchronous work, subscriptions, or DOM updates that depend on state or props.
+
+    1.3. useReducer :- Centralizing state updates through a reducer function
+
+    1.3.1 What is useReducer?
+
+        A React hook that takes two arguments: a reducer function and an initial state value.
+
+        Returns an array with two elements: the current state and a dispatch function to send actions signaling how to update the state.
+
+        The reducer function accepts the current state and an action object and returns the new updated state based on the action type.
+
+        This pattern is inspired by Redux reducers but built into React for local state management.
+
+    1.3.2 Why use useReducer?
+
+        To manage complex state logic that involves multiple sub-values or when state changes depend on previous state values.
+
+        When you want more predictable state transitions by centralizing changes in a reducer function rather than spreading update logic throughout the component.
+
+        Helps improve readability and maintainability by separating state transition logic from component UI code.
+
+        Useful in scenarios where state updates are triggered by different action types (e.g., increment, decrement, reset).
+
+        Offers an alternative to useState when you need to perform multiple state updates in a structured way.
+
+    1.3.3 How to use useReducer?
+
+        Define a reducer function with signature (state, action):
+
+        Use a switch or if statements on action.type to determine state transformations.
+
+        Declare an initial state (can be primitive or an object).
+
+        Inside your functional component, call:
+
+        ```js
+        const [state, dispatch] = useReducer(reducer, initialState);
+        ```
+
+        Use state in your UI.
+
+        Trigger state updates by calling dispatch with actions:
+
+        ```js
+        dispatch({ type: 'ACTION_TYPE', payload: value });
+        ```
+
+    1.3.4 When to use useReducer?
+    When your component state logic is too complex for useState, especially if it involves multiple related values or complex updates.
+
+        When you want to consolidate state update logic into a pure reducer function.
+
+        When your state updates depend on the previous state.
+
+        When you want to build a state machine-like flow or handle multiple discrete actions that update the state differently.
+
+        Useful in forms, game states, or lists requiring add, remove, toggle operations.
+
+        When you want to have a more Redux-like state management pattern without adding external libraries.
+
+        e.g
+
+        ```js
+        import React, { useReducer } from 'react';
+
+        const initialState = { count: 0 };
+
+        const reducer = (state, action) => {
+
+            switch (action.type) {
+                case 'increment':
+                return { count: state.count + 1 };
+                case 'decrement':
+                return { count: state.count - 1 };
+                case 'reset':
+                return { count: 0 };
+                default:
+                return state;
+            }
+        };
+
+        function Counter() {
+            const [state, dispatch] = useReducer(reducer, initialState);
+
+            return (
+                <div>
+                <p>Count: {state.count}</p>
+                <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>
+                <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>
+                <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
+                </div>
+            );
+        }
+
+        export default Counter;
+
+        Defines a reducer managing count state with 3 actions: increment, decrement, reset.
+
+        dispatch triggers state changes routed through the reducer.
+
+        This clearly separates state logic from UI.
+
+    In summary, useReducer is a powerful hook for managing complex, action-driven state in React functional components, offering a clean and scalable way to handle state transitions through a reducer function and dispatched actions.
+
+    d. useContext
+    e. useMemo
+    f. useCallBack
+    g. useRef
+
+2.  HOC(Higher Order Component):- It is design pattern.
+
+    2.1 What is an HOC?
+    An HOC is a function that accepts a component and returns a new component that wraps the original one, providing additional props, behavior, or side effects.
+
+         It is not part of React’s core API but a pattern based on React's compositional nature.
+
+    2.2 Why Use HOCs?
+
+        2.2.1 Code Reusability:
+
+        HOCs enable sharing common logic (e.g., authentication, data fetching) across multiple components without repeating code.
+
+             2.2.2 Separation of Concerns: They help separate the UI rendering from logic or side effects, improving code organization and maintainability.
+
+            2.2.3 Cleaner Components: Components remain focused on UI, while HOCs handle behavior, making both easier to manage.
+
+            2.2.4 Improved Testing: You can isolate logic in HOCs and test them separately.
+
+            2.2.5 Scalability: HOCs simplify adding or modifying shared behavior as the app grows.
+
+            2.2.6 Third-Party Integration: They help inject functionalities like theming, analytics, or API integration uniformly across components.
+
+    2.3 How to Use HOCs?
+
+    Define the HOC: Write a function that takes a component as argument and returns a new component wrapping it.
+
+    Add logic or props: Inside the new component, introduce additional logic, state, or props as needed.
+
+    Return the wrapped component: Render the original component with new or modified props.
+
+    Apply the HOC: Wrap your original component by calling the HOC function with it and use the enhanced component in your app.
+
+        e.g.
+
+        import React from 'react';
+
+        // HOC defined as an arrow function
+        const withGreeting = (WrappedComponent) => (props) => {
+             // This HOC adds a new prop 'greeting' to the wrapped component
+             return <WrappedComponent {...props} greeting="Hello from HOC!" />;
+        };
+
+        // Simple component that expects a `greeting` prop
+        const DisplayMessage = ({ greeting }) => <h1>{greeting}</h1>;
+
+        // Enhance the DisplayMessage component using the HOC
+        const EnhancedDisplayMessage = withGreeting(DisplayMessage);
+
+        export default EnhancedDisplayMessage;
+
+    2.4 When to Use HOCs?
+
+    To reuse cross-cutting concerns like authentication, authorization, data fetching, error handling, theming, or logging across many components.
+
+    When you want to abstract and isolate complex or repetitive logic away from presentational components.
+
+    To enhance existing components with additional features without changing their implementation.
+
+    When you need to compose multiple behaviors in a clean and scalable manner.

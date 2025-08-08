@@ -2251,8 +2251,6 @@ Interview Question 2025:-
 
 2.  HOC(Higher Order Component):- It is design pattern.
 
-    ![alt text](HOC.png)
-
     2.1 What is an HOC?
     An HOC is a function that accepts a component and returns a new component that wraps the original one, providing additional props, behavior, or side effects.
 
@@ -2311,3 +2309,59 @@ Interview Question 2025:-
     To enhance existing components with additional features without changing their implementation.
 
     When you need to compose multiple behaviors in a clean and scalable manner.
+
+3.  Life-Cycle Of Component:-
+
+    3.1 Class Component:-
+
+    ![Lifecycle](public/images/ComponentLifecycle.png)
+
+         The lifecycle of a React component broadly consists of three main phases: Mounting, Updating, and Unmounting, each representing a different stage in the component's existence and offering lifecycle methods to hook into its behavior.
+
+         3.1.1 Mounting Phase
+
+                This phase occurs when a component is first created and inserted into the DOM. It involves initial setup and rendering.
+
+                constructor(props): Initializes state and binds event handlers (only in class components).
+
+                static getDerivedStateFromProps(props, state): Sync state to props before rendering.
+
+                render(): Returns the JSX to build the UI.
+
+                componentDidMount(): Runs after the component is mounted to the DOM, useful for side effects like data fetching or setting up subscriptions.
+
+         3.1.2 Updating Phase
+
+                This happens whenever the component's props or state change, triggering a re-render.
+
+                static getDerivedStateFromProps(props, state): Called during updates to sync state to new props.
+
+                shouldComponentUpdate(nextProps, nextState): Determines if component should re-render (returning false skips update).
+
+                render(): Re-renders the component.
+
+                getSnapshotBeforeUpdate(prevProps, prevState): Captures information before DOM updates (e.g., scroll position).
+
+                componentDidUpdate(prevProps, prevState, snapshot): Runs after updates, suitable for DOM operations or fetching new data.
+
+         3.1.3. Unmounting Phase
+
+                This phase occurs when the component is removed from the DOM and is used for cleanup.
+
+                componentWillUnmount(): Called right before the component is removed, where you can clear timers, cancel network requests, or remove event listeners.
+
+    3.2 For Functional Components
+
+        Functional components do not have these explicit lifecycle methods but achieve similar effects using React Hooks:
+
+                useEffect hook replaces componentDidMount, componentDidUpdate, and componentWillUnmount. You can specify when the effect runs and perform cleanup by returning a cleanup function.
+
+    Summary
+
+    Lifecycle overview
+
+        Mounting: Component sets up, renders UI.
+        Updating: Triggered by prop or state changes.
+        Unmounting: Cleanup before component is removed.
+
+    This lifecycle system allows controlled handling of side effects and efficient updates in React applications.

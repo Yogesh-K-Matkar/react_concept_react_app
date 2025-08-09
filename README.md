@@ -2375,6 +2375,99 @@ Interview Question 2025:-
 
 5.  Redux / Zustand :-
 
-    5.1 Redux(RTK) :-
+    5.1 Redux(RTK) :- Managing global state in React applications using Redux because it streamlines setup, eliminates boilerplate, and enforces best practices
 
-    5.2 Zustand(Newer Concept) :-
+    5.1.1 What is Redux Toolkit?
+
+        It is a set of utilities that simplify Redux usage by automating common tasks, such as store setup and state immutability, and include features like createSlice, configureStore, and advanced async support.
+
+        It is the default way to write Redux logic for modern React apps.
+
+    5.1.2 Why use Redux Toolkit?
+
+        Reduces Boilerplate: Automates creation of actions, reducers, and even async logic, drastically reducing overlap versus plain Redux.
+
+        Best Practices: Implements suggested Redux patterns by default (middleware, DevTools, immutability), so you avoid common bugs and mistakes.
+
+        Better Productivity: Shortens setup and coding time, enabling you to focus on application logic rather than configuration details.
+
+        Advanced Features: Includes tools like RTK Query for efficient server state caching, createAsyncThunk for handling async logic, and support for code splitting and TypeScript.
+
+    5.1.3 How to use Redux Toolkit in React?
+
+        Install Dependencies
+
+            ```js   
+            npm install @reduxjs/toolkit react-redux
+            ```
+
+        Create a Redux Slice
+
+        Use createSlice to generate actions and reducers for a part of your state.
+
+            ```js
+            import { createSlice } from '@reduxjs/toolkit';
+        
+
+            const counterSlice = createSlice({
+            name: 'counter',
+            initialState: { value: 0 },
+            reducers: {
+                increment: state => { state.value += 1 },
+                decrement: state => { state.value -= 1 }
+            }
+            });
+
+            export const { increment, decrement } = counterSlice.actions;
+            export default counterSlice.reducer;
+            ```
+            
+        Configure the Store
+
+        Use configureStore (not createStore).
+
+            ```js
+            import { configureStore } from '@reduxjs/toolkit';
+            import counterReducer from './counterSlice';
+
+            export const store = configureStore({
+                reducer: { counter: counterReducer }
+            });
+            ```
+        
+        Provide the Store
+
+        Use <Provider store={store}> to wrap your app.
+
+        Use Hooks in Components
+
+        Use useSelector to access state and useDispatch to send actions.
+
+            ```js
+            import { useSelector, useDispatch } from 'react-redux';
+
+            const count = useSelector(state => state.counter.value);
+            const dispatch = useDispatch();
+
+            dispatch(increment());
+            ```
+    5.1.4 When to use Redux Toolkit in React?
+
+        Use Redux Toolkit when:
+
+        Your app has complex state across many components and manual prop drilling is unwieldy.
+
+        You need predictable state management, debugging/tracing, and scale.
+
+        You want to simplify Redux code and avoid manual setup and mistakes.
+
+        If your app’s state is very simple and local, or your project does not require global state, Redux and Redux Toolkit may be unnecessary.
+
+    Summary 
+    What	Official toolset for Redux in React
+    Why	Eliminates boilerplate, enforces best practices
+    How	Install, createSlice, configureStore, hooks
+    When	Complex/global state, scalable needs
+    For real projects, always use Redux Toolkit instead of traditional Redux for improved code quality, maintainability, and developer productivity.
+
+    5.2 Zustand (Newer Concept) :- 

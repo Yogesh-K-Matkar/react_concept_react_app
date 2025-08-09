@@ -353,14 +353,30 @@ B.2. Pull Request :-
 
         git pull origin main
 
-+++++++++++++++++++++++++++++++
-
-Practical Points:-
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# ReactJS Concepts:-
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 1.  DOM Reconciliation / Diffing Algorithm:  
     React uses a Virtual DOM to efficiently update the UI. When a component's state changes, React creates a new Virtual DOM tree by Babel and compares it with the previous one to determine the minimal set of changes needed to update the actual DOM.
 
-2.  JSX code render 2 time during development due to React.StrictMode tag, which is then removed when the code is published.
+2.  React.StrictMode:-
+    It is a tool for highlighting potential problems in an application. It activates additional checks and warnings for its descendants.
+
+    It does not render any visible UI. It activates additional checks and warnings for its descendants.
+
+    It helps to identify components with unsafe life-cycles, legacy API usage, and other side effects.
+
+    Syntax:- Wrap the entire application with <React.StrictMode> tag
+
+    Syntax:
+
+        ```js
+        import React from 'react';
+        <React.StrictMode>
+            <App />
+        </React.StrictMode>
+        ```
 
 3.  Each JSX element/expression must combine/enclosed using one parent JSX element, which means if you try to return multiple elements
 
@@ -438,24 +454,69 @@ Practical Points:-
 
 9.  Types of Component:- 2 Types of Component Declaration
 
-    9.1. Functional Component:-JS functions returning JSX. With Hooks, can manage state and effects.Preferred currently in projects.
+    
+    9.1. Class Component:- ES6 classes extending React.Component. Uses render method and state.Legacy projects only.
 
-    9.2. Class Component:- ES6 classes extending React.Component. Uses render method and state.Legacy projects only.
+        ![Lifecycle](public/images/ComponentLifecycle.png)
 
+         Lifecycle:- Three main phases:  
+
+         9.1.1 Mounting Phase
+
+                This phase occurs when a component is first created and inserted into the DOM. It involves initial setup and rendering.
+
+                constructor(props): Initializes state and binds event handlers (only in class components).
+
+                static getDerivedStateFromProps(props, state): Sync state to props before rendering.
+
+                render(): Returns the JSX to build the UI.
+
+                componentDidMount(): Runs after the component is mounted to the DOM, useful for side effects like data fetching or setting up subscriptions.
+
+         9.1.2 Updating Phase
+
+                This happens whenever the component's props or state change, triggering a re-render.
+
+                static getDerivedStateFromProps(props, state): Called during updates to sync state to new props.
+
+                shouldComponentUpdate(nextProps, nextState): Determines if component should re-render (returning false skips update).
+
+                render(): Re-renders the component.
+
+                getSnapshotBeforeUpdate(prevProps, prevState): Captures information before DOM updates (e.g., scroll position).
+
+                componentDidUpdate(prevProps, prevState, snapshot): Runs after updates, suitable for DOM operations or fetching new data.
+
+         9.1.3 Unmounting Phase
+
+                This phase occurs when the component is removed from the DOM and is used for cleanup.
+
+                componentWillUnmount(): Called right before the component is removed, where you can clear timers, cancel network requests, or remove event listeners.
+
+    9.2. Functional Component:-JS functions returning JSX. With Hooks, can manage state and effects.Preferred currently in projects.
+
+         Functional components do not have these explicit lifecycle methods but achieve similar effects using React Hooks:
+
+        useEffect hook replaces componentDidMount, componentDidUpdate, and componentWillUnmount. You can specify when the effect runs and perform cleanup by returning a cleanup function.
+   
 10. Types of Functional Component:-
 
     10.1. Default Functional Component :- In case of importing the Export Default component, then while importing any component name be used without curly braces.
 
-    e.g.
+    Syntax:
 
+         ```js
          import NetflixSeries from "./components/NetflixSeries";
+         ```
          (Where export component name is NetflixSeries)
 
     10.2. Named Functional Component :- In case of importing Export Named component, then while importing the same Component name to be used with curly braces.
 
-    e.g.
+    Syntax:
 
+         ```js
          import { NetflixSeries } from "./components/NetflixSeries";
+         ```
          (Where export component name is NetflixSeries)
 
 11. Define/Use imported Components/Component from another JSX(ReactFrameworkApp.jsx) as below
@@ -706,29 +767,16 @@ Practical Points:-
 
     event.stopImmediatePropagation();
 
-25. States - useState Hook:-
+25. Derived State means a variable value comes from a State Variable.
 
-    25.1. Values that need to be rendered in JSX code after update, then need to use the concept of State to maintain the value across multiple updates.
-
-    25.2. The state is made of 2 components, one is the State Variable, and another is the setter function that updates the State Variable.
-    e.g. const [state variable, setter function to set state variable] = useState(initial state variable value)
-
-    25.3. To maintain value on multiple renders of the JSX, the useState function concept comes in that sets the initial value in the State Variable.
-
-    25.4. Any function that starts with the word 'use', then that function in React is known as a concept called hook function.
-
-    25.5. Component gets rendered when State Variables defined within it get updated, then all Child Components defined within it are also rendered.
-
-26. Derived State means a variable value comes from a State Variable.
-
-27. LiftingStateUp means when the state is defined in children and the same is needed by children at the same node level,
+26. LiftingStateUp means when the state is defined in children and the same is needed by children at the same node level,
     so we need to move the state to its parent, where both children are calling. This can be done through passing a function as a prop to the child,
     where the value from the child is passed to the parent via the parent function passed as a prop to set the State in the parent.
     Then the same state is passed as a prop to another child that requires the same state value.
 
     That means State is common to multiple states at the same level of the child component.
 
-28. React Icons for icons image from multiple sources(Font Awesome icons, Material UI icons, etc) at one place
+27. React Icons for icons image from multiple sources(Font Awesome icons, Material UI icons, etc) at one place
     To access icons, first need to install using Terminal cmd
     eg bun install react-icons
 
@@ -742,305 +790,496 @@ Practical Points:-
 
     <IconComponentName style={{color:"blue"}}/>
 
-29. To store & retain any value on refresh of the browser without a database.
+28. To store & retain any value on refresh of the browser without a database.
 
     To set:- localStorage.setItem("keyname","data");
     To get:- localStorage.getItem("keyname");
 
-30. When any control is bound with a state variable(control is moving from uncontrolled to controlled). In React, most components are uncontrolled components by default unless their values are bound to a state variable..
+29. When any control is bound with a state variable(control is moving from uncontrolled to controlled). In React, most components are uncontrolled components by default unless their values are bound to a state variable..
 
     Controlled Data Hooks:- useState
 
     UnControlled Data Hooks:- useRefs
 
-31. The 'use' prefixes in a function name is all React Hooks.
+30. The 'use' prefixes in a function name is all React Hooks.
 
     2 Types Of Hooks:-
 
-    31.1. State Management:-
-    31.1.1 useState(DOM element manipulation with re-rendering):- The useState hook, when the state variable value gets updated, it renders the components where it is defined.
+    30.1. State Management:-
+    30.1.1 useState(State Management with re-rendering):- The useState hook, when the state variable value gets updated, it renders the components where it is defined, such as form input, toggles, counters, fetched data flags, or UI visibility.
 
-        Syntax:-
+    For local state management inside a single component and it remains until the component is unmounted.
 
-          import { useState } from "react";
+    State Variable/Initial State Variable Value can store any type of value, such as {}-Object,[]-Array,""-String,1234-Number
 
-          const [State Variable, Set State Variable Function]= useState(Initial State Variable Value)
+    Syntax:-
 
-           State Variable/Initial State Variable Value  can store any type of value, such as {}-Object,[]-Array,""-String,1234-Number
+        ```js
+        import React, { useState, useEffect } from 'react';
 
-    31.1.2. useRefs(DOM element manipulation without re-rendering):- The useRefs hook is used when control values are not tightly bound by any useState hook state variable, meaning an uncontrolled component.
-    To work on an uncontrolled stateless form or component, then for storing uncontrolled control value useRefs hook is used.
-    In vanilla JS, we are accessing the value of the control using the below syntax
+        function Counter() {
+            const [count, setCount] = useState(0);
 
-                const inputcontrol=document.getElementById("#controlId");
+            useEffect(() => {
+                document.title = `You clicked ${count} times`;
+            }, [count]); // run effect only when count changes
 
-                But in React above method is not preferred for accessing control, so instead in React useRefs hook is used to access control.
+            return (
+                <div>
+                    <p>You clicked {count} times</p>
+                    <button onClick={() => setCount(count + 1)}>Click me</button>
+                </div>
+            );
+        }
+        ```
+        
+        Imp:-
+
+        1. The effect updates the document title after every render where count changes.
+        2. If you omit [count], it would update after every render.
+        3. Passing an empty array [] would run it only once after the initial render.
+           
+
+    30.1.2. useRefs(DOM Manipulation without re-rendering):- Built-in hook is used when control values are not tightly bound by any useState hook state variable, meaning an uncontrolled component.
+
+    When you need to access or manipulate a DOM element directly (e.g., to manipulate input fields, focus elements, scroll positions, or perform animations imperatively).
+
+    Persisting mutable values: Store values across renders (like timers, previous state values, or any mutable data) without triggering re-render.
+   
+    
+    In React, we can access the control using the document.getElementById() method, such as
+
+    Syntax:-
+
+        ```js
+        import React, { useRef } from 'react';
+
+        function TextInput() {
+            const inputRef = useRef(null);
+
+            const focusInput = () => {
+                inputRef.current.focus();  // Imperatively focus the input
+                
+                console.log(inputRef.current.value);  // Access the input value
+                
+            };
+
+            return (
+                <div>
+                    <input ref={inputRef} type="text" placeholder="Click button to focus me" />
+                    <button onClick={focusInput}>Focus Input</button>
+                </div>
+            );
+        }
+
+        export default TextInput;
+        ```          
+        Here, inputRef points to the DOM <input> element.
+
+        Clicking the button calls focusInput which focuses the input directly.
+
+        No re-render is triggered when inputRef.current is mutated.
 
 
-        Syntax:-
-
-          import { useRef } from "react";
-
-          const username=useRef(null);
-
-          console.log(username.current.value);
-
-       	  <input type="text" id="username" ref={username}>
-
-        The ref attribute on the input field will bind with the constant variable <username> to the stored value entered in the input field.
-
-        Passing ref from Parent Component to Child Component
+        (Passing ref from Parent Component to Child Component
         --Before React v19 release forwardRef function (props,ref)=>{} is used
-        --After React v19 release, ref can be accessed as props.
+        --After React v19 release, ref can be accessed as props.)
 
-    31.1.3. useId:- useId hook returns uniqueid. Don't use it to generate an ID for each field, as it will violate the accessibility rule of the form.
+    30.1.3. useId(Unique IDs):- useId hook returns uniqueid. Don't use it to generate an ID for each field, as it will violate the accessibility rule of the form.
 
-        Syntax:-
+    Syntax:-
 
-          import { useId } from "react";
+        ```js
+        import { useId } from "react";
 
-          const uniqueid=useId();
+        const uniqueid=useId();
+        ```
 
-    31.1.4. useReducer:- This hook is similar to the useState hook, but for the entry value of each control, we have to create a separate useState hook.
-    But useReducer provides an action parameter for the reducer function, so based on the action type, different state values can be returned instead of creating a separate function for each control, similar to the useState hook concept.
+    30.1.4. useReducer(Complex State Logic):- This hook provides an action parameter for the reducer function, so based on the action type, different state values can be returned instead of creating a separate function for each control action, that update the state differently.
 
-        Syntax:-
+    Useful in forms, game states, or lists requiring add, remove, toggle operations.
 
-          import { useReducer } from "react";
+    Syntax:-
 
-          const initState=0;
+        ```js
+        import React, { useReducer } from 'react';
 
-          const myReducerFunc=(state, action)=>
-          {
-              if(action.type=="increment")
-              {
-                   return state+1;
-              }
-              else if(action.type=="decrement")
-              {
-                   return state-1;
-              }
-          }
+        const initialState = { count: 0 };
 
-          const [stateVariable,myDispatchFunc]=useReducer(myReducerFunc,initStateValue);
+        const reducer = (state, action) => {
 
-          --> dispatch function(Function Name can be user defined) with type object, which internally calls the reducer function(Function Name can be user defined) and sets the type parameter to the action parameter based on which.
+            switch (action.type) {
+                case 'increment':
+                return { count: state.count + 1 };
+                case 'decrement':
+                return { count: state.count - 1 };
+                case 'reset':
+                return { count: 0 };
+                default:
+                return state;
+            }
+        };
 
-              For different actions.type property, can perform different logic and return a new state value of structure as of initStateValue
+        function Counter() {
+            const [state, dispatch] = useReducer(reducer, initialState);
 
-    31.2. Logical:-
-    31.2.1. useEffect:- Secondary logic is performed based on changes that occur in dependencies, such as StateVariable value change.
+            return (
+                <div>
+                  <p>Count: {state.count}</p>
 
-        Syntax:-
+                  <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>
 
-           import { useEffect } from "react";
+                  <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>
 
+                  <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
+                </div>
+            );
+        }
 
-           useEffect(
+        export default Counter;
+        ```
 
-               ()=>{
-                     //Your side effect code
-                      return Value;
+        Defines a reducer managing count state with 3 actions: increment, decrement, reset.
 
-                      return ()=>{
-        			            //Cleanup code
-                      };
-        		      }, [dependencies]);
+        dispatch triggers state changes routed through the reducer.
+
+        This clearly separates state logic from UI.       
+
+    
+    30.1.5. useEffect(Side Effects):-  Side effects functionality (data fetching, DOM manipulation, setting up subscriptions, or timers) which normally occur outside the rendering process.
+
+    Runs side-effect code after React has updated the DOM.
+
+    Syntax:-
+
+        ```js
+        import React, { useState, useEffect } from 'react';
+
+        function Counter() {
+            const [count, setCount] = useState(0);
+
+            useEffect(() => {
+                document.title = `You clicked ${count} times`;
+            }, [count]); // run effect only when count changes
+
+            return (
+                <div>
+                    <p>You clicked {count} times</p>
+                    <button onClick={() => setCount(count + 1)}>Click me</button>
+                </div>
+            );
+        }
+        ```
+
+        The effect updates the document title after every render where count changes.
+
+        If you omit [count], it would update after every render.
+
+        Passing an empty array [] would run it only once after the initial render.
 
 
         (Imp:- Cleanup Code execute
                  1. When Component Unmount mean component does not render in JSX based on condition
                  2. When dependencies changes useEffect re-render.)
 
-    31.2.2. useMemo:- This hook is used to skip unnecessary value re-calculation of value, if the value is already in cache, which will reduce the delay that occurs to a minimum in getting the actual result from other necessary components
+    30.1.6. useMemo(Performance Optimization):- Built-in hook that optimize performance by memoizing (caching) the result of expensive calculations so they don't have to be recomputed on every render unless their dependencies change.
 
-    Syntax:- Syntax similar to the useEffect hook
+    Used when complex sorting, filtering, or computations.
 
-           import { useMemo } from "react";
+    Syntax:- 
 
-         const memoizedValue=useMemo(
-                               	     ()=>{
-                                         	     //Your code executes based on the value in dependencies that changes
-                                  			     return Value;
-                                      	 }, [dependencies]);
+        ```js
+        import React, { useState, useMemo } from 'react';
 
-    e.g.
+        function ExpensiveCalculation({ number }) {
+            const factorial = useMemo(() => {
+                function factorialOf(n) {
+                    return n <= 1 ? 1 : n * factorialOf(n - 1);
+                }
+                console.log('Computing factorial...');
+                return factorialOf(number);
+            }, [number]);
 
-        const CPUHighConsumptionLogic = () =>
-        {
-          //Calculation function
-          const sum = () =>
-          {
-              console.log("Calculating Sum...");
+            return (
+                <div>
+                <p>Factorial of {number} is {factorial}</p>
+                </div>
+            );
+        }
 
-              let i = 0;
-              for (i = 0; i < 10000000; i++) {
-                  i += 1;
-              }
-              return i;
-          };
+        export default function App() {
+            const [count, setCount] = useState(5);
 
-          //const total = sum();
+            return (
+                <>
+                    <ExpensiveCalculation number={count} />
+                
+                    <button onClick={() => setCount(count + 1)}>Increment</button>
+                </>
+            );
+        }
+        ```
 
-          const total = useMemo(() => sum(), []);
+        The factorial is recalculated only if number changes.
 
-          return <>Sum:{total}</>;
-        };
+        Clicking the button renders the component but the expensive factorial calculation runs only when needed.
 
-        So when the CPUHighConsumptionLogic component is rendered, it will only calculate the sum once and cache the result.
-        If the component is re-rendered, it will use the cached value instead of recalculating again as value is not changed, thus improving performance.
+    30.1.7. useCallBack(Memoized Callbacks):- Built-in hook that memoizes a callback function and returns the same function instance between renders unless its dependencies change. This helps optimize React components by preventing unnecessary re-creations of functions and avoids unwanted re-renders in child components that receive these callbacks as props.
 
-    31.2.3. useCallBack:- This hook is used to skip unnecessary function re-execution if the value is already in cache, which will reduce the delay that occurs to a minimum in getting the actual result from other necessary components
+    Syntax:- 
+    
+        ```js
+        import React, { useState, useCallback } from 'react';
 
-    Syntax:- Syntax similar to the useEffect hook
+        function Parent() {
+            const [count, setCount] = useState(0);
 
-         const memoizedValue=useCallBack(
-                               	     ()=>{
-                                        	     //Your code executes based on the value in dependencies that changes
-                                  			     return Value;
-                                       	 }, [dependencies]);
+            // Memoize callback to prevent its recreation unless 'count' changes
+            const increment = useCallback(() => {
+                setCount(c => c + 1);
+            }, []);
 
-    So when the component is rendered, it will only calculate callBack function and cache the result.
-    If the component is re-rendered, it will use the cached value instead of re-calling callBack again as value is not changed, thus improving performance.
+            return (
+                <>
+                    <Child onClick={increment} />
+                
+                    <p>Count: {count}</p>
+                </>
+            );
+        }
 
-32. Prop Drilling:-
-    Passing Props through Source Component to subsequent child components until it reaches to the required destination component.
-    To solve the above problems ContextAPI concept comes into the picture.
+        const Child = React.memo(({ onClick }) => {
+            console.log("Child rendered");
+            return <button onClick={onClick}>Increment</button>;
+        });
+        ```
 
-33. ContextAPI: This concept helps in passing data to the required destination component directly without passing through subsequent components.
-    ContextAPI is mainly used when a scenario of the same data is required by multiple child components.
+        Without useCallback, the onClick function would be a new instance every render, causing Child to re-render.
 
-    33.1. createContext(Source Component):- Creates a Context object which acts like a Component.
+        With useCallback, the same function instance is passed, so Child only re-renders when necessary.
 
-    Syntax:-
-    import { createContext } from "react";
+    30.1.8 useContext(Global State Management):
 
-    e.g. //1st Step
+    Prop Drilling(Problem which is resolved using useContext hook):-
+        Passing Props through Source Component to subsequent child components until it reaches to the required destination/target component.
 
-            export const BioContextStore = createContext();
+        This can lead to unnecessary complexity and makes it difficult to manage state and props, especially in larger applications with deeply nested components.
 
-    createContext objects act as a wholesaler that sells multiple products.
-
-    33.2. Provider:- It works as a component whose property of the Context object is created using createContext that provides the context value to its children.
-
-    e.g.//2nd Step
-
-            export const BioProvider = ({ children })=>
-            {
-            const bioInfo =
-            {
-                 FullName: "Yogesh Matkar",
-                 FirstName: "Yogesh",
-                 LastName: "Matkar",
-             };
-
-            const addressInfo =
-            {
-                 Address:
-                         {
-                             City: "Mumbai",
-                             State: "Maharashtra",
-                             Pincode: "400065"
-                         },
-            };
-
-            const personBioDetails =
-            {
-                  bioInfo: bioInfo,
-                  addressInfo: addressInfo,
-             };
-
-           //const bioDetails =
-            {
-                  FirstName: "Yogesh",
-                  LastName: "Matkar"
-             };
-
-           return (
-                    <BioContextStore.Provider        value={personBioDetails}>
-                         {children}
-                    </BioContextStore.Provider>
-                  );
-             };
-
-    Provider acts as Distributor/Delivery Person of the WholeSeller that takes a variety of Products and stores them in Tempo.
-
-    33.3. useContext(Consumer/Destination Component):- A hook that allows you to consume a context.
+    This hook is mainly used when a scenario to shared global state or configuration like themes, authentication info, language settings, or user preferences across multiple components efficiently, avoiding the need to pass props through many component levels ("prop drilling").
 
     Syntax:-
-    import { useContext } from "react";
 
-    e.g. //3rd step
+        ```js
+        import React, { createContext, useContext, useState } from "react";
 
-            const { bioInfo, addressInfo } = useContext(BioContextStore);
+        // Create a context with a default value
+        const UserContext = createContext("Guest");
 
-    useContext acts as a Consumer that uses the required Stored Product delivered by the Delivery Boy.
+        function App() {
+            const [user, setUser] = useState("Jesse Hall");
 
-34. Custom Hooks:- Requirement of custom hook is when we want to put multiple calls of the same React hooks into a created custom hook & then calling that custom hook to reduce the code of multiple calls to the same hooks.
+            return (
+                <UserContext.Provider value={user}>
+                    <h1>Hello {user}!</h1>
+                    <ComponentA />
+                </UserContext.Provider>
+            );
+        }
+
+        function ComponentA() {
+            return <ComponentB />;
+        }
+
+        function ComponentB() {
+            return <ComponentC />;
+        }
+
+        function ComponentC() {
+            const user = useContext(UserContext); // Consume context value here
+
+            return <h2>Welcome back, {user}!</h2>;
+        }
+        ```
+
+        Here, UserContext shares the user value globally.
+
+        ComponentC accesses the user value directly using useContext, without receiving it as props through intermediate components.
+
+        Changing user with setUser will cause all consuming components to update.
+
+
+    (
+        Note:- 
+    
+        Limitation of useContext hook conditionally calling useContext hook is not allowed, meaning it has to be defined at the top of the component function.
+        
+        But the 'use' hook can be called within a condition, a looping logic, which gives more flexibility.    
 
         Syntax:-
-             const useCustomHook1=()=>{
-                         	const hookObject=useContext(BioContext);
-                         	return hookObject;
-                         }
 
-    34.1. All custom hooks can be prefixed with 'use' basic rule of hooks.
-    34.2. Custom hooks are created as a wrapper of the same React hook that is used multiple times in multiple components to avoid the DRY(Do Not Repeat Yourself) principle.
+            ```js
+            import { use } from "react";
 
-35. use Hook:- Is a replacement to the useContext hook, which has the limitation of defining at the top of the component, but the 'use' hook can be called within a condition, a looping logic, which gives more flexibility.
+            const newHook = true;
 
-    e.g.
+            let myName, myAge;
 
-    import { use } from "react";
+            if (newHook) {
+                ({ myName, myAge } = use(BioContext));
+            }
+            else {
+                myName = "Default Name";
+                myAge = 0;
+            }
+            console.log(myName, myAge);            
+            ```
+    )
 
-    const newHook = true;
+31. Custom Hooks:- 
+    Custom hooks are a way to encapsulate and reuse logic across multiple components in React. They allow you to create reusable functions that can use built-in hooks like useState, useEffect, and others.
 
-    let myName, myAge;
+    Custom hooks are just JavaScript functions that start with the word "use" and can call other hooks inside them. They can return any value, including state variables, functions, or objects.
 
-    if (newHook) {
-    ({ myName, myAge } = use(BioContext));
-    }
+    Custom hooks are useful for encapsulating complex logic that needs to be shared across multiple components, such as form handling, data fetching, or animations.
 
-36. Memo:-(HOC-Higher Order Component)-
-    Prevent unnecessary rendering of entire child component due to parent component rendering as child component is wrapped inside parent component
+    To create a custom hook, define a function that uses React hooks and returns the desired values or functions. Then, you can use this custom hook in any component by calling it like a regular function.    
 
-    Component inside Memo is only gets render when any of props value inside Component is change else it's skips Component from re-rendering.
+    Syntax of a custom hook that uses useState and useEffect:
 
-        Syntax:- export child components as below with a memo hook wrap around
+        ```js
+        import { useState, useEffect, useContext } from "react";
 
-                 import { memo } from "react";
+        const useCustomHook1 = () => {
+            const [data, setData] = useState(null);
+            const [loading, setLoading] = useState(true);
+            const [error, setError] = useState(null);
 
-                 export default memo(Childcomponent);
+            useEffect(() => {
+                const fetchData = async () => {
+                    try {
+                        const response = await fetch("https://api.example.com/data");
+                        const result = await response.json();
+                        setData(result);
+                    } catch (err) {
+                        setError(err);
+                    } finally {
+                        setLoading(false);
+                    }
+                };
 
-                          OR
+                fetchData();
+            }, []);
 
-                 export const Childcomponent=memo(()=>{return <>Child Component</>});
+            return { data, loading, error };
+        };  
+        ```       
 
-37. Two Third Party API Access APIMethods:-
+32. HOC/Higher Order Component:-
+    HOC is a function that takes a component and returns a new component with additional functionality or behavior.    
 
-    Two ways to call and get data
+    To reuse cross-cutting concerns like authentication, authorization, data fetching, error handling, theming, or logging across many components.
 
-    37.1. fetch():-
 
-        37.1.1. Using Promises:-
+        1 Code Reusability:
 
-          e.g.
+            HOCs enable sharing common logic (e.g., authentication, data fetching) across multiple components without repeating code.
 
-                fetch(url).then
+        2 Separation of Concerns: 
+    
+            They help separate the UI rendering from logic or side effects, improving code organization and maintainability.
 
-        37.1.2. Using async await mechanism
+        3 Cleaner Components: 
+            
+            Components remain focused on UI, while HOCs handle behavior, making both easier to manage.
 
-          e.g.
+        4 Improved Testing: 
+            
+            You can isolate logic in HOCs and test them separately.
 
-                async () =>
-                {
-                            const apiData=await fetch(url);
+        5 Scalability: 
+            
+            HOCs simplify adding or modifying shared behavior as the app grows.
+
+        6 Third-Party Integration: 
+            They help inject functionalities like theming, analytics, or API integration uniformly across components.
+
+    Syntax:-
+
+        ```js
+        const WithExtraProps = (WrappedComponent) => {
+            return (props) => {
+                const extraProps = { extraProp: "value" };
+                return <WrappedComponent {...props} {...extraProps} />;
+            };
+        };
+
+        export default WithExtraProps(MyComponent);
+        ```
+
+    Here, `WithExtraProps` is a HOC that adds an `extraProp` to the wrapped component `MyComponent`.
+
+    32.1. React.Memo:-
+
+        React.Memo is a built-in HOC that memoizes a component, preventing unnecessary re-renders when its props haven't changed.
+
+        It is used to optimize performance by avoiding re-rendering of components that receive the same props.
+
+        Syntax:-
+
+            ```js
+            import React, { memo } from "react";
+
+            const ChildComponent = (props) => {
+                return <div>{props.value}</div>;
+            };
+
+            export default memo(ChildComponent);
+            ```
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# ReactJS API Access Ways:-
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+1.  fetch():-
+
+    Fetch is a built-in JavaScript function that allows you to make network requests to retrieve resources from a server. It returns a Promise that resolves to the Response object representing the response to the request.
+
+    1.1 Promises:
+
+    Fetch API uses Promises to handle asynchronous operations, allowing you to work with the response data once the request is complete.
+
+        Syntax:-
+
+            ```js
+            fetch(url).then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error(error));
+            ```
+
+    1.2 Async-Await
+
+    Async-Await is a more modern way to handle asynchronous operations in JavaScript, making the code look synchronous and easier to read.
+
+        Syntax:-
+
+            ```js
+            const fetchData = async () => {
+                try {
+                    const response = await fetch(url);
+                    const data = await response.json();
+                    console.log(data);
+                } catch (error) {
+                    console.error(error);
                 }
+            };
+            ```
 
-    37.2. Axios():-(Better Then fetch() as it has more features and is more user-friendly)
 
-          Axios is promise-based HTTP client request/response handling library.It is third-party library not from React.
-          That's why need to install axios.
+2. Axios() (Third-Party):-
+
+   Axios is a promise-based HTTP client for the browser and Node.js. It is better than fetch() as it has more features and is more user-friendly.
+
+    It simplifies making HTTP requests and handling responses, making it easier to work with APIs.
 
           Benefits:-
 
@@ -1049,50 +1288,176 @@ Practical Points:-
             3. Built-in error handling.
             4. Supports old browsers.
 
-        37.2.1. First install axios
+    Third-party libraries like Axios need to be installed separately. 
 
-          Syntax:-
+    2.1. First install axios
 
-              npm install axios
+        Syntax:-
+                > npm install axios
+                
+                Then verify the module is installed or not in the package.json within the dependencies key's value, along with the module version
+               
 
-              import axios from 'axios';
 
-        37.2.1.1. Axios Using Promises:-
 
-                  e.g.
+        2.1.1. Promises:-
 
-                        axios(url).then
+                    Axios returns a Promise that resolves to the response data.
 
-                  Type to Promise Methods to fetch reponse:-
+                    Syntax:-
 
-                     1. Promise.all :- When any of Single Promise is not fullfilled/failed in array of Promisess then all   Promisess will be failed.
-                     2. Promise.allsettled
-                     3. Promise.race
+                        ```js
+                        import axios from 'axios';
 
-        37.2.1.2. Axios Using async await mechanism
+                        axios.get(url)
+                            .then(response => console.log(response.data))
+                            .catch(error => console.error(error));
+                        ```   
 
-                  e.g.
+                    Promise Methods to fetch response:-
 
-                        async () =>
-                        {
-                            const apiData=await axios(url);
-                        }
+                        1. Promise.all :- When any of Single Promise is not fulfilled/failed in array of Promises then all Promises will be failed.                        
+                        2. Promise.race : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned.
+                        3. Promise.any : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned, if all Promises are rejected then it will be failed.
+                        4. Promise.resolve : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned, if all Promises are rejected then it will be resolved with undefined value.
+                        5. Promise.reject : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned, if all Promises are rejected then it will be rejected with undefined value.
+                        6. Promise.finally : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned, if all Promises are rejected then it will be resolved with undefined value.
+                        7. Promise.timeout : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned, if all Promises are rejected then it will be resolved with undefined value.
 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        2.1.3 Async-Await
 
-(Imp:- In REACT, Routing can be achieved using REACT-ROUTER JS Framework)
+                    Axios can also be used with async-await syntax, making the code more readable and easier to manage.
 
-REACT-ROUTER JS Framework:-
+                    Syntax:-
 
-B.
+                        ```js
+                        import axios from 'axios';
+
+                        const fetchData = async () => {
+                            try {
+                                const response = await axios.get(url);
+                                console.log(response.data);
+                            } catch (error) {
+                                console.error(error);
+                            }
+                        };
+
+                        fetchData();
+                        ```
+
+3. Axios HTTP Methods:
+   
+    Axios supports all standard HTTP methods like GET, POST, PUT, DELETE, PATCH, etc. Each method corresponds to a specific type of request.
+
+    3.1.  HTTP Method(CRUD Methods):-
+
+        3.1.1. POST(Create-C):-
+        
+        The POST method is used to send data to the server to create a new resource. It is commonly used for submitting forms or uploading files.
+
+        Syntax:-
+
+        ```jsx
+        import axios from "axios";
+
+        const createResource = async (data) => {
+            try {
+            const response = await axios.post("https://api.example.com/resources", data);
+            console.log("Resource created:", response.data);
+            } catch (error) {
+            console.error("Error creating resource:", error);
+            }
+        };
+        ```
+
+        3.1.2 GET(Read-R):-
+        
+        The GET method is used to retrieve data from the server. It is commonly used for fetching resources or displaying data to the user.
+
+        Syntax:-
+
+        ```jsx
+        import axios from "axios";
+
+        const fetchResource = async (id) => {
+            try {
+            const response = await axios.get(`https://api.example.com/resources/${id}`);
+            console.log("Resource fetched:", response.data);
+            } catch (error) {
+            console.error("Error fetching resource:", error);
+            }
+        };
+        ```
+
+        3.1.3 PUT(Update-U):-
+        
+        The PUT method is used to update an existing resource on the server. It is commonly used for updating data or replacing a resource.
+
+        Syntax:-
+
+        ```jsx
+        import axios from "axios";
+
+        const updateResource = async (id, data) => {
+            try {
+            const response = await axios.put(`https://api.example.com/resources/${id}`, data);
+            console.log("Resource updated:", response.data);
+            } catch (error) {
+            console.error("Error updating resource:", error);
+            }
+        };
+        ```
+
+        The PATCH method is also used for updating a resource, but it is typically used for partial updates, meaning only the fields that need to be changed are sent in the request body.
+
+        Syntax:-
+
+        ```jsx
+        import axios from "axios";
+
+        const patchResource = async (id, data) => {
+            try {
+            const response = await axios.patch(`https://api.example.com/resources/${id}`, data);
+            console.log("Resource patched:", response.data);
+            } catch (error) {
+            console.error("Error patching resource:", error);
+            }
+        };
+        ```
+
+        3.1.4. DELETE(Delete-D):-
+        
+        The DELETE method is used to delete a resource on the server. It is commonly used for removing data or resources.
+        
+        Syntax:-
+
+        ```jsx
+        import axios from "axios";
+
+        const deleteResource = async (id) => 
+        {
+            try {
+                const response = await axios.delete(`https://api.example.com/resources/${id}`);
+                console.log("Resource deleted:", response.data);
+            } catch (error) {
+                    console.error("Error deleting resource:", error);
+                }
+        }        
+        ```
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# ReactJS Routing/Navigation
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 1.  REACT ROUTER(v7.6+) is another JavaScript(JS) Library/Framework used for implementing Routing in our Web Application using client-side scripting.
 
 2.  Install the react-router module.
 
     Syntax:-
-
-           > npm i react-router-dom@latest
+    
+           ```js 
+           npm i react-router-dom@latest
+           ```
 
     Then verify the module is installed or not in the package.json within the dependencies key's value, along with the module version
 
@@ -1402,998 +1767,22 @@ B.
                  ```
 
 +++++++++++++++++++++++++++++++++++++++++
-
-Extra Features of React:
-
-+++++++++++++++++++++++++++++++++++++++++
-
-1.  AXIOS (Alternative to fetch()):-
-    AXIOS is a promise-based HTTP client for the browser and Node.js. It is used to make HTTP requests to APIs and handle responses.
-
-    Syntax:-
-
-         To install AXIOS, use the following command in the terminal:
-
-         ```jsx
-             npm install axios
-         ````
-
-         Example of using AXIOS to make a GET request:
-
-         ```jsx
-
-             import axios from "axios";
-
-             const fetchData = async () =>
-             {
-               try {
-                     const response = await axios.get("https://api.example.com/data");
-                     console.log(response.data);
-                   } catch (error) {
-                     console.error("Error fetching data:", error);
-                 }
-             };
-         ```
-
-    (
-    IMPORTANT:-
-
-         //This logic of using axios is followed in real scenarios in IT Companies for calling api's
-
-            import axios from "axios";
-
-         // 1. Create a reusable Axios instance
-
-             const api = axios.create({ baseURL: "https://www.omdbapi.com/" });
-
-         // 2. Define a function to fetch movie data
-
-             export const getMovies = () =>
-             {
-                 let api_key = import.meta.env.VITE_MOVIES_API_KEY;
-
-                 return api.get(`?i=tt3896198&apikey=${api_key}&s=titanic&page1`);
-             };
-
-    )
-
-2.  HTTP Method(CRUD Methods):-
-
-2.1. POST(Create-C):-
-The POST method is used to send data to the server to create a new resource. It is commonly used for submitting forms or uploading files.
-
-      Syntax:-
-
-      ```jsx
-      import axios from "axios";
-
-      const createResource = async (data) => {
-        try {
-          const response = await axios.post("https://api.example.com/resources", data);
-          console.log("Resource created:", response.data);
-        } catch (error) {
-          console.error("Error creating resource:", error);
-        }
-      };
-      ```
-
-2.2. GET(Read-R):-
-The GET method is used to retrieve data from the server. It is commonly used for fetching resources or displaying data to the user.
-
-      Syntax:-
-
-      ```jsx
-      import axios from "axios";
-
-      const fetchResource = async (id) => {
-        try {
-          const response = await axios.get(`https://api.example.com/resources/${id}`);
-          console.log("Resource fetched:", response.data);
-        } catch (error) {
-          console.error("Error fetching resource:", error);
-        }
-      };
-      ```
-
-2.3. PUT(Update-U):-
-The PUT method is used to update an existing resource on the server. It is commonly used for updating data or replacing a resource.
-
-      Syntax:-
-
-      ```jsx
-      import axios from "axios";
-
-      const updateResource = async (id, data) => {
-        try {
-          const response = await axios.put(`https://api.example.com/resources/${id}`, data);
-          console.log("Resource updated:", response.data);
-        } catch (error) {
-          console.error("Error updating resource:", error);
-        }
-      };
-      ```
-
-      The PATCH method is also used for updating a resource, but it is typically used for partial updates, meaning only the fields that need to be changed are sent in the request body.
-
-      Syntax:-
-
-      ```jsx
-      import axios from "axios";
-
-      const patchResource = async (id, data) => {
-        try {
-          const response = await axios.patch(`https://api.example.com/resources/${id}`, data);
-          console.log("Resource patched:", response.data);
-        } catch (error) {
-          console.error("Error patching resource:", error);
-        }
-      };
-      ```
-
-2.4. DELETE(Delete-D):-
-The DELETE method is used to delete a resource on the server. It is commonly used for removing data or resources.
-Syntax:-
-
-      ```jsx
-          import axios from "axios";
-
-          const deleteResource = async (id) =>
-          {
-            try {
-                  const response = await axios.delete(`https://api.example.com/resources/${id}`);
-                  console.log("Resource deleted:", response.data);
-            } catch (error) {
-                  console.error("Error deleting resource:", error);
-            }
-          };
-      ```
-
+REDUX TOOLKIT(RTK) / Zustand
 +++++++++++++++++++++++++++++++++++++++++++
-YouTube:- Top 12 React Interview Questions 🔥 for Freshers & Experienced | Preparation 2025 🚀
 
-Interview Question 2025:-
+1 Redux Toolkit(RTK) :- 
 
-1.  Hooks:-(Sequence Follow)
+    Large applications often require a more structured approach to managing global state, especially when dealing with complex data flows and interactions. Redux Toolkit (RTK) is a library that provides a set of tools and best practices for managing global state in React applications.
 
-    1.1. useState :- Manage state (data that changes over time and affects rendering)
+    It is built on top of Redux and provides a more efficient and developer-friendly way to work with Redux.
 
-    1.1.1 What is useState?
+    It is designed to reduce boilerplate code, improve performance, and enhance the developer experience.
+    
+    It is the standard way to write Redux logic in modern React applications.
 
-        A hook that lets you add state to functional components.
+    It is recommended for managing global state in React applications because it simplifies setup, reduces boilerplate code, and enforces best practices.
 
-        It returns an array with two elements: the current state value and a function to update it.
-
-        Syntax:
-
-                ```js
-                const [state, setState] = useState(initialValue);
-                ```
-
-        Here, state is the current value, and setState is the function to update it
-
-    1.1.2 Why use useState?
-
-        To manage local component data that changes dynamically, such as input fields, counters, toggles, and more.
-
-        It triggers React to re-render the component when the state changes, ensuring the UI stays updated automatically.
-
-        It simplifies state management in functional components, which traditionally did not support state before hooks.
-
-    1.1.3 How to use useState?
-
-        Import useState from React:
-
-        ```js
-        import { useState } from 'react';
-        ```
-        Declare a state variable and an updater function inside your component:
-
-        ```js
-        const [count, setCount] = useState(0);
-        ```
-        Use the state variable in your JSX to reflect current state:
-
-        ```jsx
-        <p>{count}</p>
-        ```
-        Call the updater function to change the state and trigger UI updates:
-
-        ```js
-        setCount(count + 1);
-        ```
-        React will re-render the component with the new state value.
-
-    1.1.4 When to use useState?
-
-        When you need to track and update data that changes over time in a component, such as form input, toggles, counters, fetched data flags, or UI visibility.
-
-        For local state management inside a single component.
-
-        To replace class component state management with a simpler, function-based API.
-
-        When you want your component to re-render in response to state changes.
-
-        e.g
-
-        ```js
-        import React, { useState } from "react";
-
-        function Counter() {
-        const [count, setCount] = useState(0);
-
-        return (
-            <div>
-            <p>You clicked {count} times</p>
-            <button onClick={() => setCount(count + 1)}>Click me</button>
-            </div>
-        );
-        }
-        ```
-
-        Initializes count to 0.
-
-        Updates count on button click and re-renders text with new count.
-
-    In summary, useState is the fundamental way to add and manage state in React functional components. It enables reactivity and interactive UI updates by preserving component state across renders and triggering re-renders when state changes occur.
-
-    1.2. useEffect :- Side effects functionality (data fetching, DOM manipulation, setting up subscriptions, or timers) which normally occur outside the rendering process.
-
-    1.2.1 What is useEffect?
-    It is a hook that runs side-effect code after React has updated the DOM.
-
-        You provide it with a callback function containing the side effect logic.
-
-        It can optionally take a dependency array, which controls when the effect runs.
-
-        Syntax:
-
-        ```js
-        useEffect(() => {
-        // side effect logic
-        return () => {
-            // optional cleanup logic
-        };
-        }, [dependencies]);
-        ```
-
-    1.2.2 Why use useEffect?
-    To handle operations that do not directly affect rendering but need to happen as a result of renders, like:
-
-        Fetching data from APIs.
-
-        Direct DOM updates.
-
-        Setting up event listeners or subscriptions.
-
-        Running timers.
-
-        It replaces lifecycle methods like componentDidMount, componentDidUpdate, and componentWillUnmount used in class components.
-
-        Allows separation of side effects from UI rendering logic in functional components.
-
-        React guarantees effects run after the DOM updates, ensuring you operate on the latest UI.
-
-    1.2.3 How to use useEffect?
-
-        Import it from React:
-
-        ```js
-        import React, { useEffect } from 'react';
-        ```
-        Use it inside a functional component:
-
-        ```js
-        useEffect(() => {
-        // side effect logic here
-        // e.g., fetch data, update document title
-        return () => {
-            // cleanup logic here (optional)
-        };
-        }, [dependencies]); // dependency array controls when effect runs
-        ```
-
-        The effect runs:
-
-        After initial render if dependencies array is empty.
-
-        After every render if dependencies are omitted.
-
-        Only when dependencies change if dependencies array is specified.
-
-    1.2.4 When to use useEffect?
-
-        For any operation that requires interacting with external systems or APIs after rendering.
-
-        When you want to:
-
-        Fetch or update data asynchronously after render.
-
-        Set up and clean up subscriptions or event listeners.
-
-        Perform direct DOM updates or side effects not handled by React rendering.
-
-        Manage timers or intervals.
-
-        Whenever you need to replicate lifecycle methods behavior in functional components.
-
-        To re-run side effects conditionally based on changes in state or props by specifying dependencies.
-
-        e.g
-
-        ```js
-        import React, { useState, useEffect } from 'react';
-
-        function Counter() {
-        const [count, setCount] = useState(0);
-
-        useEffect(() => {
-            document.title = `You clicked ${count} times`;
-        }, [count]); // run effect only when count changes
-
-        return (
-            <div>
-            <p>You clicked {count} times</p>
-            <button onClick={() => setCount(count + 1)}>Click me</button>
-            </div>
-        );
-        }
-        ```
-
-        The effect updates the document title after every render where count changes.
-
-        If you omit [count], it would update after every render.
-
-        Passing an empty array [] would run it only once after the initial render.
-
-    Summary:
-    What: useEffect runs side effects in functional components.
-    Why: To handle effects that need to interact with external systems after rendering.
-    How: Provide a callback inside useEffect, optionally include dependencies to control execution.
-    When: Use it whenever you need to handle asynchronous work, subscriptions, or DOM updates that depend on state or props.
-
-    1.3. useReducer :- Centralizing state updates through a reducer function
-
-    1.3.1 What is useReducer?
-
-        A React hook that takes two arguments: a reducer function and an initial state value.
-
-        Returns an array with two elements: the current state and a dispatch function to send actions signaling how to update the state.
-
-        The reducer function accepts the current state and an action object and returns the new updated state based on the action type.
-
-        This pattern is inspired by Redux reducers but built into React for local state management.
-
-    1.3.2 Why use useReducer?
-
-        To manage complex state logic that involves multiple sub-values or when state changes depend on previous state values.
-
-        When you want more predictable state transitions by centralizing changes in a reducer function rather than spreading update logic throughout the component.
-
-        Helps improve readability and maintainability by separating state transition logic from component UI code.
-
-        Useful in scenarios where state updates are triggered by different action types (e.g., increment, decrement, reset).
-
-        Offers an alternative to useState when you need to perform multiple state updates in a structured way.
-
-    1.3.3 How to use useReducer?
-
-        Define a reducer function with signature (state, action):
-
-        Use a switch or if statements on action.type to determine state transformations.
-
-        Declare an initial state (can be primitive or an object).
-
-        Inside your functional component, call:
-
-        ```js
-        const [state, dispatch] = useReducer(reducer, initialState);
-        ```
-
-        Use state in your UI.
-
-        Trigger state updates by calling dispatch with actions:
-
-        ```js
-        dispatch({ type: 'ACTION_TYPE', payload: value });
-        ```
-
-    1.3.4 When to use useReducer?
-    When your component state logic is too complex for useState, especially if it involves multiple related values or complex updates.
-
-        When you want to consolidate state update logic into a pure reducer function.
-
-        When your state updates depend on the previous state.
-
-        When you want to build a state machine-like flow or handle multiple discrete actions that update the state differently.
-
-        Useful in forms, game states, or lists requiring add, remove, toggle operations.
-
-        When you want to have a more Redux-like state management pattern without adding external libraries.
-
-        e.g
-
-        ```js
-        import React, { useReducer } from 'react';
-
-        const initialState = { count: 0 };
-
-        const reducer = (state, action) => {
-
-            switch (action.type) {
-                case 'increment':
-                return { count: state.count + 1 };
-                case 'decrement':
-                return { count: state.count - 1 };
-                case 'reset':
-                return { count: 0 };
-                default:
-                return state;
-            }
-        };
-
-        function Counter() {
-            const [state, dispatch] = useReducer(reducer, initialState);
-
-            return (
-                <div>
-                <p>Count: {state.count}</p>
-                <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>
-                <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>
-                <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
-                </div>
-            );
-        }
-
-        export default Counter;
-        ```
-
-        Defines a reducer managing count state with 3 actions: increment, decrement, reset.
-
-        dispatch triggers state changes routed through the reducer.
-
-        This clearly separates state logic from UI.
-
-    In summary, useReducer is a powerful hook for managing complex, action-driven state in React functional components, offering a clean and scalable way to handle state transitions through a reducer function and dispatched actions.
-
-    1.4. useContext :- Enabling global or shared state to be accessed easily across deeply nested components without prop drilling
-
-    1.4.1 What is useContext?
-
-        A hook that reads and subscribes to a React Context.
-
-        It accepts a Context object created by React.createContext() and returns the current context value from the nearest matching Context Provider in the component tree.
-
-        If no Provider is found, it returns the default value passed to createContext.
-
-    1.4.2 Why use useContext?
-
-        To share data globally or across multiple components efficiently, avoiding the need to pass props through many component levels ("prop drilling").
-
-        To manage global state such as themes, authentication status, user settings, or any data that many components need.
-
-        To simplify component hierarchies by reducing the complexity and verbosity of passing props manually.
-
-        To ensure components automatically re-render when context values change.
-
-    1.4.3 How to use useContext?
-
-        Create a context with a default value using:
-
-        ```js
-        const MyContext = React.createContext(defaultValue);
-        ```
-
-        Wrap components that need access to the context with the <MyContext.Provider> and pass the value to share:
-
-        ```jsx
-        <MyContext.Provider value={someValue}>
-            <YourComponent />
-        </MyContext.Provider>
-        ```
-
-        Access context values in any functional component using the hook:
-
-        ```js
-        const value = useContext(MyContext);
-        ```
-
-        The component now consumes the shared context value and will update automatically when that value changes.
-
-    1.4.4 When to use useContext?
-
-        When you want to avoid prop drilling for values needed in many nested components.
-
-        When you need shared, global state or configuration like themes, authentication info, language settings, or user preferences.
-
-        When you want components to reactively update based on context changes.
-
-        When your data flow fits naturally into a provider-consumer pattern across your app or a subtree of components.
-
-        e.g
-
-        ```js
-        import React, { createContext, useContext, useState } from "react";
-
-        // Create a context with a default value
-        const UserContext = createContext("Guest");
-
-        function App() {
-        const [user, setUser] = useState("Jesse Hall");
-
-        return (
-            <UserContext.Provider value={user}>
-            <h1>Hello {user}!</h1>
-            <ComponentA />
-            </UserContext.Provider>
-        );
-        }
-
-        function ComponentA() {
-        return <ComponentB />;
-        }
-
-        function ComponentB() {
-        return <ComponentC />;
-        }
-
-        function ComponentC() {
-        const user = useContext(UserContext); // Consume context value here
-
-        return <h2>Welcome back, {user}!</h2>;
-        }
-        ```
-
-        Here, UserContext shares the user value globally.
-
-        ComponentC accesses the user value directly using useContext, without receiving it as props through intermediate components.
-
-        Changing user with setUser will cause all consuming components to update.
-
-    In summary:
-    What Hook to consume React Context values
-    Why To share and manage data globally without prop drilling
-    How CreateContext → Provider → useContext hook to consume
-    When For global/shared state like themes, auth, settings, etc.
-
-    The useContext hook is a fundamental tool for managing shared application states in React function components, providing an elegant and efficient pattern to deal with cross-component data communication.
-
-    1.5. useMemo :- Optimize performance by memoizing (caching) the result of expensive calculations so they don't have to be recomputed on every render unless their dependencies change.
-
-    1.5.1 What is useMemo?
-
-        useMemo is a built-in React Hook that takes two arguments: a function that computes a value, and a dependency array.
-
-        It returns a memoized value — the cached result of the computation — and recomputes it only when one or more dependencies change.
-
-        This avoids recomputing expensive calculations on every render, improving performance.
-
-        e.g
-
-        ```js
-        const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
-        ```
-
-    1.5.2 Why use useMemo?
-    To avoid costly recalculations of values or functions on every render if inputs haven’t changed.
-
-        To prevent unnecessary rendering or complex computations that slow down UI responsiveness.
-
-        To improve performance especially in components with heavy computations or many child components.
-
-        Helps you write more efficient, declarative functional components without manually caching values.
-
-    1.5.3 How to use useMemo?
-
-        Import useMemo from React:
-
-        ```js
-        import React, { useMemo } from 'react';
-        ```
-
-        Inside your functional component, call useMemo, passing a function returning the computed value and a dependency array:
-
-        ```js
-        const memoizedResult = useMemo(() => {
-        // Expensive computation here
-        return expensiveFunction(data);
-        }, [data]); // Only recompute if 'data' changes
-        ```
-
-        Use memoizedResult in your component JSX or logic.
-
-        React will reuse the cached memoizedResult on renders where dependencies do not change.
-
-    1.5.4 When to use useMemo?
-    When you have expensive calculations or operations that don’t need to run on every render.
-
-        To memoize derived data or computed values used in rendering.
-
-        To avoid unnecessary re-renders of child components by memoizing props or values passed.
-
-        In rendering lists with complex sorting, filtering, or computations.
-
-        When you want to optimize performance-critical UI components.
-
-        e.g
-
-        ```js
-        import React, { useState, useMemo } from 'react';
-
-        function ExpensiveCalculation({ number }) {
-            const factorial = useMemo(() => {
-                function factorialOf(n) {
-                    return n <= 1 ? 1 : n * factorialOf(n - 1);
-                }
-                console.log('Computing factorial...');
-                return factorialOf(number);
-            }, [number]);
-
-            return (
-                <div>
-                <p>Factorial of {number} is {factorial}</p>
-                </div>
-            );
-        }
-
-        export default function App() {
-            const [count, setCount] = useState(5);
-
-            return (
-                <>
-                <ExpensiveCalculation number={count} />
-                <button onClick={() => setCount(count + 1)}>Increment</button>
-                </>
-            );
-        }
-        ```
-
-        The factorial is recalculated only if number changes.
-
-        Clicking the button renders the component but the expensive factorial calculation runs only when needed.
-
-    Summary:
-    What A React hook that memoizes expensive calculations
-    Why To optimize rendering performance by caching results
-    How Pass a function and dependency array to useMemo
-    When When you want to avoid recomputing values unless deps change
-
-    useMemo improves efficiency by caching and reusing computational results and is particularly useful for performance optimization in React functional components.
-
-    1.6. useCallBack :- Built-in hook that memoizes a callback function and returns the same function instance between renders unless its dependencies change. This helps optimize React components by preventing unnecessary re-creations of functions and avoids unwanted re-renders in child components that receive these callbacks as props.
-
-    1.6.1 What is useCallback?
-
-        A React hook that takes a function and a dependency array, and returns a memoized version of the function that only changes if the dependencies change.
-
-        It preserves the same function reference across renders if dependencies are unchanged.
-
-        Helps maintain referential integrity of callback functions between renders.
-
-    1.6.2 Why use useCallback?
-
-        In React, new callback function instances are created on every render by default, which breaks referential equality.
-
-        Passing these new functions as props to child components can cause unnecessary re-renders, even if nothing meaningful changed.
-
-        Memoizing callbacks with useCallback prevents these unnecessary re-renders, improving app performance.
-
-        It's especially useful when passing callback props to optimized child components wrapped in React.memo or similar.
-
-    1.6.3 How to use useCallback?
-
-        Import useCallback from React.
-
-        Wrap your callback function with useCallback, passing a dependency array:
-
-        ```js
-        const memoizedCallback = useCallback(() => {
-        // function logic here
-        }, [dependencies]);
-        ```
-
-        Use this memoized callback in your component or pass it as props to children.
-
-        The callback will only be recreated if dependencies change, otherwise the same function reference is reused.
-
-    1.6.4 When to use useCallback?
-
-        When passing callback functions to child components that rely on reference equality to avoid unnecessary re-renders.
-
-        For event handlers and any functions created inside functional components that would otherwise be recreated each render.
-
-        When optimizing performance in larger or complex React apps where re-rendering costs are significant.
-
-        To improve performance in components wrapped with React.memo or custom shouldComponentUpdate logic.
-
-        e.g
-
-        ```js
-        import React, { useState, useCallback } from 'react';
-
-        function Parent() {
-            const [count, setCount] = useState(0);
-
-            // Memoize callback to prevent its recreation unless 'count' changes
-            const increment = useCallback(() => {
-                setCount(c => c + 1);
-            }, []);
-
-            return (
-                <>
-                <Child onClick={increment} />
-                <p>Count: {count}</p>
-                </>
-            );
-        }
-
-        const Child = React.memo(({ onClick }) => {
-            console.log("Child rendered");
-            return <button onClick={onClick}>Increment</button>;
-        });
-        ```
-
-        Without useCallback, the onClick function would be a new instance every render, causing Child to re-render.
-
-        With useCallback, the same function instance is passed, so Child only re-renders when necessary.
-
-    Summary:
-    What Hook that memoizes a function, returning the same function instance unless dependencies change
-    Why To optimize performance, preventing unnecessary re-creation of functions and re-renders
-    How Wrap callback function inside useCallback with dependency array
-    When When passing callbacks to children, especially optimized components needing stable references
-
-    This hook is essential for optimizing performance in React applications by reducing unnecessary renders related to function references.
-
-    1.7 useRef :- Built-in hook that provides a way to create a mutable reference object whose .current property persists across component re-renders without causing the component to re-render when updated.
-
-        1.7.1 What is useRef?
-
-            useRef returns a mutable ref object with the shape { current: initialValue }.
-
-            The ref object is persistent for the lifetime of the component instance.
-
-            It allows you to hold onto mutable values that do not trigger re-render when changed.
-
-            It can also be used to directly reference and interact with DOM elements.
-
-        1.7.2 Why use useRef?
-
-            Accessing DOM elements directly: To manipulate input fields, focus elements, scroll positions, or perform animations imperatively.
-
-            Persisting mutable values: Store values across renders (like timers, previous state values, or any mutable data) without triggering re-render.
-
-            Avoiding re-renders: Unlike state, updating a ref does not cause the component to render again, which is useful for performance optimizations.
-
-            Storing previous values: Useful for tracking previous state or props without causing additional renders.
-
-        1.7.4 How to use useRef?
-
-            Import useRef from React:
-
-            ```js
-            import { useRef } from 'react';
-            ```
-
-            Create a ref inside your component with an initial value:
-
-            ```js
-            const myRef = useRef(initialValue);
-            ```
-
-            For DOM access, attach the ref to a JSX element:
-
-            ```jsx
-            <input ref={myRef} />
-            ```
-
-            Access or mutate the ref's current value:
-
-            ```js
-            myRef.current // to read
-            myRef.current = newValue // to update
-            ```
-
-            Use it in event handlers or effects to manipulate elements or values:
-
-            ```js
-            const handleClick = () => {
-                myRef.current.focus();
-            }
-            ```
-
-        1.7.4 When to use useRef?
-
-            When you need to access or manipulate a DOM element directly (e.g., focusing an input, measuring size).
-
-            To persist mutable values across renders without causing re-renders (like timers or previous state values).
-
-            If you want to store values that need to survive across renders but don't affect the UI.
-
-            When you want to track previous props or state values without triggering an update cycle.
-
-            To avoid unnecessary state updates and improve performance in certain scenarios.
-
-            e.g useRef for DOM access:
-
-            ```js
-            import React, { useRef } from 'react';
-
-            function TextInput() {
-                const inputRef = useRef(null);
-
-                const focusInput = () => {
-                    inputRef.current.focus();  // Imperatively focus the input
-                };
-
-                return (
-                    <div>
-                    <input ref={inputRef} type="text" placeholder="Click button to focus me" />
-                    <button onClick={focusInput}>Focus Input</button>
-                    </div>
-                );
-            }
-
-            export default TextInput;
-            ```
-
-            Here, inputRef points to the DOM <input> element.
-
-            Clicking the button calls focusInput which focuses the input directly.
-
-            No re-render is triggered when inputRef.current is mutated.
-
-    Summary:
-    What React hook to create a mutable ref object persisting across renders without causing re-render
-    Why To access DOM nodes/imperatively manipulate them, or hold mutable values between renders efficiently
-    How Declare with useRef(initialValue), attach to JSX ref attribute, modify/read .current property
-    When Access DOM elements, store mutable non-rendering state, avoid performance costs, track previous values
-    This hook is essential for any interaction where direct DOM manipulation or persistent mutable values are required without triggering renders, optimizing React functional components.
-
-2.  HOC(Higher Order Component):- It is design pattern.
-
-    2.1 What is an HOC?
-    An HOC is a function that accepts a component and returns a new component that wraps the original one, providing additional props, behavior, or side effects.
-
-         It is not part of React’s core API but a pattern based on React's compositional nature.
-
-    2.2 Why Use HOCs?
-
-        2.2.1 Code Reusability:
-
-        HOCs enable sharing common logic (e.g., authentication, data fetching) across multiple components without repeating code.
-
-             2.2.2 Separation of Concerns: They help separate the UI rendering from logic or side effects, improving code organization and maintainability.
-
-            2.2.3 Cleaner Components: Components remain focused on UI, while HOCs handle behavior, making both easier to manage.
-
-            2.2.4 Improved Testing: You can isolate logic in HOCs and test them separately.
-
-            2.2.5 Scalability: HOCs simplify adding or modifying shared behavior as the app grows.
-
-            2.2.6 Third-Party Integration: They help inject functionalities like theming, analytics, or API integration uniformly across components.
-
-    2.3 How to Use HOCs?
-
-    Define the HOC: Write a function that takes a component as argument and returns a new component wrapping it.
-
-    Add logic or props: Inside the new component, introduce additional logic, state, or props as needed.
-
-    Return the wrapped component: Render the original component with new or modified props.
-
-    Apply the HOC: Wrap your original component by calling the HOC function with it and use the enhanced component in your app.
-
-        e.g.
-
-        import React from 'react';
-
-        // HOC defined as an arrow function
-        const withGreeting = (WrappedComponent) => (props) => {
-             // This HOC adds a new prop 'greeting' to the wrapped component
-             return <WrappedComponent {...props} greeting="Hello from HOC!" />;
-        };
-
-        // Simple component that expects a `greeting` prop
-        const DisplayMessage = ({ greeting }) => <h1>{greeting}</h1>;
-
-        // Enhance the DisplayMessage component using the HOC
-        const EnhancedDisplayMessage = withGreeting(DisplayMessage);
-
-        export default EnhancedDisplayMessage;
-
-    2.4 When to Use HOCs?
-
-    To reuse cross-cutting concerns like authentication, authorization, data fetching, error handling, theming, or logging across many components.
-
-    When you want to abstract and isolate complex or repetitive logic away from presentational components.
-
-    To enhance existing components with additional features without changing their implementation.
-
-    When you need to compose multiple behaviors in a clean and scalable manner.
-
-3.  Life-Cycle Of Component:-
-
-    3.1 Class Component:-
-
-    ![Lifecycle](public/images/ComponentLifecycle.png)
-
-         The lifecycle of a React component broadly consists of three main phases: Mounting, Updating, and Unmounting, each representing a different stage in the component's existence and offering lifecycle methods to hook into its behavior.
-
-         3.1.1 Mounting Phase
-
-                This phase occurs when a component is first created and inserted into the DOM. It involves initial setup and rendering.
-
-                constructor(props): Initializes state and binds event handlers (only in class components).
-
-                static getDerivedStateFromProps(props, state): Sync state to props before rendering.
-
-                render(): Returns the JSX to build the UI.
-
-                componentDidMount(): Runs after the component is mounted to the DOM, useful for side effects like data fetching or setting up subscriptions.
-
-         3.1.2 Updating Phase
-
-                This happens whenever the component's props or state change, triggering a re-render.
-
-                static getDerivedStateFromProps(props, state): Called during updates to sync state to new props.
-
-                shouldComponentUpdate(nextProps, nextState): Determines if component should re-render (returning false skips update).
-
-                render(): Re-renders the component.
-
-                getSnapshotBeforeUpdate(prevProps, prevState): Captures information before DOM updates (e.g., scroll position).
-
-                componentDidUpdate(prevProps, prevState, snapshot): Runs after updates, suitable for DOM operations or fetching new data.
-
-         3.1.3. Unmounting Phase
-
-                This phase occurs when the component is removed from the DOM and is used for cleanup.
-
-                componentWillUnmount(): Called right before the component is removed, where you can clear timers, cancel network requests, or remove event listeners.
-
-    3.2 For Functional Components
-
-        Functional components do not have these explicit lifecycle methods but achieve similar effects using React Hooks:
-
-                useEffect hook replaces componentDidMount, componentDidUpdate, and componentWillUnmount. You can specify when the effect runs and perform cleanup by returning a cleanup function.
-
-    Summary
-
-    Lifecycle overview
-
-        Mounting: Component sets up, renders UI.
-        Updating: Triggered by prop or state changes.
-        Unmounting: Cleanup before component is removed.
-
-    This lifecycle system allows controlled handling of side effects and efficient updates in React applications.
-
-4.  State Management Concepts:-
-
-    4.1 State
-    4.2 Props
-    4.3 Prop Drilling
-    4.4 ShitingUp State,Function
-
-5.  Redux / Zustand :-
-
-    5.1 Redux(RTK) :- Managing global state in React applications using Redux because it streamlines setup, eliminates boilerplate, and enforces best practices
-
-    5.1.1 What is Redux Toolkit?
-
-        It is a set of utilities that simplify Redux usage by automating common tasks, such as store setup and state immutability, and include features like createSlice, configureStore, and advanced async support.
-
-        It is the default way to write Redux logic for modern React apps.
-
-    5.1.2 Why use Redux Toolkit?
-
-        Reduces Boilerplate: Automates creation of actions, reducers, and even async logic, drastically reducing overlap versus plain Redux.
-
-        Best Practices: Implements suggested Redux patterns by default (middleware, DevTools, immutability), so you avoid common bugs and mistakes.
-
-        Better Productivity: Shortens setup and coding time, enabling you to focus on application logic rather than configuration details.
-
-        Advanced Features: Includes tools like RTK Query for efficient server state caching, createAsyncThunk for handling async logic, and support for code splitting and TypeScript.
-
-    5.1.3 How to use Redux Toolkit in React?
+    Syntax:
 
         Install Dependencies
 
@@ -2451,23 +1840,28 @@ Interview Question 2025:-
 
             dispatch(increment());
             ```
-    5.1.4 When to use Redux Toolkit in React?
-
-        Use Redux Toolkit when:
-
-        Your app has complex state across many components and manual prop drilling is unwieldy.
-
-        You need predictable state management, debugging/tracing, and scale.
-
-        You want to simplify Redux code and avoid manual setup and mistakes.
-
-        If your app’s state is very simple and local, or your project does not require global state, Redux and Redux Toolkit may be unnecessary.
-
-    Summary 
-    What	Official toolset for Redux in React
-    Why	Eliminates boilerplate, enforces best practices
-    How	Install, createSlice, configureStore, hooks
-    When	Complex/global state, scalable needs
-    For real projects, always use Redux Toolkit instead of traditional Redux for improved code quality, maintainability, and developer productivity.
-
+    
     5.2 Zustand (Newer Concept) :- 
+
+
+
++++++++++++++++++++++++++++++++++++++++++++
+YouTube:- Top 12 React Interview Questions 🔥 for Freshers & Experienced | Preparation 2025 🚀
++++++++++++++++++++++++++++++++++++++++++++
+
+Interview Question 2025:-
+
+1.  Hooks
+2.  Life-Cycle Of Component
+3.  HOC(Higher Order Component)
+4.  State Management Concepts:-
+
+    4.1 State
+    4.2 Props
+    4.3 Prop Drilling
+    4.4 Lifting (State,Function) Up
+
+5.  Redux(RTL) 
+6.  Zustand :-
+
+    

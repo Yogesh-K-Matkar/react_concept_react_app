@@ -363,8 +363,6 @@ B.2. Pull Request :-
 2.  React.StrictMode:-
     It is a tool for highlighting potential problems in an application. It activates additional checks and warnings for its descendants.
 
-    It does not render any visible UI. It activates additional checks and warnings for its descendants.
-
     It helps to identify components with unsafe life-cycles, legacy API usage, and other side effects.
 
     Syntax:- Wrap the entire application with <React.StrictMode> tag
@@ -457,7 +455,8 @@ B.2. Pull Request :-
     
     9.1. Class Component:- ES6 classes extending React.Component. Uses render method and state.Legacy projects only.
 
-        ![Lifecycle](public/images/ComponentLifecycle.png)
+     ![Lifecycle](public/images/ComponentLifecycle.png)
+
 
          Lifecycle:- Three main phases:  
 

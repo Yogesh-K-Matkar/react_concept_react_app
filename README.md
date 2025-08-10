@@ -1862,5 +1862,3 @@ Interview Question 2025:-
 
 5.  Redux(RTL) 
 6.  Zustand :-
-
-    

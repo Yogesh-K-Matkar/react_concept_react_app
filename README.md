@@ -455,7 +455,8 @@ B.2. Pull Request :-
     
     9.1. Class Component:- ES6 classes extending React.Component. Uses render method and state.Legacy projects only.
 
-        ![Lifecycle](public/images/ComponentLifecycle.png)
+     ![Lifecycle](public/images/ComponentLifecycle.png)
+
 
          Lifecycle:- Three main phases:  
 

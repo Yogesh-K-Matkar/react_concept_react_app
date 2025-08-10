@@ -805,6 +805,7 @@ B.2. Pull Request :-
     2 Types Of Hooks:-
 
     30.1. State Management:-
+
     30.1.1 useState(State Management with re-rendering):- The useState hook, when the state variable value gets updated, it renders the components where it is defined, such as form input, toggles, counters, fetched data flags, or UI visibility.
 
     For local state management inside a single component and it remains until the component is unmounted.

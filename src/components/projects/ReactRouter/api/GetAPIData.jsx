@@ -51,17 +51,19 @@ export const getMoviesData = async () => {
   }
 };
 
-export const getMoviesDataByParams = async ({ params }) => {
-  console.log(params);
-  console.log(params.movieID);
+export const getMoviesDataByParams = async (props) => {
+  // {  params;}
+  console.log(props);
 
   const apiAccessMethod = import.meta.env.VITE_API_ACCESS_METHOD;
+
+  const { params } = props;
 
   try {
     const apiKey = import.meta.env.VITE_MOVIES_OMDBAPI_KEY;
     console.log(apiKey);
 
-    const movieID = params.movieID;
+    const { movieID } = params;
 
     const baseURL = import.meta.env.VITE_MOVIES_OMDBAPI_BASEURL;
     const apiURL = `?i=${movieID}&apikey=${apiKey}`;

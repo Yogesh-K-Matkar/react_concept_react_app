@@ -10,6 +10,6 @@ const getOMDBAPIBaseURL = () => {
 const api = axios.create({ baseURL: getOMDBAPIBaseURL() });
 
 // 2. Define a function to fetch movie data
-export const getMovies = (apiURL) => {
-  return api.get(apiURL);
+export const getMovies = async (apiURL) => {
+  return await api.get(apiURL);
 };

@@ -1,3 +1,15 @@
+# CSS
+
+Color:-
+
+- [Color Hex Code](https://colorhunt.co/)
+- [Gradient Color](https://mycolor.space/gradient,https://uigradients.com/#DirtyFog)
+- [Shapes](https://9elements.github.io/fancy-border-radius/,https://10015.io/tools/css-border-radius-generator)
+
+Browser Chrome Extension:-
+
+- Designer Tool
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -58,10 +70,10 @@ New:-
 
 References:-
 
-https://javascript.info/
-https://www.geeksforgeeks.org/installation-of-node-js-on-windows/
-https://www.npmjs.com/package/create-react-app
-https://react.dev/learn
+- https://javascript.info/
+- https://www.geeksforgeeks.org/installation-of-node-js-on-windows/
+- https://www.npmjs.com/package/create-react-app
+- https://react.dev/learn
 
 ---
 
@@ -232,6 +244,10 @@ bun install react@rc react-dom@rc
 
 Step 7: Extensions:
 
+Browser Chrome Extension:-
+7.1 React Developer Tool
+
+VS Code:-
 7.1. Auto Close Tag
 7.2. Auto Comment
 7.3. Auto Import
@@ -354,7 +370,9 @@ B.2. Pull Request :-
         git pull origin main
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 # ReactJS Concepts:-
+
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 1.  DOM Reconciliation / Diffing Algorithm:  
@@ -452,13 +470,11 @@ B.2. Pull Request :-
 
 9.  Types of Component:- 2 Types of Component Declaration
 
-    
     9.1. Class Component:- ES6 classes extending React.Component. Uses render method and state.Legacy projects only.
 
-     ![Lifecycle](public/images/ComponentLifecycle.png)
+    ![Lifecycle](public/images/ComponentLifecycle.png)
 
-
-         Lifecycle:- Three main phases:  
+         Lifecycle:- Three main phases:
 
          9.1.1 Mounting Phase
 
@@ -497,7 +513,7 @@ B.2. Pull Request :-
          Functional components do not have these explicit lifecycle methods but achieve similar effects using React Hooks:
 
         useEffect hook replaces componentDidMount, componentDidUpdate, and componentWillUnmount. You can specify when the effect runs and perform cleanup by returning a cleanup function.
-   
+
 10. Types of Functional Component:-
 
     10.1. Default Functional Component :- In case of importing the Export Default component, then while importing any component name be used without curly braces.
@@ -832,21 +848,19 @@ B.2. Pull Request :-
             );
         }
         ```
-        
+
         Imp:-
 
         1. The effect updates the document title after every render where count changes.
         2. If you omit [count], it would update after every render.
         3. Passing an empty array [] would run it only once after the initial render.
-           
 
     30.1.2. useRefs(DOM Manipulation without re-rendering):- Built-in hook is used when control values are not tightly bound by any useState hook state variable, meaning an uncontrolled component.
 
     When you need to access or manipulate a DOM element directly (e.g., to manipulate input fields, focus elements, scroll positions, or perform animations imperatively).
 
     Persisting mutable values: Store values across renders (like timers, previous state values, or any mutable data) without triggering re-render.
-   
-    
+
     In React, we can access the control using the document.getElementById() method, such as
 
     Syntax:-
@@ -859,9 +873,9 @@ B.2. Pull Request :-
 
             const focusInput = () => {
                 inputRef.current.focus();  // Imperatively focus the input
-                
+
                 console.log(inputRef.current.value);  // Access the input value
-                
+
             };
 
             return (
@@ -873,7 +887,7 @@ B.2. Pull Request :-
         }
 
         export default TextInput;
-        ```          
+        ```
         Here, inputRef points to the DOM <input> element.
 
         Clicking the button calls focusInput which focuses the input directly.
@@ -943,10 +957,9 @@ B.2. Pull Request :-
 
         dispatch triggers state changes routed through the reducer.
 
-        This clearly separates state logic from UI.       
+        This clearly separates state logic from UI.
 
-    
-    30.1.5. useEffect(Side Effects):-  Side effects functionality (data fetching, DOM manipulation, setting up subscriptions, or timers) which normally occur outside the rendering process.
+    30.1.5. useEffect(Side Effects):- Side effects functionality (data fetching, DOM manipulation, setting up subscriptions, or timers) which normally occur outside the rendering process.
 
     Runs side-effect code after React has updated the DOM.
 
@@ -986,7 +999,7 @@ B.2. Pull Request :-
 
     Used when complex sorting, filtering, or computations.
 
-    Syntax:- 
+    Syntax:-
 
         ```js
         import React, { useState, useMemo } from 'react';
@@ -1013,7 +1026,7 @@ B.2. Pull Request :-
             return (
                 <>
                     <ExpensiveCalculation number={count} />
-                
+
                     <button onClick={() => setCount(count + 1)}>Increment</button>
                 </>
             );
@@ -1026,8 +1039,8 @@ B.2. Pull Request :-
 
     30.1.7. useCallBack(Memoized Callbacks):- Built-in hook that memoizes a callback function and returns the same function instance between renders unless its dependencies change. This helps optimize React components by preventing unnecessary re-creations of functions and avoids unwanted re-renders in child components that receive these callbacks as props.
 
-    Syntax:- 
-    
+    Syntax:-
+
         ```js
         import React, { useState, useCallback } from 'react';
 
@@ -1042,7 +1055,7 @@ B.2. Pull Request :-
             return (
                 <>
                     <Child onClick={increment} />
-                
+
                     <p>Count: {count}</p>
                 </>
             );
@@ -1061,7 +1074,7 @@ B.2. Pull Request :-
     30.1.8 useContext(Global State Management):
 
     Prop Drilling(Problem which is resolved using useContext hook):-
-        Passing Props through Source Component to subsequent child components until it reaches to the required destination/target component.
+    Passing Props through Source Component to subsequent child components until it reaches to the required destination/target component.
 
         This can lead to unnecessary complexity and makes it difficult to manage state and props, especially in larger applications with deeply nested components.
 
@@ -1107,13 +1120,12 @@ B.2. Pull Request :-
 
         Changing user with setUser will cause all consuming components to update.
 
-
     (
-        Note:- 
-    
+    Note:-
+
         Limitation of useContext hook conditionally calling useContext hook is not allowed, meaning it has to be defined at the top of the component function.
-        
-        But the 'use' hook can be called within a condition, a looping logic, which gives more flexibility.    
+
+        But the 'use' hook can be called within a condition, a looping logic, which gives more flexibility.
 
         Syntax:-
 
@@ -1131,18 +1143,19 @@ B.2. Pull Request :-
                 myName = "Default Name";
                 myAge = 0;
             }
-            console.log(myName, myAge);            
+            console.log(myName, myAge);
             ```
+
     )
 
-31. Custom Hooks:- 
+31. Custom Hooks:-
     Custom hooks are a way to encapsulate and reuse logic across multiple components in React. They allow you to create reusable functions that can use built-in hooks like useState, useEffect, and others.
 
     Custom hooks are just JavaScript functions that start with the word "use" and can call other hooks inside them. They can return any value, including state variables, functions, or objects.
 
     Custom hooks are useful for encapsulating complex logic that needs to be shared across multiple components, such as form handling, data fetching, or animations.
 
-    To create a custom hook, define a function that uses React hooks and returns the desired values or functions. Then, you can use this custom hook in any component by calling it like a regular function.    
+    To create a custom hook, define a function that uses React hooks and returns the desired values or functions. Then, you can use this custom hook in any component by calling it like a regular function.
 
     Syntax of a custom hook that uses useState and useEffect:
 
@@ -1171,36 +1184,35 @@ B.2. Pull Request :-
             }, []);
 
             return { data, loading, error };
-        };  
-        ```       
+        };
+        ```
 
 32. HOC/Higher Order Component:-
-    HOC is a function that takes a component and returns a new component with additional functionality or behavior.    
+    HOC is a function that takes a component and returns a new component with additional functionality or behavior.
 
     To reuse cross-cutting concerns like authentication, authorization, data fetching, error handling, theming, or logging across many components.
-
 
         1 Code Reusability:
 
             HOCs enable sharing common logic (e.g., authentication, data fetching) across multiple components without repeating code.
 
-        2 Separation of Concerns: 
-    
+        2 Separation of Concerns:
+
             They help separate the UI rendering from logic or side effects, improving code organization and maintainability.
 
-        3 Cleaner Components: 
-            
+        3 Cleaner Components:
+
             Components remain focused on UI, while HOCs handle behavior, making both easier to manage.
 
-        4 Improved Testing: 
-            
+        4 Improved Testing:
+
             You can isolate logic in HOCs and test them separately.
 
-        5 Scalability: 
-            
+        5 Scalability:
+
             HOCs simplify adding or modifying shared behavior as the app grows.
 
-        6 Third-Party Integration: 
+        6 Third-Party Integration:
             They help inject functionalities like theming, analytics, or API integration uniformly across components.
 
     Syntax:-
@@ -1237,7 +1249,9 @@ B.2. Pull Request :-
             ```
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 # ReactJS API Access Ways:-
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 1.  fetch():-
@@ -1274,85 +1288,84 @@ B.2. Pull Request :-
             };
             ```
 
+2.  Axios() (Third-Party):-
 
-2. Axios() (Third-Party):-
-
-   Axios is a promise-based HTTP client for the browser and Node.js. It is better than fetch() as it has more features and is more user-friendly.
+    Axios is a promise-based HTTP client for the browser and Node.js. It is better than fetch() as it has more features and is more user-friendly.
 
     It simplifies making HTTP requests and handling responses, making it easier to work with APIs.
 
-          Benefits:-
+           Benefits:-
 
-            1. Easier syntax and cleaner code.
-            2. Automatic JSON transformation without extra code.
-            3. Built-in error handling.
-            4. Supports old browsers.
+             1. Easier syntax and cleaner code.
+             2. Automatic JSON transformation without extra code.
+             3. Built-in error handling.
+             4. Supports old browsers.
 
-    Third-party libraries like Axios need to be installed separately. 
+    Third-party libraries like Axios need to be installed separately.
 
     2.1. First install axios
 
-        Syntax:-
-                > npm install axios
-                
-                Then verify the module is installed or not in the package.json within the dependencies key's value, along with the module version
-               
+         Syntax:-
+                 > npm install axios
+
+                 Then verify the module is installed or not in the package.json within the dependencies key's value, along with the module version
 
 
 
-        2.1.1. Promises:-
 
-                    Axios returns a Promise that resolves to the response data.
+         2.1.1. Promises:-
 
-                    Syntax:-
+                     Axios returns a Promise that resolves to the response data.
 
-                        ```js
-                        import axios from 'axios';
+                     Syntax:-
 
-                        axios.get(url)
-                            .then(response => console.log(response.data))
-                            .catch(error => console.error(error));
-                        ```   
+                         ```js
+                         import axios from 'axios';
 
-                    Promise Methods to fetch response:-
+                         axios.get(url)
+                             .then(response => console.log(response.data))
+                             .catch(error => console.error(error));
+                         ```
 
-                        1. Promise.all :- When any of Single Promise is not fulfilled/failed in array of Promises then all Promises will be failed.                        
-                        2. Promise.race : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned.
-                        3. Promise.any : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned, if all Promises are rejected then it will be failed.
-                        4. Promise.resolve : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned, if all Promises are rejected then it will be resolved with undefined value.
-                        5. Promise.reject : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned, if all Promises are rejected then it will be rejected with undefined value.
-                        6. Promise.finally : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned, if all Promises are rejected then it will be resolved with undefined value.
-                        7. Promise.timeout : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned, if all Promises are rejected then it will be resolved with undefined value.
+                     Promise Methods to fetch response:-
 
-        2.1.3 Async-Await
+                         1. Promise.all :- When any of Single Promise is not fulfilled/failed in array of Promises then all Promises will be failed.
+                         2. Promise.race : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned.
+                         3. Promise.any : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned, if all Promises are rejected then it will be failed.
+                         4. Promise.resolve : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned, if all Promises are rejected then it will be resolved with undefined value.
+                         5. Promise.reject : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned, if all Promises are rejected then it will be rejected with undefined value.
+                         6. Promise.finally : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned, if all Promises are rejected then it will be resolved with undefined value.
+                         7. Promise.timeout : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned, if all Promises are rejected then it will be resolved with undefined value.
 
-                    Axios can also be used with async-await syntax, making the code more readable and easier to manage.
+         2.1.3 Async-Await
 
-                    Syntax:-
+                     Axios can also be used with async-await syntax, making the code more readable and easier to manage.
 
-                        ```js
-                        import axios from 'axios';
+                     Syntax:-
 
-                        const fetchData = async () => {
-                            try {
-                                const response = await axios.get(url);
-                                console.log(response.data);
-                            } catch (error) {
-                                console.error(error);
-                            }
-                        };
+                         ```js
+                         import axios from 'axios';
 
-                        fetchData();
-                        ```
+                         const fetchData = async () => {
+                             try {
+                                 const response = await axios.get(url);
+                                 console.log(response.data);
+                             } catch (error) {
+                                 console.error(error);
+                             }
+                         };
 
-3. Axios HTTP Methods:
-   
+                         fetchData();
+                         ```
+
+3.  Axios HTTP Methods:
+
     Axios supports all standard HTTP methods like GET, POST, PUT, DELETE, PATCH, etc. Each method corresponds to a specific type of request.
 
-    3.1.  HTTP Method(CRUD Methods):-
+    3.1. HTTP Method(CRUD Methods):-
 
         3.1.1. POST(Create-C):-
-        
+
         The POST method is used to send data to the server to create a new resource. It is commonly used for submitting forms or uploading files.
 
         Syntax:-
@@ -1371,7 +1384,7 @@ B.2. Pull Request :-
         ```
 
         3.1.2 GET(Read-R):-
-        
+
         The GET method is used to retrieve data from the server. It is commonly used for fetching resources or displaying data to the user.
 
         Syntax:-
@@ -1390,7 +1403,7 @@ B.2. Pull Request :-
         ```
 
         3.1.3 PUT(Update-U):-
-        
+
         The PUT method is used to update an existing resource on the server. It is commonly used for updating data or replacing a resource.
 
         Syntax:-
@@ -1426,15 +1439,15 @@ B.2. Pull Request :-
         ```
 
         3.1.4. DELETE(Delete-D):-
-        
+
         The DELETE method is used to delete a resource on the server. It is commonly used for removing data or resources.
-        
+
         Syntax:-
 
         ```jsx
         import axios from "axios";
 
-        const deleteResource = async (id) => 
+        const deleteResource = async (id) =>
         {
             try {
                 const response = await axios.delete(`https://api.example.com/resources/${id}`);
@@ -1442,11 +1455,13 @@ B.2. Pull Request :-
             } catch (error) {
                     console.error("Error deleting resource:", error);
                 }
-        }        
+        }
         ```
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 # ReactJS Routing/Navigation
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 1.  REACT ROUTER(v7.6+) is another JavaScript(JS) Library/Framework used for implementing Routing in our Web Application using client-side scripting.
@@ -1454,8 +1469,8 @@ B.2. Pull Request :-
 2.  Install the react-router module.
 
     Syntax:-
-    
-           ```js 
+
+           ```js
            npm i react-router-dom@latest
            ```
 
@@ -1770,14 +1785,14 @@ B.2. Pull Request :-
 REDUX TOOLKIT(RTK) / Zustand
 +++++++++++++++++++++++++++++++++++++++++++
 
-1 Redux Toolkit(RTK) :- 
+1 Redux Toolkit(RTK) :-
 
     Large applications often require a more structured approach to managing global state, especially when dealing with complex data flows and interactions. Redux Toolkit (RTK) is a library that provides a set of tools and best practices for managing global state in React applications.
 
     It is built on top of Redux and provides a more efficient and developer-friendly way to work with Redux.
 
     It is designed to reduce boilerplate code, improve performance, and enhance the developer experience.
-    
+
     It is the standard way to write Redux logic in modern React applications.
 
     It is recommended for managing global state in React applications because it simplifies setup, reduces boilerplate code, and enforces best practices.
@@ -1786,7 +1801,7 @@ REDUX TOOLKIT(RTK) / Zustand
 
         Install Dependencies
 
-            ```js   
+            ```js
             npm install @reduxjs/toolkit react-redux
             ```
 
@@ -1796,7 +1811,7 @@ REDUX TOOLKIT(RTK) / Zustand
 
             ```js
             import { createSlice } from '@reduxjs/toolkit';
-        
+
 
             const counterSlice = createSlice({
             name: 'counter',
@@ -1810,7 +1825,7 @@ REDUX TOOLKIT(RTK) / Zustand
             export const { increment, decrement } = counterSlice.actions;
             export default counterSlice.reducer;
             ```
-            
+
         Configure the Store
 
         Use configureStore (not createStore).
@@ -1823,7 +1838,7 @@ REDUX TOOLKIT(RTK) / Zustand
                 reducer: { counter: counterReducer }
             });
             ```
-        
+
         Provide the Store
 
         Use <Provider store={store}> to wrap your app.
@@ -1840,10 +1855,8 @@ REDUX TOOLKIT(RTK) / Zustand
 
             dispatch(increment());
             ```
-    
-    5.2 Zustand (Newer Concept) :- 
 
-
+    5.2 Zustand (Newer Concept) :-
 
 +++++++++++++++++++++++++++++++++++++++++++
 YouTube:- Top 12 React Interview Questions 🔥 for Freshers & Experienced | Preparation 2025 🚀
@@ -1861,5 +1874,5 @@ Interview Question 2025:-
     4.3 Prop Drilling
     4.4 Lifting (State,Function) Up
 
-5.  Redux(RTL) 
+5.  Redux(RTL)
 6.  Zustand :-

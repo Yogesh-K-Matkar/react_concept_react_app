@@ -20,7 +20,13 @@ import contact from "../assets/images/contact.png";
     Then, passing {request} object as prop to function where formData() function retrun response which is then converted in object format through object.fromEntries() which further used for processing array like structure data to convert to object format.
 */
 
-export const submitContactFormData = async ({ request }) => {
+export const submitContactFormData = async (props) => {
+  // { request  }
+
+  console.log(props);
+
+  const { request } = props;
+
   try {
     const resp = await request.formData(); // formData() function returns a FormData object containing the form data submitted by the user.
 

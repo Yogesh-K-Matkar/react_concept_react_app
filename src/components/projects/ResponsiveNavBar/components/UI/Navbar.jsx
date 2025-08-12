@@ -1,10 +1,17 @@
+import { useState } from "react";
+import { useCustomResponsiveNavBar } from "../../pages/ResponsiveNavBar";
+import { GiHamburgerMenu } from "react-icons/gi";
+
 export const Navbar = () => {
-  let navLinks = [
-    { url: "#", name: "Home" },
-    { url: "#", name: "About" },
-    { url: "#", name: "Services" },
-    { url: "#", name: "Contact" },
-  ];
+  const { navLinks } = useCustomResponsiveNavBar();
+
+  //console.log(navLinks);
+
+  const [showMenu, setShowMenu] = useState(false);
+
+  const handleMenuDisplayToogle = () => {
+    setShowMenu(!showMenu);
+  };
 
   return (
     <header>
@@ -13,7 +20,7 @@ export const Navbar = () => {
           <div className="logo">
             <h1>All-in-One Secure Files</h1>
           </div>
-          <nav>
+          <nav className={showMenu ? "menu-mobile" : "menu-web"}>
             <ul>
               {navLinks.map((link, index) => {
                 let { url, name } = link;
@@ -25,6 +32,11 @@ export const Navbar = () => {
               })}
             </ul>
           </nav>
+          <div className="ham-menu">
+            <button onClick={() => handleMenuDisplayToogle()}>
+              <GiHamburgerMenu />
+            </button>
+          </div>
         </div>
       </div>
     </header>

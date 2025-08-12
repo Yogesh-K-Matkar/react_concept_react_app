@@ -1,7 +1,7 @@
 /* // Banners */
 
 .hero-section {
-    height: 60vh;
+    height: 50vh;
 } 
 
 .hero-section .container {
@@ -67,11 +67,11 @@ button {
 .banner-img {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;    
 }
 
 .container .banner-image {
-    width: 100%;
+    width: 40%;
 }
 
 @media screen and (max-width: 990px) {
@@ -84,7 +84,8 @@ button {
     }
 
     .container .banner-image {
-        width: 80%;
+        width: 20%;
         order: 0;
     }
 }
+

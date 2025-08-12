@@ -69,6 +69,71 @@ nav ul {
     display: none;
 }
 
+footer {
+    height: 20rem;   
+    width: 100%;
+}
+
+.footer-section {
+    margin-top: 15rem;     
+}
+
+.footer-container{
+    background-color: #1d1818;       
+    height: 10rem;       
+    padding-top:3rem;
+    padding-left: 5rem;    
+    font-family: urbanist;    
+    margin-top: 5rem
+}
+
+.grid-three--cols,
+.grid-three-cols {
+    grid-template-columns: repeat(3, 1fr);    
+}
+
+.footer-contact
+{
+    display: flex;     
+    flex-direction: row;
+        align-items: center;        
+        margin-right: 5rem;
+}
+
+.footer-contact div.icon{    
+    font-size: x-large;
+    padding-right: 1.5rem;
+    color: #2d84be;
+}
+
+.footer-contact-text p:first-child {
+        font-weight: bold;
+        font-size: small;
+        color: #fff;
+        font-family: system-ui;
+        padding-bottom: 0.5rem;
+}
+
+.footer-contact-text p:last-child {
+            font-weight: 100;
+                font-size:xx-small;
+                color: #a9a9a9;
+                font-family: system-ui;
+}
+
+.copyright-area
+{
+    background-color:#2e2d2d;
+    width: 100%;    
+    font-weight: 100;
+        font-size: xx-small;
+        color: #a9a9a9;
+        font-family: system-ui;
+        height: 7rem;
+        padding-top: 1rem;
+        padding-left: 5rem;        
+}
+
 /* media queries  */
 @media screen and (max-width: 998px) {
     .menu-web {
@@ -77,13 +142,13 @@ nav ul {
 
     .ham-menu {
         display: inline-block;
-        justify-content: flex-end; 
+        /* justify-content: flex-end;  */
         text-align: end;
     }
 
     .menu-mobile {
         position: absolute;
-        top: 10rem;
+        top: 20rem;
         left: 0;
         background-color: #fff;
         width: 100%;
@@ -103,4 +168,19 @@ nav ul {
             margin-bottom: 1.2rem;
         }
     }
+
+        .footer-container {
+                height: 15rem;
+                margin-top: 18rem
+        }
+
+           .grid-three--cols,
+           .grid-three-cols {
+            grid-template-columns: none;
+           }
+
+                .copyright-area{display: flex;
+                    flex-direction: column;
+                    }
 }
+

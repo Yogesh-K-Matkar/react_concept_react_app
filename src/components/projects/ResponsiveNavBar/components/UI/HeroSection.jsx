@@ -1,3 +1,5 @@
+import illustration from "../../assets/all_in_one_secure_file.png";
+
 export const HeroSection = () => {
   return (
     <>
@@ -20,12 +22,12 @@ export const HeroSection = () => {
             <div className="banner-img">
               <img
                 className="banner-image"
-                src="https://i.ibb.co/sVqYmS2/Illustration.png"
+                src={illustration}
                 alt="Illustration"
               />
             </div>
-          </div> 
-        </div> 
+          </div>
+        </div>
       </main>
     </>
   );

@@ -10,10 +10,13 @@ export const Footer = () => {
     TbMailPlus: <TbMailPlus />,
   };
 
-  const dynamicContactDetails = (currElm) => {
+  const dynamicContactDetails = (currElm, index) => {
     const { icon, title, details } = currElm;
+
+    console.log(index);
+
     return (
-      <div className="footer-contact">
+      <div key={index} className="footer-contact">
         <div className="icon">{objDynamicContactIconList[icon]}</div>
         <div className="footer-contact-text">
           <p>{title}</p>
@@ -27,8 +30,8 @@ export const Footer = () => {
     <footer className="footer-section">
       <div className="footer-container">
         <div className="grid grid-three-cols">
-          {footerContactDetails.map((currContactDetails) => {
-            return dynamicContactDetails(currContactDetails);
+          {footerContactDetails.map((currContactDetails, index) => {
+            return dynamicContactDetails(currContactDetails, index);
           })}
         </div>
       </div>

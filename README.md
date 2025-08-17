@@ -817,9 +817,9 @@ Terminal cmd
 
 29. When any control is bound with a state variable(control is moving from uncontrolled to controlled). In React, most components are uncontrolled components by default unless their values are bound to a state variable..
 
-    Controlled Data Hooks:- useState
+    Controlled Data Hooks (Reflect changes immediately in DOM and on UI onChange - Sync Data - Operations:- Input value):- useState
 
-    UnControlled Data Hooks:- useRefs
+    UnControlled Data Hooks (Does not reflect changes in DOM and not on UI onChange - Non-Sync Data - Operations:- Background values,timer):- useRefs
 
 30. The 'use' prefixes in a function name is all React Hooks.
 

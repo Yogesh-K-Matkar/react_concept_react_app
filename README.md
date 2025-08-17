@@ -792,8 +792,13 @@ B.2. Pull Request :-
     That means State is common to multiple states at the same level of the child component.
 
 27. React Icons for icons image from multiple sources(Font Awesome icons, Material UI icons, etc) at one place
-    To access icons, first need to install using Terminal cmd
-    eg bun install react-icons
+    To access icons, first need to install using 
+
+Terminal cmd
+
+    e.g. 
+    
+    npm install react-icons --save
 
     Then import where needed to show the icon
 

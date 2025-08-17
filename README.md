@@ -1769,15 +1769,15 @@ Terminal cmd
                        export const submitContactFormData = async ({ request }) =>
                        {
                          try {
-                                 const resp = await request.formData();
+                                 const formData = await request.formData();
 
-                                 console.log(resp);
+                                 console.log(formData);
 
-                                 const actualresp = Object.formEntries(resp);
+                                 const postedData= Object.fromEntries(formData);
 
-                                 console.log(actualresp);
+                                 console.log(postedData);
 
-                                 return actualresp;
+                                 return postedData;
                             } catch (error) {
 
                                  console.log(error);

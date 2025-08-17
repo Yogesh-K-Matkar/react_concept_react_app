@@ -11,6 +11,8 @@ import { createRoot } from "react-dom/client";
 //import "./DynamicAccordionStaticJSONIndex.css";
 //import { ResponsiveNavBarApp } from "./components/ResponsiveNavBarApp";
 //import "./ResponsiveNavBarIndex.css";
+//import { CountryAtlasApp } from "./components/CountryAtlasApp";
+//import "./CountryAtlasIndex.css";
 
 const ReactApp = React.lazy(() => import("./ReactFrameworkApp"));
 const ReactRouterApp = React.lazy(() => import("./ReactRouterFrameworkApp"));
@@ -22,15 +24,23 @@ const DynamicAccordionStaticJSONApp = React.lazy(() =>
 );
 const ResponsiveNavBarApp = React.lazy(() => import("./ResponsiveNavBarApp"));
 
+const CountryAtlasApp = React.lazy(() => import("./CountryAtlasApp"));
+
 let AppConcept = import.meta.env.VITE_APP_CONCEPT;
 
 export const LoadComponent = () => {
+  const styleTitle = {
+    marginTop: "2rem",
+    marginBottom: "5rem",
+    color: "Highlight",
+  };
+
   switch (AppConcept) {
     case "REACTAPP":
       import("./ReactFrameworkIndex.css");
       return (
         <>
-          <h1 style={{ marginTop: "2rem", marginBottom: "5rem" }}>
+          <h1 style={styleTitle}>
             <u>Project 1. React Concept</u>
           </h1>
           <br />
@@ -42,7 +52,7 @@ export const LoadComponent = () => {
       import("./ReactRouterFrameworkIndex.css");
       return (
         <>
-          <h1 style={{ marginTop: "2rem", marginBottom: "5rem" }}>
+          <h1 style={styleTitle}>
             <u>Project 2. React Router Concept</u>
           </h1>
           <br />
@@ -54,12 +64,7 @@ export const LoadComponent = () => {
       import("./CRUDOperationsAxiosIndex.css");
       return (
         <>
-          <h1
-            style={{
-              marginTop: "2rem",
-              marginBottom: "5rem",
-              color: "Highlight",
-            }}>
+          <h1 style={styleTitle}>
             <u>Project 3. Full Stack CRUD Operation Using Axios Concept</u>
           </h1>
           <br />
@@ -71,12 +76,7 @@ export const LoadComponent = () => {
       import("./DynamicAccordionStaticJSONIndex.css");
       return (
         <>
-          <h1
-            style={{
-              marginTop: "2rem",
-              marginBottom: "5rem",
-              color: "Highlight",
-            }}>
+          <h1 style={styleTitle}>
             <u>Project 4. Dynamic Accordion Using Axios Concept</u>
           </h1>
           <br />
@@ -88,16 +88,26 @@ export const LoadComponent = () => {
       import("./ResponsiveNavBarIndex.css");
       return (
         <>
-          <h1
-            style={{
-              marginTop: "2rem",
-              marginBottom: "5rem",
-              color: "Highlight",
-            }}>
+          <h1 style={styleTitle}>
             <u>Project 5. Responsive Navbar Concept</u>
           </h1>
           <br />
           <ResponsiveNavBarApp />
+        </>
+      );
+
+    case "COUNTRYATLASAPP":
+      import("./CountryAtlasIndex.css");
+      return (
+        <>
+          <h1 style={styleTitle}>
+            <u>
+              Project 6. React-Router,React Icons, API Calling Using AXIOS
+              Concept
+            </u>
+          </h1>
+          <br />
+          <CountryAtlasApp />
         </>
       );
 

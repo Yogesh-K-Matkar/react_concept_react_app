@@ -1,13 +1,13 @@
 import { Outlet } from "react-router-dom";
-import Footers from "../UI/Footers";
-import Headers from "../UI/Headers";
+import Footer from "../UI/Footer";
+import Header from "../UI/Header";
 
 const AppLayout = () => {
   return (
     <>
-      <Headers />
+      <Header />
       <Outlet />
-      <Footers />
+      <Footer />
     </>
   );
 };

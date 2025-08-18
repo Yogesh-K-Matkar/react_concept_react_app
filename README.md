@@ -81,6 +81,8 @@ VS Code Editor Shortcuts:-
 
 Terminal show/hide(cntrl+`),Solution File/Folder Structure show/hide(cntrl+b),Focus on top search(cntrl+p, cntrl+shift+p)
 
+Format jsx,json :- shift+alt+f
+
 How to create a file and folder through the Terminal cmd.
 a. Move inside into folder
 cd <FolderName>

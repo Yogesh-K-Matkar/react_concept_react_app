@@ -1,0 +1,18 @@
+[
+  {
+    "icon": "MdPlace",
+    "title": "Find Us",
+    "details": "Mumbai, Maharashtra"
+  },
+  {
+    "icon": "IoCallSharp",
+    "title": "Call Us",
+    "details": "+91 9969050485"
+  },
+
+  {
+    "icon": "TbMailPlus",
+    "title": "Mail Us",
+    "details": "yogesh@outlook.in"
+  }
+]

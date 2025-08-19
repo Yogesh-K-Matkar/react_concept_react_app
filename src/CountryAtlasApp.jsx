@@ -6,7 +6,9 @@ import AppLayout from "./components/projects/CountryAtlas/components/Layout/AppL
 
 import Home from "./components/projects/CountryAtlas/pages/Home";
 import About from "./components/projects/CountryAtlas/pages/About";
-import Country from "./components/projects/CountryAtlas/pages/Country";
+import Country, {
+  CountryDetails,
+} from "./components/projects/CountryAtlas/pages/Country";
 import Contact from "./components/projects/CountryAtlas/pages/Contact";
 
 import ErrorPage from "./components/projects/CountryAtlas/pages/ErrorPage";
@@ -15,6 +17,7 @@ const childrenRoutes = [
   { path: "/", element: <Home /> },
   { path: "about", element: <About /> },
   { path: "country", element: <Country /> },
+  { path: "country/:countryname", element: <CountryDetails /> },
   { path: "contact", element: <Contact /> },
 ];
 

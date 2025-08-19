@@ -5,6 +5,7 @@ Color:-
 - [Color Hex Code](https://colorhunt.co/)
 - [Gradient Color](https://mycolor.space/gradient,https://uigradients.com/#DirtyFog)
 - [Shapes](https://9elements.github.io/fancy-border-radius/,https://10015.io/tools/css-border-radius-generator)
+- [Loader CSS](https://css-loaders.com/)
 
 Browser Chrome Extension:-
 
@@ -1154,6 +1155,31 @@ Terminal cmd
             ```
 
     )
+
+    30.1.9 useTransition:-
+    useTransition is a hook that allows to perform an action asynchronously, such as fetching data or updating state, without blocking the user interface.
+
+    Syntax:-    
+
+        ```js
+        import { useTransition } from "react";
+
+        const [isPending, startTransition] = useTransition();
+
+        startTransition(() => {
+            // Perform an action that updates state asynchronously
+            fetchData();
+            // ...
+            // Update state or perform other actions
+            // ...
+            // After the action is complete, set isPending to false
+            setIsPending(false);
+            // ...
+            // Render the updated UI
+            // ...
+        })
+        ```
+
 
 31. Custom Hooks:-
     Custom hooks are a way to encapsulate and reuse logic across multiple components in React. They allow you to create reusable functions that can use built-in hooks like useState, useEffect, and others.

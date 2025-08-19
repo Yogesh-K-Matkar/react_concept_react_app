@@ -584,29 +584,41 @@ contact us Page ends here
 
 /* //Loader  */
 /* HTML: <div class="loader"></div> */
+
+/* HTML: <div class="loader"></div> */
+/* HTML: <div class="loader"></div> */
 .loader {
-    width: 50px;
-    padding: 8px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: #25b09b;
-    --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
-    -webkit-mask: var(--_m);
-    mask: var(--_m);
-    -webkit-mask-composite: source-out;
-    mask-composite: subtract;
-    animation: l3 1s infinite linear;
+    --s: 40px;
+    height: calc(var(--s)*0.9);
+    width: calc(var(--s)*5);
+    --v1: transparent, #000 0.5deg 108deg, #0000 109deg;
+    --v2: transparent, #000 0.5deg 36deg, #0000 37deg;
+    -webkit-mask:
+        conic-gradient(from 54deg at calc(var(--s)*0.68) calc(var(--s)*0.57), var(--v1)),
+        conic-gradient(from 90deg at calc(var(--s)*0.02) calc(var(--s)*0.35), var(--v2)),
+        conic-gradient(from 126deg at calc(var(--s)*0.5) calc(var(--s)*0.7), var(--v1)),
+        conic-gradient(from 162deg at calc(var(--s)*0.5) 0, var(--v2));
+    -webkit-mask-size: var(--s) var(--s);
+    -webkit-mask-composite: xor, destination-over;
+    mask-composite: exclude, add;
+    -webkit-mask-repeat: repeat-x;
+    background: linear-gradient(#ffb940 0 0) left/0% 100% #ddd no-repeat;
+    animation: l20 2s infinite linear;    
 }
 
-@keyframes l3 {
-    to {
-        transform: rotate(1turn);
+@keyframes l20 {
+
+    90%,
+    100% {
+        background-size: 100% 100%
     }
 }
 
 .loader-section {
-    height: 50vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-top: 10%;
+    margin-left: 50%;
+    margin-bottom: 10%;
+    transform: translate(-50%, -50%);
 }
+
+

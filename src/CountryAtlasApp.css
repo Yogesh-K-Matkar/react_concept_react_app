@@ -447,6 +447,7 @@ country Card
         width: 100%;
         display: flex;
         justify-content: flex-end;
+        padding-right: 2.4rem;
     }
 }
 

@@ -826,359 +826,381 @@ Terminal cmd
 
 30. The 'use' prefixes in a function name is all React Hooks.
 
-    2 Types Of Hooks:-
+    Types Of Hooks:-
 
     30.1. State Management:-
 
-    30.1.1 useState(State Management with re-rendering):- The useState hook, when the state variable value gets updated, it renders the components where it is defined, such as form input, toggles, counters, fetched data flags, or UI visibility.
+        30.1.1. Simple Value State Management(Form simple values not more then 3 controls):-
 
-    For local state management inside a single component and it remains until the component is mounted.
+            30.1.1.1 useState(State Management with re-rendering- Simple, local state mean state value scope remain in same single component where its defined,
+            
+                Scenario :- Use only when form is simple has not more then 2 to 3 inputs.):- The useState hook, when the state variable value gets updated, it renders the components where it is defined, such as form input, toggles, counters, fetched data flags, or UI visibility.
 
-    State Variable/Initial State Variable Value can store any type of value, such as {}-Object,[]-Array,""-String,1234-Number
+                For local state management inside a single component and it remains until the component is mounted.
 
-    Syntax:-
+                State Variable/Initial State Variable Value can store any type of value, such as {}-Object,[]-Array,""-String,1234-Number
 
-        ```js
-        import React, { useState, useEffect } from 'react';
+                Syntax:-
 
-        function Counter() {
-            const [count, setCount] = useState(0);
+                    ```js
+                    import React, { useState, useEffect } from 'react';
 
-            useEffect(() => {
-                document.title = `You clicked ${count} times`;
-            }, [count]); // run effect only when count changes
+                    function Counter() {
+                        const [count, setCount] = useState(0);
 
-            return (
-                <div>
-                    <p>You clicked {count} times</p>
-                    <button onClick={() => setCount(count + 1)}>Click me</button>
-                </div>
-            );
-        }
-        ```
+                        useEffect(() => {
+                            document.title = `You clicked ${count} times`;
+                        }, [count]); // run effect only when count changes
 
-        Imp:-
+                        return (
+                            <div>
+                                <p>You clicked {count} times</p>
+                                <button onClick={() => setCount(count + 1)}>Click me</button>
+                            </div>
+                        );
+                    }
+                    ```
 
-        1. The effect updates the document title after every render where count changes.
-        2. If you omit [count], it would update after every render.
-        3. Passing an empty array [] would run it only once after the initial render.
+                    Imp:-
 
-    30.1.2. useRefs(DOM Manipulation without re-rendering):- Built-in hook is used when control values are not tightly bound by any useState hook state variable, meaning an uncontrolled component.
+                    1. The effect updates the document title after every render where count changes.
+                    2. If you omit [count], it would update after every render.
+                    3. Passing an empty array [] would run it only once after the initial render.
 
-    When you need to access or manipulate a DOM element directly (e.g., to manipulate input fields, focus elements, scroll positions, or perform animations imperatively).
+            30.1.1.2. useRefs(DOM Manipulation without re-rendering, 
+                Scenario :- Use only when form is simple has not more then 2 to 3 inputs.):- Built-in hook is used when control values are not tightly bound by any useState hook state variable, meaning an uncontrolled component.
 
-    Persisting mutable values: Store values across renders (like timers, previous state values, or any mutable data) without triggering re-render.
+                When you need to access or manipulate a DOM element directly (e.g., to manipulate input fields, focus elements, scroll positions, or perform animations imperatively).
 
-    In React, we can access the control using the document.getElementById() method, such as
+                Persisting mutable values: Store values across renders (like timers, previous state values, or any mutable data) without triggering re-render.
 
-    Syntax:-
+                In React, we can access the control using the document.getElementById() method, such as
 
-        ```js
-        import React, { useRef } from 'react';
+                Syntax:-
 
-        function TextInput() {
-            const inputRef = useRef(null);
+                    ```js
+                    import React, { useRef } from 'react';
 
-            const focusInput = () => {
-                inputRef.current.focus();  // Imperatively focus the input
+                    function TextInput() {
+                        const inputRef = useRef(null);
 
-                console.log(inputRef.current.value);  // Access the input value
+                        const focusInput = () => {
+                            inputRef.current.focus();  // Imperatively focus the input
 
-            };
+                            console.log(inputRef.current.value);  // Access the input value
 
-            return (
-                <div>
-                    <input ref={inputRef} type="text" placeholder="Click button to focus me" />
-                    <button onClick={focusInput}>Focus Input</button>
-                </div>
-            );
-        }
+                        };
 
-        export default TextInput;
-        ```
-        Here, inputRef points to the DOM <input> element.
+                        return (
+                            <div>
+                                <input ref={inputRef} type="text" placeholder="Click button to focus me" />
+                                <button onClick={focusInput}>Focus Input</button>
+                            </div>
+                        );
+                    }
 
-        Clicking the button calls focusInput which focuses the input directly.
+                    export default TextInput;
+                    ```
+                    Here, inputRef points to the DOM <input> element.
 
-        No re-render is triggered when inputRef.current is mutated.
+                    Clicking the button calls focusInput which focuses the input directly.
 
+                    No re-render is triggered when inputRef.current is mutated.
 
-        (Passing ref from Parent Component to Child Component
-        --Before React v19 release forwardRef function (props,ref)=>{} is used
-        --After React v19 release, ref can be accessed as props.)
 
-    30.1.3. useId(Unique IDs):- useId hook returns uniqueid. Don't use it to generate an ID for each field, as it will violate the accessibility rule of the form.
+                    (Passing ref from Parent Component to Child Component
+                    --Before React v19 release forwardRef function (props,ref)=>{} is used
+                    --After React v19 release, ref can be accessed as props.)
 
-    Syntax:-
+        30.1.2. Complex Value State Management(Form Complex Values more then 3 controls and object value which state value update multiple times):-
 
-        ```js
-        import { useId } from "react";
+            30.1.2.1. useReducer(Complex State Logic,
+                Scenario :- Use only when state undergoes multiple operation for e.g. insert,update,delete,increment,decrement. state value multiple times):- This hook provides an action parameter for the reducer function, so based on the action type, different state values can be returned instead of creating a separate function for each control action, that update the state differently.
 
-        const uniqueid=useId();
-        ```
+                Useful in forms, game states, or lists requiring add, remove, toggle operations.
 
-    30.1.4. useReducer(Complex State Logic):- This hook provides an action parameter for the reducer function, so based on the action type, different state values can be returned instead of creating a separate function for each control action, that update the state differently.
+                Syntax:-
 
-    Useful in forms, game states, or lists requiring add, remove, toggle operations.
+                    ```js
+                    import React, { useReducer } from 'react';
 
-    Syntax:-
+                    const initialState = { count: 0 };
 
-        ```js
-        import React, { useReducer } from 'react';
+                    const reducer = (state, action) => {
 
-        const initialState = { count: 0 };
+                        switch (action.type) {
+                            case 'increment':
+                            return { count: state.count + 1 };
+                            case 'decrement':
+                            return { count: state.count - 1 };
+                            case 'reset':
+                            return { count: 0 };
+                            default:
+                            return state;
+                        }
+                    };
 
-        const reducer = (state, action) => {
+                    function Counter() {
+                        const [state, dispatch] = useReducer(reducer, initialState);
 
-            switch (action.type) {
-                case 'increment':
-                return { count: state.count + 1 };
-                case 'decrement':
-                return { count: state.count - 1 };
-                case 'reset':
-                return { count: 0 };
-                default:
-                return state;
-            }
-        };
+                        return (
+                            <div>
+                            <p>Count: {state.count}</p>
 
-        function Counter() {
-            const [state, dispatch] = useReducer(reducer, initialState);
+                            <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>
 
-            return (
-                <div>
-                  <p>Count: {state.count}</p>
+                            <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>
 
-                  <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>
+                            <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
+                            </div>
+                        );
+                    }
 
-                  <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>
+                    export default Counter;
+                    ```
 
-                  <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
-                </div>
-            );
-        }
+                    Defines a reducer managing count state with 3 actions: increment, decrement, reset.
 
-        export default Counter;
-        ```
+                    dispatch triggers state changes routed through the reducer.
 
-        Defines a reducer managing count state with 3 actions: increment, decrement, reset.
+                    This clearly separates state logic from UI.
 
-        dispatch triggers state changes routed through the reducer.
+        30.1.2. Global State Management(Avoid prop drilling by sharing states):-
 
-        This clearly separates state logic from UI.
+            30.1.1 useContext:
 
-    30.1.5. useEffect(Side Effects):- Side effects functionality (data fetching, DOM manipulation, setting up subscriptions, or timers) which normally occur outside the rendering process.
+                Prop Drilling(Problem which is resolved using useContext hook):-
+                Passing Props through Source Component to subsequent child components until it reaches to the required destination/target component.
 
-    Runs side-effect code after React has updated the DOM.
+                    This can lead to unnecessary complexity and makes it difficult to manage state and props, especially in larger applications with deeply nested components.
 
-    Syntax:-
+                This hook is mainly used when a scenario to shared global state or configuration like themes, authentication info, language settings, or user preferences across multiple components efficiently, avoiding the need to pass props through many component levels ("prop drilling").
 
-        ```js
-        import React, { useState, useEffect } from 'react';
+                Syntax:-
 
-        function Counter() {
-            const [count, setCount] = useState(0);
+                    ```js
+                    import React, { createContext, useContext, useState } from "react";
 
-            useEffect(() => {
-                document.title = `You clicked ${count} times`;
-            }, [count]); // run effect only when count changes
+                    // Create a context with a default value
+                    const UserContext = createContext("Guest");
 
-            return (
-                <div>
-                    <p>You clicked {count} times</p>
-                    <button onClick={() => setCount(count + 1)}>Click me</button>
-                </div>
-            );
-        }
-        ```
+                    function App() {
+                        const [user, setUser] = useState("Jesse Hall");
 
-        The effect updates the document title after every render where count changes.
+                        return (
+                            <UserContext.Provider value={user}>
+                                <h1>Hello {user}!</h1>
+                                <ComponentA />
+                            </UserContext.Provider>
+                        );
+                    }
 
-        If you omit [count], it would update after every render.
+                    function ComponentA() {
+                        return <ComponentB />;
+                    }
 
-        Passing an empty array [] would run it only once after the initial render.
+                    function ComponentB() {
+                        return <ComponentC />;
+                    }
 
+                    function ComponentC() {
+                        const user = useContext(UserContext); // Consume context value here
 
-        (Imp:- Cleanup Code execute
-                 1. When Component Unmount mean component does not render in JSX based on condition
-                 2. When dependencies changes useEffect re-render.)
+                        return <h2>Welcome back, {user}!</h2>;
+                    }
+                    ```
 
-    30.1.6. useMemo(Performance Optimization):- Built-in hook that optimize performance by memoizing (caching) the result of expensive calculations so they don't have to be recomputed on every render unless their dependencies change.
+                    Here, UserContext shares the user value globally.
 
-    Used when complex sorting, filtering, or computations.
+                    ComponentC accesses the user value directly using useContext, without receiving it as props through intermediate components.
 
-    Syntax:-
+                    Changing user with setUser will cause all consuming components to update.
 
-        ```js
-        import React, { useState, useMemo } from 'react';
+                (
+                Note:-
 
-        function ExpensiveCalculation({ number }) {
-            const factorial = useMemo(() => {
-                function factorialOf(n) {
-                    return n <= 1 ? 1 : n * factorialOf(n - 1);
-                }
-                console.log('Computing factorial...');
-                return factorialOf(number);
-            }, [number]);
+                    Limitation of useContext hook conditionally calling useContext hook is not allowed, meaning it has to be defined at the top of the component function.
 
-            return (
-                <div>
-                <p>Factorial of {number} is {factorial}</p>
-                </div>
-            );
-        }
+                    But the 'use' hook can be called within a condition, a looping logic, which gives more flexibility.
 
-        export default function App() {
-            const [count, setCount] = useState(5);
+                    Syntax:-
 
-            return (
-                <>
-                    <ExpensiveCalculation number={count} />
+                        ```js
+                        import { use } from "react";
 
-                    <button onClick={() => setCount(count + 1)}>Increment</button>
-                </>
-            );
-        }
-        ```
+                        const newHook = true;
 
-        The factorial is recalculated only if number changes.
+                        let myName, myAge;
 
-        Clicking the button renders the component but the expensive factorial calculation runs only when needed.
+                        if (newHook) {
+                            ({ myName, myAge } = use(BioContext));
+                        }
+                        else {
+                            myName = "Default Name";
+                            myAge = 0;
+                        }
+                        console.log(myName, myAge);
+                        ```
 
-    30.1.7. useCallBack(Memoized Callbacks):- Built-in hook that memoizes a callback function and returns the same function instance between renders unless its dependencies change. This helps optimize React components by preventing unnecessary re-creations of functions and avoids unwanted re-renders in child components that receive these callbacks as props.
+                )
 
-    Syntax:-
+    30.2. Unique Values/IDs Generate:-
 
-        ```js
-        import React, { useState, useCallback } from 'react';
-
-        function Parent() {
-            const [count, setCount] = useState(0);
-
-            // Memoize callback to prevent its recreation unless 'count' changes
-            const increment = useCallback(() => {
-                setCount(c => c + 1);
-            }, []);
-
-            return (
-                <>
-                    <Child onClick={increment} />
-
-                    <p>Count: {count}</p>
-                </>
-            );
-        }
-
-        const Child = React.memo(({ onClick }) => {
-            console.log("Child rendered");
-            return <button onClick={onClick}>Increment</button>;
-        });
-        ```
-
-        Without useCallback, the onClick function would be a new instance every render, causing Child to re-render.
-
-        With useCallback, the same function instance is passed, so Child only re-renders when necessary.
-
-    30.1.8 useContext(Global State Management):
-
-    Prop Drilling(Problem which is resolved using useContext hook):-
-    Passing Props through Source Component to subsequent child components until it reaches to the required destination/target component.
-
-        This can lead to unnecessary complexity and makes it difficult to manage state and props, especially in larger applications with deeply nested components.
-
-    This hook is mainly used when a scenario to shared global state or configuration like themes, authentication info, language settings, or user preferences across multiple components efficiently, avoiding the need to pass props through many component levels ("prop drilling").
-
-    Syntax:-
-
-        ```js
-        import React, { createContext, useContext, useState } from "react";
-
-        // Create a context with a default value
-        const UserContext = createContext("Guest");
-
-        function App() {
-            const [user, setUser] = useState("Jesse Hall");
-
-            return (
-                <UserContext.Provider value={user}>
-                    <h1>Hello {user}!</h1>
-                    <ComponentA />
-                </UserContext.Provider>
-            );
-        }
-
-        function ComponentA() {
-            return <ComponentB />;
-        }
-
-        function ComponentB() {
-            return <ComponentC />;
-        }
-
-        function ComponentC() {
-            const user = useContext(UserContext); // Consume context value here
-
-            return <h2>Welcome back, {user}!</h2>;
-        }
-        ```
-
-        Here, UserContext shares the user value globally.
-
-        ComponentC accesses the user value directly using useContext, without receiving it as props through intermediate components.
-
-        Changing user with setUser will cause all consuming components to update.
-
-    (
-    Note:-
-
-        Limitation of useContext hook conditionally calling useContext hook is not allowed, meaning it has to be defined at the top of the component function.
-
-        But the 'use' hook can be called within a condition, a looping logic, which gives more flexibility.
+        30.2.1. useId(Unique IDs):- useId hook returns uniqueid. Don't use it to generate an ID for each field, as it will violate the accessibility rule of the form.
 
         Syntax:-
 
             ```js
-            import { use } from "react";
+            import { useId } from "react";
 
-            const newHook = true;
-
-            let myName, myAge;
-
-            if (newHook) {
-                ({ myName, myAge } = use(BioContext));
-            }
-            else {
-                myName = "Default Name";
-                myAge = 0;
-            }
-            console.log(myName, myAge);
+            const uniqueid=useId();
             ```
 
-    )
+        
+    30.3. Pre-Loaded Logic(Initial Component Binding)/Side Effects State Management:-
 
-    30.1.9 useTransition:-
-    useTransition is a hook that allows to perform an action asynchronously, such as fetching data or updating state, without blocking the user interface.
+        30.3.1. useEffect(Side Effects,
+        Scenario :- Use only when pre-loaded component logic e.g. page_init,page_load):- Side effects functionality (data fetching, DOM manipulation, setting up subscriptions, or timers) which normally occur outside the rendering process.
 
-    Syntax:-    
+        Runs side-effect code after React has updated the DOM.
 
-        ```js
-        import { useTransition } from "react";
+        Syntax:-
 
-        const [isPending, startTransition] = useTransition();
+            ```js
+            import React, { useState, useEffect } from 'react';
 
-        startTransition(() => {
-            // Perform an action that updates state asynchronously
-            fetchData();
-            // ...
-            // Update state or perform other actions
-            // ...
-            // After the action is complete, set isPending to false
-            setIsPending(false);
-            // ...
-            // Render the updated UI
-            // ...
-        })
-        ```
+            function Counter() {
+                const [count, setCount] = useState(0);
+
+                useEffect(() => {
+                    document.title = `You clicked ${count} times`;
+                }, [count]); // run effect only when count changes
+
+                return (
+                    <div>
+                        <p>You clicked {count} times</p>
+                        <button onClick={() => setCount(count + 1)}>Click me</button>
+                    </div>
+                );
+            }
+            ```
+
+            The effect updates the document title after every render where count changes.
+
+            If you omit [count], it would update after every render.
+
+            Passing an empty array [] would run it only once after the initial render.
+
+
+            (Imp:- Cleanup Code execute
+                    1. When Component Unmount mean component does not render in JSX based on condition
+                    2. When dependencies changes useEffect re-render.)   
+    
+   
+    30.4. Performance Optimization & Improvement means no change in logic based on value then fetch existing value from cache)
+
+        30.4.1. useMemo(Performance Optimization & Improvement):- Built-in hook that optimize performance by memoizing (caching) the result of expensive calculations so they don't have to be recomputed on every render unless their dependencies change.
+
+        Used when complex sorting, filtering, or computations.
+
+        Syntax:-
+
+            ```js
+            import React, { useState, useMemo } from 'react';
+
+            function ExpensiveCalculation({ number }) {
+                const factorial = useMemo(() => {
+                    function factorialOf(n) {
+                        return n <= 1 ? 1 : n * factorialOf(n - 1);
+                    }
+                    console.log('Computing factorial...');
+                    return factorialOf(number);
+                }, [number]);
+
+                return (
+                    <div>
+                    <p>Factorial of {number} is {factorial}</p>
+                    </div>
+                );
+            }
+
+            export default function App() {
+                const [count, setCount] = useState(5);
+
+                return (
+                    <>
+                        <ExpensiveCalculation number={count} />
+
+                        <button onClick={() => setCount(count + 1)}>Increment</button>
+                    </>
+                );
+            }
+            ```
+
+            The factorial is recalculated only if number changes.
+
+            Clicking the button renders the component but the expensive factorial calculation runs only when needed.
+
+        30.4.2. useCallBack(Memoized Callbacks):- Built-in hook that memoizes a callback function and returns the same function instance between renders unless its dependencies change. This helps optimize React components by preventing unnecessary re-creations of functions and avoids unwanted re-renders in child components that receive these callbacks as props.
+
+        Syntax:-
+
+            ```js
+            import React, { useState, useCallback } from 'react';
+
+            function Parent() {
+                const [count, setCount] = useState(0);
+
+                // Memoize callback to prevent its recreation unless 'count' changes
+                const increment = useCallback(() => {
+                    setCount(c => c + 1);
+                }, []);
+
+                return (
+                    <>
+                        <Child onClick={increment} />
+
+                        <p>Count: {count}</p>
+                    </>
+                );
+            }
+
+            const Child = React.memo(({ onClick }) => {
+                console.log("Child rendered");
+                return <button onClick={onClick}>Increment</button>;
+            });
+            ```
+
+            Without useCallback, the onClick function would be a new instance every render, causing Child to re-render.
+
+            With useCallback, the same function instance is passed, so Child only re-renders when necessary.
+
+    
+    30.5. Component Rendering Stage:-
+
+        30.5.1 useTransition(Component undergoes various stages such as ideal,isPending,isDone):-
+        useTransition is a hook that allows to perform an action asynchronously, such as fetching data or updating state, without blocking the user interface.
+
+        Syntax:-    
+
+            ```js
+            import { useTransition } from "react";
+
+            const [isPending, startTransition] = useTransition();
+
+            startTransition(() => {
+                // Perform an action that updates state asynchronously
+                fetchData();
+                // ...
+                // Update state or perform other actions
+                // ...
+                // After the action is complete, set isPending to false
+                setIsPending(false);
+                // ...
+                // Render the updated UI
+                // ...
+            })
+            ```
 
 
 31. Custom Hooks:-

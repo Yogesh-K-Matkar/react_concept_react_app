@@ -3,10 +3,16 @@ import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import { getCountryData, getCountryDataByName } from "../api/calling.js";
 import Loader from "../components/UI/Loader.jsx";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
+import FilterSection from "../components/UI/FilterSection.jsx";
 
 const Countries = () => {
   const [isPending, startTransition] = useTransition();
   const [countriesData, setCountriesData] = useState([]);
+
+  const [search, setSearch] = useState();
+  const [filter, setFilter] = useState("all");
+
+  const [sortOrder, setSortingOrder] = useState("asc");
 
   useEffect(() => {
     startTransition(async () => {
@@ -23,10 +29,69 @@ const Countries = () => {
     return <Loader />;
   }
 
+  console.log(search, filter);
+
+  let filteredCountries = countriesData;
+
+  //search logic
+
+  const searchCountry = (searchText) => {
+    setSearch(searchText);
+  };
+
+  const countrySearch = (country) => {
+    return country.name.common.toLowerCase().includes(search.toLowerCase())
+      ? true
+      : false;
+  };
+
+  if (search) {
+    filteredCountries = filteredCountries.filter((country) =>
+      countrySearch(country)
+    );
+  }
+
+  //filter logic
+  const filterRegion = (filterSelected) => {
+    setFilter(filterSelected);
+  };
+
+  const regionFilter = (country) => {
+    return country.region.toLowerCase() === filter.toLowerCase() ? true : false;
+  };
+
+  if (filter !== "" && filter !== "all") {
+    filteredCountries = filteredCountries.filter((country) =>
+      regionFilter(country)
+    );
+  }
+
+  //sort logic
+
+  const sortCountries = (sortType) => {
+    setSortingOrder(sortType);
+  };
+
+  filteredCountries = filteredCountries.sort((a, b) => {
+    if (sortOrder === "asc") {
+      return a.name.common.localeCompare(b.name.common);
+    } else {
+      return b.name.common.localeCompare(a.name.common);
+    }
+  });
+
   return (
     <section className="country-section">
+      <FilterSection
+        countriesData={countriesData}
+        search={search}
+        filter={filter}
+        searchCountry={searchCountry}
+        filterCountry={filterRegion}
+        sortCountries={sortCountries}
+      />
       <ul className="grid grid-four-cols">
-        {countriesData.map((country, index) => {
+        {filteredCountries.map((country, index) => {
           return <Country key={index} id={index} countryData={country} />;
         })}
       </ul>
@@ -94,6 +159,10 @@ export const CountryDetails = () => {
     return <Loader />;
   }
 
+  if (countryData === undefined) {
+    return <p>Country not found</p>;
+  }
+
   return (
     <section className="card country-details-card container">
       <div className="container-card bg-white-box">
@@ -151,14 +220,13 @@ export const CountryDetails = () => {
                 </p>
               </div>
             </div>
-
-            <button
-              className="btn btn-darken btn-inline bg-white-box"
-              onClick={() => navigate(-1)}
-            >
-              <FaLongArrowAltLeft />
-              Go Back
-            </button>
+            <div></div>
+            <div className="country-card-backBtn">
+              <button onClick={() => navigate(-1)}>
+                <FaLongArrowAltLeft />
+                Go Back
+              </button>
+            </div>
           </div>
         )}
       </div>

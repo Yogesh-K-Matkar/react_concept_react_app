@@ -330,7 +330,7 @@ A.1. Upload Files from VS Code to GitHub:-
 
          > git commit -m "<commit comments>"
 
-      i. Then adding the origin of the git repository means connecting VS Code to a specific git repository path using the below cmd
+      i. Then adding the origin of the remote git repository means connecting VS Code to a specific git repository path using the below cmd
 
          > git remote add origin https://github.com/Yogesh-K-Matkar/deploy_react_app_example1.git
 

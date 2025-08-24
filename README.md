@@ -324,7 +324,12 @@ A.1. Upload Files from VS Code to GitHub:-
 
       g. After that, for staging file changes cmd
 
-         > git add .
+        Stage All Files:-
+         > git add .         (. means all files staged)
+
+        Stage Specific Files:-
+         > git add filename1.txt filename1.jsx
+         
 
       h. After the above cmd file is moved from CHANGES to Staged Changes, with each file with A as a letter, means these files are going to be added to be final step before going to push in git
 

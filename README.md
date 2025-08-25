@@ -377,6 +377,43 @@ B.2. Pull Request :-
 
         git pull origin main
 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# React Application Folder Structure 
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+src/
+│
+├── assets/
+├── components/
+│   ├── Button/
+│   └── Modal/
+├── contexts/
+│   └── AuthContext.js
+├── features/
+│   └── todos/
+│       ├── TodoList.js
+│       ├── useTodos.js
+│       └── todoAPI.js
+├── hooks/
+│   └── useWindowSize.js
+├── layouts/
+│   └── MainLayout.js
+├── pages/
+│   ├── Home.js
+│   └── Profile.js
+├── services/
+│   └── api.js
+├── store/
+│   ├── actions.js
+│   ├── reducers.js
+│   └── store.js
+├── utils/
+│   └── formatDate.js
+└── index.js
+
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # ReactJS Concepts:-

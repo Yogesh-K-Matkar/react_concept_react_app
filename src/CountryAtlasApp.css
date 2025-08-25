@@ -140,17 +140,19 @@ nav ul {
     }
 
     .ham-menu {
-        display: flex;
-        justify-content: flex-end;
+        display: inline-block;
+            /* justify-content: flex-end;  */
+            text-align: -webkit-right;
     }
 
     .menu-mobile {
         position: absolute;
-        top: 10rem;
+        top: 20rem;
         left: 0;
         background-color: #0d1212;
         width: 100%;
         box-shadow: rgba(255, 252, 252, 0.25) 0px 14px 28px;
+        z-index: 2;
     }
 
     .menu-mobile ul {

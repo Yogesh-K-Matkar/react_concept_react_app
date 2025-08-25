@@ -542,6 +542,16 @@ B.2. Pull Request :-
          ```
          (Where export component name is NetflixSeries)
 
+     10.3. Combining Default and Named Exports: In case of importing Export Default and Named component, then while importing the same Default Component and Named Component name from single same .jsx file.
+
+    Syntax:
+
+         ```js
+         import Series, { NetflixSeries } from "./components/NetflixSeries";
+         ```
+         (Where export default component is Series and named component is NetflixSeries from NetflixSeries.jsx file)
+
+
 11. Define/Use imported Components/Component from another JSX(ReactFrameworkApp.jsx) as below
 
     e.g.

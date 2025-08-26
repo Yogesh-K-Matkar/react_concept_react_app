@@ -377,9 +377,147 @@ B.2. Pull Request :-
 
         git pull origin main
 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# HTML - "HTML is the standard markup language for creating web pages. Follows W3C standards."
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# JavaScript/JS Basics - "Javascript/JS is dynamic scripting language"
+
+1. Javascript/JS is dynamic scripting language.
+
+   a. Visual Studio Code(IDE-Integrated Development Environment)
+   b. Javascript can be run in browser Dev Tool CONSOLE(client-side) but due to NodeJS(Open Source , cross-platform, JavaScript runtime environment)  uses Chrome V8 Engines internally environment to run Javascript code at runtime in VS Code terminal through below cmd.
+
+    E.g. node first.js
+
+  Explanation:-
+
+    1.1. var keyword type variable.
+
+    a. Dynamic means the variable type e.g. var i whose value can be re-declared, and it can be changed at any time based on value assigned.
+        E.g:- var i=10;  --means now i stores integer value
+
+              i="a"; --means now i stores string value                
+
+
+    b. var is scope less means re-declaring the same variable within the scope then outside the scope then value assigned will be the latest one.
+    c. var support HOSTING concept, which means the variable can be used before its declaration. It gives as undefined value but not error as var type variable is  defined after using it.
+        E.g.:-
+
+              console.log(i);  --Used before declaration ,which gives value as undefined but not error as while code is scan internally var type variable is hoisted(means declaration is moved at top but not seen).
+              
+              var i=20;
+
+  (Imp:- Due to which ES6(ES2015) introduced let and const keywords for variable declaration.
+         ES means EcmaScript)
+
+   1.2. let keyword type variable.
+
+   a. Block scope means the variable value is limited to the block in which it is defined.
+
+   b. It can be re-assigned but not re-declared within the same block means assigning different datatype value is not allowed.
+
+   1.3. const keyword type variable.
+
+   a. Block scope means the variable value is limited to the block in which it is defined.
+
+   b. It cannot be re-assigned or re-declared within the same block means assigning different datatype value is not allowed.
+
+2. Looping concepts:-
+
+    E.g. let arr=[1,2,3,4,5];
+
+    2.1. for loop
+    2.2. for...in loop  --looping index of array/collection
+           
+           for(let num in arr){
+               console.log(num);  // index
+               console.log(arr[num]);  // value
+           }
+
+
+    2.3. for...of loop   --looping value of array/collection
+
+           for(let num of arr){
+               console.log(num);  // value
+           }
+
+    2.4. while loop
+    2.5. do...while loop
+
+3.  Working/Processing on Objects
+
+    3.1. Destructuring Object Properties:-
+
+    Destructuring is a way to extract properties from an object and assign them to variables.
+
+    It allows you to unpack values from arrays or properties from objects into distinct variables.
+
+    e.g.
+
+        const obj={id:1,name:"a",age:25};
+
+        const {id,name,age}=obj;
+
+        console.log(id);   //1
+        console.log(name); //a
+        console.log(age);  //25
+
+    ***
+
+    3.2. Spread Operator expand collection, array & object.
+
+    3.2.1 Collection or Array(Merge Element of same type in below case array1 & array2 is type array):-
+
+    e.g.
+
+        var array1=["a","b","c"];
+        var array2=["x","y","z"];
+
+        var mergearray1=[...array1,"x"];
+        var mergearray12=[...array1,...array2];
+
+        console.log(mergearray1);           //["a","b","c","x"]
+        console.log(mergearray12);          //["a","b","c","x","y","z"]
+
+    3.2.2 Object(Update Object Property):-
+
+    e.g.
+
+        const obj={id:1,name:"a"};
+        const obj1={...obj,id:2,name:"b"};
+
+        console.log(obj1)  // {id:2,name:"b"}   //Expand object properties to update value of required property
+
+
+4. Logic on collection by using method map(),filter() and reduce()
+
+    e.g.
+
+        const users=[{ id: 1, name: "Alice", age: 25 },
+                     { id: 2, name: "Bob", age: 35 }]
+
+        4.1. map():- Used for looping in a collection or array.
+        	e.g.
+
+                users.map((u)=><User name={u.name} age={u.age}>)
+
+        4.2. filter():- It's like a WHERE condition to get a customized collection based on the condition
+        	 e.g.
+
+                users.filter((u)=>u.age<35)
+
+        4.3. reduce():- It does computation on the collection and returns the required value
+        	e.g.
+
+              users.reduce((derivedCalculatedValue,u)=>{return derivedCalculatedValue + u.age},0)
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# VITE:- "Vite is a build tool in v19 replacement to webpack that aims to provide a faster and leaner development experience/environment for building modern web projects."
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # React Folder Structure:-
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -388,9 +526,15 @@ B.2. Pull Request :-
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-# ReactJS Concepts:-
+# ReactJS Concepts:- "ReactJS is Javascript library used for front-end development by using reusable UI components"
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    Evolution:- ReactJS is Javascript library used for front-end development by using reusable UI components.
+                
+                It doesn't provide framework that's why lightweight, so Angular comes into picture which provide both Javascript Library and Framework.  
+                
+                But ReactJS is only Javascript Library so it encapsulated in NextJS framework to form a complete full-stack framework to provide development Speed, Scalability & Simplicity.
 
 1.  DOM Reconciliation / Diffing Algorithm:  
     React uses a Virtual DOM to efficiently update the UI. When a component's state changes, React creates a new Virtual DOM tree by Babel and compares it with the previous one to determine the minimal set of changes needed to update the actual DOM.
@@ -437,63 +581,20 @@ B.2. Pull Request :-
 
         < img src="url"/ >
 
-6.  Working/Processing on Objects
 
-    6.1. Destructuring Object Properties:-
+6.  Concept of dynamic variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX.
 
-    Destructuring is a way to extract properties from an object and assign them to variables.
+7.  Concept of logical variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX based on a Condition using Conditional Operators/Logic such as Ternary, IF-ELSE block, etc.
 
-    It allows you to unpack values from arrays or properties from objects into distinct variables.
+8.  Types of Component:- 2 Types of Component Declaration
 
-    e.g.
-
-        const obj={id:1,name:"a",age:25};
-
-        const {id,name,age}=obj;
-
-        console.log(id);   //1
-        console.log(name); //a
-        console.log(age);  //25
-
-    ***
-
-    6.2. Spread Operator expand collection, array & object.
-
-    6.2.1 Collection or Array(Merge Element of same type in below case array1 & array2 is type array):-
-
-    e.g.
-
-        var array1=["a","b","c"];
-        var array2=["x","y","z"];
-
-        var mergearray1=[...array1,"x"];
-        var mergearray12=[...array1,...array2];
-
-        console.log(mergearray1);           //["a","b","c","x"]
-        console.log(mergearray12);          //["a","b","c","x","y","z"]
-
-    6.2.2 Object(Update Object Property):-
-
-    e.g.
-
-        const obj={id:1,name:"a"};
-        const obj1={...obj,id:2,name:"b"};
-
-        console.log(obj1)  // {id:2,name:"b"}   //Expand object properties to update value of required property
-
-7.  Concept of dynamic variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX.
-
-8.  Concept of logical variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX based on a Condition using Conditional Operators/Logic such as Ternary, IF-ELSE block, etc.
-
-9.  Types of Component:- 2 Types of Component Declaration
-
-    9.1. Class Component:- ES6 classes extending React.Component. Uses render method and state.Legacy projects only.
+    8.1. Class Component:- ES6 classes extending React.Component. Uses render method and state.Legacy projects only.
 
     ![Lifecycle](public/images/ComponentLifecycle.png)
 
          Lifecycle:- Three main phases:
 
-         9.1.1 Mounting Phase
+         8.1.1 Mounting Phase
 
                 This phase occurs when a component is first created and inserted into the DOM. It involves initial setup and rendering.
 
@@ -505,7 +606,7 @@ B.2. Pull Request :-
 
                 componentDidMount(): Runs after the component is mounted to the DOM, useful for side effects like data fetching or setting up subscriptions.
 
-         9.1.2 Updating Phase
+         8.1.2 Updating Phase
 
                 This happens whenever the component's props or state change, triggering a re-render.
 
@@ -519,21 +620,21 @@ B.2. Pull Request :-
 
                 componentDidUpdate(prevProps, prevState, snapshot): Runs after updates, suitable for DOM operations or fetching new data.
 
-         9.1.3 Unmounting Phase
+         8.1.3 Unmounting Phase
 
                 This phase occurs when the component is removed from the DOM and is used for cleanup.
 
                 componentWillUnmount(): Called right before the component is removed, where you can clear timers, cancel network requests, or remove event listeners.
 
-    9.2. Functional Component:-JS functions returning JSX. With Hooks, can manage state and effects.Preferred currently in projects.
+    8.2. Functional Component:-JS functions returning JSX. With Hooks, can manage state and effects.Preferred currently in projects.
 
          Functional components do not have these explicit lifecycle methods but achieve similar effects using React Hooks:
 
         useEffect hook replaces componentDidMount, componentDidUpdate, and componentWillUnmount. You can specify when the effect runs and perform cleanup by returning a cleanup function.
 
-10. Types of Functional Component:-
+9. Types of Functional Component:-
 
-    10.1. Default Functional Component :- In case of importing the Export Default component, then while importing any component name be used without curly braces.
+    9.1. Default Functional Component :- In case of importing the Export Default component, then while importing any component name be used without curly braces.
 
     Syntax:
 
@@ -542,7 +643,7 @@ B.2. Pull Request :-
          ```
          (Where export component name is NetflixSeries)
 
-    10.2. Named Functional Component :- In case of importing Export Named component, then while importing the same Component name to be used with curly braces.
+    9.2. Named Functional Component :- In case of importing Export Named component, then while importing the same Component name to be used with curly braces.
 
     Syntax:
 
@@ -551,7 +652,7 @@ B.2. Pull Request :-
          ```
          (Where export component name is NetflixSeries)
 
-     10.3. Combining Default and Named Exports: In case of importing Export Default and Named component, then while importing the same Default Component and Named Component name from single same .jsx file.
+     9.3. Combining Default and Named Exports: In case of importing Export Default and Named component, then while importing the same Default Component and Named Component name from single same .jsx file.
 
     Syntax:
 
@@ -560,68 +661,46 @@ B.2. Pull Request :-
          ```
          (Where export default component is Series and named component is NetflixSeries from NetflixSeries.jsx file)
 
-
-11. Define/Use imported Components/Component from another JSX(ReactFrameworkApp.jsx) as below
+********
+10. Define/Use imported Components/Component from another JSX(ReactFrameworkApp.jsx) as below
 
     e.g.
 
         < ReactApp / > (Component Name)
 
-12. To avoid rewriting/redundancy of the same code multiple times, create a single component and reuse it multiple times where required in the same JSX or another JSX
+11. To avoid rewriting/redundancy of the same code multiple times, create a single component and reuse it multiple times where required in the same JSX or another JSX
     (import component function from a particular JSX where the component function is defined).
 
-13. Instead of FOR/FOREACH loop their is map() for looping on collection/array. In React map(), each element must have a key prop to differentiate each element generated while looping using map().
+12. Instead of FOR/FOREACH loop their is map() for looping on collection/array. In React map(), each element must have a key prop to differentiate each element generated while looping using map().
 
-14. Logic on collection by using method map(),filter() and reduce()
+13. Props is way of passing attributes as parameter to Component in React, and can be passed from a unidirectional(1-direction) Parent component to calling child components as separate properties and consumed in the child component as props as a parameter that combines all properties of the child component defined by the Parent component while calling the Child component, except the key property.
 
-    e.g.
+14. While passing the integer value prop/attribute over the child component, pass it like this
 
-        const users=[{ id: 1, name: "Alice", age: 25 },
-                     { id: 2, name: "Bob", age: 35 }]
-
-        14.1. map():- Used for looping in a collection or array.
-        	e.g.
-
-                users.map((u)=><User name={u.name} age={u.age}>)
-
-        14.2. filter():- It's like a WHERE condition to get a customized collection based on the condition
-        	 e.g.
-
-                users.filter((u)=>u.age<35)
-
-        14.3. reduce():- It does computation on the collection and returns the required value
-        	e.g.
-
-              users.reduce((derivedCalculatedValue,u)=>{return derivedCalculatedValue + u.age},0)
-
-15. Props is way of passing attributes as parameter to Component in React, and can be passed from a unidirectional(1-direction) Parent component to calling child components as separate properties and consumed in the child component as props as a parameter that combines all properties of the child component defined by the Parent component while calling the Child component, except the key property.
-
-16. While passing the integer value prop/attribute over the child component, pass it like this
-
-    16.1. Integer prop/attribute over child component pass like this
+    14.1. Integer prop/attribute over child component pass like this
 
         id={integer_value}
 
-    16.2. String value prop/attribute over child component pass like this
+    14.2. String value prop/attribute over child component pass like this
 
         name="string_value"
 
     (IMP:- As per ECMAScript (ES6) rule, if in an object structure like { Name: Name }, when key and value are the same, then define the object like this {Name})
 
-17. To pass HTML content as JSX/string within opening and closing component tags, then a special prop is used, denoted as children, to access those elements.
+15. To pass HTML content as JSX/string within opening and closing component tags, then a special prop is used, denoted as children, to access those elements.
 
     e.g.
 
         const { children } = props;
 
-18. CSS Style- grid or flex-box. CSS always give it to the parent tag.
+16. CSS Style- grid or flex-box. CSS always give it to the parent tag.
     Instead of defining a class prop for applying a CSS class, use the className prop.
 
     Types of CSS:-
 
-    18.1. Normal CSS consider using the className prop.
+    16.1. Normal CSS consider using the className prop.
 
-    18.2. Inline CSS consider value as an object defined within { object } for the style prop
+    16.2. Inline CSS consider value as an object defined within { object } for the style prop
 
     e.g.
 
@@ -635,22 +714,22 @@ B.2. Pull Request :-
 
         style = {btn_style}
 
-    18.3. Conditionally applying CSS
+    16.3. Conditionally applying CSS
 
-    18.3.1. Based on the Ternary operator, apply styling
+    16.3.1. Based on the Ternary operator, apply styling
 
     e.g.
 
          className={i>0?"className1": "className2"}
 
-    18.3.2. When you want to append a className with a condition that derives another className based on the condition,
+    16.3.2. When you want to append a className with a condition that derives another className based on the condition,
     meaning append a string with an expression done below by using Template Literal
 
     e.g.
 
          className={`className1 ${i>0?"className2": "className3"}`}
 
-    18.4. ModuleCSS:-
+    16.4. ModuleCSS:-
     Module CSS is a component-specific style and extension of a file is <filename>.module.css
 
     In Module CSS, each className is treated as a property of that specific module.css object
@@ -664,13 +743,13 @@ B.2. Pull Request :-
 
          style={cssModule["abc"]} OR style={cssModule["a-b-c"]} can be use commonly
 
-    18.5. Using Tailwind v4 CSS (Third Party):-
+    16.5. Using Tailwind v4 CSS (Third Party):-
 
-    18.5.1. Install through Terminal cmd:-
+    16.5.1. Install through Terminal cmd:-
 
         npm install tailwindcss @tailwindcss/vite
 
-    18.5.2. Configure the Vite plugin
+    16.5.2. Configure the Vite plugin
 
         import tailwindcss from '@tailwindcss/vite'
 
@@ -680,11 +759,11 @@ B.2. Pull Request :-
                      ],
         })
 
-    18.5.3. Import Tailwind CSS
+    16.5.3. Import Tailwind CSS
 
         @import "tailwindcss";
 
-    18.6.4. bun run dev
+    16.5.4. bun run dev
 
     (
     Notes:- In TailwindCSS,
@@ -703,9 +782,9 @@ B.2. Pull Request :-
 
     )
 
-19. Different Source of UI Controls :
+17. Different Source of UI Controls :
 
-    19.1. Styled-Components (Third Party):-
+    17.1. Styled-Components (Third Party):-
     In styled-component, first need to install using the Terminal cmd
 
     e.g.
@@ -721,15 +800,15 @@ B.2. Pull Request :-
 
     2 ways to apply styled-components:-
 
-    19.1.1. Template Literals:-
-
+    17.1.1. Template Literals:-
+    
     e.g.
 
         const Button=styled.button`color:grey`;
 
             style.button --> button is a tag, eg p, h, button, span
 
-    19.1.2. Style Object:-
+    17.1.2. Style Object:-
 
     e.g.
 
@@ -741,61 +820,61 @@ B.2. Pull Request :-
 
     style.button --> button is a tag, eg p, h, button, span
 
-20. Custom Error:-
+18. Custom Error:-
     To show custom error message, use the below syntax
 
     e.g.
 
         let customError=new Error("Custom Error Message");
 
-21. Event Handler in JS, such as onClick, onChange, onSubmit, etc, which then call Syntactic Event Handler Function in React, should be written as a function name such as handleClick, handleChange,handleSubmit, etc
+19. Event Handler in JS, such as onClick, onChange, onSubmit, etc, which then call Syntactic Event Handler Function in React, should be written as a function name such as handleClick, handleChange,handleSubmit, etc
     This is known as the Syntactic Event Handler Function.
 
     Type Of Function:-
 
-    21.1. Named Function is only calling the function name, not the function.
+    19.1. Named Function is only calling the function name, not the function.
 
     e.g.
 
         onClick={handleButtonClick} (Not like this onClick={handleButtonClick()})
 
-    21.2. Arrow Function with event as parameter to get Syntactic Event object
+    19.2. Arrow Function with event as parameter to get Syntactic Event object
 
     e.g.
 
         onClick={(event)=>handleButtonClick(event)}
 
-    21.3. Inline Function With Syntactic Event Object
+    19.3. Inline Function With Syntactic Event Object
 
     e.g.
 
         onClick={(event) => console.log(event)}
 
-    21.4. Inline Arrow Normal Function
+    19.4. Inline Arrow Normal Function
 
     e.g.
 
         onClick={() =>{ console.log("Hi")}}
 
-    21.5. Arrow function passing parameters/arguments
+    19.5. Arrow function passing parameters/arguments
 
     e.g.
 
         onClick={(event) => handleButtonClick3(event, "User1")}
 
-22. Event Handler passing as props can be used in concepts such as Form Handling, User Interaction, State Management, and Callback Function.
+20. Event Handler passing as props can be used in concepts such as Form Handling, User Interaction, State Management, and Callback Function.
 
-23. Event Function is defined in Parent Component & passed as Props to Child Component, & then Child Component decides when to call Parent Component Event Function.
+21. Event Function is defined in Parent Component & passed as Props to Child Component, & then Child Component decides when to call Parent Component Event Function.
     So Parent Component pass Event Function as Props as Event Handler to the Child Component.
 
-24. Event Propagation, propagate means moving & Event Propagation means moving each element and the occurrence of the event until it reaches the target event.
+22. Event Propagation, propagate means moving & Event Propagation means moving each element and the occurrence of the event until it reaches the target event.
 
     Event Propagation has 3 components (Capture, Target & Bubbling)
 
     Type of Event Propagation:-
 
-        23.1. Event Capture means propagating/moving from the Parent Element to the Target Action Element and triggering all occurrence event functions in the path while moving.
-        23.2. Event Bubbling means propagating/moving from Target Action Element to Parent Element and triggering all occurrence event functions in the path while moving.
+        22.1. Event Capture means propagating/moving from the Parent Element to the Target Action Element and triggering all occurrence event functions in the path while moving.
+        22.2. Event Bubbling means propagating/moving from Target Action Element to Parent Element and triggering all occurrence event functions in the path while moving.
 
     But to avoid the unwanted triggering of Parent Component event functions other than the Target Action Event Function, we have to use
 
@@ -809,16 +888,16 @@ B.2. Pull Request :-
 
     event.stopImmediatePropagation();
 
-25. Derived State means a variable value comes from a State Variable.
+23. Derived State means a variable value comes from a State Variable.
 
-26. LiftingStateUp means when the state is defined in children and the same is needed by children at the same node level,
+24. LiftingStateUp means when the state is defined in children and the same is needed by children at the same node level,
     so we need to move the state to its parent, where both children are calling. This can be done through passing a function as a prop to the child,
     where the value from the child is passed to the parent via the parent function passed as a prop to set the State in the parent.
     Then the same state is passed as a prop to another child that requires the same state value.
 
     That means State is common to multiple states at the same level of the child component.
 
-27. React Icons for icons image from multiple sources(Font Awesome icons, Material UI icons, etc) at one place
+26. React Icons for icons image from multiple sources(Font Awesome icons, Material UI icons, etc) at one place
     To access icons, first need to install using 
 
 Terminal cmd
@@ -837,26 +916,26 @@ Terminal cmd
 
     <IconComponentName style={{color:"blue"}}/>
 
-28. To store & retain any value on refresh of the browser without a database.
+27. To store & retain any value on refresh of the browser without a database.
 
     To set:- localStorage.setItem("keyname","data");
     To get:- localStorage.getItem("keyname");
 
-29. When any control is bound with a state variable(control is moving from uncontrolled to controlled). In React, most components are uncontrolled components by default unless their values are bound to a state variable..
+28. When any control is bound with a state variable(control is moving from uncontrolled to controlled). In React, most components are uncontrolled components by default unless their values are bound to a state variable..
 
     Controlled Data Hooks (Reflect changes immediately in DOM and on UI onChange - Sync Data - Operations:- Input value):- useState
 
     UnControlled Data Hooks (Does not reflect changes in DOM and not on UI onChange - Non-Sync Data - Operations:- Background values,timer):- useRefs
 
-30. The 'use' prefixes in a function name is all React Hooks.
+29. The 'use' prefixes in a function name is all React Hooks.
 
     Types Of Hooks:-
 
-    30.1. State Management:-
+    29.1. State Management:-
 
-        30.1.1. Simple Value State Management(Form simple values not more then 3 controls):-
+        29.1.1. Simple Value State Management(Form simple values not more then 3 controls):-
 
-            30.1.1.1 useState(State Management with re-rendering- Simple, local state mean state value scope remain in same single component where its defined,
+            29.1.1.1 useState(State Management with re-rendering- Simple, local state mean state value scope remain in same single component where its defined,
             
                 Scenario :- Use only when form is simple has not more then 2 to 3 inputs.):- The useState hook, when the state variable value gets updated, it renders the components where it is defined, such as form input, toggles, counters, fetched data flags, or UI visibility.
 
@@ -891,7 +970,7 @@ Terminal cmd
                     2. If you omit [count], it would update after every render.
                     3. Passing an empty array [] would run it only once after the initial render.
 
-            30.1.1.2. useRefs(DOM Manipulation without re-rendering, 
+            29.1.1.2. useRefs(DOM Manipulation without re-rendering, 
                 Scenario :- Use only when form is simple has not more then 2 to 3 inputs.):- Built-in hook is used when control values are not tightly bound by any useState hook state variable, meaning an uncontrolled component.
 
                 When you need to access or manipulate a DOM element directly (e.g., to manipulate input fields, focus elements, scroll positions, or perform animations imperatively).
@@ -936,9 +1015,9 @@ Terminal cmd
                     --Before React v19 release forwardRef function (props,ref)=>{} is used
                     --After React v19 release, ref can be accessed as props.)
 
-        30.1.2. Complex Value State Management(Form Complex Values more then 3 controls and object value which state value update multiple times):-
+        29.1.2. Complex Value State Management(Form Complex Values more then 3 controls and object value which state value update multiple times):-
 
-            30.1.2.1. useReducer(Complex State Logic,
+            29.1.2.1. useReducer(Complex State Logic,
                 Scenario :- Use only when state undergoes multiple operation for e.g. insert,update,delete,increment,decrement. state value multiple times):- This hook provides an action parameter for the reducer function, so based on the action type, different state values can be returned instead of creating a separate function for each control action, that update the state differently.
 
                 Useful in forms, game states, or lists requiring add, remove, toggle operations.
@@ -989,9 +1068,9 @@ Terminal cmd
 
                     This clearly separates state logic from UI.
 
-        30.1.2. Global State Management(Avoid prop drilling by sharing states):-
+        29.1.2. Global State Management(Avoid prop drilling by sharing states):-
 
-            30.1.1 useContext:
+            29.1.1 useContext:
 
                 Prop Drilling(Problem which is resolved using useContext hook):-
                 Passing Props through Source Component to subsequent child components until it reaches to the required destination/target component.
@@ -1068,9 +1147,9 @@ Terminal cmd
 
                 )
 
-    30.2. Unique Values/IDs Generate:-
+    29.2. Unique Values/IDs Generate:-
 
-        30.2.1. useId(Unique IDs):- useId hook returns uniqueid. Don't use it to generate an ID for each field, as it will violate the accessibility rule of the form.
+        29.2.1. useId(Unique IDs):- useId hook returns uniqueid. Don't use it to generate an ID for each field, as it will violate the accessibility rule of the form.
 
         Syntax:-
 
@@ -1081,9 +1160,9 @@ Terminal cmd
             ```
 
         
-    30.3. Pre-Loaded Logic(Initial Component Binding)/Side Effects State Management:-
+    29.3. Pre-Loaded Logic(Initial Component Binding)/Side Effects State Management:-
 
-        30.3.1. useEffect(Side Effects,
+        29.3.1. useEffect(Side Effects,
         Scenario :- Use only when pre-loaded component logic e.g. page_init,page_load):- Side effects functionality (data fetching, DOM manipulation, setting up subscriptions, or timers) which normally occur outside the rendering process.
 
         Runs side-effect code after React has updated the DOM.
@@ -1121,9 +1200,9 @@ Terminal cmd
                     2. When dependencies changes useEffect re-render.)   
     
    
-    30.4. Performance Optimization & Improvement means no change in logic based on value then fetch existing value from cache)
+    29.4. Performance Optimization & Improvement means no change in logic based on value then fetch existing value from cache)
 
-        30.4.1. useMemo(Performance Optimization & Improvement):- Built-in hook that optimize performance by memoizing (caching) the result of expensive calculations so they don't have to be recomputed on every render unless their dependencies change.
+        29.4.1. useMemo(Performance Optimization & Improvement):- Built-in hook that optimize performance by memoizing (caching) the result of expensive calculations so they don't have to be recomputed on every render unless their dependencies change.
 
         Used when complex sorting, filtering, or computations.
 
@@ -1165,7 +1244,7 @@ Terminal cmd
 
             Clicking the button renders the component but the expensive factorial calculation runs only when needed.
 
-        30.4.2. useCallBack(Memoized Callbacks):- Built-in hook that memoizes a callback function and returns the same function instance between renders unless its dependencies change. This helps optimize React components by preventing unnecessary re-creations of functions and avoids unwanted re-renders in child components that receive these callbacks as props.
+        29.4.2. useCallBack(Memoized Callbacks):- Built-in hook that memoizes a callback function and returns the same function instance between renders unless its dependencies change. This helps optimize React components by preventing unnecessary re-creations of functions and avoids unwanted re-renders in child components that receive these callbacks as props.
 
         Syntax:-
 
@@ -1200,9 +1279,9 @@ Terminal cmd
             With useCallback, the same function instance is passed, so Child only re-renders when necessary.
 
     
-    30.5. Component Rendering Stage:-
+    29.5. Component Rendering Stage:-
 
-        30.5.1 useTransition(Component undergoes various stages such as ideal,isPending,isDone):-
+        29.5.1 useTransition(Component undergoes various stages such as ideal,isPending,isDone):-
         useTransition is a hook that allows to perform an action asynchronously, such as fetching data or updating state, without blocking the user interface.
 
         Syntax:-    
@@ -1227,7 +1306,7 @@ Terminal cmd
             ```
 
 
-31. Custom Hooks:-
+30. Custom Hooks:-
     Custom hooks are a way to encapsulate and reuse logic across multiple components in React. They allow you to create reusable functions that can use built-in hooks like useState, useEffect, and others.
 
     Custom hooks are just JavaScript functions that start with the word "use" and can call other hooks inside them. They can return any value, including state variables, functions, or objects.
@@ -1266,7 +1345,7 @@ Terminal cmd
         };
         ```
 
-32. HOC/Higher Order Component:-
+31. HOC/Higher Order Component:-
     HOC is a function that takes a component and returns a new component with additional functionality or behavior.
 
     To reuse cross-cutting concerns like authentication, authorization, data fetching, error handling, theming, or logging across many components.
@@ -1309,7 +1388,7 @@ Terminal cmd
 
     Here, `WithExtraProps` is a HOC that adds an `extraProp` to the wrapped component `MyComponent`.
 
-    32.1. React.Memo:-
+    31.1. React.Memo:-
 
         React.Memo is a built-in HOC that memoizes a component, preventing unnecessary re-renders when its props haven't changed.
 

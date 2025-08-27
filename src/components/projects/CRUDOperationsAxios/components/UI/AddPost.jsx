@@ -8,16 +8,16 @@ export const AddPost = (props) => {
   const initPost = { userId: 1, title: "", body: "" };
   const [post, setPost] = useState(initPost);
 
-  const handleInputValue = (ev) => {
+  function handleInputValue(ev) {
     const { name, value } = ev.target;
 
     setPost((prevState) => {
       return { ...prevState, [name]: value };
     });
-  };
+  }
 
   // post
-  const handleAddPost = (post) => {
+  function handleAddPost(post) {
     console.log("Post");
     try {
       if (apiAccessMethod === "axios") {
@@ -28,7 +28,7 @@ export const AddPost = (props) => {
       console.error("Error Status ", error.response.status);
       console.error("Error Data ", error.response.data);
     }
-  };
+  }
 
   // edit and update
   let isPostEdit = getEditPostData.title === "" ? false : true;
@@ -52,7 +52,7 @@ export const AddPost = (props) => {
     }
   }, [getEditPostData]);
 
-  const handlePutPost = (post) => {
+  function handlePutPost(post) {
     console.log("Put");
 
     try {
@@ -64,11 +64,11 @@ export const AddPost = (props) => {
       console.error("Error Status ", error.response.status);
       console.error("Error Data ", error.response.data);
     }
-  };
+  }
 
   //ACTION - ADD or UPDATE ON EDIT
 
-  const handleSubmitPost = (ev) => {
+  function handleSubmitPost(ev) {
     ev.preventDefault();
     try {
       const action = ev.nativeEvent.submitter.value;
@@ -79,7 +79,7 @@ export const AddPost = (props) => {
       console.error("Error Status ", error.response.status);
       console.error("Error Data ", error.response.data);
     }
-  };
+  }
 
   return (
     <form onSubmit={(ev) => handleSubmitPost(ev)}>

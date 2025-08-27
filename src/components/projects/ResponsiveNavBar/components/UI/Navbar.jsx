@@ -9,9 +9,9 @@ export const Navbar = () => {
 
   const [showMenu, setShowMenu] = useState(false);
 
-  const handleMenuDisplayToogle = () => {
+  function handleMenuDisplayToggle() {
     setShowMenu(!showMenu);
-  };
+  }
 
   return (
     <header>
@@ -33,7 +33,7 @@ export const Navbar = () => {
             </ul>
           </nav>
           <div className="ham-menu">
-            <button onClick={() => handleMenuDisplayToogle()}>
+            <button onClick={() => handleMenuDisplayToggle()}>
               <GiHamburgerMenu />
             </button>
           </div>

@@ -10,7 +10,7 @@ export const RegistrationFormCustomize = () => {
     phone: "",
   });
 
-  const handleInputChange = (evt) => {
+  function handleInputChange(evt) {
     console.log({ ...evt.target });
     const { name, value } = evt.target;
 
@@ -18,13 +18,13 @@ export const RegistrationFormCustomize = () => {
     // console.log(value);
 
     setRegistrationForm((prevStateVal) => ({ ...prevStateVal, [name]: value }));
-  };
+  }
 
-  const hanldeRegistrationDetails = (evt) => {
+  function handleRegistrationDetails(evt) {
     evt.preventDefault();
 
     console.log(objRegistrationForm);
-  };
+  }
 
   return (
     <>
@@ -39,7 +39,7 @@ export const RegistrationFormCustomize = () => {
           <span>{objRegistrationForm.phone}</span>
         </p>
       </section>
-      <form onSubmit={(e) => hanldeRegistrationDetails(e)}>
+      <form onSubmit={(e) => handleRegistrationDetails(e)}>
         <div className={cssModule["container"]}>
           <h1>Sign Up</h1>
           <p>Please fill in this form to create an account.</p>

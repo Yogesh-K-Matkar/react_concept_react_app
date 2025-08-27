@@ -8,16 +8,16 @@ export const TodoForm = (props) => {
     checked: false,
   });
 
-  const handleChangeEnterTodo = (e) => {
+  function handleChangeEnterTodo(e) {
     const addtodovalue = e.target.value;
     setAddTodo({ id: addtodovalue, content: addtodovalue, checked: false });
-  };
+  }
 
-  const pFrmSubmitAddTodo = (e) => {
+  function pFrmSubmitAddTodo(e) {
     e.preventDefault();
     pFormSubmitAddTodo(addTodo);
     setAddTodo({ id: "", content: "", checked: false });
-  };
+  }
 
   return (
     <section className={pCSSModule["form"]}>
@@ -26,7 +26,8 @@ export const TodoForm = (props) => {
         pStyled={pStyled}
         pAddTodo={addTodo}
         pFormSubmitAddTodo={(evt) => pFrmSubmitAddTodo(evt)}
-        pChangeEnterTodo={handleChangeEnterTodo}></AddTodo>
+        pChangeEnterTodo={handleChangeEnterTodo}
+      ></AddTodo>
     </section>
   );
 };
@@ -51,7 +52,8 @@ const AddTodo = (props) => {
           autoComplete="off"
           className={pCSSModule["todo-input"]}
           value={pAddTodo.content}
-          onChange={(evt) => pChangeEnterTodo(evt)}></input>
+          onChange={(evt) => pChangeEnterTodo(evt)}
+        ></input>
       </div>
       <div>
         <TodoActionAddButton type="submit" className={pCSSModule["todo-btn"]}>

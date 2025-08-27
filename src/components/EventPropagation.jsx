@@ -16,17 +16,17 @@ import "./EV.css";
 */
 
 export const EventPropagation = () => {
-  const handleGrandParentClick = () => {
+  function handleGrandParentClick() {
     console.log("Grand Parent Clicked");
-  };
-  const handleParentClick = () => {
+  }
+  function handleParentClick() {
     console.log("Parent Clicked");
-  };
-  const handleChildClick = (event) => {
+  }
+  function handleChildClick(event) {
     //console.log(event);
     console.log("Child Clicked");
     event.stopPropagation();
-  };
+  }
 
   return (
     <>
@@ -67,7 +67,8 @@ export const EventPropagation = () => {
           <div className="p-div" onClickCapture={handleParentClick}>
             <div
               className="c-div"
-              onClickCapture={(event) => handleChildClick(event)}>
+              onClickCapture={(event) => handleChildClick(event)}
+            >
               Child Div
             </div>
           </div>

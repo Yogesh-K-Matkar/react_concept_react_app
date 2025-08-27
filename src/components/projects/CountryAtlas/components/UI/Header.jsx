@@ -11,9 +11,9 @@ const Headers = () => {
    * The showMenu state is used to apply the class "menu-mobile" to the nav element which makes the menu visible in the mobile screen.
    */
   /*******  e8f2d6f2-0c63-4d0a-8d5c-4de61f80c90e  *******/
-  const handleMenuDisplayToogle = () => {
+  function handleMenuDisplayToggle() {
     setShowMenu(!showMenu);
-  };
+  }
 
   return (
     <header>
@@ -41,7 +41,7 @@ const Headers = () => {
             </ul>
           </nav>
           <div className="ham-menu">
-            <button onClick={() => handleMenuDisplayToogle()}>
+            <button onClick={() => handleMenuDisplayToggle()}>
               <GiHamburgerMenu />
             </button>
           </div>

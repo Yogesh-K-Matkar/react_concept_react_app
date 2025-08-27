@@ -388,26 +388,37 @@ B.2. Pull Request :-
 
    a. Visual Studio Code(IDE-Integrated Development Environment)
    b. Javascript can be run in browser Dev Tool CONSOLE(client-side) but due to NodeJS(Open Source , cross-platform, JavaScript runtime environment)  uses Chrome V8 Engines internally environment to run Javascript code at runtime in VS Code terminal through below cmd.
+    
+        e.g.:-
 
-    E.g. node first.js
-
+            ```js
+                node first.js
+            ```
   Explanation:-
 
     1.1. var keyword type variable.
 
     a. Dynamic means the variable type e.g. var i whose value can be re-declared, and it can be changed at any time based on value assigned.
-        E.g:- var i=10;  --means now i stores integer value
+    
+        e.g:- 
 
-              i="a"; --means now i stores string value                
+            ```js
+                var i=10;  --means now i stores integer value
+
+                i="a"; --means now i stores string value                
+            ```
 
 
     b. var is scope less means re-declaring the same variable within the scope then outside the scope then value assigned will be the latest one.
     c. var support HOSTING concept, which means the variable can be used before its declaration. It gives as undefined value but not error as var type variable is  defined after using it.
-        E.g.:-
+        
+        e.g.:-
 
+            ```js
               console.log(i);  --Used before declaration ,which gives value as undefined but not error as while code is scan internally var type variable is hoisted(means declaration is moved at top but not seen).
               
               var i=20;
+            ```
 
   (Imp:- Due to which ES6(ES2015) introduced let and const keywords for variable declaration.
          ES means EcmaScript)
@@ -426,22 +437,33 @@ B.2. Pull Request :-
 
 2. Looping concepts:-
 
-    E.g. let arr=[1,2,3,4,5];
+        e.g.:-
+
+            ```js
+               let arr=[1,2,3,4,5];
+            ```
 
     2.1. for loop
     2.2. for...in loop  --looping index of array/collection
            
-           for(let num in arr){
-               console.log(num);  // index
-               console.log(arr[num]);  // value
-           }
+        e.g.:-
 
+           ```js
+                for(let num in arr){
+                    console.log(num);  // index
+                    console.log(arr[num]);  // value
+                }
+           ```
 
     2.3. for...of loop   --looping value of array/collection
 
-           for(let num of arr){
-               console.log(num);  // value
-           }
+        e.g.:-
+
+          ```js 
+               for(let num of arr){
+                   console.log(num);  // value
+               }
+          ```
 
     2.4. while loop
     2.5. do...while loop
@@ -456,15 +478,19 @@ B.2. Pull Request :-
 
     e.g.
 
-        const obj={id:1,name:"a",age:25};
+         ```js
+            
+            const obj={id:1,name:"a",age:25};
 
-        const {id,name,age}=obj;
+            const {id,name,age}=obj;
 
-        console.log(id);   //1
-        console.log(name); //a
-        console.log(age);  //25
+            console.log(id);   //1
+            console.log(name); //a
+            console.log(age);  //25
+        
+         ```
 
-    ***
+    ******************************************
 
     3.2. Spread Operator expand collection, array & object.
 
@@ -472,46 +498,61 @@ B.2. Pull Request :-
 
     e.g.
 
-        var array1=["a","b","c"];
-        var array2=["x","y","z"];
+         ```js
 
-        var mergearray1=[...array1,"x"];
-        var mergearray12=[...array1,...array2];
+            var array1=["a","b","c"];
+            var array2=["x","y","z"];
 
-        console.log(mergearray1);           //["a","b","c","x"]
-        console.log(mergearray12);          //["a","b","c","x","y","z"]
+            var mergearray1=[...array1,"x"];
+            var mergearray12=[...array1,...array2];
+
+            console.log(mergearray1);           //["a","b","c","x"]
+            console.log(mergearray12);          //["a","b","c","x","y","z"]
+            
+         ```
 
     3.2.2 Object(Update Object Property):-
 
     e.g.
 
-        const obj={id:1,name:"a"};
-        const obj1={...obj,id:2,name:"b"};
+        ```js
 
-        console.log(obj1)  // {id:2,name:"b"}   //Expand object properties to update value of required property
+            const obj={id:1,name:"a"};
+            const obj1={...obj,id:2,name:"b"};
 
+            console.log(obj1)  // {id:2,name:"b"}   //Expand object properties to update value of required property
+
+        ```
 
 4. Logic on collection by using method map(),filter() and reduce()
 
     e.g.
 
-        const users=[{ id: 1, name: "Alice", age: 25 },
-                     { id: 2, name: "Bob", age: 35 }]
+        ```js
+            const users=[{ id: 1, name: "Alice", age: 25 },
+                         { id: 2, name: "Bob", age: 35 }]
+        ```
 
         4.1. map():- Used for looping in a collection or array.
         	e.g.
 
-                users.map((u)=><User name={u.name} age={u.age}>)
+                ```js
+                    users.map((u)=><User name={u.name} age={u.age}>)
+                ```
 
         4.2. filter():- It's like a WHERE condition to get a customized collection based on the condition
         	 e.g.
 
-                users.filter((u)=>u.age<35)
+                ```js
+                    users.filter((u)=>u.age<35)
+                ```
 
         4.3. reduce():- It does computation on the collection and returns the required value
         	e.g.
 
-              users.reduce((derivedCalculatedValue,u)=>{return derivedCalculatedValue + u.age},0)
+                ```js
+                    users.reduce((derivedCalculatedValue,u)=>{return derivedCalculatedValue + u.age},0)
+                ```
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # VITE:- "Vite is a build tool in v19 replacement to webpack that aims to provide a faster and leaner development experience/environment for building modern web projects."
@@ -548,7 +589,7 @@ B.2. Pull Request :-
 
     Syntax:
 
-        ```js
+        ```jsx
         import React from 'react';
         <React.StrictMode>
             <App />
@@ -566,21 +607,26 @@ B.2. Pull Request :-
 
     e.g.
 
-        const ComponentName=()=>
-        {
-          return(
-                  <>
-                    jsx multiple elements
-                  </>
+        ```jsx
+
+            const ComponentName=()=>
+            {
+                return(
+                      <>
+                        <div>jsx multiple elements</div>
+                      </>
                 );
-        }
+            }
+
+        ```
 
 5.  Every JSX tag needs to be closed. You can use self-closing tags for elements that don't have children
 
     e.g.
 
-        < img src="url"/ >
-
+        ```jsx
+            <img src="url" />
+        ```
 
 6.  Concept of dynamic variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX.
 
@@ -638,7 +684,7 @@ B.2. Pull Request :-
 
     Syntax:
 
-         ```js
+         ```jsx
          import NetflixSeries from "./components/NetflixSeries";
          ```
          (Where export component name is NetflixSeries)
@@ -647,7 +693,7 @@ B.2. Pull Request :-
 
     Syntax:
 
-         ```js
+         ```jsx
          import { NetflixSeries } from "./components/NetflixSeries";
          ```
          (Where export component name is NetflixSeries)
@@ -656,8 +702,8 @@ B.2. Pull Request :-
 
     Syntax:
 
-         ```js
-         import Series, { NetflixSeries } from "./components/NetflixSeries";
+         ```jsx
+            import Series, { NetflixSeries } from "./components/NetflixSeries";
          ```
          (Where export default component is Series and named component is NetflixSeries from NetflixSeries.jsx file)
 
@@ -666,7 +712,9 @@ B.2. Pull Request :-
 
     e.g.
 
-        < ReactApp / > (Component Name)
+        ```jsx
+            < ReactApp / > (Component)
+        ```
 
 11. To avoid rewriting/redundancy of the same code multiple times, create a single component and reuse it multiple times where required in the same JSX or another JSX
     (import component function from a particular JSX where the component function is defined).
@@ -679,11 +727,19 @@ B.2. Pull Request :-
 
     14.1. Integer prop/attribute over child component pass like this
 
-        id={integer_value}
+        e.g.
+
+            ```jsx
+                < ReactComponent id={integer_value} / > 
+            ```
 
     14.2. String value prop/attribute over child component pass like this
 
-        name="string_value"
+        e.g.        
+
+            ```jsx
+                < ReactComponent name="string_value" / >
+            ```
 
     (IMP:- As per ECMAScript (ES6) rule, if in an object structure like { Name: Name }, when key and value are the same, then define the object like this {Name})
 
@@ -691,7 +747,11 @@ B.2. Pull Request :-
 
     e.g.
 
-        const { children } = props;
+        ```jsx
+            const ReactComponent=(props)=>{
+                const { children } = props;
+            }
+        ```
 
 16. CSS Style- grid or flex-box. CSS always give it to the parent tag.
     Instead of defining a class prop for applying a CSS class, use the className prop.
@@ -704,15 +764,19 @@ B.2. Pull Request :-
 
     e.g.
 
-        style={{ margin: "1.2rem 0" }}
+        ```jsx
+            < ReactComponent style={{ margin: "1.2rem 0" }} / > 
+        ```
 
                 OR
 
         Define the style object separately, then define it as a variable and then use it in the style prop
 
-        const btn_style = { margin: "1.2rem 0" };
+        ```jsx
+            const btn_style = { margin: "1.2rem 0" };                
+            < ReactComponent style={btn_style} / > 
+        ```
 
-        style = {btn_style}
 
     16.3. Conditionally applying CSS
 
@@ -720,48 +784,70 @@ B.2. Pull Request :-
 
     e.g.
 
-         className={i>0?"className1": "className2"}
+        ```jsx
+            < ReactComponent className={i>0?"className1": "className2"} / > 
+        ```
 
     16.3.2. When you want to append a className with a condition that derives another className based on the condition,
     meaning append a string with an expression done below by using Template Literal
 
     e.g.
 
-         className={`className1 ${i>0?"className2": "className3"}`}
+        ```jsx
+            < ReactComponent className={`className1 ${i>0?"className2": "className3"}`} / > 
+        ```         
 
     16.4. ModuleCSS:-
     Module CSS is a component-specific style and extension of a file is <filename>.module.css
 
     In Module CSS, each className is treated as a property of that specific module.css object
 
-    e.g. To access className abc
+    
+        ```jsx
+             import cssModule from './<filename>.module.css'
+        ```
 
-         import cssModule from './<filename>.module.css'
+    e.g. To access className abc, when className abc doesn't contain '-'
 
-         style={cssModule.abc}        --When className abc doesn't contain '-'
-         style={cssModule["a-b-c"]}   --When className a-b-c contain '-'
+        ```jsx
+                 < ReactComponent style={cssModule.abc} / > 
+        ```
 
-         style={cssModule["abc"]} OR style={cssModule["a-b-c"]} can be use commonly
+    e.g. To access className a-b-c, when className a-b-c contain '-'
+
+        ```jsx
+                 < ReactComponent style={cssModule["a-b-c"]} / > 
+        ```                 
+
+        Second way of defining classname commonly used.
+        
 
     16.5. Using Tailwind v4 CSS (Third Party):-
 
     16.5.1. Install through Terminal cmd:-
 
-        npm install tailwindcss @tailwindcss/vite
+        ```terminal
+              npm install tailwindcss @tailwindcss/vite
+        ```
 
     16.5.2. Configure the Vite plugin
 
-        import tailwindcss from '@tailwindcss/vite'
+        ```jsx
 
-        export default defineConfig({
-            plugins: [
-                        tailwindcss(),
-                     ],
-        })
+            import tailwindcss from '@tailwindcss/vite'
+
+            export default defineConfig({
+                plugins: [
+                            tailwindcss(),
+                         ],
+            })
+        ```
 
     16.5.3. Import Tailwind CSS
 
-        @import "tailwindcss";
+        ```css
+            @import "tailwindcss";
+        ```
 
     16.5.4. bun run dev
 
@@ -788,13 +874,16 @@ B.2. Pull Request :-
     In styled-component, first need to install using the Terminal cmd
 
     e.g.
-
-         bun install styled-components
+        ```terminal
+              bun install styled-components
+        ```
 
     Import,
     e.g.
 
-         import styled from "styled-components"
+        ```jsx
+            import styled from "styled-components"
+        ```
 
     Then, using a styled object can access a React component and apply the style to it.
 
@@ -804,7 +893,9 @@ B.2. Pull Request :-
     
     e.g.
 
-        const Button=styled.button`color:grey`;
+        ```jsx
+            const Button=styled.button`color:grey`;
+        ```
 
             style.button --> button is a tag, eg p, h, button, span
 
@@ -812,11 +903,13 @@ B.2. Pull Request :-
 
     e.g.
 
-        const Button=styled.button(
-          {
-            color: grey,
-          }
-        );
+        ```jsx
+            const Button=styled.button(
+            {
+                color: grey,        
+            }
+            );
+        ```
 
     style.button --> button is a tag, eg p, h, button, span
 
@@ -825,7 +918,9 @@ B.2. Pull Request :-
 
     e.g.
 
-        let customError=new Error("Custom Error Message");
+        ```jsx
+            let customError=new Error("Custom Error Message");
+        ```
 
 19. Event Handler in JS, such as onClick, onChange, onSubmit, etc, which then call Syntactic Event Handler Function in React, should be written as a function name such as handleClick, handleChange,handleSubmit, etc
     This is known as the Syntactic Event Handler Function.
@@ -833,34 +928,45 @@ B.2. Pull Request :-
     Type Of Function:-
 
     19.1. Named Function is only calling the function name, not the function.
-
+            
+            onClick={handleButtonClick} (Not like this onClick={handleButtonClick()})
     e.g.
 
-        onClick={handleButtonClick} (Not like this onClick={handleButtonClick()})
+        ```jsx
+            <button onClick={handleButtonClick}>Click Me</button>
+        ```
 
     19.2. Arrow Function with event as parameter to get Syntactic Event object
 
-    e.g.
+    e.g.        
 
-        onClick={(event)=>handleButtonClick(event)}
+        ```jsx
+            <button onClick={(event)=>handleButtonClick(event)}>Click Me</button>
+        ```
 
     19.3. Inline Function With Syntactic Event Object
 
-    e.g.
+    e.g.        
 
-        onClick={(event) => console.log(event)}
+        ```jsx
+            <button onClick={(event) => console.log(event)}>Click Me</button>
+        ```
 
     19.4. Inline Arrow Normal Function
 
-    e.g.
+    e.g.        
 
-        onClick={() =>{ console.log("Hi")}}
+        ```jsx
+            <button onClick={() =>{ console.log("Hi")}}>Click Me</button>
+        ```
 
     19.5. Arrow function passing parameters/arguments
 
-    e.g.
+    e.g.       
 
-        onClick={(event) => handleButtonClick3(event, "User1")}
+        ```jsx
+            <button onClick={(event) =>{ console.log(event,"Data to pass to Function")}}>Click Me</button>
+        ```
 
 20. Event Handler passing as props can be used in concepts such as Form Handling, User Interaction, State Management, and Callback Function.
 
@@ -878,15 +984,36 @@ B.2. Pull Request :-
 
     But to avoid the unwanted triggering of Parent Component event functions other than the Target Action Event Function, we have to use
 
-    e.g.
+    e.g. Stop after triggering a single target event.
 
-    event.stopPropagation(); -- stop after triggering a single target event.
+            ```jsx
+                function handleButtonClick(event, txt){
+                    event.stopPropagation();
+                    console.log(txt);
+                };
+
+
+                <button onClick={(event) =>{ handleButtonClick(event, "Data to pass to Function")}}></button>
+            ```
 
     If Target control is bind with multiple other event rather then onClick such as onChange,onBlur then to stop such events begin call.
 
-    e.g.
+    e.g.  Stop all other event after triggering a single target event.
 
-    event.stopImmediatePropagation();
+            ```jsx
+                function handleButtonClick(event, txt){
+                    event.stopPropagation();
+                    event.stopImmediatePropagation();
+                    console.log(txt);
+                };
+
+                function handleChange(){
+                    event.stopPropagation();
+                    event.stopImmediatePropagation();
+                };
+
+                <button onClick={(event) =>{ handleButtonClick(event, "Data to pass to Function")}} onChange={(event) =>{ handleChange()}}></button>
+            ```
 
 23. Derived State means a variable value comes from a State Variable.
 
@@ -902,24 +1029,39 @@ B.2. Pull Request :-
 
 Terminal cmd
 
-    e.g. 
-    
-    npm install react-icons --save
+    e.g.
+
+        ```terminal
+            npm install react-icons --save
+        ```
 
     Then import where needed to show the icon
 
     e.g.
 
-    import { IconComponentName } from "react-icons/io";
+        ```jsx
+            import { IconComponentName } from "react-icons/io";
+        ```
 
     Use the icon component where a specific icon is required within the component
 
-    <IconComponentName style={{color:"blue"}}/>
+        ```jsx
+            <IconComponentName style={{color:"blue"}}/>
+        ```
 
 27. To store & retain any value on refresh of the browser without a database.
 
-    To set:- localStorage.setItem("keyname","data");
-    To get:- localStorage.getItem("keyname");
+    e.g. To set:- 
+    
+        ```js
+            localStorage.setItem("keyname","data");
+        ```
+
+    e.g. To get:- 
+    
+        ```js
+            localStorage.getItem("keyname");
+        ```
 
 28. When any control is bound with a state variable(control is moving from uncontrolled to controlled). In React, most components are uncontrolled components by default unless their values are bound to a state variable..
 
@@ -945,10 +1087,10 @@ Terminal cmd
 
                 Syntax:-
 
-                    ```js
+                    ```jsx
                     import React, { useState, useEffect } from 'react';
 
-                    function Counter() {
+                    const Counter = () => {
                         const [count, setCount] = useState(0);
 
                         useEffect(() => {
@@ -981,10 +1123,10 @@ Terminal cmd
 
                 Syntax:-
 
-                    ```js
+                    ```jsx
                     import React, { useRef } from 'react';
 
-                    function TextInput() {
+                    const TextInput = () => {
                         const inputRef = useRef(null);
 
                         const focusInput = () => {
@@ -1024,7 +1166,7 @@ Terminal cmd
 
                 Syntax:-
 
-                    ```js
+                    ```jsx
                     import React, { useReducer } from 'react';
 
                     const initialState = { count: 0 };
@@ -1043,7 +1185,7 @@ Terminal cmd
                         }
                     };
 
-                    function Counter() {
+                    const Counter = () => {
                         const [state, dispatch] = useReducer(reducer, initialState);
 
                         return (
@@ -1081,13 +1223,13 @@ Terminal cmd
 
                 Syntax:-
 
-                    ```js
+                    ```jsx
                     import React, { createContext, useContext, useState } from "react";
 
                     // Create a context with a default value
                     const UserContext = createContext("Guest");
 
-                    function App() {
+                    const App = () => {
                         const [user, setUser] = useState("Jesse Hall");
 
                         return (
@@ -1098,15 +1240,15 @@ Terminal cmd
                         );
                     }
 
-                    function ComponentA() {
+                    const ComponentA = () => {
                         return <ComponentB />;
                     }
 
-                    function ComponentB() {
+                    const ComponentB = () => {
                         return <ComponentC />;
                     }
 
-                    function ComponentC() {
+                    const ComponentC = () => {
                         const user = useContext(UserContext); // Consume context value here
 
                         return <h2>Welcome back, {user}!</h2>;
@@ -1128,7 +1270,7 @@ Terminal cmd
 
                     Syntax:-
 
-                        ```js
+                        ```jsx
                         import { use } from "react";
 
                         const newHook = true;
@@ -1153,10 +1295,12 @@ Terminal cmd
 
         Syntax:-
 
-            ```js
+            ```jsx
             import { useId } from "react";
 
-            const uniqueid=useId();
+            const MyComponent = () => {
+                const uniqueId = useId();
+            }
             ```
 
         
@@ -1172,7 +1316,7 @@ Terminal cmd
             ```js
             import React, { useState, useEffect } from 'react';
 
-            function Counter() {
+            const Counter = () => {
                 const [count, setCount] = useState(0);
 
                 useEffect(() => {
@@ -1208,12 +1352,12 @@ Terminal cmd
 
         Syntax:-
 
-            ```js
+            ```jsx
             import React, { useState, useMemo } from 'react';
 
-            function ExpensiveCalculation({ number }) {
-                const factorial = useMemo(() => {
-                    function factorialOf(n) {
+            const ExpensiveCalculation = ({ number }) => {
+                function factorial = useMemo(() => {
+                    function factorialOf = (n) => {
                         return n <= 1 ? 1 : n * factorialOf(n - 1);
                     }
                     console.log('Computing factorial...');
@@ -1248,10 +1392,10 @@ Terminal cmd
 
         Syntax:-
 
-            ```js
+            ```jsx
             import React, { useState, useCallback } from 'react';
 
-            function Parent() {
+            const Parent = () => {
                 const [count, setCount] = useState(0);
 
                 // Memoize callback to prevent its recreation unless 'count' changes
@@ -1286,7 +1430,7 @@ Terminal cmd
 
         Syntax:-    
 
-            ```js
+            ```jsx
             import { useTransition } from "react";
 
             const [isPending, startTransition] = useTransition();
@@ -1317,10 +1461,10 @@ Terminal cmd
 
     Syntax of a custom hook that uses useState and useEffect:
 
-        ```js
+        ```jsx
         import { useState, useEffect, useContext } from "react";
 
-        const useCustomHook1 = () => {
+        function useCustomHook1 = () => {
             const [data, setData] = useState(null);
             const [loading, setLoading] = useState(true);
             const [error, setError] = useState(null);
@@ -1375,7 +1519,7 @@ Terminal cmd
 
     Syntax:-
 
-        ```js
+        ```jsx
         const WithExtraProps = (WrappedComponent) => {
             return (props) => {
                 const extraProps = { extraProp: "value" };
@@ -1396,7 +1540,7 @@ Terminal cmd
 
         Syntax:-
 
-            ```js
+            ```jsx
             import React, { memo } from "react";
 
             const ChildComponent = (props) => {
@@ -1435,7 +1579,7 @@ Terminal cmd
         Syntax:-
 
             ```js
-            const fetchData = async () => {
+            async function fetchData() {
                 try {
                     const response = await fetch(url);
                     const data = await response.json();
@@ -1464,11 +1608,11 @@ Terminal cmd
     2.1. First install axios
 
          Syntax:-
-                 > npm install axios
+                ```terminal
+                    npm install axios
+                ```
 
                  Then verify the module is installed or not in the package.json within the dependencies key's value, along with the module version
-
-
 
 
          2.1.1. Promises:-
@@ -1504,7 +1648,7 @@ Terminal cmd
                          ```js
                          import axios from 'axios';
 
-                         const fetchData = async () => {
+                         async function fetchData() {
                              try {
                                  const response = await axios.get(url);
                                  console.log(response.data);
@@ -1528,10 +1672,10 @@ Terminal cmd
 
         Syntax:-
 
-        ```jsx
+        ```js
         import axios from "axios";
 
-        const createResource = async (data) => {
+        async function createResource(data) {
             try {
             const response = await axios.post("https://api.example.com/resources", data);
             console.log("Resource created:", response.data);
@@ -1550,7 +1694,7 @@ Terminal cmd
         ```jsx
         import axios from "axios";
 
-        const fetchResource = async (id) => {
+        async function fetchResource(id) {
             try {
             const response = await axios.get(`https://api.example.com/resources/${id}`);
             console.log("Resource fetched:", response.data);
@@ -1569,7 +1713,7 @@ Terminal cmd
         ```jsx
         import axios from "axios";
 
-        const updateResource = async (id, data) => {
+        async function updateResource(id, data) {
             try {
             const response = await axios.put(`https://api.example.com/resources/${id}`, data);
             console.log("Resource updated:", response.data);
@@ -1586,7 +1730,7 @@ Terminal cmd
         ```jsx
         import axios from "axios";
 
-        const patchResource = async (id, data) => {
+        async function patchResource(id, data) {
             try {
             const response = await axios.patch(`https://api.example.com/resources/${id}`, data);
             console.log("Resource patched:", response.data);
@@ -1605,8 +1749,7 @@ Terminal cmd
         ```jsx
         import axios from "axios";
 
-        const deleteResource = async (id) =>
-        {
+        async function deleteResource(id) {
             try {
                 const response = await axios.delete(`https://api.example.com/resources/${id}`);
                 console.log("Resource deleted:", response.data);
@@ -1628,8 +1771,8 @@ Terminal cmd
 
     Syntax:-
 
-           ```js
-           npm i react-router-dom@latest
+           ```terminal
+                npm install react-router-dom@latest
            ```
 
     Then verify the module is installed or not in the package.json within the dependencies key's value, along with the module version
@@ -1641,28 +1784,43 @@ Terminal cmd
 
     3.1. Old (Using helper createRoutesFromElements):
 
-            import { createBrowserRouter } from "react-router-dom";
+        e.g.:-
 
-             const router = createBrowserRouter(
-               createRoutesFromElements(
-                 <>
-                     <Route path="/" element={<Home/>}></Route>
-                     <Route path="/about" element={<About/>}></Route>
-                 </>
-               );
-             );
+            ```jsx
+                import { createBrowserRouter } from "react-router-dom";
 
-             <RouterProvider router={router} />
+                const App = () => {
+                    const router = createBrowserRouter(
+                    createRoutesFromElements(
+                        <>
+                            <Route path="/" element={<Home/>}/>
+                            <Route path="/about" element={<About/>}/>
+                        </>
+                    )    
+                    );
+
+                    <RouterProvider router={router} />
+                }
+            ```
 
     3.2. New:-
-    import { createBrowserRouter } from "react-router-dom";
+            
+        e.g.:-
 
-             const router = createBrowserRouter([
-                     { path: "/", element: <Home/>  },
-                     { path: "/about", element: <About/> },
-             ]);
+            ```jsx
 
-             <RouterProvider router={router} />
+                    import { createBrowserRouter } from "react-router-dom";
+
+                    const App=()=>{
+                        const router = createBrowserRouter([
+                                { path: "/", element: <Home/>  },
+                                { path: "/about", element: <About/> },
+                        ]);
+
+                        <RouterProvider router={router} />
+                    }
+                    
+            ```
 
     (Note:- / in path defines the route/home route of the application means it loads the initial component)
 
@@ -1672,23 +1830,28 @@ Terminal cmd
 
     Eg:-
 
-    const routeLinks = createBrowserRouter(
-    [
-    {
-    path: "/",
-    element: <AppLayout />,
-    children: [
-    { path: "/", element: <Home /> },
-    { path: "/about", element: <About /> },
-    { path: "/movie", element: <Movie /> },
-    { path: "/contact", element: <Contact /> }
-    ],
-    errorElement: <ErrorPage />,
-    },
-    ]
-    );
+    ```jsx
 
-     <RouterProvider router={routeLinks} />
+        const App=()=>{
+            const routeLinks = createBrowserRouter(
+            [
+                {
+                    path: "/",
+                    element: <AppLayout />,
+                    children: [
+                        { path: "/", element: <Home /> },
+                        { path: "/about", element: <About /> },
+                        { path: "/movie", element: <Movie /> },
+                        { path: "/contact", element: <Contact /> }
+                    ],
+                    errorElement: <ErrorPage />,
+                },
+            ]
+            );
+
+            <RouterProvider router={routeLinks} />
+        }
+    ```
 
     Props of createBrowserRouter:-
 
@@ -1713,11 +1876,15 @@ Terminal cmd
 
     HTML Tag:-
 
-          < a href="#" >Link< /a >
+        ```html
+          <a href="#" >Link</a >
+        ```
 
     In React:-
 
-          < NavLink to="#" >Link< /NavLink >
+        ```jsx
+          <NavLink to="#">Link</NavLink>
+        ```
 
 5.  Active Link is a concept of highlighting the current selected Link based on the color of the Link is different from all other non-selected Link colors.
 
@@ -1729,30 +1896,44 @@ Terminal cmd
 
 6.  Hooks In React Router:-
 
-    import { createBrowserRouter, RouterProvider } from "react-router-dom";
-    import { useRouteError } from "react-router-dom";
+    Eg:-
 
-    const routeLinks = createBrowserRouter([
-    {
-    path: "/",
-    element: <AppLayout />,
-    children: [
-    { path: "/", element: <Home /> },
-    { path: "/about", element: <About /> },
-    { path: "/movie", element: <Movie />, loader: getMoviesDataByParams },
-    { path: "/contact", element: <Contact />, action: submitContactFormData },
-    ],
-    errorElement: <ErrorPage />,
-    },
-    ]);
+    ```jsx
+        import { createBrowserRouter, RouterProvider } from "react-router-dom";        
+
+        const App=()=>{    
+            const routeLinks = createBrowserRouter([
+            {
+                path: "/",
+                element: <AppLayout />,
+                children: [
+                    { path: "/", element: <Home /> },
+                    { path: "/about", element: <About /> },
+                    { path: "/movie", element: <Movie />, loader: getMoviesDataByParams },
+                    { path: "/contact", element: <Contact />, action: submitContactFormData },
+                ],
+                errorElement: <ErrorPage />,
+            },
+            ]);
+
+            <RouterProvider router={routeLinks} />
+        }
+    ```
 
     6.1. useRouteError:- This hook provides error details, meaning the cause of the error, which gives details of the Type Of Error and error, status, statusText, etc.
 
         Syntax:-
-              import { createBrowserRouter, RouterProvider } from "react-router-dom";
-              import { useRouteError } from "react-router-dom";
 
-              const errorDetails = useRouteError();
+            ```jsx
+                  import { createBrowserRouter, RouterProvider } from "react-router-dom";
+                  import { useRouteError } from "react-router-dom";
+
+                  const ErrorPage = () => {
+                    const errorDetails = useRouteError();
+
+                    console.log(errorDetails);
+                  }
+            ```
 
         2- Ways of showing an error page
 
@@ -1760,49 +1941,70 @@ Terminal cmd
 
                e.g.
 
-                const routeLinks = createBrowserRouter([
-                {
-                   path: "/",
-                   element: <AppLayout />,
-                   children: [
-                               { path: "/", element: <Home /> },
-                               { path: "/about", element: <About /> },
-                               { path: "/movie", element: <Movie /> },
-                               { path: "/contact", element: <Contact /> },
-                             ],
-                   errorElement:<ErrorPage />,
-                },
-                ]);
+                ```jsx
+                    const App=()=>{
+                        const routeLinks = createBrowserRouter([
+                        {
+                            path: "/",
+                            element: <AppLayout />,
+                            children: [
+                                        { path: "/", element: <Home /> },
+                                        { path: "/about", element: <About /> },
+                                        { path: "/movie", element: <Movie /> },
+                                        { path: "/contact", element: <Contact /> },
+                                        ],
+                            errorElement: <ErrorPage />,
+                        },
+                        ]);
+
+                        <RouterProvider router={routeLinks} />
+                    }
+                ```
 
         6.1.2. Using children's JSON object
 
-                const routeLinks = createBrowserRouter([
-                {
-                   path: "/",
-                   element: <AppLayout />,
-                   children: [
-                               { path: "/", element: <Home /> },
-                               { path: "/about", element: <About /> },
-                               { path: "/movie", element: <Movie /> },
-                               { path: "/contact", element: <Contact /> },
+                e.g.
 
-                               { path: "*", element: <ErrorPage /> },                --- (Imp:- path: "*" -  Where * is Wild Card Route)
+                ```jsx
+                    const App=()=>{
+                        const routeLinks = createBrowserRouter([
+                        {
+                        path: "/",
+                        element: <AppLayout />,
+                        children: [
+                                    { path: "/", element: <Home /> },
+                                    { path: "/about", element: <About /> },
+                                    { path: "/movie", element: <Movie /> },
+                                    { path: "/contact", element: <Contact /> },
 
-                            ],
-                },
-                ]);
+                                    { path: "*", element: <ErrorPage /> },                --- (Imp:- path: "*" -  Where * is Wild Card Route)
+
+                                    ],
+                        },
+                        ]);
+
+                        <RouterProvider router={routeLinks} />
+                    }
+                ```
 
     6.2. useNavigate:- This hook is used to navigate, especially to the immediate previous URL/Page. Can also navigate to any URL/Page.
 
-    Syntax:-
+    Syntax:-    
 
-             import { useNavigate } from "react-router-dom";
+            ```jsx
 
-             const navigate = useNavigate();
+                import { useNavigate } from "react-router-dom";
 
-             <button className="btn btnclose" onClick={() => navigate(-1)}>
-            		Go Back
-             </button>
+                const ReactComponent=()=>{
+                    const navigate = useNavigate();
+
+                    return(
+                        <button className="btn btnclose" onClick={() => navigate(-1)}>
+                            Go Back
+                        </button>
+                    )
+                }
+            ```
 
         Note: -1 means the previous page
               / mean home page
@@ -1811,9 +2013,21 @@ Terminal cmd
 
     Syntax:-
 
-            import { useNavigation } from "react-router-dom";
+            ```jsx
 
-            const navigation = useNavigation();
+                import { useNavigation } from "react-router-dom";
+
+                const ReactComponent=()=>{
+                    const navigation = useNavigation();
+
+                    return(
+                        <div>
+                            {navigation.state === "loading" && <p>Loading...</p>}
+                            {navigation.state === "idle" && <p>Idle</p>}
+                        </div>
+                    )
+                }
+            ```
 
             Note:- navigation.state can be used to check the current state of navigation, such as loading, idle, etc.
 
@@ -1821,9 +2035,15 @@ Terminal cmd
 
     Syntax:-
 
+            ```jsx
             import { useLoaderData } from "react-router-dom";
 
-            const data = useLoaderData();
+             const ReactComponent=()=>{
+                const data = useLoaderData();
+
+                console.log(data);
+             }
+            ```
 
 7.  Dynamic Route Parameters:-
 
@@ -1835,15 +2055,29 @@ Terminal cmd
 
     Syntax:-
 
-           import { useParams } from "react-router-dom";
+           ```jsx 
+                import { useParams } from "react-router-dom";
 
-           const params = useParams();
+                const ChildComponent=()=>{
+                    const params = useParams();
+
+                    console.log(params);
+                }           
+           ```
 
            Note:- The params object will contain key-value pairs of dynamic route parameters defined in the path.
 
            Example: If the path is "/movie/:movieID", then params will be an object like { movieID: "123" }.
 
         2. Calling a function in the route with a dynamic route parameter in the loader prop of the route
+
+            ```jsx 
+                 import { useParams } from "react-router-dom";
+
+                const ChildComponent=({params})=>{                    
+                    console.log(params);
+                }           
+            ```
 
            Note:- {params} object is passed as a prop to a function where a dynamic route parameter is required.
 
@@ -1858,19 +2092,27 @@ Terminal cmd
 
             Always append 'REACT_APP_' before the variable name to make it accessible in a React application.
 
-            REACT_APP_API_KEY=your_api_key_here
-            REACT_APP_API_URL=https://api.example.com
+            ```env
 
-            import (REACT.meta.env.REACT_APP_API_KEY) from "react"; --To Access Environment Variables
+                REACT_APP_API_KEY=your_api_key_here
+                REACT_APP_API_URL=https://api.example.com
+            ```
+
+            ```jsx
+                import (REACT.meta.env.REACT_APP_API_KEY) from "react"; --To Access Environment Variables
+            ```
 
           But in the Vite project, below is an example of the .env file,
 
           Always append 'VITE_' before the variable name to make it accessible in a React application.
 
-          VITE_API_KEY=your_api_key_here
-          VITE_API_URL=https://api.example.com
-
-          import.meta.env.VITE_API_KEY from "react";  --To Access Environment Variables
+            ```env                
+                VITE_API_KEY=your_api_key_here
+                VITE_API_URL=https://api.example.com
+            ```
+            ```jsx
+                import.meta.env.VITE_API_KEY from "react";  --To Access Environment Variables
+            ```
 
 9.  Dynamic Routing:-
     Dynamic routing is used to create routes based on data or user input. It allows you to create routes that can change at runtime.
@@ -1903,23 +2145,63 @@ Terminal cmd
                     };
               ```
 
-10. Form Submission:-
+10. Form Submission:- 
+
+    Actually form submission in React without React Router concept is like below,
+
+        ```jsx
+            function handleSubmitPost(ev) {
+                ev.preventDefault();
+                try {
+                    const action = ev.nativeEvent.submitter.value;
+                    action === "Add" ? handleAddPost(post) : handlePutPost(post);
+                    setPost(initPost);
+                } catch (error) {
+                    console.error("Error Message ", error.message);
+                    console.error("Error Status ", error.response.status);
+                    console.error("Error Data ", error.response.data);
+                }
+            }
+
+            <form onSubmit={handleSubmitPost}>
+                <input type="text" name="name" placeholder="Your Name" required />
+                <input type="email" name="email" placeholder="Your Email" required />
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+
+        ```
+
     React Router provides a way to handle form submissions using the `action` prop in the route configuration. This allows you to handle form data submission and processing.
 
-        Syntax:-
-        In the route configuration, you can define an `action` function that will be called when the form is submitted.
+    Syntax:-
+
+    1-Way:- In the route configuration, you can define an `action`  function that will be called when the form is submitted.
 
               Example:
+
+                Event call,
+
+                ```jsx
+                    <Form method="post" action="/contact">
+                        <input type="text" name="name" placeholder="Your Name" required />
+                        <input type="email" name="email" placeholder="Your Email" required />
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </Form>
+                ```
+
+
                  In route configuration, the action prop is used to handle form submission and process the form data as below.
 
                  ```jsx
                        { path: "/contact", element: <Contact />, action: submitContactFormData}.
                  ```
 
-                 Then, passing the {request} object as a prop to a function where the formData() function returns a response, which is then converted to an object format through object.fromEntries(), which is further used                 for processing array-like structure data to convert to object format.
+                 Then, passing the {request} object as a prop to a function where the formData() function returns a response, which is then converted to an object format through object.fromEntries(), which is further used for processing array-like structure data to convert to object format.
 
                  ```jsx
-                       export const submitContactFormData = async ({ request }) =>
+                       export function submitContactFormData = async ({ request }) =>
                        {
                          try {
                                  const formData = await request.formData();
@@ -1938,6 +2220,34 @@ Terminal cmd
                             }
                        };
                  ```
+******************
+    2-Way:- Direct action function call that will be called when the form is submitted.
+
+                Example:
+
+                Event call,
+
+                ```jsx
+                    function handleFormSubmitContact(formData) {
+                        console.log(formData.entries());
+                        const formInputData = Object.fromEntries(formData.entries());
+
+                        console.log(formInputData);
+
+                        return <></>;
+                    }
+
+
+                    <form action={handleFormSubmitContact}>
+                        <input type="text" name="name" placeholder="Your Name" required />
+                        <input type="email" name="email" placeholder="Your Email" required />
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                ```
+
+
+       
 
 +++++++++++++++++++++++++++++++++++++++++
 REDUX TOOLKIT(RTK) / Zustand

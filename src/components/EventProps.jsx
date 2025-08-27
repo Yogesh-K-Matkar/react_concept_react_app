@@ -5,13 +5,13 @@
 */
 
 export const EventProps = () => {
-  const handleWelcomeUser = (user) => {
+  function handleWelcomeUser(user) {
     console.log(`Hey, ${user}`);
-  };
+  }
 
-  const handleMouseHover = () => {
+  function handleMouseHover() {
     console.log("Thanks for hovering me.");
-  };
+  }
 
   return (
     <>
@@ -19,19 +19,21 @@ export const EventProps = () => {
       <div className="card">
         <WelcomeUser
           onButtonClick={() => handleWelcomeUser("User")}
-          onMouseHover={handleMouseHover}></WelcomeUser>
+          onMouseHover={handleMouseHover}
+        ></WelcomeUser>
       </div>
     </>
   );
 };
 
 const WelcomeUser = (props) => {
-  const { onButtonClick, onMouseHover } = props; //Destructring concept
+  const { onButtonClick, onMouseHover } = props; //Destructuring concept
 
-  const handleGreetings = () => {
-    console.log("Hey User,Welocme.");
+  function handleGreetings() {
+    console.log("Hey User,Welcome.");
     onButtonClick();
-  };
+  }
+
   return (
     <>
       <button style={{ backgroundColor: "#f7dc6f" }} onClick={onButtonClick}>
@@ -39,7 +41,8 @@ const WelcomeUser = (props) => {
       </button>
       <button
         style={{ backgroundColor: "#f7dc6f" }}
-        onMouseEnter={onMouseHover}>
+        onMouseEnter={onMouseHover}
+      >
         Hover Me
       </button>
       <button style={{ backgroundColor: "#f7dc6f" }} onClick={handleGreetings}>

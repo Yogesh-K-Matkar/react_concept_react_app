@@ -34,13 +34,13 @@ const Todo = (props) => {
   } = props;
   const TodoActionButton = pStyled.button({});
 
-  const handleActionCheckedTodoItem = (checkedTodo) => {
+  function handleActionCheckedTodoItem(checkedTodo) {
     pActionCheckedTodo(checkedTodo);
-  };
+  }
 
-  const handleActionDeleteTodoItem = (deleteTodoId) => {
+  function handleActionDeleteTodoItem(deleteTodoId) {
     pActionDeleteTodo(deleteTodoId);
-  };
+  }
 
   return pTodoList.length == 0 ? (
     <h1 className={pCSSModule["noRecord"]}>No Task Added Yet</h1>
@@ -53,17 +53,20 @@ const Todo = (props) => {
               todo.checked
                 ? pCSSModule["checkList"]
                 : pCSSModule["notCheckList"]
-            }>
+            }
+          >
             {todo.content}
           </span>
           <TodoActionButton
             className={pCSSModule["form button"]}
-            onClick={() => handleActionCheckedTodoItem(todo)}>
+            onClick={() => handleActionCheckedTodoItem(todo)}
+          >
             <MdCheck className={pCSSModule["check-btn"]} />
           </TodoActionButton>
           <TodoActionButton
             className={pCSSModule["form button"]}
-            onClick={() => handleActionDeleteTodoItem(todo.id)}>
+            onClick={() => handleActionDeleteTodoItem(todo.id)}
+          >
             <MdDeleteForever className={pCSSModule["delete-btn"]} />
           </TodoActionButton>
         </li>

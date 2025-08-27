@@ -163,6 +163,109 @@ export const CountryDetails = () => {
     return <p>Country not found</p>;
   }
 
+  // Prepare country name, unique native names, population, capital and unique native names before return
+
+  function getCountryDataByKey(key) {
+    switch (key) {
+      case "name":
+        return customizeCountryName();
+      case "nativeNames":
+        return customizeNativeNames();
+      case "population":
+        return customizePopulation();
+      case "capital":
+        return customizeCapital();
+      case "region":
+        return customizeRegion();
+      case "subregion":
+        return customizeSubregion();
+      case "topleveldomain":
+        return customizeTopLevelDomains();
+      case "currencies":
+        return customizeCurrencies();
+      case "languages":
+        return customizeLanguages();
+      default:
+        return "";
+    }
+  }
+
+  function customizeCountryName() {
+    if (countryData && countryData.name) {
+      return countryData.name.common.length > 15
+        ? countryData.name.common.slice(0, 10) + "..."
+        : countryData.name.common;
+    }
+    return "";
+  }
+
+  function customizeNativeNames() {
+    let nativeNames = [];
+    let uniqueNativeNames = [];
+    if (countryData && countryData.name && countryData.name.nativeName) {
+      nativeNames = Object.keys(countryData.name.nativeName).map(
+        (key) => countryData.name.nativeName[key].common
+      );
+      uniqueNativeNames = Array.from(new Set(nativeNames));
+
+      return uniqueNativeNames.join(", ");
+    }
+    return "";
+  }
+
+  function customizePopulation() {
+    if (countryData && countryData.population) {
+      return countryData.population.toLocaleString();
+    }
+    return "";
+  }
+
+  function customizeCapital() {
+    if (countryData && countryData.capital) {
+      return countryData.capital.join(", ");
+    }
+    return "";
+  }
+
+  function customizeRegion() {
+    if (countryData && countryData.region) {
+      return countryData.region;
+    }
+    return "";
+  }
+
+  function customizeSubregion() {
+    if (countryData && countryData.subregion) {
+      return countryData.subregion;
+    }
+    return "";
+  }
+
+  function customizeTopLevelDomains() {
+    if (countryData && countryData.tld) {
+      return countryData.tld.join(", ");
+    }
+    return "";
+  }
+
+  function customizeCurrencies() {
+    if (countryData && countryData.currencies) {
+      return Object.keys(countryData.currencies)
+        .map((key) => countryData.currencies[key].name)
+        .join(", ");
+    }
+    return "";
+  }
+
+  function customizeLanguages() {
+    if (countryData && countryData.languages) {
+      return Object.keys(countryData.languages)
+        .map((key) => countryData.languages[key])
+        .join(", ");
+    }
+    return "";
+  }
+
   return (
     <section className="card country-details-card container">
       <div className="container-card bg-white-box">
@@ -174,49 +277,39 @@ export const CountryDetails = () => {
               className="flag"
             />
             <div className="country-content">
-              <p className="card-title">
-                {countryData.name.common.length > 15
-                  ? countryData.name.common.slice(0, 10) + "..."
-                  : countryData.name.common}
-              </p>
+              <p className="card-title">{getCountryDataByKey("name")}</p>
               <div className="infoContainer">
                 <p>
                   <span className="card-description">Native Names:</span>
-                  {Object.keys(countryData.name.nativeName)
-                    .map((key) => countryData.name.nativeName[key].common)
-                    .join(", ")}
+                  {getCountryDataByKey("nativeNames")}
                 </p>
                 <p>
                   <span className="card-description">Population:</span>
-                  {countryData.population.toLocaleString()}
+                  {getCountryDataByKey("population")}
                 </p>
                 <p>
                   <span className="card-description">Region:</span>
-                  {countryData.region}
+                  {getCountryDataByKey("region")}
                 </p>
                 <p>
                   <span className="card-description">Sub Region:</span>
-                  {countryData.subregion}
+                  {getCountryDataByKey("subregion")}
                 </p>
                 <p>
                   <span className="card-description">Capital:</span>
-                  {countryData.capital.join(", ")}
+                  {getCountryDataByKey("capital")}
                 </p>
                 <p>
                   <span className="card-description">Top Level Domain:</span>
-                  {countryData.tld.join(", ")}
+                  {getCountryDataByKey("topleveldomain")}
                 </p>
                 <p>
                   <span className="card-description">Currencies:</span>
-                  {Object.keys(countryData.currencies)
-                    .map((key) => countryData.currencies[key].name)
-                    .join(", ")}
+                  {getCountryDataByKey("currencies")}
                 </p>
                 <p>
                   <span className="card-description">Languages:</span>
-                  {Object.keys(countryData.languages)
-                    .map((key) => countryData.languages[key])
-                    .join(", ")}
+                  {getCountryDataByKey("languages")}
                 </p>
               </div>
             </div>

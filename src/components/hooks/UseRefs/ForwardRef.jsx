@@ -8,12 +8,12 @@ export const ForwardRef = () => {
   const uname = useRef(null);
   const upassword = useRef(null);
 
-  const handleFormSubmit = (e) => {
+  function handleFormSubmit(e) {
     e.preventDefault();
 
     console.log(username.current.value, password.current.value);
     console.log(uname.current.value, upassword.current.value);
-  };
+  }
 
   return (
     <form onSubmit={(evt) => handleFormSubmit(evt)}>
@@ -52,7 +52,7 @@ const BeforeReact19Input = forwardRef((props, ref) => {
 });
 
 //After React v19 release no need to use forwardRef function to pass ref value from parent to child components
-//instead ref is retrived from props as attribute
+//instead ref is retrieved from props as attribute
 
 const AfterReact19Input = (props) => {
   const { label, ref } = props;

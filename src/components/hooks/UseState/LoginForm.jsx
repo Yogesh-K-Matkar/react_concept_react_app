@@ -7,21 +7,21 @@ export const LoginForm = () => {
     password: "",
   });
 
-  const handleInputChange = (evt) => {
+  function handleInputChange(evt) {
     //console.log(evt.target);
 
     const { name, value } = evt.target;
 
     setLoginDetails((prevStateVal) => ({ ...prevStateVal, [name]: value }));
-  };
+  }
 
-  const handleLoginDetails = (evt) => {
+  function handleLoginDetails(evt) {
     //console.log(evt.target);
 
     evt.preventDefault();
 
     console.log(loginDetails);
-  };
+  }
 
   return (
     <form onSubmit={(e) => handleLoginDetails(e)}>

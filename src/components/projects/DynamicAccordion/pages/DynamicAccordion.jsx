@@ -21,11 +21,11 @@ export const DynamicAccordion = () => {
     fetchData();
   }, []);
 
-  const handleToggleTab = (id) => {
+  function handleToggleTab(id) {
     setActiveTabId((prevState) => {
       return prevState === id ? 0 : id;
     });
-  }; 
+  }
 
   return (
     <>

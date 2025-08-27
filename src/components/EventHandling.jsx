@@ -28,20 +28,20 @@ export const EventHandling = () => {
   //   console.log("Hey I am onClick Event");
   // }
 
-  const handleButtonClick1 = () => {
+  function handleButtonClick1() {
     console.log("Hey I am onClick Event Named Function");
-  };
+  }
 
-  const handleButtonClick2 = (event, msg) => {
+  function handleButtonClick2(event, msg) {
     console.log(event);
     console.log(event.target);
     console.log(event.type);
     console.log(msg);
-  };
+  }
 
-  const handleButtonClick3 = (event, user) => {
+  function handleButtonClick3(event, user) {
     console.log(`Hey ${user}, Welcome`);
-  };
+  }
 
   return (
     <>

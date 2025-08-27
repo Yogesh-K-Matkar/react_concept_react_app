@@ -16,20 +16,20 @@ import "./EV.css";
 export const State = () => {
   //   let value = 0;
 
-  //   const handleButtonClick = () => {
+  //   function handleButtonClick() {
   //     value++;
   //     console.log(value);
-  //   };
+  //   }
 
   //console.log("Parent Component Rendered");
 
   const [count, setCount] = useState(0);
 
-  const handleButtonClick = () => {
+  function handleButtonClick() {
     setCount((count) => {
       return count + 1;
     });
-  };
+  }
 
   return (
     <>

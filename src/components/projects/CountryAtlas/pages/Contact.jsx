@@ -1,12 +1,12 @@
 const Contact = () => {
-  const handleFormSubmitContact = (formData) => {
+  function handleFormSubmitContact(formData) {
     console.log(formData.entries());
     const formInputData = Object.fromEntries(formData.entries());
 
     console.log(formInputData);
 
     return <></>;
-  };
+  }
 
   return (
     <section className="section-contact">

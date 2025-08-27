@@ -8,23 +8,24 @@ export const ContactForm = () => {
     message: "",
   });
 
-  const handleInputChange = (evt) => {
+  function handleInputChange(evt) {
     const { name, value } = evt.target;
 
     setContactDetails((prevStateVal) => ({ ...prevStateVal, [name]: value }));
-  };
+  }
 
-  const handleContactDetails = (evt) => {
+  function handleContactDetails(evt) {
     evt.preventDefault();
 
     console.log(contactDetails);
-  };
+  }
 
   return (
     <form
       onSubmit={(e) => {
         handleContactDetails(e);
-      }}>
+      }}
+    >
       <div className={cssModules["container"]}>
         <h1 className={cssModules["title"]}>Contact Form</h1>
         <div className={cssModules["card"]}>

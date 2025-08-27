@@ -10,7 +10,7 @@ export const Post = (props) => {
   //const { id, title, body } = data;
 
   //edit
-  const handleEditPost = (ev, editPost) => {
+  function handleEditPost(ev, editPost) {
     ev.preventDefault();
     console.log("Edit");
     try {
@@ -20,10 +20,10 @@ export const Post = (props) => {
       console.error("Error Status ", error.response.status);
       console.error("Error Data ", error.response.data);
     }
-  };
+  }
 
   //delete
-  const handleDeletePost = (ev, id) => {
+  function handleDeletePost(ev, id) {
     ev.preventDefault();
     console.log("Delete");
     try {
@@ -35,7 +35,7 @@ export const Post = (props) => {
       console.error("Error Status ", error.response.status);
       console.error("Error Data ", error.response.data);
     }
-  };
+  }
 
   return (
     <li>

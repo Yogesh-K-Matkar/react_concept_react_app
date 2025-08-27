@@ -9,7 +9,7 @@ export const RegistrationForm = () => {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
 
-  const handleInputChange = (evt) => {
+  function handleInputChange(evt) {
     //console.log({ ...evt.target });
     const { name, value } = evt.target;
 
@@ -33,9 +33,9 @@ export const RegistrationForm = () => {
         setPhone(value);
         break;
     }
-  };
+  }
 
-  const hanldeRegistrationDetails = (evt) => {
+  function handleRegistrationDetails(evt) {
     evt.preventDefault();
 
     const registrationDetails = {
@@ -47,7 +47,7 @@ export const RegistrationForm = () => {
     };
 
     console.log(registrationDetails);
-  };
+  }
 
   return (
     <>
@@ -61,7 +61,7 @@ export const RegistrationForm = () => {
           <span>{phone}</span>
         </p>
       </section>
-      <form onSubmit={(e) => hanldeRegistrationDetails(e)}>
+      <form onSubmit={(e) => handleRegistrationDetails(e)}>
         <div className={cssModule["container"]}>
           <h1>Sign Up</h1>
           <p>Please fill in this form to create an account.</p>

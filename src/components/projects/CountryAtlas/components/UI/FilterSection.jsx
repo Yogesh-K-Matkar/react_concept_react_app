@@ -14,23 +14,23 @@ const FilterSection = (props) => {
     new Set(countriesData.map((country) => country.region))
   );
 
-  const handleInputChange = (ev) => {
+  function handleInputChange(ev) {
     ev.preventDefault();
     const searchText = ev.target.value;
     searchCountry(searchText);
-  };
+  }
 
-  const handleSelectChange = (ev) => {
+  function handleSelectChange(ev) {
     ev.preventDefault();
     const filterSelected = ev.target.value;
     filterSelected && filterCountry(filterSelected);
-  };
+  }
 
-  const handleSortCountries = (ev) => {
+  function handleSortCountries(ev) {
     ev.preventDefault();
     const sortType = ev.target.value;
     sortType && sortCountries(sortType);
-  };
+  }
 
   return (
     <section className="section-searchFilter container">

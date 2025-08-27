@@ -39,7 +39,7 @@ import {
 export const Todos = () => {
   const [todoList, setTodoList] = useState(() => GetTodoListLocalStoreKey());
 
-  const handleFormSubmitAddTodo = (addTodo) => {
+  function handleFormSubmitAddTodo(addTodo) {
     const { id, content, checked } = addTodo;
 
     if (content == "") return; //Empty check
@@ -54,13 +54,13 @@ export const Todos = () => {
       ...prevTodoList,
       { id, content, checked }, //Key:Value is same then do as {id:id,content:content,checked:checked} then consider as {id,content.checked} as per EMCScript rule
     ]);
-  };
+  }
 
   //Todo add data to localStorage SetTodoListLocalStoreKey function
   SetTodoListLocalStoreKey(todoList);
 
   //Todo handleActionCheckedTodo function
-  const handleActionCheckedTodo = (checkedTodo) => {
+  function handleActionCheckedTodo(checkedTodo) {
     const updateTodoList = todoList.map((todo) => {
       if (todo.id == checkedTodo.id) {
         return { ...todo, checked: !checkedTodo.checked };
@@ -69,20 +69,20 @@ export const Todos = () => {
       }
     });
     setTodoList(updateTodoList);
-  };
+  }
 
   //Todo handleActionDeleteTodo function
-  const handleActionDeleteTodo = (deleteTodoId) => {
+  function handleActionDeleteTodo(deleteTodoId) {
     const updateTodoList = todoList.filter((todo) => todo.id != deleteTodoId);
     setTodoList(updateTodoList);
-  };
+  }
 
   const TodoActionClearAllButton = styled.button({});
 
   //Todo handleClearAllTodo function
-  const handleClearAllTodo = () => {
+  function handleClearAllTodo() {
     setTodoList([]);
-  };
+  }
 
   return (
     <section className={cssModule["todo-container"]}>
@@ -106,7 +106,8 @@ export const Todos = () => {
       <section>
         <TodoActionClearAllButton
           className={cssModule["clear-btn"]}
-          onClick={handleClearAllTodo}>
+          onClick={handleClearAllTodo}
+        >
           Clear All
         </TodoActionClearAllButton>
       </section>

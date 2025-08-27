@@ -409,7 +409,7 @@ B.2. Pull Request :-
             ```
 
 
-    b. var is scope less means re-declaring the same variable within the scope then outside the scope then value assigned will be the latest one.
+    b. var is function/global scope means re-declaring the same variable within the scope then outside the scope then value assigned will be the latest one.
     c. var support HOSTING concept, which means the variable can be used before its declaration. It gives as undefined value but not error as var type variable is  defined after using it.
         
         e.g.:-

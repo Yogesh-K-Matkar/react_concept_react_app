@@ -1,4 +1,5 @@
 # CSS
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Color:-
 
@@ -7,11 +8,22 @@ Color:-
 - [Shapes](https://9elements.github.io/fancy-border-radius/,https://10015.io/tools/css-border-radius-generator)
 - [Loader CSS](https://css-loaders.com/)
 
-Browser Chrome Extension:-
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-- Designer Tool
+# React Using VS Code With Vite
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-# React + Vite
+## Reference Docs 
+
+### Official Sites
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+- https://javascript.info/
+- https://www.geeksforgeeks.org/installation-of-node-js-on-windows/
+- https://www.npmjs.com/package/create-react-app
+- https://react.dev/learn
+- https://vitejs.dev/guide/features.html
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -20,71 +32,37 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+## Vite 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+### ESLint configuration
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
-## Notes For Reference
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Notes:-
+## VS Code Editor/IDE/Code Development Platform :-
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Old:-
+### Shortcuts
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ 1. Terminal show/hide(cntrl+`)
+ 2. Solution File/Folder Structure show/hide(cntrl+b)
+ 3. Focus on top search(cntrl+p, cntrl+shift+p)
+ 4. Format jsx,json :- shift+alt+f
 
-1. Props-- Passing values by setting properties over calling a component inside the parent JSX, so that properties pass through the component function and are set inside the JSX of that component function.
-2. State-- To maintain value when value needs to be displayed inside JSX code during the render of the component function.
-   3.Spread Operator-- ...<object/array_name> is shortcut to open object, array
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-CSS Apply Method:-
 
-1. Split the standalone into small blocks as per the components' JSX code needed
-2. Use convert <filename>.css to <filename>.module.css so that the entire CSS file is considered as
-   a dynamic class to access its CSS classes to differentiate the same CSS name used in multiple CSS files.
-3. Import styled_component so that we can write an inline CSS class component in the required JSX file.
+### Terminal CMD's To Create and Manage Files
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-   E.g. & symbol is replaced with all header CSS classes as it's copied under styled. Header styled-component:-
-
-   import {styled} from 'styled-component';
-
-   const styleheader=styled.header
-   `
-   display: flex;
-   flex-direction: column;
-   align-items: ${({invalid})=> invalid? 'centre' : 'left' };
-   justify-content: centre;
-   margin-top: 2rem;
-   margin-bottom: 2rem;
-
-   //header img{
-   & img{
-   justify-content: centre;
-   }
-
-   //header: hover{
-   &:hover{
-   justify-content: centre;
-   }
-   `
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-New:-
-
-References:-
-
-- https://javascript.info/
-- https://www.geeksforgeeks.org/installation-of-node-js-on-windows/
-- https://www.npmjs.com/package/create-react-app
-- https://react.dev/learn
-
----
-
-VS Code Editor Shortcuts:-
-
-Terminal show/hide(cntrl+`),Solution File/Folder Structure show/hide(cntrl+b),Focus on top search(cntrl+p, cntrl+shift+p)
-
-Format jsx,json :- shift+alt+f
-
-How to create a file and folder through the Terminal cmd.
+#### How to create a file and folder through the Terminal cmd.
 a. Move inside into folder
 cd <FolderName>
 b. Move outside the folder
@@ -96,49 +74,162 @@ code <NewFileName.extension>
 e. To open the current folder in Explorer from the terminal, type
 explorer .
 
----
+----------------------------------------------------------------
 
-Commands:-To set up a React application using the Terminal option in VS Code
+### Pre-requisite(Setup Development Environment For React v19) Using Terminal Option of VS Code Editor:-
 
-Vite is a builder tool.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-npm-Package Manager:-
+#### Step 1: Installing Node.js (Open Source, cross-platform, JavaScript runtime environment)
+Node.js is essential for running React applications.
+
+Follow these steps to install Node.js:
+
+1. Download and install LTS version suitable for your operating system from the [official website](https://nodejs.org/).
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#### Step 2:- Setup VS Code
+
+1. Download and install Visual Studio Code from the [official website](https://code.visualstudio.com/).
+2. Install the recommended extensions for React development:
+
+   A. Browser Chrome Extension:-
+        2.1 React Developer Tool
+
+   B. VS Code Editor Extensions:-
+        2.1. Auto Close Tag
+        2.2. Auto Comment
+        2.3. Auto Import
+        2.4. Auto Rename Tag
+        2.5. Babel JavaScript
+        2.6. Better Comments
+        2.7. Bootstrap 5 Quick Snippets
+        2.8. Bootstrap Class Autocomplete
+        2.9. Bootstrap IntelliSense
+        2.10. Code Runner
+        2.11. Code Spell Checker
+        2.12. CSS Navigation
+        2.13. CSS Peek
+        2.14. css-auto-prefix
+        2.15. ES7+ React/Redux/React-Native snippets
+        2.16. ESLint
+        2.17. GitHub Copilot
+        2.18. GitHub Copilot Chat
+        2.19. GitHub Pull Requests
+        2.20. Import Cost
+        2.21. IntelliCode
+        2.22. JavaScript (ES6) code snippets
+        2.23. Live Server
+        2.24. Markdown All in One
+        2.25. Markdown Preview Enhanced
+        2.26. npm Intellisense
+        2.27. Path Intellisense
+        2.28. Prettier - Code formatter
+        2.29. React PropTypes Generate
+        2.30. Reactjs code snippets
+        2.31. Tailwind CSS IntelliSense
+        2.32. Thunder Client
+        2.33. vscode-icons
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#### Step 3:- Setup Package Manager
+
+##### NPM (Node Package Manager)
+
+NPM (Node Package Manager) is included with Node.js installation. You can verify its installation by checking the version.
+
 Version Check:-
-node -v
-npm -v
 
-Project Setup:-
-npm i create-react-app (Not Use Instead use npm create vite@latest)
-npm react
-npm i react
+```terminal
+    node -v
+    npm -v 
 
-npx npm-check-updates -- To verify all packages listed with their current and latest available version
-npx npm-check-updates -u -- To update all packages to the latest version, listing with their older version in the previous npx command
 
----
+    npx npm-check-updates (To verify all packages listed with their current and latest available version)
+    npx npm-check-updates -u (To update all packages to the latest version, listing with their older version in the previous npx command)
 
-bun-Package Manager:-
+```
 
-node -v
-bun -v
+##### BUN  (Latest, Lightweight, Faster Built as compare to NPM)
 
-Project Setup:-
+Bun is a modern JavaScript runtime and package manager that focuses on speed and efficiency. It is designed to be a drop-in replacement for npm and yarn, with a focus on performance.
 
-bun create vite@latest
-bun install / bun i
-bun run dev/bun dev
+Install:-
 
-bun pm ls --To view all installed packages with version
+```terminal
+    npm install -g bun 
+```
+    OR
+```terminal
+    npm i -g bun 
+```
 
-Project Deployment :-
+(Make sure to add -g flag for system level global installation)
 
-Use free hosting site:- https://app.netlify.com/ (Use GitHub login)
+
+Version Check:-
+```terminal
+    bun -v
+
+    bun pm ls (To view all installed packages with version)
+```
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#### Step 4: Upgrading to React v19 RC
+
+If you're using React v18 and want to upgrade to React v19 Release Candidate, follow these steps:
+
+Open your terminal or command prompt.
+Run the following command to update React:
+
+```terminal
+    npm install react@rc
+    npm install react-dom@rc
+    npm install react-router-dom@rc
+```
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#### Step 5: Creating a React App with Vite
+
+Vite is a build tool that provides a fast and efficient way to set up a React project. Follow these steps to create your first React app:
+
+Open your terminal or command prompt.
+Run the following commands to create a new React project with Vite:
+
+(Note:- npm i create-react-app (Not Use Instead use npm create vite@latest))
+
+```terminal
+    npm create vite@latest reactapp --template react
+    cd reactapp
+    npm install
+```
+
+Start the development server:
+
+```terminal
+    npm run dev
+```
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+## Project Deployment/Publishing/Hosting :-
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+### Manual Deployment :- Publish Local Folder/Files Then Manual Deploy To Free Hosting Site.  
+
+Use free hosting site:- [official website](https://app.netlify.com/) (Use GitHub login)
 
 Steps:-
 
-1 bun run build --To create Production Build/Version to deploy
+1.  To create Production Build/Version to deploy
 
-2 After above cmd executed successfully dist folder is create.
+    ```terminal
+        npm run build
+    ```
+
+2. After above cmd executed successfully dist folder is create.
 
 3. Go to netlify site in side menu select & click Projects it will display list of methods to deployed website.
 
@@ -150,150 +241,17 @@ Steps:-
 
 7. After successful deploy at top you will see random project and netlify.app which you can modify by clicking on Project Configuration & then change name as required.
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+---------------------------------------------------------------------------------------------------
 
-REACTJS Language:-(v19)
-
-Steps for Cloning Reporsitory/Pulling Code from GitHub to VS Code/Build and Deploy Code:-
-
-A.
-
-1. Introduction(What is ReactJS):-
-
-1. REACT(v19) is a framework in which ReactJS is implemented. ReactJS is a JavaScript Library used for front-end/UI development.
-1. It was first created by a Facebook developer(Jordan Walke) when they faced the issue of managing and maintaining the extensive increase of the Facebook application in 2011.
-1. It was first implemented in their application Facebook in modules like Feeds, Chat Messaging and also made ReactJS Open Source to the outside world in 2012 and 2013, but suffered from criticism as the outside world was unable to properly understand the Separation Of Code(SOC) concept of ReactJS.
-1. So then in 2013, one of the Khan Academy developer created a Web Application & achieved success in it. She is the first Non-Facebook React developer, due to which Facebook got a larger success and breakthrough in the outside world for ReactJS language usage & at the same time, Facebook developers create a web application for the Instagram Mobile App.
-1. ReactJS is a Declarative Language, so faster to implement.
-1. Component-Based Architecture.
-1. Reach Eco-System-npm packages(Smaller concept/modules already develop in form of packages)
-1. Strong & Large community support-Online/GitHub
-
----
-
-2. Pre-requisite(Setup Development Environment):-
-
-Step 1: Installing Node.js
-Node.js is essential for running React applications. Follow these steps to install Node.js:
-
-Visit the Node.js official website.
-Download the LTS version suitable for your operating system.
-Run the installer and follow the prompts to complete the installation.
-
---
-
-Step 2: Setting Up Visual Studio Code (VSCode)
-VSCode is a powerful and popular code editor for web development. Here's how to set it up:
-
-Go to the VSCode official website.
-Download and install the latest version for your OS.
-Open VSCode and install the necessary extensions for React development (e.g., ESLint, Prettier).
-
---
-
-Step 3: Installing Bun Package Manager
-Bun is a fast and modern package manager for JavaScript. Here's how to install it:
-
-Open your terminal or command prompt.
-Run the following command to install Bun:
-npm install -g bun (make sure to add -g flag)
-If it's not working, then 👇
-curl -fsSL https://bun.sh/install | bash
-Follow the on-screen instructions to complete the installation.
-
---
-
-Step 4: Creating a React App with Vite
-Vite is a build tool that provides a fast and efficient way to set up a React project. Follow these steps to create your first React app:
-
-Open your terminal or command prompt.
-Run the following commands to create a new React project using Vite:
-bun create vite@latest reactthapaapp --template react
-cd my-react-app
-bun install
-Start the development server:
-bun run dev
-
-## (Bun - Latest Package Manager)
-
-Step 5: Writing Your First "Hello World" Program
-Now that your React app is set up, let's write a simple "Hello World" program:
-
-Open src/App.jsx in VSCode.
-Replace the default code with the following:
-import React from 'react';
-
-function App() {
-return (
-
-Hello World
-
-);
-}
-
-export default App;
-Save the file and see the changes live in your browser.
-
---
-
-Step 6: Upgrading to React v19 RC
-If you're using React v18 and want to upgrade to React v19 Release Candidate, follow these steps:
-
-Open your terminal or command prompt.
-Run the following command to update React:
-bun install react@rc react-dom@rc
-
---
-
-Step 7: Extensions:
-
-Browser Chrome Extension:-
-7.1 React Developer Tool
-
-VS Code:-
-7.1. Auto Close Tag
-7.2. Auto Comment
-7.3. Auto Import
-7.4. Auto Rename Tag
-7.5. Babel JavaScript
-7.6. Better Comments
-7.7. Bootstrap 5 Quick Snippets
-7.8. Bootstrap Class Autocomplete
-7.9. Bootstrap IntelliSense
-7.10. Code Runner
-7.11. Code Spell Checker
-7.12. CSS Navigation
-7.13. CSS Peek
-7.14. css-auto-prefix
-7.15. ES7+ React/Redux/React-Native snippets
-7.16. ESLint
-7.17. GitHub Copilot
-7.18. GitHub Copilot Chat
-7.19. GitHub Pull Requests
-7.20. Import Cost
-7.21. IntelliCode
-7.22. JavaScript (ES6) code snippets
-7.23. Live Server
-7.24. Markdown All in One
-7.25. Markdown Preview Enhanced
-7.26. npm Intellisense
-7.27. Path Intellisense
-7.28. Prettier - Code formatter
-7.29. React PropTypes Generate
-7.30. Tailwind CSS IntelliSense
-7.31. Thunder Client
-7.32. vscode-icons
-
-+++++++++++++++++++++++++++++++
-
-A. Steps for Hosting Application with Synchronous Update:-
+### Synchronous/Auto Deployment:- Sync Local VS Code Repo/Repository with GitHub Repo/Repository Which Then Automatically DeployTo Free Hosting Site.
 
 A.1. Upload Files from VS Code to GitHub:-
 
     1. In GitHub, first log in to your GitHub account, then in the  tab Repositories, click on the New button & create a  repository by giving a  Repository Name
        e.g. Yogesh_Matkar/<repository name> then click Create Repository button.
 
-    2. Initialise git into VS Code by cmd,
+    2. Install git external installer from [official website](https://git-scm.com/) 
+       Install git and then restart VS Code,to execute git cmd's in VS Code terminal as required
 
       a.
        > git init
@@ -302,7 +260,7 @@ A.1. Upload Files from VS Code to GitHub:-
 
       > git --version
 
-      b. If the version is not displayed or again a git cmd issue, that means git is not installed, then install the Git Package Manager on the computer.
+      b. If the version is not displayed or again a git cmd issue, that means git is not installed, then install the Git Package Manager  on the computer.
 
       c. After installation, in VS Code to get cmd setting UI, press Ctrl+Shift+P, type in search Open User Settings (JSON) and click,
       Then add a set of values in JSON format below,
@@ -363,7 +321,33 @@ A.2. Deploying from GitHub to Netlify:-
 
     d. If the .env variable file in the React project is available, then add the  Environment Variable by clicking on the Add Environment Variables button
 
-B. Steps for Cloning and Pulling Application from GitHub to VS Code:-
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#### REACTJS Language:-(v19)
+
+Steps for Cloning Reporsitory/Pulling Code from GitHub to VS Code/Build and Deploy Code:-
+
+A.
+
+1. Introduction(What is ReactJS):-
+
+1. REACT(v19) is a framework in which ReactJS is implemented. ReactJS is a JavaScript Library used for front-end/UI development.
+1. It was first created by a Facebook developer(Jordan Walke) when they faced the issue of managing and maintaining the extensive increase of the Facebook application in 2011.
+1. It was first implemented in their application Facebook in modules like Feeds, Chat Messaging and also made ReactJS Open Source to the outside world in 2012 and 2013, but suffered from criticism as the outside world was unable to properly understand the Separation Of Code(SOC) concept of ReactJS.
+1. So then in 2013, one of the Khan Academy developer created a Web Application & achieved success in it. She is the first Non-Facebook React developer, due to which Facebook got a larger success and breakthrough in the outside world for ReactJS language usage & at the same time, Facebook developers create a web application for the Instagram Mobile App.
+1. ReactJS is a Declarative Language, so faster to implement.
+1. Component-Based Architecture.
+1. Reach Eco-System-npm packages(Smaller concept/modules already develop in form of packages)
+1. Strong & Large community support-Online/GitHub
+
+---
+
+2. 
++++++++++++++++++++++++++++++++
+
+
+# Steps for Cloning and Pulling Application from GitHub to VS Code:-
 
 B.1. Cloning:-
 
@@ -409,7 +393,16 @@ B.2. Pull Request :-
             ```
 
 
-    b. var is function/global scope means re-declaring the same variable within the scope then outside the scope then value assigned will be the latest one.
+    b. var is function/global scope means re-declaring the same variable gives last assigned value anywhere within function scope.
+
+        e.g.:-
+
+            ```js
+                var i=10;  
+                var i="a";  --now i stores string value
+
+                console.log(i);  --Output is a
+            ``` 
     c. var support HOSTING concept, which means the variable can be used before its declaration. It gives as undefined value but not error as var type variable is  defined after using it.
         
         e.g.:-
@@ -427,13 +420,15 @@ B.2. Pull Request :-
 
    a. Block scope means the variable value is limited to the block in which it is defined.
 
-   b. It can be re-assigned but not re-declared within the same block means assigning different datatype value is not allowed.
+   b. It can be re-assigned and re-declared within the same datatype value, assigning different datatype value is not allowed.
 
    1.3. const keyword type variable.
 
    a. Block scope means the variable value is limited to the block in which it is defined.
 
-   b. It cannot be re-assigned or re-declared within the same block means assigning different datatype value is not allowed.
+   b. It can be re-assigned and re-declared within the same datatype value, assigning different datatype value is not allowed.
+
+   (Imp:- let and const are same and maximum used for runtime errors)
 
 2. Looping concepts:-
 

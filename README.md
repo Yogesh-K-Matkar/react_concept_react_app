@@ -1,3 +1,11 @@
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# HTML
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    HTML is the standard markup language for creating web pages. 
+    Follows W3C standards.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 # CSS
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -7,363 +15,6 @@ Color:-
 - [Gradient Color](https://mycolor.space/gradient,https://uigradients.com/#DirtyFog)
 - [Shapes](https://9elements.github.io/fancy-border-radius/,https://10015.io/tools/css-border-radius-generator)
 - [Loader CSS](https://css-loaders.com/)
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-# React Using VS Code With Vite
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-## Reference Docs 
-
-### Official Sites
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-- https://javascript.info/
-- https://www.geeksforgeeks.org/installation-of-node-js-on-windows/
-- https://www.npmjs.com/package/create-react-app
-- https://react.dev/learn
-- https://vitejs.dev/guide/features.html
-
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-## Vite 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-### ESLint configuration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-## VS Code Editor/IDE/Code Development Platform :-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-### Shortcuts
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- 
- 1. Terminal show/hide(cntrl+`)
- 2. Solution File/Folder Structure show/hide(cntrl+b)
- 3. Focus on top search(cntrl+p, cntrl+shift+p)
- 4. Format jsx,json :- shift+alt+f
-
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-### Terminal CMD's To Create and Manage Files
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-#### How to create a file and folder through the Terminal cmd.
-a. Move inside into folder
-cd <FolderName>
-b. Move outside the folder
-cd..
-c. Create folder
-mkdir <NewFolderName>
-d. Create any type of file, such as JSX, JSON, CSS, or image.
-code <NewFileName.extension>
-e. To open the current folder in Explorer from the terminal, type
-explorer .
-
-----------------------------------------------------------------
-
-### Pre-requisite(Setup Development Environment For React v19) Using Terminal Option of VS Code Editor:-
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-#### Step 1: Installing Node.js (Open Source, cross-platform, JavaScript runtime environment)
-Node.js is essential for running React applications.
-
-Follow these steps to install Node.js:
-
-1. Download and install LTS version suitable for your operating system from the [official website](https://nodejs.org/).
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-#### Step 2:- Setup VS Code
-
-1. Download and install Visual Studio Code from the [official website](https://code.visualstudio.com/).
-2. Install the recommended extensions for React development:
-
-   A. Browser Chrome Extension:-
-        2.1 React Developer Tool
-
-   B. VS Code Editor Extensions:-
-        2.1. Auto Close Tag
-        2.2. Auto Comment
-        2.3. Auto Import
-        2.4. Auto Rename Tag
-        2.5. Babel JavaScript
-        2.6. Better Comments
-        2.7. Bootstrap 5 Quick Snippets
-        2.8. Bootstrap Class Autocomplete
-        2.9. Bootstrap IntelliSense
-        2.10. Code Runner
-        2.11. Code Spell Checker
-        2.12. CSS Navigation
-        2.13. CSS Peek
-        2.14. css-auto-prefix
-        2.15. ES7+ React/Redux/React-Native snippets
-        2.16. ESLint
-        2.17. GitHub Copilot
-        2.18. GitHub Copilot Chat
-        2.19. GitHub Pull Requests
-        2.20. Import Cost
-        2.21. IntelliCode
-        2.22. JavaScript (ES6) code snippets
-        2.23. Live Server
-        2.24. Markdown All in One
-        2.25. Markdown Preview Enhanced
-        2.26. npm Intellisense
-        2.27. Path Intellisense
-        2.28. Prettier - Code formatter
-        2.29. React PropTypes Generate
-        2.30. Reactjs code snippets
-        2.31. Tailwind CSS IntelliSense
-        2.32. Thunder Client
-        2.33. vscode-icons
-
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-#### Step 3:- Setup Package Manager
-
-##### NPM (Node Package Manager)
-
-NPM (Node Package Manager) is included with Node.js installation. You can verify its installation by checking the version.
-
-Version Check:-
-
-```terminal
-    node -v
-    npm -v 
-
-
-    npx npm-check-updates (To verify all packages listed with their current and latest available version)
-    npx npm-check-updates -u (To update all packages to the latest version, listing with their older version in the previous npx command)
-
-```
-
-##### BUN  (Latest, Lightweight, Faster Built as compare to NPM)
-
-Bun is a modern JavaScript runtime and package manager that focuses on speed and efficiency. It is designed to be a drop-in replacement for npm and yarn, with a focus on performance.
-
-Install:-
-
-```terminal
-    npm install -g bun 
-```
-    OR
-```terminal
-    npm i -g bun 
-```
-
-(Make sure to add -g flag for system level global installation)
-
-
-Version Check:-
-```terminal
-    bun -v
-
-    bun pm ls (To view all installed packages with version)
-```
-
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-#### Step 4: Upgrading to React v19 RC
-
-If you're using React v18 and want to upgrade to React v19 Release Candidate, follow these steps:
-
-Open your terminal or command prompt.
-Run the following command to update React:
-
-```terminal
-    npm install react@rc
-    npm install react-dom@rc
-    npm install react-router-dom@rc
-```
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-#### Step 5: Creating a React App with Vite
-
-Vite is a build tool that provides a fast and efficient way to set up a React project. Follow these steps to create your first React app:
-
-Open your terminal or command prompt.
-Run the following commands to create a new React project with Vite:
-
-(Note:- npm i create-react-app (Not Use Instead use npm create vite@latest))
-
-```terminal
-    npm create vite@latest reactapp --template react
-    cd reactapp
-    npm install
-```
-
-Start the development server:
-
-```terminal
-    npm run dev
-```
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-## Project Deployment/Publishing/Hosting :-
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-### Manual Deployment :- Publish Local Folder/Files Then Manual Deploy To Free Hosting Site.  
-
-Use free hosting site:- [official website](https://app.netlify.com/) (Use GitHub login)
-
-Steps:-
-
-1.  To create Production Build/Version to deploy
-
-    ```terminal
-        npm run build
-    ```
-
-2. After above cmd executed successfully dist folder is create.
-
-3. Go to netlify site in side menu select & click Projects it will display list of methods to deployed website.
-
-4. Select Deploy Manual option in list then Drag & Drop OR Upload Files ,then go to folder path where dist folder is created within project that you want to host
-
-5. Open dist folder you will see all files that are going to deploy.
-
-6. Then hit Upload/Deploy/Ok button of dialog & wait don't refresh till files gets completely deployed.
-
-7. After successful deploy at top you will see random project and netlify.app which you can modify by clicking on Project Configuration & then change name as required.
-
----------------------------------------------------------------------------------------------------
-
-### Synchronous/Auto Deployment:- Sync Local VS Code Repo/Repository with GitHub Repo/Repository Which Then Automatically DeployTo Free Hosting Site.
-
-A.1. Upload Files from VS Code to GitHub:-
-
-    1. In GitHub, first log in to your GitHub account, then in the  tab Repositories, click on the New button & create a  repository by giving a  Repository Name
-       e.g. Yogesh_Matkar/<repository name> then click Create Repository button.
-
-    2. Install git external installer from [official website](https://git-scm.com/) 
-       Install git and then restart VS Code,to execute git cmd's in VS Code terminal as required
-
-      a.
-       > git init
-
-       If the git cmd issues, then check the  git version using cmd.
-
-      > git --version
-
-      b. If the version is not displayed or again a git cmd issue, that means git is not installed, then install the Git Package Manager  on the computer.
-
-      c. After installation, in VS Code to get cmd setting UI, press Ctrl+Shift+P, type in search Open User Settings (JSON) and click,
-      Then add a set of values in JSON format below,
-
-       "git.enable": True,
-       "git.path": "C:\\Program Files\\Git\\cmd\\git.exe.exe"
-
-      d. Then, try the below cmd to check if git is properly enabled in VS Code,
-
-         To check the installed version of git
-          > git --version
-
-      e. To initialize git in VS Code
-         > git init
-
-         Due to the above cmd of initialise in the left sidebar menu, one option of the Branch icon(Source Control), in which files were modified with U(Update) as the letter means these files are modified
-
-      f. If you want to remove/ignore some file from pushing into git, then in the .gitignore file, mention the file extension/file name/folder name
-
-      g. After that, for staging file changes cmd
-
-        Stage All Files:-
-         > git add .         (. means all files staged)
-
-        Stage Specific Files:-
-         > git add filename1.txt filename1.jsx
-         
-
-      h. After the above cmd file is moved from CHANGES to Staged Changes, with each file with A as a letter, means these files are going to be added to be final step before going to push in git
-
-         > git commit -m "<commit comments>"
-
-      i. Then adding the origin of the remote git repository means connecting VS Code to a specific remote git repository path using the below cmd
-
-         > git remote add origin https://github.com/Yogesh-K-Matkar/deploy_react_app_example1.git
-
-     j. Then, below cmd to push the final code to the specific master branch
-
-         > git push origin master
-
-                   OR
-
-         > git push origin main
-
-     k. Refresh the GitHub repository of the project deployed, and it will show all published files.
-
-A.2. Deploying from GitHub to Netlify:-
-
-    a. In Netlify, Add New Project --> Import an existing project --> Select Repository Application Name(GitHub) --> All Repositories
-
-    b. Selecting All repositories, a list of all deployed GitHub repositories is displayed.
-
-    c. Select the repository that needs to be hosted in Netlify
-
-       Write in Build Command(As per defined in package.json--> script --> build)
-
-       bun run build
-
-    d. If the .env variable file in the React project is available, then add the  Environment Variable by clicking on the Add Environment Variables button
-
-
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-#### REACTJS Language:-(v19)
-
-Steps for Cloning Reporsitory/Pulling Code from GitHub to VS Code/Build and Deploy Code:-
-
-A.
-
-1. Introduction(What is ReactJS):-
-
-1. REACT(v19) is a framework in which ReactJS is implemented. ReactJS is a JavaScript Library used for front-end/UI development.
-1. It was first created by a Facebook developer(Jordan Walke) when they faced the issue of managing and maintaining the extensive increase of the Facebook application in 2011.
-1. It was first implemented in their application Facebook in modules like Feeds, Chat Messaging and also made ReactJS Open Source to the outside world in 2012 and 2013, but suffered from criticism as the outside world was unable to properly understand the Separation Of Code(SOC) concept of ReactJS.
-1. So then in 2013, one of the Khan Academy developer created a Web Application & achieved success in it. She is the first Non-Facebook React developer, due to which Facebook got a larger success and breakthrough in the outside world for ReactJS language usage & at the same time, Facebook developers create a web application for the Instagram Mobile App.
-1. ReactJS is a Declarative Language, so faster to implement.
-1. Component-Based Architecture.
-1. Reach Eco-System-npm packages(Smaller concept/modules already develop in form of packages)
-1. Strong & Large community support-Online/GitHub
-
----
-
-2. 
-+++++++++++++++++++++++++++++++
-
-
-# Steps for Cloning and Pulling Application from GitHub to VS Code:-
-
-B.1. Cloning:-
-
-      a. First, install Extension- GitHub Pull Requests, then through Settings open Command Palette and write GitHub Clone(Clone from GitHub)
-      b. Then visit to GitHub account-->Select the repository, and copy the  browser URL of the repository, then need to clone it to VS Code.
-      c. Now, explorer dialogue windows open --> select the folder where we want to clone the repository.
-
-B.2. Pull Request :-
-
-     a. Sync the local exisitng project with repository from GitHub VS Code Terminal cmd
-
-        git pull origin main
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# HTML - "HTML is the standard markup language for creating web pages. Follows W3C standards."
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # JavaScript/JS Basics - "Javascript/JS is dynamic scripting language"
@@ -550,20 +201,404 @@ B.2. Pull Request :-
                 ```
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# VITE:- "Vite is a build tool in v19 replacement to webpack that aims to provide a faster and leaner development experience/environment for building modern web projects."
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+# React Using VS Code With Vite
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+## Reference Docs 
+
+### Official Sites
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+- https://javascript.info/
+- https://www.geeksforgeeks.org/installation-of-node-js-on-windows/
+- https://www.npmjs.com/package/create-react-app
+- https://react.dev/learn
+- https://vitejs.dev/guide/features.html
+
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+## Vite 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+### ESLint configuration
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+## VS Code Editor/IDE/Code Development Platform :-
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+### Shortcuts
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ 1. Terminal show/hide(cntrl+`)
+ 2. Solution File/Folder Structure show/hide(cntrl+b)
+ 3. Focus on top search(cntrl+p, cntrl+shift+p)
+ 4. Format jsx,json :- shift+alt+f
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+### Terminal CMD's To Create and Manage Files
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#### How to create a file and folder through the Terminal cmd.
+a. Move inside into folder
+cd <FolderName>
+b. Move outside the folder
+cd..
+c. Create folder
+mkdir <NewFolderName>
+d. Create any type of file, such as JSX, JSON, CSS, or image.
+code <NewFileName.extension>
+e. To open the current folder in Explorer from the terminal, type
+explorer .
+
+----------------------------------------------------------------
+
+### Pre-requisite(Setup Development Environment For React v19) Using Terminal Option of VS Code Editor:-
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#### Step 1: Installing Node.js (Open Source, cross-platform, JavaScript runtime environment)
+Node.js is essential for running React applications.
+
+Follow these steps to install Node.js:
+
+1. Download and install LTS version suitable for your operating system from the [official website](https://nodejs.org/).
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#### Step 2:- Setup VS Code
+
+1. Download and install Visual Studio Code from the [official website](https://code.visualstudio.com/).
+2. Install the recommended extensions for React development:
+
+   A. Browser Chrome Extension:-
+        2.1 React Developer Tool
+
+   B. VS Code Editor Extensions:-
+        2.1. Auto Close Tag
+        2.2. Auto Comment
+        2.3. Auto Import
+        2.4. Auto Rename Tag
+        2.5. Babel JavaScript
+        2.6. Better Comments
+        2.7. Bootstrap 5 Quick Snippets
+        2.8. Bootstrap Class Autocomplete
+        2.9. Bootstrap IntelliSense
+        2.10. Code Runner
+        2.11. Code Spell Checker
+        2.12. CSS Navigation
+        2.13. CSS Peek
+        2.14. css-auto-prefix
+        2.15. ES7+ React/Redux/React-Native snippets
+        2.16. ESLint
+        2.17. GitHub Copilot
+        2.18. GitHub Copilot Chat
+        2.19. GitHub Pull Requests
+        2.20. Import Cost
+        2.21. IntelliCode
+        2.22. JavaScript (ES6) code snippets
+        2.23. Live Server
+        2.24. Markdown All in One
+        2.25. Markdown Preview Enhanced
+        2.26. npm Intellisense
+        2.27. Path Intellisense
+        2.28. Prettier - Code formatter
+        2.29. React PropTypes Generate
+        2.30. Reactjs code snippets
+        2.31. Tailwind CSS IntelliSense
+        2.32. Thunder Client
+        2.33. vscode-icons
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#### Step 3:- Setup Package Manager
+
+##### NPM (Node Package Manager)
+
+NPM (Node Package Manager) is included with Node.js installation. You can verify its installation by checking the version.
+
+Version Check:-
+
+```terminal
+    node -v
+    npm -v 
+
+
+    npx npm-check-updates (To verify all packages listed with their current and latest available version)
+    npx npm-check-updates -u (To update all packages to the latest version, listing with their older version in the previous npx command)
+
+```
+
+##### BUN  (Latest, Lightweight, Faster Built as compare to NPM)
+
+Bun is a modern JavaScript runtime and package manager that focuses on speed and efficiency. It is designed to be a drop-in replacement for npm and yarn, with a focus on performance.
+
+Install:-
+
+```terminal
+    npm install -g bun 
+```
+    OR
+```terminal
+    npm i -g bun 
+```
+
+(Make sure to add -g flag for system level global installation)
+
+
+Version Check:-
+```terminal
+    bun -v
+
+    bun pm ls (To view all installed packages with version)
+```
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#### Step 4: Upgrading to React v19 RC
+
+If you're using React v18 and want to upgrade to React v19 Release Candidate, follow these steps:
+
+Open your terminal or command prompt.
+Run the following command to update React:
+
+```terminal
+    npm install react@rc
+    npm install react-dom@rc
+    npm install react-router-dom@rc
+```
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#### Step 5: Creating a React App with Vite
+
+Vite is a build tool in v19 replacement to webpack that aims to provide a faster and leaner development experience/environment for building modern web projects.
+
+Follow these steps to create your first React app:
+
+Open your terminal or command prompt.
+Run the following commands to create a new React project with Vite:
+
+(Note:- npm i create-react-app (Not Use Instead use npm create vite@latest))
+
+```terminal
+    npm create vite@latest reactapp --template react
+    cd reactapp
+    npm install
+```
+
+Start the development server:
+
+```terminal
+    npm run dev
+```
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+## Project Deployment/Publishing/Hosting :-
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+### Manual Deployment :- Publish Local Folder/Files Then Manual Deploy To Free Hosting Site.  
+
+Use free hosting site:- [official website](https://app.netlify.com/) (Use GitHub login)
+
+Steps:-
+
+1.  To create Production Build/Version to deploy
+
+    ```terminal
+        npm run build
+    ```
+
+2. After above cmd executed successfully dist folder is create.
+
+3. Go to netlify site in side menu select & click Projects it will display list of methods to deployed website.
+
+4. Select Deploy Manual option in list then Drag & Drop OR Upload Files ,then go to folder path where dist folder is created within project that you want to host
+
+5. Open dist folder you will see all files that are going to deploy.
+
+6. Then hit Upload/Deploy/Ok button of dialog & wait don't refresh till files gets completely deployed.
+
+7. After successful deploy at top you will see random project and netlify.app which you can modify by clicking on Project Configuration & then change name as required.
+
+--------------------------------------------------------------------------
+
+### Synchronous/Auto Deployment:- Sync Local VS Code Repository with GitHub Repository Which Then Automatically Deploy To Free Hosting Site.
+
+
+
+#### Upload Files from VS Code to GitHub:-
+
+    1. In GitHub, first log in to your GitHub account, then in the  tab Repositories, click on the New button & create a  repository by giving a  Repository Name
+       e.g. Yogesh_Matkar/<repository name> then click Create Repository button.
+
+    2. Install git external installer from [official website](https://git-scm.com/) 
+       Install git and then restart VS Code,to execute git cmd's in VS Code terminal as required
+
+      a.
+        ```terminal
+            git init
+        ```
+
+       If the git cmd issues, then check the  git version using cmd.
+    
+        ```terminal
+            git --version
+        ```
+
+      b. If the version is not displayed or again a git cmd issue, that means git is not installed, then install the Git Package Manager  on the computer.
+
+      c. After installation, in VS Code to get cmd setting UI, press Ctrl+Shift+P, type in search Open User Settings (JSON) and click,
+      Then add a set of values in JSON format below,
+
+       "git.enable": True,
+       "git.path": "C:\\Program Files\\Git\\cmd\\git.exe.exe"
+
+      d. Then, try the below cmd to check if git is properly enabled in VS Code,
+
+         To check the installed version of git
+         
+         ```terminal
+             git --version
+         ```
+      e. To initialize git in VS Code
+         
+         ```terminal
+             git init
+         ```
+
+         Due to the above cmd of initialise in the left sidebar menu, one option of the Branch icon(Source Control), in which files were modified with U(Update) as the letter means these files are modified
+
+      f. If you want to remove/ignore some file from pushing into git, then in the .gitignore file, mention the file extension/file name/folder name
+
+      g. After that, for staging file changes cmd
+
+        Stage All Files:-
+        
+        ```terminal
+             git add .         (. means all files staged)
+        ```
+
+        Stage Specific Files:-
+
+        ```terminal
+             git add filename1.txt filename1.jsx
+        ```         
+
+      h. After the above cmd file is moved from CHANGES to Staged Changes, with each file with A as a letter, means these files are going to be added to be final step before going to push in git
+
+        Committing Changes:-
+
+        ```terminal
+            git commit -m "<commit comments>"
+        ```
+
+      i. Then adding the origin of the remote git repository means connecting VS Code to a specific remote git repository path using the below cmd
+
+        ```terminal
+             git remote add origin <repository-url>
+        ```
+        Repository-URL:-(https://github.com/Yogesh-K-Matkar/deploy_react_app_example1.git)
+
+     j. Then, below cmd to push the final code to the specific active branch master/main
+
+         ```terminal
+            git push origin <active branch name>
+         ```
+                   
+
+     k. Refresh the GitHub repository of the project deployed, and it will show all published files.
+
+#### Deploying from GitHub to Netlify:-
+
+    a. In Netlify, Add New Project --> Import an existing project --> Select Repository Application Name(GitHub) --> All Repositories
+
+    b. Selecting All repositories, a list of all deployed GitHub repositories is displayed.
+
+    c. Select the repository that needs to be hosted in Netlify
+
+       Write in Build Command(As per defined in package.json--> script --> build)
+
+       bun run build
+
+    d. If the .env variable file in the React project is available, then add the  Environment Variable by clicking on the Add Environment Variables button
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+## Project Cloning and Pull Request From GitHub to VS Code As Local Repository
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+### Cloning:-
+
+      a. First, install Extension- GitHub Pull Requests, then through Settings open Command Palette and write GitHub Clone(Clone from GitHub)
+
+      b. Then visit to GitHub account-->Select the repository, and copy the  browser URL of the repository, then need to clone it to VS Code.
+
+      c. Now, explorer dialogue windows open --> select the folder where we want to clone the repository.
+
+### Pull Request :-
+
+     a. Sync the local exisitng project with repository from GitHub VS Code Terminal cmd
+
+        ```terminal
+            git pull origin main
+        ```
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+## REACT/REACTJS Language:-(v19)
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+A. What is React/ReactJS:-
+
+1. ReactJS is a JavaScript Library used for front-end/UI development using reusable UI components.
+   
+2. It was first created by a Facebook developer(Jordan Walke) when they faced the issue of managing and maintaining the extensive increase of the Facebook application in 2011.
+   
+3. It was first implemented in their application Facebook in modules like Feeds, Chat Messaging and also made ReactJS Open Source to the outside world in 2012 and 2013, but suffered from criticism as the outside world was unable to properly understand the Separation Of Code(SOC) concept of ReactJS.
+   
+4. So then in 2013, one of the Khan Academy developer created a Web Application & achieved success in it. She is the first Non-Facebook React developer, due to which Facebook got a larger success and breakthrough in the outside world for ReactJS language usage & at the same time, Facebook developers create a web application for the Instagram Mobile App.
+   
+5. ReactJS is a Declarative Language, so faster to implement.
+   
+6. Component-Based Architecture.
+   
+7. Rich Eco-System-npm packages(Smaller concept/modules already develop in form of packages)
+   
+8. Strong & Large community support-Online/GitHub
+
+9. It's only JavaScript Library, not a full-fledged framework like Angular or Vue.js, which makes it more flexible and lightweight for developers.
+
+10. To make it a full-fledged framework, React can be used in conjunction with other libraries and tools, such as Redux for state management and React Router for routing.
+
+11. NextJS encapsulate front-end ReactJS to form a complete full-stack framework.
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# React Folder Structure:-
-
+### React Folder Structure:-
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  
 ![FolderStructure](public/images/Folder_Structure.jpg)
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-# ReactJS Concepts:- "ReactJS is Javascript library used for front-end development by using reusable UI components"
-
+### React Concepts:-
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     Evolution:- ReactJS is Javascript library used for front-end development by using reusable UI components.
@@ -702,7 +737,7 @@ B.2. Pull Request :-
          ```
          (Where export default component is Series and named component is NetflixSeries from NetflixSeries.jsx file)
 
-********
+
 10. Define/Use imported Components/Component from another JSX(ReactFrameworkApp.jsx) as below
 
     e.g.
@@ -975,6 +1010,7 @@ B.2. Pull Request :-
     Type of Event Propagation:-
 
         22.1. Event Capture means propagating/moving from the Parent Element to the Target Action Element and triggering all occurrence event functions in the path while moving.
+
         22.2. Event Bubbling means propagating/moving from Target Action Element to Parent Element and triggering all occurrence event functions in the path while moving.
 
     But to avoid the unwanted triggering of Parent Component event functions other than the Target Action Event Function, we have to use
@@ -1019,7 +1055,7 @@ B.2. Pull Request :-
 
     That means State is common to multiple states at the same level of the child component.
 
-26. React Icons for icons image from multiple sources(Font Awesome icons, Material UI icons, etc) at one place
+25. React Icons for icons image from multiple sources(Font Awesome icons, Material UI icons, etc) at one place
     To access icons, first need to install using 
 
 Terminal cmd
@@ -1044,7 +1080,7 @@ Terminal cmd
             <IconComponentName style={{color:"blue"}}/>
         ```
 
-27. To store & retain any value on refresh of the browser without a database.
+26. To store & retain any value on refresh of the browser without a database.
 
     e.g. To set:- 
     
@@ -1058,22 +1094,22 @@ Terminal cmd
             localStorage.getItem("keyname");
         ```
 
-28. When any control is bound with a state variable(control is moving from uncontrolled to controlled). In React, most components are uncontrolled components by default unless their values are bound to a state variable..
+27. When any control is bound with a state variable(control is moving from uncontrolled to controlled). In React, most components are uncontrolled components by default unless their values are bound to a state variable..
 
     Controlled Data Hooks (Reflect changes immediately in DOM and on UI onChange - Sync Data - Operations:- Input value):- useState
 
     UnControlled Data Hooks (Does not reflect changes in DOM and not on UI onChange - Non-Sync Data - Operations:- Background values,timer):- useRefs
 
-29. The 'use' prefixes in a function name is all React Hooks.
+28. The 'use' prefixes in a function name is all React Hooks.
 
     Types Of Hooks:-
 
-    29.1. State Management:-
+    28.1. State Management:-
 
-        29.1.1. Simple Value State Management(Form simple values not more then 3 controls):-
+        28.1.1. Simple Value State Management(Form simple values not more then 3 controls):-
 
-            29.1.1.1 useState(State Management with re-rendering- Simple, local state mean state value scope remain in same single component where its defined,
-            
+          28.1.1.1 useState(State Management with re-rendering- Simple, local state mean state value scope remain in same single component where its defined,
+
                 Scenario :- Use only when form is simple has not more then 2 to 3 inputs.):- The useState hook, when the state variable value gets updated, it renders the components where it is defined, such as form input, toggles, counters, fetched data flags, or UI visibility.
 
                 For local state management inside a single component and it remains until the component is mounted.
@@ -1107,7 +1143,7 @@ Terminal cmd
                     2. If you omit [count], it would update after every render.
                     3. Passing an empty array [] would run it only once after the initial render.
 
-            29.1.1.2. useRefs(DOM Manipulation without re-rendering, 
+            28.1.1.2. useRefs(DOM Manipulation without re-rendering, 
                 Scenario :- Use only when form is simple has not more then 2 to 3 inputs.):- Built-in hook is used when control values are not tightly bound by any useState hook state variable, meaning an uncontrolled component.
 
                 When you need to access or manipulate a DOM element directly (e.g., to manipulate input fields, focus elements, scroll positions, or perform animations imperatively).
@@ -1152,9 +1188,9 @@ Terminal cmd
                     --Before React v19 release forwardRef function (props,ref)=>{} is used
                     --After React v19 release, ref can be accessed as props.)
 
-        29.1.2. Complex Value State Management(Form Complex Values more then 3 controls and object value which state value update multiple times):-
+        28.1.2. Complex Value State Management(Form Complex Values more then 3 controls and object value which state value update multiple times):-
 
-            29.1.2.1. useReducer(Complex State Logic,
+          28.1.2.1. useReducer(Complex State Logic,
                 Scenario :- Use only when state undergoes multiple operation for e.g. insert,update,delete,increment,decrement. state value multiple times):- This hook provides an action parameter for the reducer function, so based on the action type, different state values can be returned instead of creating a separate function for each control action, that update the state differently.
 
                 Useful in forms, game states, or lists requiring add, remove, toggle operations.
@@ -1205,16 +1241,24 @@ Terminal cmd
 
                     This clearly separates state logic from UI.
 
-        29.1.2. Global State Management(Avoid prop drilling by sharing states):-
+        28.1.2. Global Static State Management(Avoid prop drilling by sharing states):-
 
-            29.1.1 useContext:
+            28.1.1 useContext:
 
                 Prop Drilling(Problem which is resolved using useContext hook):-
                 Passing Props through Source Component to subsequent child components until it reaches to the required destination/target component.
 
                     This can lead to unnecessary complexity and makes it difficult to manage state and props, especially in larger applications with deeply nested components.
 
-                This hook is mainly used when a scenario to shared global state or configuration like themes, authentication info, language settings, or user preferences across multiple components efficiently, avoiding the need to pass props through many component levels ("prop drilling").
+                This hook built into React with no additional installation.
+
+                This hook best suited for simple or small-scale state sharing.
+
+                Performance can degrade if the context value changes often, causing many components to re-render.
+                    
+                Good for static or infrequently changing state.
+
+                This hook is mainly used when a scenario to shared global state or configuration like themes, authentication info, language settings, or user preferences across multiple components efficiently, avoiding the need to pass props through many component levels ("prop drilling").                
 
                 Syntax:-
 
@@ -1284,9 +1328,9 @@ Terminal cmd
 
                 )
 
-    29.2. Unique Values/IDs Generate:-
+    28.2. Unique Values/IDs Generate:-
 
-        29.2.1. useId(Unique IDs):- useId hook returns uniqueid. Don't use it to generate an ID for each field, as it will violate the accessibility rule of the form.
+      28.2.1. useId(Unique IDs):- useId hook returns uniqueid. Don't use it to generate an ID for each field, as it will violate the accessibility rule of the form.
 
         Syntax:-
 
@@ -1299,7 +1343,7 @@ Terminal cmd
             ```
 
         
-    29.3. Pre-Loaded Logic(Initial Component Binding)/Side Effects State Management:-
+    28.3. Pre-Loaded Logic(Initial Component Binding)/Side Effects State Management:-
 
         29.3.1. useEffect(Side Effects,
         Scenario :- Use only when pre-loaded component logic e.g. page_init,page_load):- Side effects functionality (data fetching, DOM manipulation, setting up subscriptions, or timers) which normally occur outside the rendering process.
@@ -1339,9 +1383,9 @@ Terminal cmd
                     2. When dependencies changes useEffect re-render.)   
     
    
-    29.4. Performance Optimization & Improvement means no change in logic based on value then fetch existing value from cache)
+    28.4. Performance Optimization & Improvement means no change in logic based on value then fetch existing value from cache
 
-        29.4.1. useMemo(Performance Optimization & Improvement):- Built-in hook that optimize performance by memoizing (caching) the result of expensive calculations so they don't have to be recomputed on every render unless their dependencies change.
+        28.4.1. useMemo(Performance Optimization & Improvement):- Built-in hook that optimize performance by memoizing (caching) the result of expensive calculations so they don't have to be recomputed on every render unless their dependencies change.
 
         Used when complex sorting, filtering, or computations.
 
@@ -1383,7 +1427,7 @@ Terminal cmd
 
             Clicking the button renders the component but the expensive factorial calculation runs only when needed.
 
-        29.4.2. useCallBack(Memoized Callbacks):- Built-in hook that memoizes a callback function and returns the same function instance between renders unless its dependencies change. This helps optimize React components by preventing unnecessary re-creations of functions and avoids unwanted re-renders in child components that receive these callbacks as props.
+        28.4.2. useCallBack(Memoized Callbacks):- Built-in hook that memoizes a callback function and returns the same function instance between renders unless its dependencies change. This helps optimize React components by preventing unnecessary re-creations of functions and avoids unwanted re-renders in child components that receive these callbacks as props.
 
         Syntax:-
 
@@ -1417,10 +1461,10 @@ Terminal cmd
 
             With useCallback, the same function instance is passed, so Child only re-renders when necessary.
 
-    
-    29.5. Component Rendering Stage:-
 
-        29.5.1 useTransition(Component undergoes various stages such as ideal,isPending,isDone):-
+    28.5. Component Rendering Stage:-
+
+        28.5.1 useTransition(Component undergoes various stages such as ideal,isPending,isDone):-
         useTransition is a hook that allows to perform an action asynchronously, such as fetching data or updating state, without blocking the user interface.
 
         Syntax:-    
@@ -1445,7 +1489,7 @@ Terminal cmd
             ```
 
 
-30. Custom Hooks:-
+29. Custom Hooks:-
     Custom hooks are a way to encapsulate and reuse logic across multiple components in React. They allow you to create reusable functions that can use built-in hooks like useState, useEffect, and others.
 
     Custom hooks are just JavaScript functions that start with the word "use" and can call other hooks inside them. They can return any value, including state variables, functions, or objects.
@@ -1484,10 +1528,10 @@ Terminal cmd
         };
         ```
 
-31. HOC/Higher Order Component:-
+30. HOC/Higher Order Component:-
     HOC is a function that takes a component and returns a new component with additional functionality or behavior.
 
-    To reuse cross-cutting concerns like authentication, authorization, data fetching, error handling, theming, or logging across many components.
+    HOCs are useful for centralizing shared logic(authentication, authorization), data fetching, error handling, theming, or analytics and logging across many components.
 
         1 Code Reusability:
 
@@ -1527,7 +1571,7 @@ Terminal cmd
 
     Here, `WithExtraProps` is a HOC that adds an `extraProp` to the wrapped component `MyComponent`.
 
-    31.1. React.Memo:-
+    30.1. React.Memo:-
 
         React.Memo is a built-in HOC that memoizes a component, preventing unnecessary re-renders when its props haven't changed.
 
@@ -1547,15 +1591,15 @@ Terminal cmd
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-# ReactJS API Access Ways:-
+### ReactJS API Access Ways:-
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-1.  fetch():-
+#### 1. fetch():-
 
     Fetch is a built-in JavaScript function that allows you to make network requests to retrieve resources from a server. It returns a Promise that resolves to the Response object representing the response to the request.
 
-    1.1 Promises:
+##### 1.1 Promises:
 
     Fetch API uses Promises to handle asynchronous operations, allowing you to work with the response data once the request is complete.
 
@@ -1567,7 +1611,7 @@ Terminal cmd
                 .catch(error => console.error(error));
             ```
 
-    1.2 Async-Await
+##### 1.2 Async-Await
 
     Async-Await is a more modern way to handle asynchronous operations in JavaScript, making the code look synchronous and easier to read.
 
@@ -1585,7 +1629,7 @@ Terminal cmd
             };
             ```
 
-2.  Axios() (Third-Party):-
+#### 2. Axios() (Third-Party):-
 
     Axios is a promise-based HTTP client for the browser and Node.js. It is better than fetch() as it has more features and is more user-friendly.
 
@@ -1600,7 +1644,7 @@ Terminal cmd
 
     Third-party libraries like Axios need to be installed separately.
 
-    2.1. First install axios
+##### 2.1. First install axios
 
          Syntax:-
                 ```terminal
@@ -1610,7 +1654,7 @@ Terminal cmd
                  Then verify the module is installed or not in the package.json within the dependencies key's value, along with the module version
 
 
-         2.1.1. Promises:-
+##### 2.1.1. Promises:-
 
                      Axios returns a Promise that resolves to the response data.
 
@@ -1634,7 +1678,7 @@ Terminal cmd
                          6. Promise.finally : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned, if all Promises are rejected then it will be resolved with undefined value.
                          7. Promise.timeout : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned, if all Promises are rejected then it will be resolved with undefined value.
 
-         2.1.3 Async-Await
+##### 2.1.2 Async-Await
 
                      Axios can also be used with async-await syntax, making the code more readable and easier to manage.
 
@@ -1655,13 +1699,11 @@ Terminal cmd
                          fetchData();
                          ```
 
-3.  Axios HTTP Methods:
+##### 2.1 Axios HTTP Methods(CRUD Methods):-
 
     Axios supports all standard HTTP methods like GET, POST, PUT, DELETE, PATCH, etc. Each method corresponds to a specific type of request.
 
-    3.1. HTTP Method(CRUD Methods):-
-
-        3.1.1. POST(Create-C):-
+##### 2.1.1. POST(Create-C):-
 
         The POST method is used to send data to the server to create a new resource. It is commonly used for submitting forms or uploading files.
 
@@ -1680,13 +1722,13 @@ Terminal cmd
         };
         ```
 
-        3.1.2 GET(Read-R):-
+##### 2.1.2 GET(Read-R):-
 
         The GET method is used to retrieve data from the server. It is commonly used for fetching resources or displaying data to the user.
 
         Syntax:-
 
-        ```jsx
+        ```js
         import axios from "axios";
 
         async function fetchResource(id) {
@@ -1699,13 +1741,13 @@ Terminal cmd
         };
         ```
 
-        3.1.3 PUT(Update-U):-
+##### 2.1.3 PUT(Update-U):-
 
         The PUT method is used to update an existing resource on the server. It is commonly used for updating data or replacing a resource.
 
         Syntax:-
 
-        ```jsx
+        ```js
         import axios from "axios";
 
         async function updateResource(id, data) {
@@ -1722,7 +1764,7 @@ Terminal cmd
 
         Syntax:-
 
-        ```jsx
+        ```js
         import axios from "axios";
 
         async function patchResource(id, data) {
@@ -1735,13 +1777,13 @@ Terminal cmd
         };
         ```
 
-        3.1.4. DELETE(Delete-D):-
+##### 2.1.4. DELETE(Delete-D):-
 
         The DELETE method is used to delete a resource on the server. It is commonly used for removing data or resources.
 
         Syntax:-
 
-        ```jsx
+        ```js
         import axios from "axios";
 
         async function deleteResource(id) {
@@ -1756,7 +1798,7 @@ Terminal cmd
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-# ReactJS Routing/Navigation
+### React/ReactJS Routing/Navigation
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -1827,7 +1869,7 @@ Terminal cmd
 
     ```jsx
 
-        const App=()=>{
+        const App = () => {
             const routeLinks = createBrowserRouter(
             [
                 {
@@ -1896,7 +1938,7 @@ Terminal cmd
     ```jsx
         import { createBrowserRouter, RouterProvider } from "react-router-dom";        
 
-        const App=()=>{    
+        const App = () => {    
             const routeLinks = createBrowserRouter([
             {
                 path: "/",
@@ -2245,10 +2287,16 @@ Terminal cmd
        
 
 +++++++++++++++++++++++++++++++++++++++++
-REDUX TOOLKIT(RTK) / Zustand
+### REDUX / REDUX TOOLKIT(RTK) / Zustand
 +++++++++++++++++++++++++++++++++++++++++++
 
-1 Redux Toolkit(RTK) :-
+#### REDUX :-
+
+    Redux is a predictable state container for JavaScript applications. It helps you manage the state of your application in a centralized way, making it easier to reason about and debug.
+
+    Redux follows a unidirectional data flow, where the state is stored in a single immutable object called the "store". Actions are dispatched to modify the state, and components can subscribe to changes in the state.  
+
+#### Redux Toolkit(RTK) :-
 
     Large applications often require a more structured approach to managing global state, especially when dealing with complex data flows and interactions. Redux Toolkit (RTK) is a library that provides a set of tools and best practices for managing global state in React applications.
 
@@ -2319,7 +2367,7 @@ REDUX TOOLKIT(RTK) / Zustand
             dispatch(increment());
             ```
 
-    5.2 Zustand (Newer Concept) :-
+#### Zustand (Newer Concept) :-
 
 +++++++++++++++++++++++++++++++++++++++++++
 YouTube:- Top 12 React Interview Questions 🔥 for Freshers & Experienced | Preparation 2025 🚀
@@ -2337,5 +2385,10 @@ Interview Question 2025:-
     4.3 Prop Drilling
     4.4 Lifting (State,Function) Up
 
-5.  Redux(RTL)
-6.  Zustand :-
+5.  Redux/Redux(RTL)/Zustand :-
+6.  Custom Hooks :-
+7.  Lazy Loading/Code Splitting/Chunking/Suspense :-
+8.  Virtual DOM/Reconciliation(Diffing Algorithm)/React Fiber/Renders :-
+9.  SSR (Server-Side Rendering) vs CSR (Client-Side Rendering):-
+10. Routing(RBAC):-DynamicRouting,Protected Routing
+11. 

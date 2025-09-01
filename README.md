@@ -71,13 +71,13 @@ Color:-
 
    a. Block scope means the variable value is limited to the block in which it is defined.
 
-   b. It can be re-assigned and re-declared within the same datatype value, assigning different datatype value is not allowed.
+   b. It can be re-assigned and re-declared/redefine of value is not allowed.
 
    1.3. const keyword type variable.
 
    a. Block scope means the variable value is limited to the block in which it is defined.
 
-   b. It can be re-assigned and re-declared within the same datatype value, assigning different datatype value is not allowed.
+   b. It can be re-assigned and re-declared/redefined of value is not allowed.
 
    (Imp:- let and const are same and maximum used for runtime errors)
 
@@ -244,10 +244,11 @@ If you are developing a production application, we recommend using TypeScript wi
 ### Shortcuts
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  
- 1. Terminal show/hide(cntrl+`)
- 2. Solution File/Folder Structure show/hide(cntrl+b)
- 3. Focus on top search(cntrl+p, cntrl+shift+p)
- 4. Format jsx,json :- shift+alt+f
+ 1. Editor(cntrl+1)
+ 2. Terminal show/hide(cntrl+`)
+ 3. Solution File/Folder Structure show/hide(cntrl+b)
+ 4. Focus on top search means Command Palette(cntrl+p, cntrl+shift+p)
+ 5. Format jsx,json :- shift+alt+f
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -343,6 +344,8 @@ Version Check:-
 
     npx npm-check-updates (To verify all packages listed with their current and latest available version)
     npx npm-check-updates -u (To update all packages to the latest version, listing with their older version in the previous npx command)
+
+    npm update (Update to nearest to the latest version not the latest version)
 
 ```
 
@@ -1294,8 +1297,9 @@ Terminal cmd
                     }
                     ```
 
-                    Here, UserContext shares the user value globally.
+                    (Imp:- <UserContext.Provider value="{data}">children components</UserContext.Provider> 
 
+                    shares the values to children components within <UserContext.Provider> and </UserContext.Provider> then specific components can access value using useContext hook.)
                     ComponentC accesses the user value directly using useContext, without receiving it as props through intermediate components.
 
                     Changing user with setUser will cause all consuming components to update.
@@ -1802,7 +1806,7 @@ Terminal cmd
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-1.  REACT ROUTER(v7.6+) is another JavaScript(JS) Library/Framework used for implementing Routing in our Web Application using client-side scripting.
+1.  REACT ROUTER(v7.6+)(Developed By Michael Jackson and Ryan Florence not Facebook or Google) is another JavaScript(JS) Library/Framework used for implementing Routing in our Web Application using client-side scripting.
 
 2.  Install the react-router module.
 
@@ -1861,7 +1865,7 @@ Terminal cmd
 
     (Note:- / in path defines the route/home route of the application means it loads the initial component)
 
-    <RouterProvider> react-router-dom inbuilt component that shares the router path to the entire application,
+    (Imp:- <RouterProvider router={router} /> react-router-dom inbuilt component that shares the router path/url/links to calling components map to path in createBrowserRouter) in the entire application,
     means path call in browser anywhere within the application, that path is checked in the router array object by RouterProvider
     and then navigate to the associated component
 
@@ -2283,8 +2287,130 @@ Terminal cmd
                     </form>
                 ```
 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-       
+### React Query / TanStack Query :-
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+React Query/TanStack Query(Tanner Linsley not Facebook or Google) is a powerful library for managing server state in React applications. It simplifies data fetching, caching, and synchronization with the server, making it easier to build responsive and efficient applications.
+
+It fetches server-side data like a breeze, fast, efficient and reduce amount of time writing boilerplate code.
+
+Advantages:-
+
+1. **Data Fetching Made Easy**: With simple useQuery hooks, fetching data becomes super easy.
+
+2. **Built-in Loading and Error States**: No need to write custom code for handling loading, errors or success states.
+
+3. **Automatic Caching**: It automatically caches responses/data.
+
+7. **Background Refetching**: If your data gets stale or out of date, React Query can refetch data in the background, keeping your UI up-to-date without manual intervention.
+
+8. **Pagination and Infinite Scrolling**: It provides built-in support for pagination and infinite scrolling, making it easy to handle large datasets.
+
+#### Install React Query
+
+    ```terminal
+            npm install @tanstack/react-query
+    ```
+
+#### Usage React Query
+
+    Syntax:- 
+
+    ```jsx
+        import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+        const ReactQueryApp = () => {
+            const queryClient = new QueryClient();
+
+            return (
+                <QueryClientProvider client={queryClient}>
+                    <RouterProvider router={routingURLs} />
+                </QueryClientProvider>
+        );
+        };
+    ```
+
+    (Imps:- <QueryClientProvider> is a query provider that makes the query  available to all components pass between <QueryClientProvider> and </QueryClientProvider>, allowing them to access and interact with the query cache and perform data fetching operations.)
+
+    QueryClient:- Core part of ReactQuery that performs manage cache data,background fetch when data is old,data synchronization and other query logic.
+
+    Then use hook useQuery to define queryKey required for while getting Cache data using key and queryFn for calling function that fetches data.
+
+    Syntax:-
+
+            ```jsx
+            import { useQuery } from "@tanstack/react-query";
+            
+            const { data, isLoading, isError } = useQuery({
+                    queryKey: ["posts"],
+                    queryFn: fetchPosts
+                });
+            ```
+    useQuery hooks provides different states like isLoading, isError, data etc. to manage your UI accordingly.
+
+### React Query Devtools
+
+#### Install
+
+    React Query provide devtools similar to react devtools for inspecting queries and their states in details in browser developer options similar to components and profiler panels.
+
+    To install React Query Devtools, you can use the following command:
+
+    Syntax:-
+
+    ```terminal
+        npm install @tanstack/react-query-devtools
+    ```
+
+#### Usage
+
+    Then, you can use the Devtools in your application to view details of queries and their states on browser with React Query Devtools icon at the bottom right corner by including below jsx like this:
+
+    ```jsx
+    import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+
+    const App = () => {
+        return (
+            <>
+                <YourAppComponents />
+                <ReactQueryDevtools initialIsOpen={false} />
+            </>
+        );
+    };
+    ```
+    Devtools in browser shows 2 tabs Queries and Mutations.
+    1. Queries: This tab displays all the active queries, their status (loading, error, success), and the data they have fetched using useQuery hook. You can inspect each query's details, including its key, variables, and response data.
+
+        API Request details such as:-
+        a. Query Details: This includes information about the query's key, variables, and the data it has fetched.And also provides Stale Time, Fetch Time, and other metadata.
+
+        b. Actions: This includes information about the actions that have been dispatched related to the query, such as refetching or invalidating the query.
+
+        c. Data Explorer: This allows you to explore the data returned by your queries in a more visual way, making it easier to understand the structure and contents of the data.
+
+        d. Query Explorer: This provides a way to inspect the query's variables, status, and other metadata in a more detailed manner.
+
+           d.1. gcTime: This shows the time taken for garbage collection time during the query's lifecycle.Also know as data cache time.
+           (Default value of gcTime is 5 minutes)
+           (Scenario:- When the query is no longer needed, it will be garbage collected after this time.)
+
+           d.2. staleTime: This shows the time after which the cached data is considered stale/old. The default value is 0 seconds, meaning the data is fresh until it is fetched again.
+           (Default value of staleTime is 0 seconds)
+           (Scenario:- When the query data is became stale/old, it will be need to refetch updated data after this time.)
+
+           d.3. Polling :- Keep data up-to-date by automatically refetching it at a specified interval.This can be achieved using the refetchInterval option when tab is active or refetchIntervalInBackground when tab is inactive.
+           (Scenarios:- Real-time applications, dashboards, etc.)
+
+           refetchInterval: This shows the time interval at which the query will automatically refetch data. The default value is 0 seconds, meaning the query will not refetch automatically.
+           (Default value of refetchInterval is 0 seconds means not applied)
+
+           refetchIntervalInBackground: This shows the time interval at which the query will automatically refetch data when the tab is inactive. The default value is 0 seconds, meaning the query will not refetch automatically in the background.
+           (Default value of refetchIntervalInBackground is 0 seconds means not applied)
+
+    2. Mutations: This tab shows all the mutations(means updates on data based on insert,put/patch,delete api call using useMutation hook) that have been triggered in your application. You can see their status, any errors that occurred, and the data they have modified.  
 
 +++++++++++++++++++++++++++++++++++++++++
 ### REDUX / REDUX TOOLKIT(RTK) / Zustand
@@ -2368,6 +2494,13 @@ Terminal cmd
             ```
 
 #### Zustand (Newer Concept) :-
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+
 
 +++++++++++++++++++++++++++++++++++++++++++
 YouTube:- Top 12 React Interview Questions 🔥 for Freshers & Experienced | Preparation 2025 🚀

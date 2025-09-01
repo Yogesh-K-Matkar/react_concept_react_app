@@ -13,6 +13,8 @@ import { createRoot } from "react-dom/client";
 //import "./ResponsiveNavBarIndex.css";
 //import { CountryAtlasApp } from "./components/CountryAtlasApp";
 //import "./CountryAtlasIndex.css";
+//import { ReactQueryApp } from "./components/ReactQueryApp";
+//import "./ReactQueryIndex.css";
 
 const ReactApp = React.lazy(() => import("./ReactFrameworkApp"));
 const ReactRouterApp = React.lazy(() => import("./ReactRouterFrameworkApp"));
@@ -25,6 +27,8 @@ const DynamicAccordionStaticJSONApp = React.lazy(() =>
 const ResponsiveNavBarApp = React.lazy(() => import("./ResponsiveNavBarApp"));
 
 const CountryAtlasApp = React.lazy(() => import("./CountryAtlasApp"));
+
+const ReactQueryApp = React.lazy(() => import("./ReactQueryApp"));
 
 let AppConcept = import.meta.env.VITE_APP_CONCEPT;
 
@@ -108,6 +112,18 @@ export const LoadComponent = () => {
           </h1>
           <br />
           <CountryAtlasApp />
+        </>
+      );
+
+    case "REACTQUERYAPP":
+      import("./ReactQueryIndex.css");
+      return (
+        <>
+          <h1 style={styleTitle}>
+            <u>Project 7. React Query Concept</u>
+          </h1>
+          <br />
+          <ReactQueryApp />
         </>
       );
 

@@ -1,7 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import "./CountryAtlasApp.css";
-
 import AppLayout from "./components/projects/CountryAtlas/components/Layout/AppLayout";
 
 import Home from "./components/projects/CountryAtlas/pages/Home";

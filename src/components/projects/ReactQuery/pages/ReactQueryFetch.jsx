@@ -4,9 +4,7 @@ import fetchPosts from "../api/api.js";
 
 const ReactQueryFetch = () => {
   const { data, isPending, isError, error } = useQuery({
-    queryKey: ["posts"], //Like useStategit push origin main
-    fatal: 'origin' does not appear to be a git repository
-    fatal: Could not read from remote repository.
+    queryKey: ["posts"], //Like useState
     queryFn: async () => await fetchPosts(), //Like useEffect
     gcTime: 2 * 1000, //Garbage Collection Time Till 2sec
     staleTime: 5 * 1000, //Keep Data Fresh Time Till 5sec

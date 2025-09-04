@@ -22,6 +22,7 @@ Color:-
 1. Javascript/JS is dynamic scripting language.
 
    a. Visual Studio Code(IDE-Integrated Development Environment)
+
    b. Javascript can be run in browser Dev Tool CONSOLE(client-side) but due to NodeJS(Open Source , cross-platform, JavaScript runtime environment)  uses Chrome V8 Engines internally environment to run Javascript code at runtime in VS Code terminal through below cmd.
     
         e.g.:-

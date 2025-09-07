@@ -39,23 +39,23 @@ Color:-
         e.g:- 
 
             ```js
-                var i=10;  --means now i stores integer value
+                var i=10;  --means now i declared  and define with integer value
 
-                i="a"; --means now i stores string value                
+                var i="a"; --means now i re-declare and define with string value                
             ```
 
 
-    b. var is function/global scope means re-declaring the same variable gives last assigned value anywhere within function scope.
+    b. var is global/function scope means re-declaring the same variable gives last assigned value anywhere within function scope.
 
         e.g.:-
 
             ```js
                 var i=10;  
-                var i="a";  --now i stores string value
+                var i="a";  --means now i re-declare  and define with string value
 
                 console.log(i);  --Output is a
             ``` 
-    c. var support HOSTING concept, which means the variable can be used before its declaration. It gives as undefined value but not error as var type variable is  defined after using it.
+    c. var support HOSTING concept, which means the variable is used before its declared and define, in such case when JS code is scanned and all var datatype variables declaration part is moved to top of scope and value defined remains at same position where it is previously define this process works internally by compiler.Thats why it gives Output as undefined value but not error as var type variable is defined after.
         
         e.g.:-
 

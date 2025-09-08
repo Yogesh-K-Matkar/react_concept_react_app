@@ -56,7 +56,7 @@ Color:-
 
                 console.log(i);  --Output is a
             ``` 
-    c. var support HOSTING concept, which means the variable is used before its declared and define, in such case when JS code is scanned and all var datatype variables declaration part is moved to top of scope and value defined remains at same position where it is previously define this process works internally by compiler.Thats why it gives Output as undefined value but not error as var type variable is defined after.
+    c. var support HOSTING concept, which means the variable is used before its declared and define,in such case when JS code is scanned and all var datatype variables declaration part is moved to top of scope and value defined remains at same position where it is previously define this process works internally by compiler.Thats why it gives Output as undefined value but not error as var type variable is defined after.
         
         e.g.:-
 
@@ -66,7 +66,7 @@ Color:-
               var i=20;
             ```
 
-  (Imp:- Due to which ES6(ES2015) introduced let and const keywords for variable declaration.
+  (Imp:- Due to Hoisting their is inconsistency of code and difficult to manage,that's why in ES6(ES2015) introduced let and const keywords for variable declaration.
          ES means EcmaScript)
 
    1.2. let keyword type variable.

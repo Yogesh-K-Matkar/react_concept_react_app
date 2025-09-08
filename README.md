@@ -73,13 +73,13 @@ Color:-
 
    a. Block scope means the variable value is limited to the block in which it is defined.
 
-   b. It can be re-assigned and re-declared/redefine of value is not allowed.
+   b. Value can be re-assigned but re-declared of variable is not allowed throws error.
 
    1.3. const keyword type variable.
 
    a. Block scope means the variable value is limited to the block in which it is defined.
 
-   b. It can be re-assigned and re-declared/redefined of value is not allowed.
+   b. Value can be re-assigned but re-declared of variable is not allowed throws error.
 
    (Imp:- let and const are same and maximum used for runtime errors)
 

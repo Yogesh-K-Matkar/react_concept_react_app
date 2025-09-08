@@ -1,13 +1,16 @@
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # HTML
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    HTML is the standard markup language for creating web pages. 
-    Follows W3C standards.
 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    HTML is the standard markup language for creating web pages. 
+    Follows W3C(World Wide Web Consortium) standards.
+
+    HTML5 is the latest version of HTML, which includes new features and improvements over previous versions.
+
+***
+***
 
 # CSS
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+CSS is the language we use to style an HTML document.
 
 Color:-
 
@@ -15,208 +18,241 @@ Color:-
 - [Gradient Color](https://mycolor.space/gradient,https://uigradients.com/#DirtyFog)
 - [Shapes](https://9elements.github.io/fancy-border-radius/,https://10015.io/tools/css-border-radius-generator)
 - [Loader CSS](https://css-loaders.com/)
+- [Box Shadow](https://cssmash.com/css-box-shadow-generator/)
+- [Clip Path](https://bennettfeely.com/clippy/)
+- [Border](https://www.cssportal.com/css-border-generator/)
+- [Animation](https://animista.net/)
+- [Background](https://www.heropatterns.com/)
+- [Controls](https://css-tricks.com/controls/)
 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+***
+*** 
+
 # JavaScript/JS Basics - "Javascript/JS is dynamic scripting language"
 
 1. Javascript/JS is dynamic scripting language.
 
-   a. Visual Studio Code(IDE-Integrated Development Environment)
-   b. Javascript can be run in browser Dev Tool CONSOLE(client-side) but due to NodeJS(Open Source , cross-platform, JavaScript runtime environment)  uses Chrome V8 Engines internally environment to run Javascript code at runtime in VS Code terminal through below cmd.
-    
-        e.g.:-
+   - Visual Studio Code(IDE-Integrated Development Environment)
 
-            ```js
+   - Javascript can be run in browser Dev Tool CONSOLE(client-side) but due to NodeJS(Open Source , cross-platform, JavaScript runtime environment)  uses Chrome V8 Engines internally environment to run Javascript code at runtime in VS Code terminal through below cmd.
+    
+        E.g.:-
+
+            ```JS
                 node first.js
             ```
-  Explanation:-
+   - Types of variable declaration in Javascript/JS:-
 
-    1.1. var keyword type variable.
+        1. var
 
-    a. Dynamic means the variable type e.g. var i whose value can be re-declared, and it can be changed at any time based on value assigned.
-    
-        e.g:- 
+            - Dynamic means the variable type e.g. var i whose value can be re-declared, and it can be changed at any time based on value assigned.
 
-            ```js
-                var i=10;  --means now i stores integer value
+                E.g.:-
 
-                i="a"; --means now i stores string value                
-            ```
+                    ```JS
+                        var i=10;  (Means now i stores integer value)
 
+                        i="a"; (Means now i stores string value)
+                    ```
 
-    b. var is function/global scope means re-declaring the same variable gives last assigned value anywhere within function scope.
+            - Function/global scope means re-declaring the same variable gives last assigned value anywhere within function scope.
 
-        e.g.:-
+                E.g.:-
 
-            ```js
-                var i=10;  
-                var i="a";  --now i stores string value
+                    ```JS
+                        var i=10;  
+                        var i="a";  (Means now i stores string value)
 
-                console.log(i);  --Output is a
-            ``` 
-    c. var support HOSTING concept, which means the variable can be used before its declaration. It gives as undefined value but not error as var type variable is  defined after using it.
+                        console.log(i);  (Output is a)
+                    ``` 
+                
+            - Support HOSTING concept, which means the variable can be used before its declaration. It gives as undefined value but not error as var type variable is  defined after using it.
         
-        e.g.:-
+                E.g.:-
 
-            ```js
-              console.log(i);  --Used before declaration ,which gives value as undefined but not error as while code is scan internally var type variable is hoisted(means declaration is moved at top but not seen).
-              
-              var i=20;
-            ```
+                    ```JS
+                    console.log(i);  (Used before declaration, which gives value as undefined but not error as while code is scan internally var type variable is hoisted(means declaration is moved at top but not seen)).
+                    
+                    var i=20;
+                    ```
 
-  (Imp:- Due to which ES6(ES2015) introduced let and const keywords for variable declaration.
-         ES means EcmaScript)
+            (Note:- Due to which ES6(ES2015) introduced let and const keywords for variable declaration. 
 
-   1.2. let keyword type variable.
+            ES means ECMAScript is a standard for scripting languages such as JavaScript, JScript, and ActionScript.)
 
-   a. Block scope means the variable value is limited to the block in which it is defined.
+        2. let
 
-   b. It can be re-assigned and re-declared/redefine of value is not allowed.
+            - Block scope means the variable value is limited to the block in which it is defined.
 
-   1.3. const keyword type variable.
+            - It can be re-assigned and re-declared/redefine of value is not allowed.
 
-   a. Block scope means the variable value is limited to the block in which it is defined.
+        3. const
 
-   b. It can be re-assigned and re-declared/redefined of value is not allowed.
+            - Block scope means the variable value is limited to the block in which it is defined.
 
-   (Imp:- let and const are same and maximum used for runtime errors)
+            - It can be re-assigned and re-declared/redefined of value is not allowed.
+
+        (Imp:- let and const are same and maximum used for runtime errors)
+
 
 2. Looping concepts:-
 
-        e.g.:-
+        E.g.:-
 
-            ```js
+            ```JS
                let arr=[1,2,3,4,5];
             ```
 
-    2.1. for loop
-    2.2. for...in loop  --looping index of array/collection
-           
-        e.g.:-
+    - for loop
 
-           ```js
-                for(let num in arr){
-                    console.log(num);  // index
-                    console.log(arr[num]);  // value
+        - for...in loop  (looping index of array/collection)
+
+            E.g.:-
+
+                ```JS
+                    for(let num in arr){
+                        console.log(num);  // index
+                        console.log(arr[num]);  // value
+                    }
+                ```
+
+        - for...of loop   (looping value of array/collection)
+
+            E.g.:-
+
+                ```JS 
+                    for(let num of arr){
+                        console.log(num);  // value
+                    }
+                ```
+
+    - while loop
+
+        E.g.:-
+
+            ```JS
+                let i=0;
+                while(i<arr.length){
+                    console.log(arr[i]);
+                    i++;
                 }
-           ```
+            ```
+    - do...while loop
 
-    2.3. for...of loop   --looping value of array/collection
+        E.g.:-
 
-        e.g.:-
-
-          ```js 
-               for(let num of arr){
-                   console.log(num);  // value
-               }
-          ```
-
-    2.4. while loop
-    2.5. do...while loop
+            ```JS
+                let i=0;
+                do{
+                    console.log(arr[i]);
+                    i++;
+                }while(i<arr.length)
+            ```
 
 3.  Working/Processing on Objects
 
-    3.1. Destructuring Object Properties:-
+    - Destructuring Object Properties:-
 
-    Destructuring is a way to extract properties from an object and assign them to variables.
+        Destructuring is a way to extract properties from an object and assign them to variables.
 
-    It allows you to unpack values from arrays or properties from objects into distinct variables.
+        It allows you to unpack values from arrays or properties from objects into distinct variables.
 
-    e.g.
+        E.g.:-
 
-         ```js
+            ```JS
+
+                const obj={id:1,name:"a",age:25};
+
+                const {id,name,age}=obj;
+
+                console.log(id);   //1
+                console.log(name); //a
+                console.log(age);  //25
             
-            const obj={id:1,name:"a",age:25};
+            ```
 
-            const {id,name,age}=obj;
+    ***
 
-            console.log(id);   //1
-            console.log(name); //a
-            console.log(age);  //25
+    - Spread Operator expand collection, array & object.
+
+        - Collection or Array(Merge Element of same type in below case array1 & array2 is type array):-
+
+            E.g.
+
+                ```JS
+
+                    var array1=["a","b","c"];
+                    var array2=["x","y","z"];
+
+                    var mergearray1=[...array1,"x"];
+                    var mergearray12=[...array1,...array2];
+
+                    console.log(mergearray1);           //["a","b","c","x"]
+                    console.log(mergearray12);          //["a","b","c","x","y","z"]
+                    
+                ```
         
-         ```
 
-    ******************************************
+        - Object(Update Object Property):-
 
-    3.2. Spread Operator expand collection, array & object.
+            E.g.:-
 
-    3.2.1 Collection or Array(Merge Element of same type in below case array1 & array2 is type array):-
+                ```JS
 
-    e.g.
+                    const obj={id:1,name:"a"};
+                    const obj1={...obj,id:2,name:"b"};
 
-         ```js
+                    console.log(obj1)  // {id:2,name:"b"}   //Expand object properties to update value of required property
 
-            var array1=["a","b","c"];
-            var array2=["x","y","z"];
-
-            var mergearray1=[...array1,"x"];
-            var mergearray12=[...array1,...array2];
-
-            console.log(mergearray1);           //["a","b","c","x"]
-            console.log(mergearray12);          //["a","b","c","x","y","z"]
-            
-         ```
-
-    3.2.2 Object(Update Object Property):-
-
-    e.g.
-
-        ```js
-
-            const obj={id:1,name:"a"};
-            const obj1={...obj,id:2,name:"b"};
-
-            console.log(obj1)  // {id:2,name:"b"}   //Expand object properties to update value of required property
-
-        ```
+                ```
 
 4. Logic on collection by using method map(),filter() and reduce()
 
-    e.g.
+    E.g.
 
-        ```js
-            const users=[{ id: 1, name: "Alice", age: 25 },
-                         { id: 2, name: "Bob", age: 35 }]
+        ```JS
+            const users=[{ id: 1, name: "Alice", age: 25 },{ id: 2, name: "Bob", age: 35 }]
         ```
 
-        4.1. map():- Used for looping in a collection or array.
-        	e.g.
+    - map():- Used for looping in a collection or array.
+      	
+        E.g.
 
-                ```js
-                    users.map((u)=><User name={u.name} age={u.age}>)
-                ```
+            ```JS
+                users.map((u)=><User name={u.name} age={u.age}>)
+            ```
 
-        4.2. filter():- It's like a WHERE condition to get a customized collection based on the condition
-        	 e.g.
+    - filter():- It's like a WHERE condition to get a customized collection based on the condition
+    
+         E.g.
 
-                ```js
-                    users.filter((u)=>u.age<35)
-                ```
+            ```JS
+                users.filter((u)=>u.age<35)
+            ```
 
-        4.3. reduce():- It does computation on the collection and returns the required value
-        	e.g.
+    - reduce():- It does computation on the collection and returns the required value
+    
+       	E.g.
 
-                ```js
-                    users.reduce((derivedCalculatedValue,u)=>{return derivedCalculatedValue + u.age},0)
-                ```
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+            ```JS
+                users.reduce((derivedCalculatedValue,u)=>{return derivedCalculatedValue + u.age},0)
+            ```
+***
+***
 
 # React Using VS Code With Vite
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 
 ## Reference Docs 
 
 ### Official Sites
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 - https://javascript.info/
 - https://www.geeksforgeeks.org/installation-of-node-js-on-windows/
 - https://www.npmjs.com/package/create-react-app
+- https://reactjs.org/docs/getting-started.html
 - https://react.dev/learn
 - https://vitejs.dev/guide/features.html
-
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -225,24 +261,21 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+***
+***
 
 ## Vite 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ### ESLint configuration
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+***
+***
 
 ## VS Code Editor/IDE/Code Development Platform :-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ### Shortcuts
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  
  1. Editor(cntrl+1)
  2. Terminal show/hide(cntrl+`)
@@ -250,310 +283,359 @@ If you are developing a production application, we recommend using TypeScript wi
  4. Focus on top search means Command Palette(cntrl+p, cntrl+shift+p)
  5. Format jsx,json :- shift+alt+f
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+***
 
 ### Terminal CMD's To Create and Manage Files
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 #### How to create a file and folder through the Terminal cmd.
-a. Move inside into folder
-cd <FolderName>
-b. Move outside the folder
-cd..
-c. Create folder
-mkdir <NewFolderName>
-d. Create any type of file, such as JSX, JSON, CSS, or image.
-code <NewFileName.extension>
-e. To open the current folder in Explorer from the terminal, type
-explorer .
 
-----------------------------------------------------------------
+1. Move inside into folder
+
+   ```TERMINAL    
+        cd <FolderName>
+   ```
+
+2. Move outside the folder
+
+   ```TERMINAL
+       cd ..
+   ```
+
+3. Create folder
+
+   ```TERMINAL
+       mkdir <NewFolderName>
+   ```
+
+4. Create any type of file, such as JSX, JSON, CSS, or image.
+
+   ```TERMINAL
+       code <NewFileName.extension>
+   ```
+
+5. To open the current folder in Explorer 
+   
+   ```TERMINAL
+       explorer .
+   ```
+
+***
 
 ### Pre-requisite(Setup Development Environment For React v19) Using Terminal Option of VS Code Editor:-
 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 #### Step 1: Installing Node.js (Open Source, cross-platform, JavaScript runtime environment)
-Node.js is essential for running React applications.
+   
+    Node.js is essential for running React applications.
+    
+    Follow these steps to install Node.js:
 
-Follow these steps to install Node.js:
+   - Download and install LTS version suitable for your operating system from the [official website](https://nodejs.org/).
 
-1. Download and install LTS version suitable for your operating system from the [official website](https://nodejs.org/).
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 #### Step 2:- Setup VS Code
 
-1. Download and install Visual Studio Code from the [official website](https://code.visualstudio.com/).
-2. Install the recommended extensions for React development:
+- Download and install Visual Studio Code from the [official website](https://code.visualstudio.com/).
+- Install the recommended extensions for React development:
 
-   A. Browser Chrome Extension:-
-        2.1 React Developer Tool
+   - Browser Chrome Extension:-
+        - React Developer Tool
 
-   B. VS Code Editor Extensions:-
-        2.1. Auto Close Tag
-        2.2. Auto Comment
-        2.3. Auto Import
-        2.4. Auto Rename Tag
-        2.5. Babel JavaScript
-        2.6. Better Comments
-        2.7. Bootstrap 5 Quick Snippets
-        2.8. Bootstrap Class Autocomplete
-        2.9. Bootstrap IntelliSense
-        2.10. Code Runner
-        2.11. Code Spell Checker
-        2.12. CSS Navigation
-        2.13. CSS Peek
-        2.14. css-auto-prefix
-        2.15. ES7+ React/Redux/React-Native snippets
-        2.16. ESLint
-        2.17. GitHub Copilot
-        2.18. GitHub Copilot Chat
-        2.19. GitHub Pull Requests
-        2.20. Import Cost
-        2.21. IntelliCode
-        2.22. JavaScript (ES6) code snippets
-        2.23. Live Server
-        2.24. Markdown All in One
-        2.25. Markdown Preview Enhanced
-        2.26. npm Intellisense
-        2.27. Path Intellisense
-        2.28. Prettier - Code formatter
-        2.29. React PropTypes Generate
-        2.30. Reactjs code snippets
-        2.31. Tailwind CSS IntelliSense
-        2.32. Thunder Client
-        2.33. vscode-icons
-
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   - VS Code Editor Extensions:-
+        - Auto Close Tag
+        - Auto Comment
+        - Auto Import
+        - Auto Rename Tag
+        - Babel JavaScript
+        - Better Comments
+        - Bootstrap 5 Quick Snippets
+        - Bootstrap Class Autocomplete
+        - Bootstrap IntelliSense
+        - Code Runner
+        - Code Spell Checker
+        - CSS Navigation
+        - CSS Peek
+        - css-auto-prefix
+        - ES7+ React/Redux/React-Native snippets
+        - ESLint
+        - GitHub Copilot
+        - GitHub Copilot Chat
+        - GitHub Pull Requests
+        - Import Cost
+        - IntelliCode
+        - JavaScript (ES6) code snippets
+        - Live Server
+        - Markdown All in One
+        - Markdown Preview Enhanced
+        - npm Intellisense
+        - Path Intellisense
+        - Prettier - Code formatter
+        - React PropTypes Generate
+        - ReactJS code snippets
+        - Tailwind CSS IntelliSense
+        - Thunder Client
+        - vscode-icons
 
 #### Step 3:- Setup Package Manager
 
 ##### NPM (Node Package Manager)
 
-NPM (Node Package Manager) is included with Node.js installation. You can verify its installation by checking the version.
+    NPM (Node Package Manager) is included with Node.js installation. You can verify its installation by checking the version.
 
-Version Check:-
+    Version Check:-
 
-```terminal
-    node -v
-    npm -v 
+    ```TERMINAL
+    
+        node -v          (Node Version)
 
+        npm -v           (Node Package Manager Version)
 
-    npx npm-check-updates (To verify all packages listed with their current and latest available version)
-    npx npm-check-updates -u (To update all packages to the latest version, listing with their older version in the previous npx command)
+        npx npm-check-updates (To verify all packages listed with their current and latest available version)
 
-    npm update (Update to nearest to the latest version not the latest version)
+        npx npm-check-updates -u (To update all packages to the latest version, listing with their older version in the previous npx command)
 
-```
+        npm update (Update to nearest to the latest version not the latest version)
+    ```
 
 ##### BUN  (Latest, Lightweight, Faster Built as compare to NPM)
 
-Bun is a modern JavaScript runtime and package manager that focuses on speed and efficiency. It is designed to be a drop-in replacement for npm and yarn, with a focus on performance.
+    Bun is a modern JavaScript runtime and package manager that focuses on speed and efficiency. It is designed to be a drop-in replacement for npm and yarn, with a focus on performance.
 
-Install:-
+    Install:-
 
-```terminal
-    npm install -g bun 
-```
-    OR
-```terminal
-    npm i -g bun 
-```
+    ```TERMINAL
+        npm install -g bun
+    ```
+        OR
 
-(Make sure to add -g flag for system level global installation)
+    ```TERMINAL
+        npm i -g bun 
+    ```
+
+    (Make sure to add -g flag for system level global installation)
 
 
-Version Check:-
-```terminal
-    bun -v
+    Version Check:-
 
-    bun pm ls (To view all installed packages with version)
-```
+    ```TERMINAL
+        bun -v        (Bun Version)
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        bun pm ls (To view all installed packages with version)
+    ```
+
 #### Step 4: Upgrading to React v19 RC
 
-If you're using React v18 and want to upgrade to React v19 Release Candidate, follow these steps:
+    If you're using React v18 and want to upgrade to React v19 Release Candidate, follow these steps:
 
-Open your terminal or command prompt.
-Run the following command to update React:
+    Open your terminal or command prompt.
+    Run the following command to update React:
 
-```terminal
-    npm install react@rc
-    npm install react-dom@rc
-    npm install react-router-dom@rc
-```
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    ```TERMINAL
+
+        npm install react@rc
+
+        npm install react-dom@rc
+
+        npm install react-router-dom@rc
+
+    ```
 
 #### Step 5: Creating a React App with Vite
 
-Vite is a build tool in v19 replacement to webpack that aims to provide a faster and leaner development experience/environment for building modern web projects.
+    Vite is a build tool in v19 replacement to webpack that aims to provide a faster and leaner development experience/environment for building modern web projects.
 
-Follow these steps to create your first React app:
+    Follow these steps to create your first React app:
 
-Open your terminal or command prompt.
-Run the following commands to create a new React project with Vite:
+    Open your terminal or command prompt.
+    Run the following commands to create a new React project with Vite:
 
-(Note:- npm i create-react-app (Not Use Instead use npm create vite@latest))
+    (Note:- npm i create-react-app (Not Use Instead use npm create vite@latest))
 
-```terminal
-    npm create vite@latest reactapp --template react
-    cd reactapp
-    npm install
-```
+    ```TERMINAL
 
-Start the development server:
+        npm create vite@latest reactapp (Initial folder structure will be created for React project)
 
-```terminal
-    npm run dev
-```
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        cd reactapp
+
+        npm install
+    ```
+
+    Start the development server:
+
+    ```TERMINAL
+
+        npm run dev
+
+    ```
+
+***
+***
 
 ## Project Deployment/Publishing/Hosting :-
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ### Manual Deployment :- Publish Local Folder/Files Then Manual Deploy To Free Hosting Site.  
 
-Use free hosting site:- [official website](https://app.netlify.com/) (Use GitHub login)
+    Use free hosting site:- [official website](https://app.netlify.com/) (Use GitHub login)
+   
 
-Steps:-
+    - To create Production Build/Version to deploy
 
-1.  To create Production Build/Version to deploy
+        ```TERMINAL
 
-    ```terminal
-        npm run build
-    ```
+            npm run build
 
-2. After above cmd executed successfully dist folder is create.
+        ```
 
-3. Go to netlify site in side menu select & click Projects it will display list of methods to deployed website.
+    - After above cmd executed successfully dist folder is create.
 
-4. Select Deploy Manual option in list then Drag & Drop OR Upload Files ,then go to folder path where dist folder is created within project that you want to host
+    - Go to netlify site in side menu select & click Projects it will display list of methods to deployed website.
 
-5. Open dist folder you will see all files that are going to deploy.
+    - Select Deploy Manual option in list then Drag & Drop OR Upload Files ,then go to folder path where dist folder is created within project that you want to host
 
-6. Then hit Upload/Deploy/Ok button of dialog & wait don't refresh till files gets completely deployed.
+    - Open dist folder you will see all files that are going to deploy.
 
-7. After successful deploy at top you will see random project and netlify.app which you can modify by clicking on Project Configuration & then change name as required.
+    - Then hit Upload/Deploy/Ok button of dialog & wait don't refresh till files gets completely deployed.
 
---------------------------------------------------------------------------
+    - After successful deploy at top you will see random project and netlify.app which you can modify by clicking on Project Configuration & then change name as required.
+
+***
 
 ### Synchronous/Auto Deployment:- Sync Local VS Code Repository with GitHub Repository Which Then Automatically Deploy To Free Hosting Site.
 
-
-
 #### Upload Files from VS Code to GitHub:-
 
-    1. In GitHub, first log in to your GitHub account, then in the  tab Repositories, click on the New button & create a  repository by giving a  Repository Name
+    - In GitHub, first log in to your GitHub account, then in the  tab Repositories, click on the New button & create a  repository by giving a  Repository Name
        e.g. Yogesh_Matkar/<repository name> then click Create Repository button.
 
-    2. Install git external installer from [official website](https://git-scm.com/) 
+    - Install git external installer from [official website](https://git-scm.com/) 
        Install git and then restart VS Code,to execute git cmd's in VS Code terminal as required
 
-      a.
-        ```terminal
+      1. To check git is properly installed or not, in VS Code terminal try below cmd
+
+        ```TERMINAL
+
             git init
+
         ```
 
        If the git cmd issues, then check the  git version using cmd.
     
-        ```terminal
+        ```TERMINAL
+
             git --version
+
         ```
 
-      b. If the version is not displayed or again a git cmd issue, that means git is not installed, then install the Git Package Manager  on the computer.
+      2. If the version is not displayed or again a git cmd issue, that means git is not installed, then install the Git Package Manager  on the computer.
 
-      c. After installation, in VS Code to get cmd setting UI, press Ctrl+Shift+P, type in search Open User Settings (JSON) and click,
+      3. After installation, in VS Code to get cmd setting UI, press Ctrl+Shift+P, type in search Open User Settings (JSON) and click,
       Then add a set of values in JSON format below,
 
        "git.enable": True,
        "git.path": "C:\\Program Files\\Git\\cmd\\git.exe.exe"
 
-      d. Then, try the below cmd to check if git is properly enabled in VS Code,
+      4. Then, try the below cmd to check if git is properly enabled in VS Code,
 
          To check the installed version of git
          
-         ```terminal
+         ```TERMINAL
+
              git --version
+
          ```
-      e. To initialize git in VS Code
-         
-         ```terminal
+      5. To initialize git in VS Code
+
+         ```TERMINAL
+
              git init
+
          ```
 
          Due to the above cmd of initialise in the left sidebar menu, one option of the Branch icon(Source Control), in which files were modified with U(Update) as the letter means these files are modified
 
-      f. If you want to remove/ignore some file from pushing into git, then in the .gitignore file, mention the file extension/file name/folder name
+      6. If you want to remove/ignore some file from pushing into git, then in the .gitignore file, mention the file extension/file name/folder name
 
-      g. After that, for staging file changes cmd
+      7. After that, for staging file changes cmd
 
         Stage All Files:-
         
-        ```terminal
-             git add .         (. means all files staged)
+        ```TERMINAL
+
+             git add .         (. DOT means all files staged)
+
         ```
 
         Stage Specific Files:-
 
-        ```terminal
+        ```TERMINAL
+
              git add filename1.txt filename1.jsx
+
         ```         
 
-      h. After the above cmd file is moved from CHANGES to Staged Changes, with each file with A as a letter, means these files are going to be added to be final step before going to push in git
+      8. After the above cmd file is moved from CHANGES to Staged Changes, with each file with A as a letter, means these files are going to be added to be final step before going to push in git
 
         Committing Changes:-
 
-        ```terminal
+        ```TERMINAL
+
             git commit -m "<commit comments>"
+
         ```
 
-      i. Then adding the origin of the remote git repository means connecting VS Code to a specific remote git repository path using the below cmd
+      9. Then adding the origin of the remote git repository means connecting VS Code to a specific remote git repository path using the below cmd
 
-        ```terminal
+        ```TERMINAL
+
              git remote add origin <repository-url>
+
         ```
         Repository-URL:-(https://github.com/Yogesh-K-Matkar/deploy_react_app_example1.git)
 
-     j. Then, below cmd to push the final code to the specific active branch master/main
+     10. Then, below cmd to push the final code to the specific active branch master/main
 
-         ```terminal
+         ```TERMINAL
+
             git push origin <active branch name>
+
          ```
                    
 
-     k. Refresh the GitHub repository of the project deployed, and it will show all published files.
+     11. Refresh the GitHub repository of the project deployed, and it will show all published files.
 
 #### Deploying from GitHub to Netlify:-
 
-    a. In Netlify, Add New Project --> Import an existing project --> Select Repository Application Name(GitHub) --> All Repositories
+    1. In Netlify, Add New Project --> Import an existing project --> Select Repository Application Name(GitHub) --> All Repositories
 
-    b. Selecting All repositories, a list of all deployed GitHub repositories is displayed.
+    2. Selecting All repositories, a list of all deployed GitHub repositories is displayed.
 
-    c. Select the repository that needs to be hosted in Netlify
+    3. Select the repository that needs to be hosted in Netlify
 
        Write in Build Command(As per defined in package.json--> script --> build)
 
-       bun run build
+       ```TERMINAL
 
-    d. If the .env variable file in the React project is available, then add the  Environment Variable by clicking on the Add Environment Variables button
+           npm run build
+
+       ```
+    
+    4. If the .env variable file in the React project is available, then add the  Environment Variable by clicking on the Add Environment Variables button
 
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+***
+***
 
 ## Project Cloning and Pull Request From GitHub to VS Code As Local Repository
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  
 ### Cloning:-
 
-      a. First, install Extension- GitHub Pull Requests, then through Settings open Command Palette and write GitHub Clone(Clone from GitHub)
+      1. First, install Extension- GitHub Pull Requests, then through Settings open Command Palette and write GitHub Clone(Clone from GitHub)
 
-      b. Then visit to GitHub account-->Select the repository, and copy the  browser URL of the repository, then need to clone it to VS Code.
+      2. Then visit to GitHub account-->Select the repository, and copy the  browser URL of the repository, then need to clone it to VS Code.
 
-      c. Now, explorer dialogue windows open --> select the folder where we want to clone the repository.
+      3. Now, explorer dialogue windows open --> select the folder where we want to clone the repository.
+
+***
 
 ### Pull Request :-
 
@@ -563,57 +645,55 @@ Steps:-
             git pull origin main
         ```
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+***
+***
 
 ## REACT/REACTJS Language:-(v19)
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1. What is React/ReactJS:-
 
-A. What is React/ReactJS:-
+    - ReactJS is a JavaScript Library used for front-end/UI development using reusable UI components.
+   
+   - It was first created by a Facebook developer(Jordan Walke) when they faced the issue of managing and maintaining the extensive increase of the Facebook application in 2011.
+   
+   - It was first implemented in their application Facebook in modules like Feeds, Chat Messaging and also made ReactJS Open Source to the outside world in 2012 and 2013, but suffered from criticism as the outside world was unable to properly understand the Separation Of Code(SOC) concept of ReactJS.
+   
+   - So then in 2013, one of the Khan Academy developer created a Web Application & achieved success in it. She is the first Non-Facebook React developer, due to which Facebook got a larger success and breakthrough in the outside world for ReactJS language usage & at the same time, Facebook developers create a web application for the Instagram Mobile App.
+   
+2. ReactJS is a Declarative Language, so faster to implement.
+   
+3. Component-Based Architecture.
+   
+4. Rich Eco-System-npm packages(Smaller concept/modules already develop in form of packages)
+   
+5. Strong & Large community support-Online/GitHub
 
-1. ReactJS is a JavaScript Library used for front-end/UI development using reusable UI components.
-   
-2. It was first created by a Facebook developer(Jordan Walke) when they faced the issue of managing and maintaining the extensive increase of the Facebook application in 2011.
-   
-3. It was first implemented in their application Facebook in modules like Feeds, Chat Messaging and also made ReactJS Open Source to the outside world in 2012 and 2013, but suffered from criticism as the outside world was unable to properly understand the Separation Of Code(SOC) concept of ReactJS.
-   
-4. So then in 2013, one of the Khan Academy developer created a Web Application & achieved success in it. She is the first Non-Facebook React developer, due to which Facebook got a larger success and breakthrough in the outside world for ReactJS language usage & at the same time, Facebook developers create a web application for the Instagram Mobile App.
-   
-5. ReactJS is a Declarative Language, so faster to implement.
-   
-6. Component-Based Architecture.
-   
-7. Rich Eco-System-npm packages(Smaller concept/modules already develop in form of packages)
-   
-8. Strong & Large community support-Online/GitHub
+6. It's only JavaScript Library, not a full-fledged framework like Angular or Vue.js, which makes it more flexible and lightweight for developers.
 
-9. It's only JavaScript Library, not a full-fledged framework like Angular or Vue.js, which makes it more flexible and lightweight for developers.
+7.  To make it a full-fledged framework, React can be used in conjunction with other libraries and tools, such as Redux for state management and React Router for routing.
 
-10. To make it a full-fledged framework, React can be used in conjunction with other libraries and tools, such as Redux for state management and React Router for routing.
+8.  NextJS encapsulate front-end ReactJS to form a complete full-stack framework.
 
-11. NextJS encapsulate front-end ReactJS to form a complete full-stack framework.
 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ### React Folder Structure:-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  
 ![FolderStructure](public/images/Folder_Structure.jpg)
 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ### React Concepts:-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-    Evolution:- ReactJS is Javascript library used for front-end development by using reusable UI components.
-                
-                It doesn't provide framework that's why lightweight, so Angular comes into picture which provide both Javascript Library and Framework.  
-                
-                But ReactJS is only Javascript Library so it encapsulated in NextJS framework to form a complete full-stack framework to provide development Speed, Scalability & Simplicity.
+- Evolution:- 
 
-1.  DOM Reconciliation / Diffing Algorithm:  
+    ReactJS is Javascript library used for front-end development by using reusable UI components.
+                
+    It doesn't provide framework that's why lightweight, so Angular comes into picture which provide both Javascript Library and Framework.  
+                
+    But ReactJS is only Javascript Library so it encapsulated in NextJS framework to form a complete full-stack framework to provide development Speed, Scalability & Simplicity.
+
+- DOM Reconciliation / Diffing Algorithm:  
     React uses a Virtual DOM to efficiently update the UI. When a component's state changes, React creates a new Virtual DOM tree by Babel and compares it with the previous one to determine the minimal set of changes needed to update the actual DOM.
 
-2.  React.StrictMode:-
+- React.StrictMode:-
     It is a tool for highlighting potential problems in an application. It activates additional checks and warnings for its descendants.
 
     It helps to identify components with unsafe life-cycles, legacy API usage, and other side effects.
@@ -622,25 +702,26 @@ A. What is React/ReactJS:-
 
     Syntax:
 
-        ```jsx
-        import React from 'react';
-        <React.StrictMode>
-            <App />
-        </React.StrictMode>
+        ```JSX
+            import React from 'react';
+            <React.StrictMode>
+                <App />
+            </React.StrictMode>
         ```
 
-3.  Each JSX element/expression must combine/enclosed using one parent JSX element, which means if you try to return multiple elements
+-  Each JSX element/expression must combine/enclosed using one parent JSX element, which means if you try to return multiple elements
 
     React will throw an error.
 
     Error: Adjacent JSX elements must be wrapped in an enclosing tag.
 
-4.  To avoid using a non-required < div > tag to combine multiple elements into one before returning JSX from the component function, and also to avoid DOM to create an unwanted < div > element.
+-  To avoid using a non-required < div > tag to combine multiple elements into one before returning JSX from the component function, and also to avoid DOM to create an unwanted < div > element.
+   
     Then comes the React concept of Fragments,
 
-    e.g.
+    E.g.
 
-        ```jsx
+        ```JSX
 
             const ComponentName=()=>
             {
@@ -653,130 +734,143 @@ A. What is React/ReactJS:-
 
         ```
 
-5.  Every JSX tag needs to be closed. You can use self-closing tags for elements that don't have children
+- Every JSX tag needs to be closed. You can use self-closing tags for elements that don't have children
 
-    e.g.
+    E.g.
 
-        ```jsx
+        ```JSX
+
             <img src="url" />
+
         ```
 
-6.  Concept of dynamic variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX.
+- Concept of dynamic variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX.
 
-7.  Concept of logical variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX based on a Condition using Conditional Operators/Logic such as Ternary, IF-ELSE block, etc.
+- Concept of logical variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX based on a Condition using Conditional Operators/Logic such as Ternary, IF-ELSE block, etc.
 
-8.  Types of Component:- 2 Types of Component Declaration
+- Types of Component:- 2 Types of Component Declaration
 
-    8.1. Class Component:- ES6 classes extending React.Component. Uses render method and state.Legacy projects only.
+    - Class Component:- ES6 classes extending React.Component. Uses render method and state.Legacy projects only.
 
     ![Lifecycle](public/images/ComponentLifecycle.png)
 
          Lifecycle:- Three main phases:
 
-         8.1.1 Mounting Phase
+         1. Mounting Phase
 
-                This phase occurs when a component is first created and inserted into the DOM. It involves initial setup and rendering.
+            This phase occurs when a component is first created and inserted into the DOM. It involves initial setup and rendering.
 
-                constructor(props): Initializes state and binds event handlers (only in class components).
+               1.1. constructor(props): Initializes state and binds event handlers (only in class components).
 
-                static getDerivedStateFromProps(props, state): Sync state to props before rendering.
+               1.2. static getDerivedStateFromProps(props, state): Sync state to props before rendering.
 
-                render(): Returns the JSX to build the UI.
+               1.3. render(): Returns the JSX to build the UI.
 
-                componentDidMount(): Runs after the component is mounted to the DOM, useful for side effects like data fetching or setting up subscriptions.
+               1.4. componentDidMount(): Runs after the component is mounted to the DOM, useful for side effects like data fetching or setting up subscriptions.
 
-         8.1.2 Updating Phase
+         2. Updating Phase
 
-                This happens whenever the component's props or state change, triggering a re-render.
+            This happens whenever the component's props or state change, triggering a re-render.
 
-                static getDerivedStateFromProps(props, state): Called during updates to sync state to new props.
+               2.1. static getDerivedStateFromProps(props, state): Called during updates to sync state to new props.
 
-                shouldComponentUpdate(nextProps, nextState): Determines if component should re-render (returning false skips update).
+               2.2. shouldComponentUpdate(nextProps, nextState): Determines if component should re-render (returning false skips update).
 
-                render(): Re-renders the component.
+               2.3. render(): Re-renders the component.
 
-                getSnapshotBeforeUpdate(prevProps, prevState): Captures information before DOM updates (e.g., scroll position).
+               2.4. getSnapshotBeforeUpdate(prevProps, prevState): Captures information before DOM updates (e.g., scroll position).
 
-                componentDidUpdate(prevProps, prevState, snapshot): Runs after updates, suitable for DOM operations or fetching new data.
+               2.5. componentDidUpdate(prevProps, prevState, snapshot): Runs after updates, suitable for DOM operations or fetching new data.
 
-         8.1.3 Unmounting Phase
+         3. Unmounting Phase
 
-                This phase occurs when the component is removed from the DOM and is used for cleanup.
+            This phase occurs when the component is removed from the DOM and is used for cleanup.
 
-                componentWillUnmount(): Called right before the component is removed, where you can clear timers, cancel network requests, or remove event listeners.
+                3.1. componentWillUnmount(): Called right before the component is removed, where you can clear timers, cancel network requests, or remove event listeners.
 
-    8.2. Functional Component:-JS functions returning JSX. With Hooks, can manage state and effects.Preferred currently in projects.
+    - Functional Component:-
+  
+        JS functions returning JSX. With Hooks, can manage state and effects.Preferred currently in projects.
 
          Functional components do not have these explicit lifecycle methods but achieve similar effects using React Hooks:
 
         useEffect hook replaces componentDidMount, componentDidUpdate, and componentWillUnmount. You can specify when the effect runs and perform cleanup by returning a cleanup function.
 
-9. Types of Functional Component:-
+        - Types of Functional Component:-
 
-    9.1. Default Functional Component :- In case of importing the Export Default component, then while importing any component name be used without curly braces.
+          - Default Functional Component :- In case of importing the Export Default component, then while importing any component name be used without curly braces.
 
-    Syntax:
+            Syntax:
 
-         ```jsx
-         import NetflixSeries from "./components/NetflixSeries";
-         ```
-         (Where export component name is NetflixSeries)
+                ```JSX
 
-    9.2. Named Functional Component :- In case of importing Export Named component, then while importing the same Component name to be used with curly braces.
-
-    Syntax:
-
-         ```jsx
-         import { NetflixSeries } from "./components/NetflixSeries";
-         ```
-         (Where export component name is NetflixSeries)
-
-     9.3. Combining Default and Named Exports: In case of importing Export Default and Named component, then while importing the same Default Component and Named Component name from single same .jsx file.
-
-    Syntax:
-
-         ```jsx
-            import Series, { NetflixSeries } from "./components/NetflixSeries";
-         ```
-         (Where export default component is Series and named component is NetflixSeries from NetflixSeries.jsx file)
+                    import NetflixSeries from "./components/NetflixSeries";
+                
+                ```
+                (Where export component name is NetflixSeries)
 
 
-10. Define/Use imported Components/Component from another JSX(ReactFrameworkApp.jsx) as below
+          - Named Functional Component :- In case of importing Export Named component, then while importing the same Component name to be used with curly braces.
+
+            Syntax:
+
+                ```JSX
+
+                    import { NetflixSeries } from "./components/NetflixSeries";
+
+                ```
+                (Where export component name is NetflixSeries)
+
+          - Combining Default and Named Exports: In case of importing Export Default and Named component, then while importing the same Default Component and Named Component name from single same .jsx file.
+
+            Syntax:
+
+                ```JSX 
+
+                    import Series, { NetflixSeries } from "./components/NetflixSeries";
+
+                ```
+                (Where export default component is Series and named component is NetflixSeries from NetflixSeries.jsx file)
+
+
+- Define/Use imported Components/Component from another JSX(ReactFrameworkApp.jsx) as below
 
     e.g.
 
-        ```jsx
-            < ReactApp / > (Component)
+        ```JSX
+            <ReactApp/> (Is a Component)
         ```
 
-11. To avoid rewriting/redundancy of the same code multiple times, create a single component and reuse it multiple times where required in the same JSX or another JSX
+- To avoid rewriting/redundancy of the same code multiple times, create a single component and reuse it multiple times where required in the same JSX or another JSX
     (import component function from a particular JSX where the component function is defined).
 
-12. Instead of FOR/FOREACH loop their is map() for looping on collection/array. In React map(), each element must have a key prop to differentiate each element generated while looping using map().
+- Instead of FOR/FOREACH loop their is map() for looping on collection/array. In React map(), each element must have a key prop to differentiate each element generated while looping using map().
 
-13. Props is way of passing attributes as parameter to Component in React, and can be passed from a unidirectional(1-direction) Parent component to calling child components as separate properties and consumed in the child component as props as a parameter that combines all properties of the child component defined by the Parent component while calling the Child component, except the key property.
+- Props is way of passing attributes as parameter to Component in React, and can be passed from a unidirectional(1-direction) Parent component to calling child components as separate properties and consumed in the child component as props as a parameter that combines all properties of the child component defined by the Parent component while calling the Child component, except the key property.
 
-14. While passing the integer value prop/attribute over the child component, pass it like this
+- While passing the integer value prop/attribute over the child component, pass it like this
 
-    14.1. Integer prop/attribute over child component pass like this
+    - Integer prop/attribute over child component pass like this
 
-        e.g.
+        E.g.:-
 
-            ```jsx
-                < ReactComponent id={integer_value} / > 
+            ```JSX
+
+                <ReactComponent id={integer_value} /> 
+
             ```
 
-    14.2. String value prop/attribute over child component pass like this
+    - String value prop/attribute over child component pass like this
 
-        e.g.        
+        E.g.:-
 
-            ```jsx
-                < ReactComponent name="string_value" / >
+            ```JSX
+                <ReactComponent name="string_value" />
             ```
 
-    (IMP:- As per ECMAScript (ES6) rule, if in an object structure like { Name: Name }, when key and value are the same, then define the object like this {Name})
+    (Note:- As per ECMAScript (ES6) rule, if in an object structure like { Name: Name }, when key and value are the same, then define the object like this {Name})
 
-15. To pass HTML content as JSX/string within opening and closing component tags, then a special prop is used, denoted as children, to access those elements.
+6.  To pass HTML content as JSX/string within opening and closing component tags, then a special prop is used, denoted as children, to access those elements.
 
     e.g.
 
@@ -786,7 +880,7 @@ A. What is React/ReactJS:-
             }
         ```
 
-16. CSS Style- grid or flex-box. CSS always give it to the parent tag.
+7.  CSS Style- grid or flex-box. CSS always give it to the parent tag.
     Instead of defining a class prop for applying a CSS class, use the className prop.
 
     Types of CSS:-

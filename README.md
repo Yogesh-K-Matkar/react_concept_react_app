@@ -50,23 +50,23 @@ Color:-
                 E.g.:-
 
                     ```JS
-                        var i=10;  (Means now i stores integer value)
+                        var i=10;  (Means now i declared and define with integer value)
 
-                        i="a"; (Means now i stores string value)
+                        i="a"; (Means now i declared and define with string value)
                     ```
 
-            - Function/global scope means re-declaring the same variable gives last assigned value anywhere within function scope.
+            - Function/global scope means re-declaring/re-defining the same variable is possible in same scope which also gives last assigned value as per scoped.
 
                 E.g.:-
 
                     ```JS
                         var i=10;  
-                        var i="a";  (Means now i stores string value)
+                        var i="a";  (Means now i re-declare  and define with string value)
 
                         console.log(i);  (Output is a)
                     ``` 
                 
-            - Support HOSTING concept, which means the variable can be used before its declaration. It gives as undefined value but not error as var type variable is  defined after using it.
+            - Support HOSTING concept, which means the variable is used before its declared and define,in such case when JS code is scanned and all var datatype variables declaration part is moved to top of scope and value defined remains at same position where it is previously define this process works internally by compiler.Thats why it gives Output as undefined value but not error as var type variable is defined after using it.
         
                 E.g.:-
 
@@ -76,7 +76,7 @@ Color:-
                     var i=20;
                     ```
 
-            (Note:- Due to which ES6(ES2015) introduced let and const keywords for variable declaration. 
+            (Note:- Due to Hoisting their is inconsistency and unmanageable code,that's why ES6(ES2015) introduced let and const keywords for variable declaration. 
 
             ES means ECMAScript is a standard for scripting languages such as JavaScript, JScript, and ActionScript.)
 
@@ -84,13 +84,15 @@ Color:-
 
             - Block scope means the variable value is limited to the block in which it is defined.
 
-            - It can be re-assigned and re-declared/redefine of value is not allowed.
+            - Value can be re-assigned but not re-declared. 
+            It throws error.
 
         3. const
 
             - Block scope means the variable value is limited to the block in which it is defined.
 
-            - It can be re-assigned and re-declared/redefined of value is not allowed.
+            - Value once declared and define cannot be re-assigned nor re-declared. 
+            It throws error.
 
         (Imp:- let and const are same and maximum used for runtime errors)
 

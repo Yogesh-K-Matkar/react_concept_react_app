@@ -46,7 +46,7 @@ Color:-
             ```
 
 
-    b. var is global/function scope means re-declaring the same variable gives last assigned value anywhere within function scope.
+    b. var is global/function scope means re-declaring/re-defining the same variable is possible in same scope which also gives last assigned value as per scoped.
 
         e.g.:-
 

@@ -66,7 +66,7 @@ Color:-
               var i=20;
             ```
 
-  (Imp:- Due to Hoisting their is inconsistency of code and difficult to manage,that's why in ES6(ES2015) introduced let and const keywords for variable declaration.
+  (Imp:- Due to Hoisting their is inconsistency and unmanageable code,that's why in ES6(ES2015) introduced let and const keywords for variable declaration.
          ES means EcmaScript)
 
    1.2. let keyword type variable.

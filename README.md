@@ -7,6 +7,8 @@
 
 ***
 ***
+***
+***
 
 # CSS
 
@@ -25,6 +27,8 @@ Color:-
 - [Background](https://www.heropatterns.com/)
 - [Controls](https://css-tricks.com/controls/)
 
+***
+***
 ***
 *** 
 
@@ -174,6 +178,7 @@ Color:-
             ```
 
     ***
+    ***
 
     - Spread Operator expand collection, array & object.
 
@@ -193,7 +198,8 @@ Color:-
                     console.log(mergearray12);          //["a","b","c","x","y","z"]
                     
                 ```
-        
+
+       *** 
 
         - Object(Update Object Property):-
 
@@ -239,6 +245,8 @@ Color:-
             ```JS
                 users.reduce((derivedCalculatedValue,u)=>{return derivedCalculatedValue + u.age},0)
             ```
+***
+***
 ***
 ***
 
@@ -398,6 +406,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
         npm update (Update to nearest to the latest version not the latest version)
     ```
+***
 
 ##### BUN  (Latest, Lightweight, Faster Built as compare to NPM)
 
@@ -507,7 +516,9 @@ If you are developing a production application, we recommend using TypeScript wi
 #### Upload Files from VS Code to GitHub:-
 
     - In GitHub, first log in to your GitHub account, then in the  tab Repositories, click on the New button & create a  repository by giving a  Repository Name
-       e.g. Yogesh_Matkar/<repository name> then click Create Repository button.
+       
+       E.g.:-
+         Yogesh_Matkar/<repository name> then click Create Repository button.
 
     - Install git external installer from [official website](https://git-scm.com/) 
        Install git and then restart VS Code,to execute git cmd's in VS Code terminal as required
@@ -605,6 +616,8 @@ If you are developing a production application, we recommend using TypeScript wi
 
      11. Refresh the GitHub repository of the project deployed, and it will show all published files.
 
+***
+
 #### Deploying from GitHub to Netlify:-
 
     1. In Netlify, Add New Project --> Import an existing project --> Select Repository Application Name(GitHub) --> All Repositories
@@ -641,7 +654,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ### Pull Request :-
 
-     a. Sync the local exisitng project with repository from GitHub VS Code Terminal cmd
+     1. Sync the local exisitng project with repository from GitHub VS Code Terminal cmd
 
         ```terminal
             git pull origin main
@@ -676,11 +689,15 @@ If you are developing a production application, we recommend using TypeScript wi
 
 8.  NextJS encapsulate front-end ReactJS to form a complete full-stack framework.
 
+***
+***
 
 ### React Folder Structure:-
  
 ![FolderStructure](public/images/Folder_Structure.jpg)
 
+***
+***
 
 ### React Concepts:-
 
@@ -700,7 +717,8 @@ If you are developing a production application, we recommend using TypeScript wi
 
     It helps to identify components with unsafe life-cycles, legacy API usage, and other side effects.
 
-    Syntax:- Wrap the entire application with <React.StrictMode> tag
+    Syntax:- Wrap the entire application with 
+    < React.StrictMode> tag
 
     Syntax:
 
@@ -790,6 +808,8 @@ If you are developing a production application, we recommend using TypeScript wi
 
                 3.1. componentWillUnmount(): Called right before the component is removed, where you can clear timers, cancel network requests, or remove event listeners.
 
+***
+
     - Functional Component:-
   
         JS functions returning JSX. With Hooks, can manage state and effects.Preferred currently in projects.
@@ -834,13 +854,16 @@ If you are developing a production application, we recommend using TypeScript wi
                 ```
                 (Where export default component is Series and named component is NetflixSeries from NetflixSeries.jsx file)
 
+***
 
 - Define/Use imported Components/Component from another JSX(ReactFrameworkApp.jsx) as below
 
-    e.g.
+    E.g.
 
         ```JSX
+
             <ReactApp/> (Is a Component)
+
         ```
 
 - To avoid rewriting/redundancy of the same code multiple times, create a single component and reuse it multiple times where required in the same JSX or another JSX
@@ -867,256 +890,313 @@ If you are developing a production application, we recommend using TypeScript wi
         E.g.:-
 
             ```JSX
+
                 <ReactComponent name="string_value" />
+
             ```
 
     (Note:- As per ECMAScript (ES6) rule, if in an object structure like { Name: Name }, when key and value are the same, then define the object like this {Name})
 
-6.  To pass HTML content as JSX/string within opening and closing component tags, then a special prop is used, denoted as children, to access those elements.
+- To pass HTML content as JSX/string within opening and closing component tags, then a special prop is used, denoted as children, to access those elements.
 
-    e.g.
+    E.g.
 
-        ```jsx
+        ```JSX
+
             const ReactComponent=(props)=>{
                 const { children } = props;
             }
+
         ```
 
-7.  CSS Style- grid or flex-box. CSS always give it to the parent tag.
+- CSS Style- grid or flex-box. CSS always give it to the parent tag.
+  
     Instead of defining a class prop for applying a CSS class, use the className prop.
 
     Types of CSS:-
 
-    16.1. Normal CSS consider using the className prop.
+    - Normal CSS consider using the className prop.
 
-    16.2. Inline CSS consider value as an object defined within { object } for the style prop
+    - Inline CSS consider value as an object defined within { object } for the style prop
 
-    e.g.
+        E.g.
 
-        ```jsx
-            < ReactComponent style={{ margin: "1.2rem 0" }} / > 
-        ```
+            ```JSX
 
-                OR
+                <ReactComponent style={{ margin: "1.2rem 0" }} /> 
 
-        Define the style object separately, then define it as a variable and then use it in the style prop
+            ```
 
-        ```jsx
-            const btn_style = { margin: "1.2rem 0" };                
-            < ReactComponent style={btn_style} / > 
-        ```
+                    OR
 
+            Define the style object separately, then define it as a variable and then use it in the style prop
 
-    16.3. Conditionally applying CSS
+            ```JSX
 
-    16.3.1. Based on the Ternary operator, apply styling
+                const btn_style = { margin: "1.2rem 0" };
 
-    e.g.
+                <ReactComponent style={btn_style} />
 
-        ```jsx
-            < ReactComponent className={i>0?"className1": "className2"} / > 
-        ```
+            ```
+***
 
-    16.3.2. When you want to append a className with a condition that derives another className based on the condition,
-    meaning append a string with an expression done below by using Template Literal
+    - Conditionally applying CSS
 
-    e.g.
+        - Based on the Ternary operator, apply styling
 
-        ```jsx
-            < ReactComponent className={`className1 ${i>0?"className2": "className3"}`} / > 
-        ```         
+            E.g.
 
-    16.4. ModuleCSS:-
-    Module CSS is a component-specific style and extension of a file is <filename>.module.css
+                ```JSX
 
-    In Module CSS, each className is treated as a property of that specific module.css object
+                    <ReactComponent className={i > 0 ? "className1" : "className2"} />
 
+                ```
+
+        - When you want to append a className with a condition that derives another className based on the condition,means append a string with an expression done below by using Template Literal
+
+            E.g.
+
+                ```JSX
+
+                     <ReactComponent className={`className1 ${i > 0 ? "className2" : "className3"}`} />
+
+                ```
+***
+
+    - ModuleCSS:-
     
-        ```jsx
-             import cssModule from './<filename>.module.css'
-        ```
+        Module CSS is a component-specific style and extension of a file is <filename>.module.css
 
-    e.g. To access className abc, when className abc doesn't contain '-'
+        In Module CSS, each className is treated as a property of that specific module.css object
 
-        ```jsx
-                 < ReactComponent style={cssModule.abc} / > 
-        ```
+        
+            ```JSX
 
-    e.g. To access className a-b-c, when className a-b-c contain '-'
+                import cssModule from './<filename>.module.css'
 
-        ```jsx
-                 < ReactComponent style={cssModule["a-b-c"]} / > 
-        ```                 
+            ```
+
+        E.g. To access className abc, when className abc doesn't contain '-'
+
+            ```JSX
+
+                <ReactComponent style={cssModule.abc} />
+
+            ```
+
+        E.g. To access className a-b-c, when className a-b-c contain '-'
+
+            ```JSX
+                
+                <ReactComponent style={cssModule["a-b-c"]} />
+
+            ```
 
         Second way of defining classname commonly used.
-        
 
-    16.5. Using Tailwind v4 CSS (Third Party):-
+***
 
-    16.5.1. Install through Terminal cmd:-
+    - Using Tailwind v4 CSS (Third Party):-
 
-        ```terminal
-              npm install tailwindcss @tailwindcss/vite
-        ```
+        - Install through Terminal cmd:-
 
-    16.5.2. Configure the Vite plugin
+            ```Terminal
+                
+                  npm install tailwindcss @tailwindcss/vite
 
-        ```jsx
+            ```
+        - Configure the Vite plugin
 
-            import tailwindcss from '@tailwindcss/vite'
+            ```JSX
 
-            export default defineConfig({
-                plugins: [
-                            tailwindcss(),
-                         ],
-            })
-        ```
+                import tailwindcss from '@tailwindcss/vite'
 
-    16.5.3. Import Tailwind CSS
+                export default defineConfig({
+                    plugins: [
+                                tailwindcss(),
+                            ],
+                })
 
-        ```css
-            @import "tailwindcss";
-        ```
+            ```
 
-    16.5.4. bun run dev
+        - Import Tailwind CSS
 
-    (
-    Notes:- In TailwindCSS,
+            ```CSS
 
-    1. Need to you can set dynamic values within [], such as
+                @import "tailwindcss";
 
-    e.g.
+            ```
 
-        py-[3.2rem]
+        - Run the dev server.
 
-    2. If CSS is getting overridden by default CSS, then '!' symbol before each overridden CSS class
+            ```Terminal
 
-    e.g.
+                npm run dev
 
-        !py-6
+            ```
 
-    )
+        (Notes:- In TailwindCSS,
 
-17. Different Source of UI Controls :
+        1. Need to you can set dynamic values within [], such as
 
-    17.1. Styled-Components (Third Party):-
+            E.g.
+
+                py-[3.2rem]
+
+        2. If CSS is getting overridden by default CSS, then '!' symbol before each overridden CSS class
+
+            E.g.
+
+                !py-6
+
+        )
+
+- Different Source of UI Controls :
+
+    - Styled-Components (Third Party):-
     In styled-component, first need to install using the Terminal cmd
 
-    e.g.
-        ```terminal
-              bun install styled-components
-        ```
+        E.g.:-
 
-    Import,
-    e.g.
+            ```Terminal
 
-        ```jsx
-            import styled from "styled-components"
-        ```
+                npm install styled-components
 
-    Then, using a styled object can access a React component and apply the style to it.
+            ```
 
-    2 ways to apply styled-components:-
+        Import,
+        
+        E.g.:-
 
-    17.1.1. Template Literals:-
-    
-    e.g.
+            ```JSX
 
-        ```jsx
-            const Button=styled.button`color:grey`;
-        ```
+                import styled from "styled-components"
+
+            ```
+
+        Then, using a styled object can access a React component and apply the style to it.
+
+        2 ways to apply styled-components:-
+
+        - Template Literals:-
+        
+            E.g.:-
+
+                ```JSX
+
+                    const Button=styled.button`color:grey`;
+
+                ```
+
+                style.button --> button is a tag, eg p, h, button, span
+
+        - Style Object:-
+
+            E.g.:-
+
+                ```JSX
+
+                    const Button=styled.button(
+                    {
+                        color: grey,        
+                    }
+                    );
+                    
+                ```
 
             style.button --> button is a tag, eg p, h, button, span
 
-    17.1.2. Style Object:-
-
-    e.g.
-
-        ```jsx
-            const Button=styled.button(
-            {
-                color: grey,        
-            }
-            );
-        ```
-
-    style.button --> button is a tag, eg p, h, button, span
-
-18. Custom Error:-
+- Custom Error:-
     To show custom error message, use the below syntax
 
-    e.g.
+        E.g.:-
 
-        ```jsx
-            let customError=new Error("Custom Error Message");
-        ```
+            ```JSX
 
-19. Event Handler in JS, such as onClick, onChange, onSubmit, etc, which then call Syntactic Event Handler Function in React, should be written as a function name such as handleClick, handleChange,handleSubmit, etc
-    This is known as the Syntactic Event Handler Function.
+                let customError=new Error("Custom Error Message");
 
-    Type Of Function:-
+            ```
 
-    19.1. Named Function is only calling the function name, not the function.
+- Event Handler in JS, such as onClick, onChange, onSubmit, etc, which then call Syntactic Event Handler Function in React, should be written as a function name such as handleClick, handleChange,handleSubmit, etc
+
+This is known as the Syntactic Event Handler Function.
+
+    - Type Of Function:-
+
+      - Named Function is only calling the function name, not the function.
             
-            onClick={handleButtonClick} (Not like this onClick={handleButtonClick()})
-    e.g.
+           onClick={handleButtonClick} (Not like this onClick={handleButtonClick()})
+        
+        E.g.:- Like this
 
-        ```jsx
+            ```JSX
+            
             <button onClick={handleButtonClick}>Click Me</button>
-        ```
 
-    19.2. Arrow Function with event as parameter to get Syntactic Event object
+            ```
 
-    e.g.        
+      - Arrow Function with event as parameter to get Syntactic Event object
 
-        ```jsx
-            <button onClick={(event)=>handleButtonClick(event)}>Click Me</button>
-        ```
+        E.g.:-        
 
-    19.3. Inline Function With Syntactic Event Object
+            ```JSX
 
-    e.g.        
+                <button onClick={(event)=>handleButtonClick(event)}>Click Me</button>
 
-        ```jsx
-            <button onClick={(event) => console.log(event)}>Click Me</button>
-        ```
+            ```
 
-    19.4. Inline Arrow Normal Function
+      - Inline Function With Syntactic Event Object
 
-    e.g.        
+        E.g.:-        
 
-        ```jsx
-            <button onClick={() =>{ console.log("Hi")}}>Click Me</button>
-        ```
+            ```JSX
 
-    19.5. Arrow function passing parameters/arguments
+                <button onClick={(event) => console.log(event)}>Click Me</button>
 
-    e.g.       
+            ```
 
-        ```jsx
-            <button onClick={(event) =>{ console.log(event,"Data to pass to Function")}}>Click Me</button>
-        ```
+      - Inline Arrow Normal Function
 
-20. Event Handler passing as props can be used in concepts such as Form Handling, User Interaction, State Management, and Callback Function.
+        E.g.:-        
 
-21. Event Function is defined in Parent Component & passed as Props to Child Component, & then Child Component decides when to call Parent Component Event Function.
+            ```JSX
+
+                <button onClick={() =>{ console.log("Hi")}}>Click Me</button>
+
+            ```
+
+      - Arrow function passing parameters/arguments
+
+        E.g.:-       
+
+            ```JSX
+
+                <button onClick={(event) =>{ console.log(event,"Data to pass to Function")}}>Click Me</button>
+
+            ```
+
+- Event Handler passing as props can be used in concepts such as Form Handling, User Interaction, State Management, and Callback Function.
+
+- Event Function is defined in Parent Component & passed as Props to Child Component, & then Child Component decides when to call Parent Component Event Function.
+ 
     So Parent Component pass Event Function as Props as Event Handler to the Child Component.
 
-22. Event Propagation, propagate means moving & Event Propagation means moving each element and the occurrence of the event until it reaches the target event.
+- Event Propagation, propagate means moving & Event Propagation means moving each element and the occurrence of the event until it reaches the target event.
 
     Event Propagation has 3 components (Capture, Target & Bubbling)
 
-    Type of Event Propagation:-
+    - Phases of Event Propagation:-
 
-        22.1. Event Capture means propagating/moving from the Parent Element to the Target Action Element and triggering all occurrence event functions in the path while moving.
+        - Event Capture means propagating/moving from the Parent Element to the Target Action Element and triggering all occurrence event functions in the path while moving.
 
-        22.2. Event Bubbling means propagating/moving from Target Action Element to Parent Element and triggering all occurrence event functions in the path while moving.
+        - Event Bubbling means propagating/moving from Target Action Element to Parent Element and triggering all occurrence event functions in the path while moving.
 
-    But to avoid the unwanted triggering of Parent Component event functions other than the Target Action Event Function, we have to use
+        But to avoid the unwanted bubbling of event functions we have to use
 
-    e.g. Stop after triggering a single target event.
+        E.g.:- Stop bubbling after target event is Capture.
 
-            ```jsx
+            ```JSX
+
                 function handleButtonClick(event, txt){
                     event.stopPropagation();
                     console.log(txt);
@@ -1124,13 +1204,15 @@ If you are developing a production application, we recommend using TypeScript wi
 
 
                 <button onClick={(event) =>{ handleButtonClick(event, "Data to pass to Function")}}></button>
+
             ```
 
-    If Target control is bind with multiple other event rather then onClick such as onChange,onBlur then to stop such events begin call.
+        If Target control is bind with multiple other event rather then onClick such as onChange,onBlur then to stop such events begin call.
 
-    e.g.  Stop all other event after triggering a single target event.
+        E.g.  Stop all other event after triggering a  target event is Capture.
 
-            ```jsx
+            ```JSX
+
                 function handleButtonClick(event, txt){
                     event.stopPropagation();
                     event.stopImmediatePropagation();
@@ -1143,138 +1225,171 @@ If you are developing a production application, we recommend using TypeScript wi
                 };
 
                 <button onClick={(event) =>{ handleButtonClick(event, "Data to pass to Function")}} onChange={(event) =>{ handleChange()}}></button>
+
             ```
 
-23. Derived State means a variable value comes from a State Variable.
+- Derived State means a variable value comes from a State Variable.
 
-24. LiftingStateUp means when the state is defined in children and the same is needed by children at the same node level,
-    so we need to move the state to its parent, where both children are calling. This can be done through passing a function as a prop to the child,
+- LiftingStateUp means when the state is defined in children and the same is needed by children at the same node level.
+  
+    So we need to move the state to its parent, where both children are calling. This can be done through passing a function as a prop to the child,
     where the value from the child is passed to the parent via the parent function passed as a prop to set the State in the parent.
     Then the same state is passed as a prop to another child that requires the same state value.
 
     That means State is common to multiple states at the same level of the child component.
 
-25. React Icons for icons image from multiple sources(Font Awesome icons, Material UI icons, etc) at one place
+- React Icons for icons image from multiple sources(Font Awesome icons, Material UI icons, etc) at one place
+
     To access icons, first need to install using 
+    
+    E.g.:-
 
-Terminal cmd
+        ```Terminal
 
-    e.g.
-
-        ```terminal
             npm install react-icons --save
+
         ```
 
     Then import where needed to show the icon
 
-    e.g.
+    E.g.:-
 
-        ```jsx
+        ```JSX
+
             import { IconComponentName } from "react-icons/io";
+
         ```
 
     Use the icon component where a specific icon is required within the component
 
-        ```jsx
+        ```JSX
+
             <IconComponentName style={{color:"blue"}}/>
+
         ```
 
-26. To store & retain any value on refresh of the browser without a database.
+- Local Storage:-
+   To store & retain any value on refresh of the browser without a database.
 
-    e.g. To set:- 
+    E.g.:- To set,
     
-        ```js
-            localStorage.setItem("keyname","data");
-        ```
+            ```JS
 
-    e.g. To get:- 
+                localStorage.setItem("keyname","data");
+
+            ```
+
+    E.g.:- To get,
     
-        ```js
-            localStorage.getItem("keyname");
-        ```
+            ```JS
 
-27. When any control is bound with a state variable(control is moving from uncontrolled to controlled). In React, most components are uncontrolled components by default unless their values are bound to a state variable..
+                localStorage.getItem("keyname");
 
-    Controlled Data Hooks (Reflect changes immediately in DOM and on UI onChange - Sync Data - Operations:- Input value):- useState
+            ```
 
-    UnControlled Data Hooks (Does not reflect changes in DOM and not on UI onChange - Non-Sync Data - Operations:- Background values,timer):- useRefs
+- When any control is bound with a state variable(control is moving from uncontrolled to controlled). 
+  
+  In React, most components are uncontrolled components by default unless their values are bound to a state variable..
 
-28. The 'use' prefixes in a function name is all React Hooks.
+    - Controlled Data Hooks (Reflect changes immediately in DOM and on UI onChange - Sync Data - Operations:- Input value):- useState
 
-    Types Of Hooks:-
+***
 
-    28.1. State Management:-
+    - UnControlled Data Hooks (Does not reflect changes in DOM and not on UI onChange - Non-Sync Data - Operations:- Background values,timer):- useRefs
 
-        28.1.1. Simple Value State Management(Form simple values not more then 3 controls):-
+- The 'use' prefixes in a function name is all React Hooks.
 
-          28.1.1.1 useState(State Management with re-rendering- Simple, local state mean state value scope remain in same single component where its defined,
+    - Types Of Hooks:-
 
-                Scenario :- Use only when form is simple has not more then 2 to 3 inputs.):- The useState hook, when the state variable value gets updated, it renders the components where it is defined, such as form input, toggles, counters, fetched data flags, or UI visibility.
+      - State Management:-
 
-                For local state management inside a single component and it remains until the component is mounted.
+        - Simple Value State Management(Form simple values not more then 3 controls):-
 
-                State Variable/Initial State Variable Value can store any type of value, such as {}-Object,[]-Array,""-String,1234-Number
+            1. useState(State Management with re-rendering- Simple, local state mean state value scope remain in same single component where its defined)
+
+                Scenario :- 
+                
+                Use only when form is simple has not more then 2 to 3 inputs.
+                
+                - The useState hook, when the state variable value gets updated, it renders the components where it is defined, such as form input, toggles, counters, fetched data flags, or UI visibility.
+
+                - For local state management inside a single component and it remains until the component is mounted.
+
+                - State Variable/Initial State Variable Value can store any type of value, such as {}-Object,[]-Array,""-String,1234-Number
 
                 Syntax:-
 
-                    ```jsx
-                    import React, { useState, useEffect } from 'react';
+                    ```JSX
 
-                    const Counter = () => {
-                        const [count, setCount] = useState(0);
+                        import React, { useState, useEffect } from 'react';
 
-                        useEffect(() => {
-                            document.title = `You clicked ${count} times`;
-                        }, [count]); // run effect only when count changes
+                        const Counter = () => {
+                            const [count, setCount] = useState(0);
 
-                        return (
-                            <div>
-                                <p>You clicked {count} times</p>
-                                <button onClick={() => setCount(count + 1)}>Click me</button>
-                            </div>
-                        );
-                    }
+                            useEffect(() => {
+                                document.title = `You clicked ${count} times`;
+                            }, [count]); // run effect only when count changes
+
+                            return (
+                                <div>
+                                    <p>You clicked {count} times</p>
+                                    <button onClick={() => setCount(count + 1)}>Click me</button>
+                                </div>
+                            );
+                        }
+
                     ```
 
-                    Imp:-
+                    Notes:-
 
-                    1. The effect updates the document title after every render where count changes.
-                    2. If you omit [count], it would update after every render.
-                    3. Passing an empty array [] would run it only once after the initial render.
+                    - The effect updates the document title after every render where count changes.
+                   
+                    - If you omit [count], it would update after every render.
+             
+                    - Passing an empty array [] would run it only once after the initial render.
 
-            28.1.1.2. useRefs(DOM Manipulation without re-rendering, 
-                Scenario :- Use only when form is simple has not more then 2 to 3 inputs.):- Built-in hook is used when control values are not tightly bound by any useState hook state variable, meaning an uncontrolled component.
+***
 
-                When you need to access or manipulate a DOM element directly (e.g., to manipulate input fields, focus elements, scroll positions, or perform animations imperatively).
+            2. useRefs(DOM Manipulation without re-rendering) 
+          
+                Scenario :- 
+                
+                Use only when form is simple has not more then 2 to 3 inputs.
+                
+                - Built-in hook is used when control values are not tightly bound by any useState hook state variable, meaning an uncontrolled component.
 
-                Persisting mutable values: Store values across renders (like timers, previous state values, or any mutable data) without triggering re-render.
+                - When you need to access or manipulate a DOM element directly (e.g., to manipulate input fields, focus elements, scroll positions, or perform animations imperatively).
 
-                In React, we can access the control using the document.getElementById() method, such as
+                - Persisting mutable values: Store values across renders (like timers, previous state values, or any mutable data) without triggering re-render.
+
+                - In React, we can access the control using the document.getElementById() method, such as
 
                 Syntax:-
 
-                    ```jsx
-                    import React, { useRef } from 'react';
+                    ```JSX
 
-                    const TextInput = () => {
-                        const inputRef = useRef(null);
+                        import React, { useRef } from 'react';
 
-                        const focusInput = () => {
-                            inputRef.current.focus();  // Imperatively focus the input
+                        const TextInput = () => {
+                            const inputRef = useRef(null);
 
-                            console.log(inputRef.current.value);  // Access the input value
+                            const focusInput = () => {
+                                inputRef.current.focus();  // Imperatively focus the input
 
-                        };
+                                console.log(inputRef.current.value);  // Access the input value
 
-                        return (
-                            <div>
-                                <input ref={inputRef} type="text" placeholder="Click button to focus me" />
-                                <button onClick={focusInput}>Focus Input</button>
-                            </div>
-                        );
-                    }
+                            };
 
-                    export default TextInput;
+                            return (
+                                <div>
+                                    <input ref={inputRef} type="text" placeholder="Click button to focus me" />
+                                    <button onClick={focusInput}>Focus Input</button>
+                                </div>
+                            );
+                        }
+
+                        export default TextInput;
+
                     ```
                     Here, inputRef points to the DOM <input> element.
 
@@ -1283,55 +1398,68 @@ Terminal cmd
                     No re-render is triggered when inputRef.current is mutated.
 
 
-                    (Passing ref from Parent Component to Child Component
+                    (Notes:-
+                    
+                    Passing ref from Parent Component to Child Component
+                    
                     --Before React v19 release forwardRef function (props,ref)=>{} is used
+                    
                     --After React v19 release, ref can be accessed as props.)
 
-        28.1.2. Complex Value State Management(Form Complex Values more then 3 controls and object value which state value update multiple times):-
+***
 
-          28.1.2.1. useReducer(Complex State Logic,
-                Scenario :- Use only when state undergoes multiple operation for e.g. insert,update,delete,increment,decrement. state value multiple times):- This hook provides an action parameter for the reducer function, so based on the action type, different state values can be returned instead of creating a separate function for each control action, that update the state differently.
+        - Complex Value State Management(Form Complex Values more then 3 controls and object value which state value update multiple times):-
+
+            3. useReducer(Complex State Logic,Multiple State Values Updated- Operations:- Insert,Update,Delete,Increment,Decrement,Reset)
+        
+                Scenario :- 
+                
+                Use only when state undergoes multiple operation for e.g. insert,update,delete,increment,decrement. state value multiple times.
+                
+                This hook provides an action parameter for the reducer function, so based on the action type, different state values can be returned instead of creating a separate function for each control action, that update the state differently.
 
                 Useful in forms, game states, or lists requiring add, remove, toggle operations.
 
                 Syntax:-
 
-                    ```jsx
-                    import React, { useReducer } from 'react';
+                    ```JSX
 
-                    const initialState = { count: 0 };
+                        import React, { useReducer } from 'react';
 
-                    const reducer = (state, action) => {
+                        const initialState = { count: 0 };
 
-                        switch (action.type) {
-                            case 'increment':
-                            return { count: state.count + 1 };
-                            case 'decrement':
-                            return { count: state.count - 1 };
-                            case 'reset':
-                            return { count: 0 };
-                            default:
-                            return state;
+                        const reducer = (state, action) => {
+
+                            switch (action.type) {
+                                case 'increment':
+                                return { count: state.count + 1 };
+                                case 'decrement':
+                                return { count: state.count - 1 };
+                                case 'reset':
+                                return { count: 0 };
+                                default:
+                                return state;
+                            }
+                        };
+
+                        const Counter = () => {
+                            const [state, dispatch] = useReducer(reducer, initialState);
+
+                            return (
+                                <div>
+                                <p>Count: {state.count}</p>
+
+                                <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>
+
+                                <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>
+
+                                <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
+                                </div>
+                            );
                         }
-                    };
 
-                    const Counter = () => {
-                        const [state, dispatch] = useReducer(reducer, initialState);
+                        export default Counter;
 
-                        return (
-                            <div>
-                            <p>Count: {state.count}</p>
-
-                            <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>
-
-                            <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>
-
-                            <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
-                            </div>
-                        );
-                    }
-
-                    export default Counter;
                     ```
 
                     Defines a reducer managing count state with 3 actions: increment, decrement, reset.
@@ -1340,14 +1468,17 @@ Terminal cmd
 
                     This clearly separates state logic from UI.
 
-        28.1.2. Global Static State Management(Avoid prop drilling by sharing states):-
+***
 
-            28.1.1 useContext:
+        - Global Static State Management(Avoid prop drilling by sharing states):-
+
+            4. useContext:
 
                 Prop Drilling(Problem which is resolved using useContext hook):-
+               
                 Passing Props through Source Component to subsequent child components until it reaches to the required destination/target component.
 
-                    This can lead to unnecessary complexity and makes it difficult to manage state and props, especially in larger applications with deeply nested components.
+                This can lead to unnecessary complexity and makes it difficult to manage state and props, especially in larger applications with deeply nested components.
 
                 This hook built into React with no additional installation.
 
@@ -1361,39 +1492,40 @@ Terminal cmd
 
                 Syntax:-
 
-                    ```jsx
-                    import React, { createContext, useContext, useState } from "react";
+                    ```JSX
 
-                    // Create a context with a default value
-                    const UserContext = createContext("Guest");
+                        import React, { createContext, useContext, useState } from "react";
 
-                    const App = () => {
-                        const [user, setUser] = useState("Jesse Hall");
+                        // Create a context with a default value
+                        const UserContext = createContext("Guest");
 
-                        return (
-                            <UserContext.Provider value={user}>
-                                <h1>Hello {user}!</h1>
-                                <ComponentA />
-                            </UserContext.Provider>
-                        );
-                    }
+                        const App = () => {
+                            const [user, setUser] = useState("Jesse Hall");
 
-                    const ComponentA = () => {
-                        return <ComponentB />;
-                    }
+                            return (
+                                <UserContext.Provider value={user}>
+                                    <h1>Hello {user}!</h1>
+                                    <ComponentA />
+                                </UserContext.Provider>
+                            );
+                        }
 
-                    const ComponentB = () => {
-                        return <ComponentC />;
-                    }
+                        const ComponentA = () => {
+                            return <ComponentB />;
+                        }
 
-                    const ComponentC = () => {
-                        const user = useContext(UserContext); // Consume context value here
+                        const ComponentB = () => {
+                            return <ComponentC />;
+                        }
 
-                        return <h2>Welcome back, {user}!</h2>;
-                    }
+                        const ComponentC = () => {
+                            const user = useContext(UserContext); // Consume context value here
+
+                            return <h2>Welcome back, {user}!</h2>;
+                        }
                     ```
 
-                    (Imp:- <UserContext.Provider value="{data}">children components</UserContext.Provider> 
+                    (Notes:- <UserContext.Provider value="{data}">children components</UserContext.Provider> 
 
                     shares the values to children components within <UserContext.Provider> and </UserContext.Provider> then specific components can access value using useContext hook.)
                     ComponentC accesses the user value directly using useContext, without receiving it as props through intermediate components.
@@ -1401,7 +1533,7 @@ Terminal cmd
                     Changing user with setUser will cause all consuming components to update.
 
                 (
-                Note:-
+                Notes:-
 
                     Limitation of useContext hook conditionally calling useContext hook is not allowed, meaning it has to be defined at the top of the component function.
 
@@ -1409,187 +1541,217 @@ Terminal cmd
 
                     Syntax:-
 
-                        ```jsx
-                        import { use } from "react";
+                        ```JSX
 
-                        const newHook = true;
+                            import { use } from "react";
 
-                        let myName, myAge;
+                            const newHook = true;
 
-                        if (newHook) {
-                            ({ myName, myAge } = use(BioContext));
-                        }
-                        else {
-                            myName = "Default Name";
-                            myAge = 0;
-                        }
-                        console.log(myName, myAge);
+                            let myName, myAge;
+
+                            if (newHook) {
+                                ({ myName, myAge } = use(BioContext));
+                            }
+                            else {
+                                myName = "Default Name";
+                                myAge = 0;
+                            }
+                            console.log(myName, myAge);
+
                         ```
-
                 )
 
-    28.2. Unique Values/IDs Generate:-
+***
 
-      28.2.1. useId(Unique IDs):- useId hook returns uniqueid. Don't use it to generate an ID for each field, as it will violate the accessibility rule of the form.
+      - Unique Values/IDs Generate:-
 
-        Syntax:-
+            5. useId(Unique IDs):- 
+             
+                 useId hook returns unique-id. Don't use it to generate an ID for each field, as it will violate the accessibility rule of the form.
 
-            ```jsx
-            import { useId } from "react";
+            Syntax:-
 
-            const MyComponent = () => {
-                const uniqueId = useId();
-            }
-            ```
+                ```JSX
 
-        
-    28.3. Pre-Loaded Logic(Initial Component Binding)/Side Effects State Management:-
+                    import { useId } from "react";
 
-        29.3.1. useEffect(Side Effects,
-        Scenario :- Use only when pre-loaded component logic e.g. page_init,page_load):- Side effects functionality (data fetching, DOM manipulation, setting up subscriptions, or timers) which normally occur outside the rendering process.
-
-        Runs side-effect code after React has updated the DOM.
-
-        Syntax:-
-
-            ```js
-            import React, { useState, useEffect } from 'react';
-
-            const Counter = () => {
-                const [count, setCount] = useState(0);
-
-                useEffect(() => {
-                    document.title = `You clicked ${count} times`;
-                }, [count]); // run effect only when count changes
-
-                return (
-                    <div>
-                        <p>You clicked {count} times</p>
-                        <button onClick={() => setCount(count + 1)}>Click me</button>
-                    </div>
-                );
-            }
-            ```
-
-            The effect updates the document title after every render where count changes.
-
-            If you omit [count], it would update after every render.
-
-            Passing an empty array [] would run it only once after the initial render.
-
-
-            (Imp:- Cleanup Code execute
-                    1. When Component Unmount mean component does not render in JSX based on condition
-                    2. When dependencies changes useEffect re-render.)   
-    
-   
-    28.4. Performance Optimization & Improvement means no change in logic based on value then fetch existing value from cache
-
-        28.4.1. useMemo(Performance Optimization & Improvement):- Built-in hook that optimize performance by memoizing (caching) the result of expensive calculations so they don't have to be recomputed on every render unless their dependencies change.
-
-        Used when complex sorting, filtering, or computations.
-
-        Syntax:-
-
-            ```jsx
-            import React, { useState, useMemo } from 'react';
-
-            const ExpensiveCalculation = ({ number }) => {
-                function factorial = useMemo(() => {
-                    function factorialOf = (n) => {
-                        return n <= 1 ? 1 : n * factorialOf(n - 1);
+                    const MyComponent = () => {
+                        const uniqueId = useId();
                     }
-                    console.log('Computing factorial...');
-                    return factorialOf(number);
-                }, [number]);
 
-                return (
-                    <div>
-                    <p>Factorial of {number} is {factorial}</p>
-                    </div>
-                );
-            }
+                ```
+***
+        
+      - Pre-Loaded Logic (Initial Component Binding)/Side Effects State Management:-
 
-            export default function App() {
-                const [count, setCount] = useState(5);
+            6. useEffect(Side Effects):-
+        
+                Scenario :- 
+                
+                Use only when pre-loaded component logic e.g. page_init,page_load.
+                
+                Side effects functionality (data fetching, DOM manipulation, setting up subscriptions, or timers) which normally occur outside the rendering process.
 
-                return (
-                    <>
-                        <ExpensiveCalculation number={count} />
+                Runs side-effect code after React has updated the DOM.
 
-                        <button onClick={() => setCount(count + 1)}>Increment</button>
-                    </>
-                );
-            }
-            ```
+                Syntax:-
 
-            The factorial is recalculated only if number changes.
+                    ```JSX
 
-            Clicking the button renders the component but the expensive factorial calculation runs only when needed.
+                        import React, { useState, useEffect } from 'react';
 
-        28.4.2. useCallBack(Memoized Callbacks):- Built-in hook that memoizes a callback function and returns the same function instance between renders unless its dependencies change. This helps optimize React components by preventing unnecessary re-creations of functions and avoids unwanted re-renders in child components that receive these callbacks as props.
+                        const Counter = () => {
+                            const [count, setCount] = useState(0);
 
-        Syntax:-
+                            useEffect(() => {
+                                document.title = `You clicked ${count} times`;
+                            }, [count]); // run effect only when count changes
 
-            ```jsx
-            import React, { useState, useCallback } from 'react';
+                            return (
+                                <div>
+                                    <p>You clicked {count} times</p>
+                                    <button onClick={() => setCount(count + 1)}>Click me</button>
+                                </div>
+                            );
+                        }
 
-            const Parent = () => {
-                const [count, setCount] = useState(0);
+                    ```
 
-                // Memoize callback to prevent its recreation unless 'count' changes
-                const increment = useCallback(() => {
-                    setCount(c => c + 1);
-                }, []);
+                    The effect updates the document title after every render where count changes.
 
-                return (
-                    <>
-                        <Child onClick={increment} />
+                    If you omit [count], it would update after every render.
 
-                        <p>Count: {count}</p>
-                    </>
-                );
-            }
-
-            const Child = React.memo(({ onClick }) => {
-                console.log("Child rendered");
-                return <button onClick={onClick}>Increment</button>;
-            });
-            ```
-
-            Without useCallback, the onClick function would be a new instance every render, causing Child to re-render.
-
-            With useCallback, the same function instance is passed, so Child only re-renders when necessary.
+                    Passing an empty array [] would run it only once after the initial render.
 
 
-    28.5. Component Rendering Stage:-
+                    (Notes:- Cleanup Code execute
+                            1. When Component Unmount mean component does not render in JSX based on condition
+                            2. When dependencies changes useEffect re-render.)   
+            
+***
 
-        28.5.1 useTransition(Component undergoes various stages such as ideal,isPending,isDone):-
-        useTransition is a hook that allows to perform an action asynchronously, such as fetching data or updating state, without blocking the user interface.
+      - Performance Optimization & Improvement means no change in logic based on value then fetch existing value from cache
 
-        Syntax:-    
+            7. useMemo(Performance Optimization & Improvement):- 
+                
+               Built-in hook that optimize performance by memoizing (caching) the result of expensive calculations so they don't have to be recomputed on every render unless their dependencies change.
 
-            ```jsx
-            import { useTransition } from "react";
+                Used when complex sorting, filtering, or computations.
 
-            const [isPending, startTransition] = useTransition();
+                Syntax:-
 
-            startTransition(() => {
-                // Perform an action that updates state asynchronously
-                fetchData();
-                // ...
-                // Update state or perform other actions
-                // ...
-                // After the action is complete, set isPending to false
-                setIsPending(false);
-                // ...
-                // Render the updated UI
-                // ...
-            })
-            ```
+                    ```JSX
 
+                        import React, { useState, useMemo } from 'react';
 
-29. Custom Hooks:-
+                        const ExpensiveCalculation = ({ number }) => {
+                            function factorial = useMemo(() => {
+                                function factorialOf = (n) => {
+                                    return n <= 1 ? 1 : n * factorialOf(n - 1);
+                                }
+                                console.log('Computing factorial...');
+                                return factorialOf(number);
+                            }, [number]);
+
+                            return (
+                                <div>
+                                <p>Factorial of {number} is {factorial}</p>
+                                </div>
+                            );
+                        }
+
+                        export default function App() {
+                            const [count, setCount] = useState(5);
+
+                            return (
+                                <>
+                                    <ExpensiveCalculation number={count} />
+
+                                    <button onClick={() => setCount(count + 1)}>Increment</button>
+                                </>
+                            );
+                        }
+                        
+                    ```
+
+                    The factorial is recalculated only if number changes.
+
+                    Clicking the button renders the component but the expensive factorial calculation runs only when needed.
+
+***
+
+            8. useCallBack(Memoized Callbacks):- 
+                
+                Built-in hook that memoizes a callback function and returns the same function instance between renders unless its dependencies change. 
+                 
+                This helps optimize React components by preventing unnecessary re-creations of functions and avoids unwanted re-renders in child components that receive these callbacks as props.
+
+                Syntax:-
+
+                    ```JSX
+
+                        import React, { useState, useCallback } from 'react';
+
+                        const Parent = () => {
+                            const [count, setCount] = useState(0);
+
+                            // Memoize callback to prevent its recreation unless 'count' changes
+                            const increment = useCallback(() => {
+                                setCount(c => c + 1);
+                            }, []);
+
+                            return (
+                                <>
+                                    <Child onClick={increment} />
+
+                                    <p>Count: {count}</p>
+                                </>
+                            );
+                        }
+
+                        const Child = React.memo(({ onClick }) => {
+                            console.log("Child rendered");
+                            return <button onClick={onClick}>Increment</button>;
+                        });
+
+                    ```
+
+                Without useCallback, the onClick function would be a new instance every render, causing Child to re-render.
+
+                With useCallback, the same function instance is called, so Child only re-renders when necessary.
+
+***
+
+      - Component Rendering Stage Hook:-
+
+            9 useTransition(Component undergoes various stages such as ideal,isPending,isDone):-
+        
+                useTransition is a hook that allows to perform an action asynchronously, such as fetching data or updating state, without blocking the user interface.
+
+                Syntax:-    
+
+                    ```JSX
+
+                        import { useTransition } from "react";
+
+                        const [isPending, startTransition] = useTransition();
+
+                        startTransition(() => {
+                            // Perform an action that updates state asynchronously
+                            fetchData();
+                            // ...
+                            // Update state or perform other actions
+                            // ...
+                            // After the action is complete, set isPending to false
+                            setIsPending(false);
+                            // ...
+                            // Render the updated UI
+                            // ...
+                        });
+                
+                    ```
+
+- Custom Hooks:-
     Custom hooks are a way to encapsulate and reuse logic across multiple components in React. They allow you to create reusable functions that can use built-in hooks like useState, useEffect, and others.
 
     Custom hooks are just JavaScript functions that start with the word "use" and can call other hooks inside them. They can return any value, including state variables, functions, or objects.
@@ -1600,48 +1762,51 @@ Terminal cmd
 
     Syntax of a custom hook that uses useState and useEffect:
 
-        ```jsx
-        import { useState, useEffect, useContext } from "react";
+        ```JSX
 
-        function useCustomHook1 = () => {
-            const [data, setData] = useState(null);
-            const [loading, setLoading] = useState(true);
-            const [error, setError] = useState(null);
+            import { useState, useEffect, useContext } from "react";
 
-            useEffect(() => {
-                const fetchData = async () => {
-                    try {
-                        const response = await fetch("https://api.example.com/data");
-                        const result = await response.json();
-                        setData(result);
-                    } catch (err) {
-                        setError(err);
-                    } finally {
-                        setLoading(false);
-                    }
-                };
+            function useCustomHook1 = () => {
+                const [data, setData] = useState(null);
+                const [loading, setLoading] = useState(true);
+                const [error, setError] = useState(null);
 
-                fetchData();
-            }, []);
+                useEffect(() => {
+                    const fetchData = async () => {
+                        try {
+                            const response = await fetch("https://api.example.com/data");
+                            const result = await response.json();
+                            setData(result);
+                        } catch (err) {
+                            setError(err);
+                        } finally {
+                            setLoading(false);
+                        }
+                    };
 
-            return { data, loading, error };
-        };
+                    fetchData();
+                }, []);
+
+                return { data, loading, error };
+            };
+
         ```
 
-30. HOC/Higher Order Component:-
+- HOC/Higher Order Component:-
+  
     HOC is a function that takes a component and returns a new component with additional functionality or behavior.
 
-    HOCs are useful for centralizing shared logic(authentication, authorization), data fetching, error handling, theming, or analytics and logging across many components.
+    HOCs are useful for centralizing shared logic(authentication, authorization), data fetching, error handling, Theming, or analytics and logging across many components.
 
-        1 Code Reusability:
+        - Code Reusability:
 
             HOCs enable sharing common logic (e.g., authentication, data fetching) across multiple components without repeating code.
 
-        2 Separation of Concerns:
+        - Separation of Concerns:
 
             They help separate the UI rendering from logic or side effects, improving code organization and maintainability.
 
-        3 Cleaner Components:
+        - Cleaner Components:
 
             Components remain focused on UI, while HOCs handle behavior, making both easier to manage.
 
@@ -1654,24 +1819,28 @@ Terminal cmd
             HOCs simplify adding or modifying shared behavior as the app grows.
 
         6 Third-Party Integration:
-            They help inject functionalities like theming, analytics, or API integration uniformly across components.
+            They help inject functionalities like Theming, analytics, or API integration uniformly across components.
 
-    Syntax:-
+        Syntax:-
 
-        ```jsx
-        const WithExtraProps = (WrappedComponent) => {
-            return (props) => {
-                const extraProps = { extraProp: "value" };
-                return <WrappedComponent {...props} {...extraProps} />;
+            ```JSX
+
+            const WithExtraProps = (WrappedComponent) => {
+                return (props) => {
+                    const extraProps = { extraProp: "value" };
+                    return <WrappedComponent {...props} {...extraProps} />;
+                };
             };
-        };
 
-        export default WithExtraProps(MyComponent);
-        ```
+            export default WithExtraProps(MyComponent);
 
-    Here, `WithExtraProps` is a HOC that adds an `extraProp` to the wrapped component `MyComponent`.
+            ```
 
-    30.1. React.Memo:-
+            Here, `WithExtraProps` is a HOC that adds an `extraProp` to the wrapped component `MyComponent`.
+
+***
+
+    - React.Memo:-
 
         React.Memo is a built-in HOC that memoizes a component, preventing unnecessary re-renders when its props haven't changed.
 
@@ -1679,21 +1848,22 @@ Terminal cmd
 
         Syntax:-
 
-            ```jsx
-            import React, { memo } from "react";
+            ```JSX
 
-            const ChildComponent = (props) => {
-                return <div>{props.value}</div>;
-            };
+                import React, { memo } from "react";
 
-            export default memo(ChildComponent);
+                const ChildComponent = (props) => {
+                    return <div>{props.value}</div>;
+                };
+
+                export default memo(ChildComponent);
+
             ```
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+***
+***
 
 ### ReactJS API Access Ways:-
-
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 #### 1. fetch():-
 
@@ -1705,11 +1875,15 @@ Terminal cmd
 
         Syntax:-
 
-            ```js
-            fetch(url).then(response => response.json())
+            ```JS
+
+                fetch(url).then(response => response.json())
                 .then(data => console.log(data))
                 .catch(error => console.error(error));
+
             ```
+
+***
 
 ##### 1.2 Async-Await
 
@@ -1717,17 +1891,20 @@ Terminal cmd
 
         Syntax:-
 
-            ```js
-            async function fetchData() {
-                try {
-                    const response = await fetch(url);
-                    const data = await response.json();
-                    console.log(data);
-                } catch (error) {
-                    console.error(error);
-                }
-            };
+            ```JS
+
+                async function fetchData() {
+                    try {
+                        const response = await fetch(url);
+                        const data = await response.json();
+                        console.log(data);
+                    } catch (error) {
+                        console.error(error);
+                    }
+                };
+                
             ```
+***
 
 #### 2. Axios() (Third-Party):-
 
@@ -1747,8 +1924,11 @@ Terminal cmd
 ##### 2.1. First install axios
 
          Syntax:-
-                ```terminal
+
+                ```Terminal
+
                     npm install axios
+
                 ```
 
                  Then verify the module is installed or not in the package.json within the dependencies key's value, along with the module version
@@ -1760,22 +1940,30 @@ Terminal cmd
 
                      Syntax:-
 
-                         ```js
-                         import axios from 'axios';
+                            ```JS
 
-                         axios.get(url)
-                             .then(response => console.log(response.data))
-                             .catch(error => console.error(error));
-                         ```
+                            import axios from 'axios';
+
+                            axios.get(url)
+                                .then(response => console.log(response.data))
+                                .catch(error => console.error(error));
+
+                            ```
 
                      Promise Methods to fetch response:-
 
                          1. Promise.all :- When any of Single Promise is not fulfilled/failed in array of Promises then all Promises will be failed.
+                       
                          2. Promise.race : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned.
+                         
                          3. Promise.any : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned, if all Promises are rejected then it will be failed.
+                         
                          4. Promise.resolve : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned, if all Promises are rejected then it will be resolved with undefined value.
+                         
                          5. Promise.reject : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned, if all Promises are rejected then it will be rejected with undefined value.
+                         
                          6. Promise.finally : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned, if all Promises are rejected then it will be resolved with undefined value.
+                         
                          7. Promise.timeout : When any of Single Promise is fulfilled in array of Promises then that Promise will be returned, if all Promises are rejected then it will be resolved with undefined value.
 
 ##### 2.1.2 Async-Await
@@ -1784,20 +1972,23 @@ Terminal cmd
 
                      Syntax:-
 
-                         ```js
-                         import axios from 'axios';
+                            ```JS
 
-                         async function fetchData() {
-                             try {
-                                 const response = await axios.get(url);
-                                 console.log(response.data);
-                             } catch (error) {
-                                 console.error(error);
-                             }
-                         };
+                                import axios from 'axios';
 
-                         fetchData();
-                         ```
+                                async function fetchData() {
+                                    try {
+                                        const response = await axios.get(url);
+                                        console.log(response.data);
+                                    } catch (error) {
+                                        console.error(error);
+                                    }
+                                };
+
+                                fetchData();
+
+                            ```
+***
 
 ##### 2.1 Axios HTTP Methods(CRUD Methods):-
 
@@ -1809,18 +2000,21 @@ Terminal cmd
 
         Syntax:-
 
-        ```js
-        import axios from "axios";
+            ```JS
 
-        async function createResource(data) {
-            try {
-            const response = await axios.post("https://api.example.com/resources", data);
-            console.log("Resource created:", response.data);
-            } catch (error) {
-            console.error("Error creating resource:", error);
-            }
-        };
-        ```
+                import axios from "axios";
+
+                async function createResource(data) {
+                    try {
+                    const response = await axios.post("https://api.example.com/resources", data);
+                    console.log("Resource created:", response.data);
+                    } catch (error) {
+                    console.error("Error creating resource:", error);
+                    }
+                };
+
+            ```
+***
 
 ##### 2.1.2 GET(Read-R):-
 
@@ -1828,18 +2022,21 @@ Terminal cmd
 
         Syntax:-
 
-        ```js
-        import axios from "axios";
+            ```JS
 
-        async function fetchResource(id) {
-            try {
-            const response = await axios.get(`https://api.example.com/resources/${id}`);
-            console.log("Resource fetched:", response.data);
-            } catch (error) {
-            console.error("Error fetching resource:", error);
-            }
-        };
-        ```
+                import axios from "axios";
+
+                async function fetchResource(id) {
+                    try {
+                    const response = await axios.get(`https://api.example.com/resources/${id}`);
+                    console.log("Resource fetched:", response.data);
+                    } catch (error) {
+                    console.error("Error fetching resource:", error);
+                    }
+                };
+
+            ```
+***
 
 ##### 2.1.3 PUT(Update-U):-
 
@@ -1847,35 +2044,41 @@ Terminal cmd
 
         Syntax:-
 
-        ```js
-        import axios from "axios";
+            ```JS
 
-        async function updateResource(id, data) {
-            try {
-            const response = await axios.put(`https://api.example.com/resources/${id}`, data);
-            console.log("Resource updated:", response.data);
-            } catch (error) {
-            console.error("Error updating resource:", error);
-            }
-        };
-        ```
+                import axios from "axios";
+
+                async function updateResource(id, data) {
+                    try {
+                    const response = await axios.put(`https://api.example.com/resources/${id}`, data);
+                    console.log("Resource updated:", response.data);
+                    } catch (error) {
+                    console.error("Error updating resource:", error);
+                    }
+                };
+
+            ```
 
         The PATCH method is also used for updating a resource, but it is typically used for partial updates, meaning only the fields that need to be changed are sent in the request body.
 
         Syntax:-
 
-        ```js
-        import axios from "axios";
+            ```JS
 
-        async function patchResource(id, data) {
-            try {
-            const response = await axios.patch(`https://api.example.com/resources/${id}`, data);
-            console.log("Resource patched:", response.data);
-            } catch (error) {
-            console.error("Error patching resource:", error);
-            }
-        };
-        ```
+                import axios from "axios";
+
+                async function patchResource(id, data) {
+                    try {
+                    const response = await axios.patch(`https://api.example.com/resources/${id}`, data);
+                    console.log("Resource patched:", response.data);
+                    } catch (error) {
+                    console.error("Error patching resource:", error);
+                    }
+                };
+
+            ```
+
+***
 
 ##### 2.1.4. DELETE(Delete-D):-
 
@@ -1883,68 +2086,76 @@ Terminal cmd
 
         Syntax:-
 
-        ```js
-        import axios from "axios";
+            ```JS
 
-        async function deleteResource(id) {
-            try {
-                const response = await axios.delete(`https://api.example.com/resources/${id}`);
-                console.log("Resource deleted:", response.data);
-            } catch (error) {
-                    console.error("Error deleting resource:", error);
+                import axios from "axios";
+
+                async function deleteResource(id) {
+                    try {
+                        const response = await axios.delete(`https://api.example.com/resources/${id}`);
+                        console.log("Resource deleted:", response.data);
+                    } catch (error) {
+                            console.error("Error deleting resource:", error);
+                        }
                 }
-        }
-        ```
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            ```
+
+***
+***
 
 ### React/ReactJS Routing/Navigation
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-1.  REACT ROUTER(v7.6+)(Developed By Michael Jackson and Ryan Florence not Facebook or Google) is another JavaScript(JS) Library/Framework used for implementing Routing in our Web Application using client-side scripting.
+- REACT ROUTER(v7.6+)(Developed By Michael Jackson and Ryan Florence not Facebook or Google) is another JavaScript(JS) Library/Framework used for implementing Routing in our Web Application using client-side scripting.
 
-2.  Install the react-router module.
+- Install the react-router module.
 
     Syntax:-
 
-           ```terminal
+           ```Terminal
+
                 npm install react-router-dom@latest
+
            ```
 
     Then verify the module is installed or not in the package.json within the dependencies key's value, along with the module version
 
-3.  Routing/Navigation :- Moving through different UI is SPA(Single Page Application) is done through React-Router framework
+- Routing/Navigation :- Moving through different UI is SPA(Single Page Application) is done through React-Router framework
     concept.
 
     Syntax:- Two ways to create a route
 
-    3.1. Old (Using helper createRoutesFromElements):
+    - Old (Using helper createRoutesFromElements):
 
-        e.g.:-
+        E.g.:-
 
-            ```jsx
-                import { createBrowserRouter } from "react-router-dom";
+            ```JSX
 
-                const App = () => {
-                    const router = createBrowserRouter(
-                    createRoutesFromElements(
-                        <>
-                            <Route path="/" element={<Home/>}/>
-                            <Route path="/about" element={<About/>}/>
-                        </>
-                    )    
-                    );
+                    import { createBrowserRouter } from "react-router-dom";
 
-                    <RouterProvider router={router} />
-                }
+                    const App = () => {
+                        const router = createBrowserRouter(
+                        createRoutesFromElements(
+                            <>
+                                <Route path="/" element={<Home/>}/>
+                                <Route path="/about" element={<About/>}/>
+                            </>
+                        )    
+                        );
+
+                        <RouterProvider router={router} />
+                    }
+
             ```
 
-    3.2. New:-
+***
+
+    - New(Best Way):-
             
         e.g.:-
 
-            ```jsx
+            ```JSX
 
                     import { createBrowserRouter } from "react-router-dom";
 
@@ -1961,69 +2172,81 @@ Terminal cmd
 
     (Note:- / in path defines the route/home route of the application means it loads the initial component)
 
-    (Imp:- <RouterProvider router={router} /> react-router-dom inbuilt component that shares the router path/url/links to calling components map to path in createBrowserRouter) in the entire application,
+    (Imp:- <RouterProvider router={router} / > react-router-dom inbuilt component that shares the router path/url/links to calling components map to path in createBrowserRouter) in the entire application,
     means path call in browser anywhere within the application, that path is checked in the router array object by RouterProvider
     and then navigate to the associated component
 
-    Eg:-
+        E.g.:-
 
-    ```jsx
+            ```JSX
 
-        const App = () => {
-            const routeLinks = createBrowserRouter(
-            [
-                {
-                    path: "/",
-                    element: <AppLayout />,
-                    children: [
-                        { path: "/", element: <Home /> },
-                        { path: "/about", element: <About /> },
-                        { path: "/movie", element: <Movie /> },
-                        { path: "/contact", element: <Contact /> }
-                    ],
-                    errorElement: <ErrorPage />,
-                },
-            ]
-            );
+                const App = () => {
+                    const routeLinks = createBrowserRouter(
+                    [
+                        {
+                            path: "/",
+                            element: <AppLayout />,
+                            children: [
+                                { path: "/", element: <Home /> },
+                                { path: "/about", element: <About /> },
+                                { path: "/movie", element: <Movie /> },
+                                { path: "/contact", element: <Contact /> }
+                            ],
+                            errorElement: <ErrorPage />,
+                        },
+                    ]
+                    );
 
-            <RouterProvider router={routeLinks} />
-        }
-    ```
+                    <RouterProvider router={routeLinks} />
+                }
+            ```
 
     Props of createBrowserRouter:-
 
-    1. path:- It accepts a navigation path name, which is displayed in the browser URL.
+    - path:- It accepts a navigation path name, which is displayed in the browser URL.
 
-    2. element:- It holds a component that gets rendered when the associated path is displayed in the browser URL
+    - element:- It holds a component that gets rendered when the associated path is displayed in the browser URL
 
-    3. children:- It also holds an array of paths along with a child component, which is going to render in the Page Body section.
+    - children:- It also holds an array of paths along with a child component, which is going to render in the Page Body section.
 
-       1. In the above element <AppLayout> is a component that consists of a Header and a Footer section, which is common for the entire application.
-       2. Children are included dynamically in the Body section between the Header section & Footer section by <Outlet> react router component, based on the associated path, gets called on clicking of the link which is generated using <NavLink> react router component.
-       3. Loader prop of children takes a function that returns JSON data from the function through fetchAPI() as API data.
-       4. Action prop of children takes a function that returns JSON data from the function through formData() that is used to UPDATE different fields of data submitted in the component by Form action.
+       - In the above element < AppLayout> is a component that consists of a Header and a Footer section, which is common for the entire application.
+      
+       - Children are included dynamically in the Body section between the Header section & Footer section by < Outlet> react router component, based on the associated path, gets called on clicking of the link which is generated using < NavLink> react router component.
+        
+       - Loader prop of children takes a function that returns JSON data from the function through fetchAPI() as API data.
+          
+       - Action prop of children takes a function that returns JSON data from the function through formData() that is used to UPDATE different fields of data submitted in the component by Form action.
 
-    4. errorElement:- It holds the component that gets rendered when the associated element component's error occurs due to syntax, logic, etc.
+    - errorElement:- It holds the component that gets rendered when the associated element component's error occurs due to syntax, logic, etc.
 
-4.  Due to the <a> HTML tag, when a link is clicked, there is a full postback of the page, so no use of <a> anchor HTML tags in React.
-    Therefore, in React, the built-in component <NavLink> is provided in place of the <a> anchor tag or any navigation HTML tag to avoid postback/refresh of the entire page.
-    In <NavLink>, their is 'to' attribute is replaced with the <a> tag 'href' attribute.
+    
+    Scenario(To REPLACE < a> tag by < NavLink>):-
 
-    Syntax:-
+        Due to the < a> HTML tag, when a link is clicked, there is a full postback of the page, so no use of <a> anchor HTML tags in React.
 
-    HTML Tag:-
+        Therefore, in React, the built-in component <NavLink> is provided in place of the <a> anchor tag or any navigation HTML tag to avoid postback/refresh of the entire page.
 
-        ```html
-          <a href="#" >Link</a >
-        ```
+        In < NavLink>, their is 'to' attribute is replaced with the <a> tag 'href' attribute.
 
-    In React:-
+        Syntax:-
 
-        ```jsx
-          <NavLink to="#">Link</NavLink>
-        ```
+        HTML Tag:-
 
-5.  Active Link is a concept of highlighting the current selected Link based on the color of the Link is different from all other non-selected Link colors.
+            ```HTML
+
+                <a href="#">Link</a>
+
+            ```
+
+        In React:-
+
+            ```JSX
+
+                <NavLink to="#">Link</NavLink>
+
+            ```
+
+- Active Link is a concept of highlighting the current selected Link based on the color of the Link is different from all other non-selected Link colors.
 
     There are 3 ways of adding 'active' CssClass with 'nav-link' CssClass
 
@@ -2031,11 +2254,12 @@ Terminal cmd
     2. Style with inline function
     3. Style with a function call
 
-6.  Hooks In React Router:-
+- Hooks In React Router:-
 
-    Eg:-
+    E.g.:-
 
-    ```jsx
+    ```JSX
+
         import { createBrowserRouter, RouterProvider } from "react-router-dom";        
 
         const App = () => {    
@@ -2055,13 +2279,15 @@ Terminal cmd
 
             <RouterProvider router={routeLinks} />
         }
+
     ```
 
-    6.1. useRouteError:- This hook provides error details, meaning the cause of the error, which gives details of the Type Of Error and error, status, statusText, etc.
+    1. useRouteError:- This hook provides error details, meaning the cause of the error, which gives details of the Type Of Error and error, status, statusText, etc.
 
         Syntax:-
 
-            ```jsx
+            ```JSX
+
                   import { createBrowserRouter, RouterProvider } from "react-router-dom";
                   import { useRouteError } from "react-router-dom";
 
@@ -2070,15 +2296,17 @@ Terminal cmd
 
                     console.log(errorDetails);
                   }
+
             ```
 
         2- Ways of showing an error page
 
-        6.1.1. Using errorElement key -- Best way
+        - Using errorElement key -- Best way
 
-               e.g.
+            E.g.:-
 
-                ```jsx
+                ```JSX
+
                     const App=()=>{
                         const routeLinks = createBrowserRouter([
                         {
@@ -2096,13 +2324,17 @@ Terminal cmd
 
                         <RouterProvider router={routeLinks} />
                     }
+
                 ```
 
-        6.1.2. Using children's JSON object
+***
 
-                e.g.
+        2. Using children's JSON object
 
-                ```jsx
+            E.g.:-
+
+                ```JSX
+
                     const App=()=>{
                         const routeLinks = createBrowserRouter([
                         {
@@ -2114,7 +2346,7 @@ Terminal cmd
                                     { path: "/movie", element: <Movie /> },
                                     { path: "/contact", element: <Contact /> },
 
-                                    { path: "*", element: <ErrorPage /> },                --- (Imp:- path: "*" -  Where * is Wild Card Route)
+                                    { path: "*", element: <ErrorPage /> },                (Imp:- path: "*" -  Where * is Wild Card Route)
 
                                     ],
                         },
@@ -2122,13 +2354,16 @@ Terminal cmd
 
                         <RouterProvider router={routeLinks} />
                     }
+
                 ```
 
-    6.2. useNavigate:- This hook is used to navigate, especially to the immediate previous URL/Page. Can also navigate to any URL/Page.
+***
+
+    2. useNavigate:- This hook is used to navigate, especially to the immediate previous URL/Page. Can also navigate to any URL/Page.
 
     Syntax:-    
 
-            ```jsx
+            ```JSX
 
                 import { useNavigate } from "react-router-dom";
 
@@ -2141,16 +2376,19 @@ Terminal cmd
                         </button>
                     )
                 }
+
             ```
 
         Note: -1 means the previous page
               / mean home page
 
-    6.3. useNavigation:- This hook is used to get information about the current navigation state, such as location, action, etc.
+***
+
+    3. useNavigation:- This hook is used to get information about the current navigation state, such as location, action, etc.
 
     Syntax:-
 
-            ```jsx
+            ```JSX
 
                 import { useNavigation } from "react-router-dom";
 
@@ -2164,61 +2402,72 @@ Terminal cmd
                         </div>
                     )
                 }
+
             ```
 
             Note:- navigation.state can be used to check the current state of navigation, such as loading, idle, etc.
 
-    6.4. useLoaderData:- This hook is used to get data from the loader function, which is defined in the route's children array object.State property of the hook is used to know the current state of data loading, such as loading, idle, etc.
+***
+
+    4. useLoaderData:- This hook is used to get data from the loader function, which is defined in the route's children array object.State property of the hook is used to know the current state of data loading, such as loading, idle, etc.
 
     Syntax:-
 
-            ```jsx
-            import { useLoaderData } from "react-router-dom";
+            ```JSX
 
-             const ReactComponent=()=>{
-                const data = useLoaderData();
+                import { useLoaderData } from "react-router-dom";
 
-                console.log(data);
-             }
+                const ReactComponent=()=>{
+                    const data = useLoaderData();
+
+                    console.log(data);
+                }
+
             ```
 
-7.  Dynamic Route Parameters:-
+- Dynamic Route Parameters:-
 
-        Dynamic route parameters are used to access dynamic values from the URL.
+    Dynamic route parameters are used to access dynamic values from the URL.
 
-    7.1. Calling component in route with a dynamic route parameter in the path use prop object useParams hook
+    - Calling component in route with a dynamic route parameter in the path use prop object useParams hook
 
-    useParams(OLD React version below 6.4):- This hook is used to access dynamic route parameters from the URL when using through component call in the loader prop of the route.
+        - useParams(OLD React version below 6.4):- This hook is used to access dynamic route parameters from the URL when using through component call in the loader prop of the route.
 
-    Syntax:-
+        Syntax:-
 
-           ```jsx 
-                import { useParams } from "react-router-dom";
+            ```JSX
 
-                const ChildComponent=()=>{
-                    const params = useParams();
+                    import { useParams } from "react-router-dom";
 
-                    console.log(params);
-                }           
-           ```
+                    const ChildComponent=()=>{
+                        const params = useParams();
 
-           Note:- The params object will contain key-value pairs of dynamic route parameters defined in the path.
+                        console.log(params);
+                    }           
 
-           Example: If the path is "/movie/:movieID", then params will be an object like { movieID: "123" }.
+            ```
 
-        2. Calling a function in the route with a dynamic route parameter in the loader prop of the route
+            Note:- The params object will contain key-value pairs of dynamic route parameters defined in the path.
 
-            ```jsx 
-                 import { useParams } from "react-router-dom";
+            Example: If the path is "/movie/:movieID", then params will be an object like { movieID: "123" }.
 
-                const ChildComponent=({params})=>{                    
-                    console.log(params);
-                }           
+        - New way of Calling a function in the route with a dynamic route parameter in the loader prop of the route
+
+        Syntax:-
+
+            ```JSX
+
+                    import { useParams } from "react-router-dom";
+
+                    const ChildComponent=({params})=>{                    
+                        console.log(params);
+                    }           
+
             ```
 
            Note:- {params} object is passed as a prop to a function where a dynamic route parameter is required.
 
-8.  .env File:-
+- .env File:-
     This file is used to store environment variables such as API keys, URLs, etc. It should not be committed to version control for security reasons.
 
     (Note:- .env file should be placed at the root of the project directory.)
@@ -2229,115 +2478,137 @@ Terminal cmd
 
             Always append 'REACT_APP_' before the variable name to make it accessible in a React application.
 
-            ```env
+            ```ENV
 
                 REACT_APP_API_KEY=your_api_key_here
                 REACT_APP_API_URL=https://api.example.com
+
             ```
 
-            ```jsx
+            ```JSX
+
                 import (REACT.meta.env.REACT_APP_API_KEY) from "react"; --To Access Environment Variables
+
             ```
 
           But in the Vite project, below is an example of the .env file,
 
           Always append 'VITE_' before the variable name to make it accessible in a React application.
 
-            ```env                
+            ```ENV                
+
                 VITE_API_KEY=your_api_key_here
                 VITE_API_URL=https://api.example.com
+
             ```
-            ```jsx
+            ```JSX
+
                 import.meta.env.VITE_API_KEY from "react";  --To Access Environment Variables
+
             ```
 
-9.  Dynamic Routing:-
+- Dynamic Routing:-
     Dynamic routing is used to create routes based on data or user input. It allows you to create routes that can change at runtime.
 
         Syntax:-
 
             In React Router, dynamic routing can be achieved by using route parameters in the path.
 
-        e.g.
+            E.g.:-
 
-          ```jsx
-                { path: "/movie/:movieID", element: <Movie />, loader: getMoviesDataByParams }
-          ```
+                ```JSX
 
-          9.1. Calling component in route with a dynamic route parameter in path
+                        { path: "/movie/:movieID", element: <Movie />, loader: getMoviesDataByParams }
+                        
+                ```
+
+          - Calling component in route with a dynamic route parameter in path
 
              In this example, `:movieID` is a route dynamic parameter that can be accessed in the `Movie` component using the `useParams` hook.
 
-          9.2. Calling a function in the route with a dynamic route parameter in the loader prop of the route
+          - Calling a function in the route with a dynamic route parameter in the loader prop of the route
 
              In this example, `:movieID` is a route dynamic parameter that can be accessed in the `getMoviesDataByParams` function by passing the `params` object as a prop.
 
-              ```jsx
-                    export const getMoviesDataByParams = async ({ params }) =>
-                    {
-                           let movieID = params.movieID;
-                           const data = await resp.json();
+              E.g.:-
 
-                            return data;
-                    };
-              ```
+                    ```JS
 
-10. Form Submission:- 
+                            export const getMoviesDataByParams = async ({ params }) =>
+                            {
+                                let movieID = params.movieID;
+                                const data = await resp.json();
+
+                                    return data;
+                            };
+
+                    ```
+
+- Form Submission:- 
 
     Actually form submission in React without React Router concept is like below,
 
-        ```jsx
-            function handleSubmitPost(ev) {
-                ev.preventDefault();
-                try {
-                    const action = ev.nativeEvent.submitter.value;
-                    action === "Add" ? handleAddPost(post) : handlePutPost(post);
-                    setPost(initPost);
-                } catch (error) {
-                    console.error("Error Message ", error.message);
-                    console.error("Error Status ", error.response.status);
-                    console.error("Error Data ", error.response.data);
-                }
-            }
+        Syntax:-
 
-            <form onSubmit={handleSubmitPost}>
-                <input type="text" name="name" placeholder="Your Name" required />
-                <input type="email" name="email" placeholder="Your Email" required />
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
+            ```JSX
 
-        ```
+                    function handleSubmitPost(ev) {
+                        ev.preventDefault();
+                        try {
+                            const action = ev.nativeEvent.submitter.value;
+                            action === "Add" ? handleAddPost(post) : handlePutPost(post);
+                            setPost(initPost);
+                        } catch (error) {
+                            console.error("Error Message ", error.message);
+                            console.error("Error Status ", error.response.status);
+                            console.error("Error Data ", error.response.data);
+                        }
+                    }
+
+                    <form onSubmit={handleSubmitPost}>
+                        <input type="text" name="name" placeholder="Your Name" required />
+                        <input type="email" name="email" placeholder="Your Email" required />
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit" value="Add">Add Message</button>
+                        <button type="submit" value="Update">Update Message</button>
+                    </form>
+
+            ```
 
     React Router provides a way to handle form submissions using the `action` prop in the route configuration. This allows you to handle form data submission and processing.
 
     Syntax:-
 
-    1-Way:- In the route configuration, you can define an `action`  function that will be called when the form is submitted.
+    - 1-Way:- In the route configuration, you can define an `action`  function that will be called when the form is submitted.
 
-              Example:
+              E.g.:-
 
                 Event call,
 
-                ```jsx
+                ```JSX
+
                     <Form method="post" action="/contact">
                         <input type="text" name="name" placeholder="Your Name" required />
                         <input type="email" name="email" placeholder="Your Email" required />
                         <textarea name="message" placeholder="Your Message" required></textarea>
                         <button type="submit">Send Message</button>
                     </Form>
+
                 ```
 
 
                  In route configuration, the action prop is used to handle form submission and process the form data as below.
 
-                 ```jsx
+                 ```JSX
+
                        { path: "/contact", element: <Contact />, action: submitContactFormData}.
+
                  ```
 
                  Then, passing the {request} object as a prop to a function where the formData() function returns a response, which is then converted to an object format through object.fromEntries(), which is further used for processing array-like structure data to convert to object format.
 
-                 ```jsx
+                 ```JS
+
                        export function submitContactFormData = async ({ request }) =>
                        {
                          try {
@@ -2356,9 +2627,10 @@ Terminal cmd
 
                             }
                        };
+
                  ```
-******************
-    2-Way:- Direct action function call that will be called when the form is submitted.
+
+    - 2-Way:- Direct action function call that will be called when the form is submitted.
 
                 Example:
 
@@ -2383,11 +2655,10 @@ Terminal cmd
                     </form>
                 ```
 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+***
+***
 
 ### React Query / TanStack Query :-
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 React Query/TanStack Query(Tanner Linsley not Facebook or Google) is a powerful library for managing server state in React applications. It simplifies data fetching, caching, and synchronization with the server, making it easier to build responsive and efficient applications.
 
@@ -2407,27 +2678,33 @@ Advantages:-
 
 #### Install React Query
 
-    ```terminal
-            npm install @tanstack/react-query
-    ```
+    Syntax:-
+
+        ```Terminal
+
+                npm install @tanstack/react-query
+
+        ```
 
 #### Usage React Query
 
     Syntax:- 
 
-    ```jsx
-        import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+        ```JSX
 
-        const ReactQueryApp = () => {
-            const queryClient = new QueryClient();
+            import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-            return (
-                <QueryClientProvider client={queryClient}>
-                    <RouterProvider router={routingURLs} />
-                </QueryClientProvider>
-        );
-        };
-    ```
+            const ReactQueryApp = () => {
+                const queryClient = new QueryClient();
+
+                return (
+                    <QueryClientProvider client={queryClient}>
+                        <RouterProvider router={routingURLs} />
+                    </QueryClientProvider>
+            );
+            };
+
+        ```
 
     (Imps:- <QueryClientProvider> is a query provider that makes the query  available to all components pass between <QueryClientProvider> and </QueryClientProvider>, allowing them to access and interact with the query cache and perform data fetching operations.)
 
@@ -2437,15 +2714,20 @@ Advantages:-
 
     Syntax:-
 
-            ```jsx
-            import { useQuery } from "@tanstack/react-query";
-            
-            const { data, isLoading, isError } = useQuery({
-                    queryKey: ["posts"],
-                    queryFn: fetchPosts
-                });
+            ```JSX
+
+                import { useQuery } from "@tanstack/react-query";
+                
+                const { data, isLoading, isError } = useQuery({
+                        queryKey: ["posts"],
+                        queryFn: fetchPosts
+                    });
+
             ```
     useQuery hooks provides different states like isLoading, isError, data etc. to manage your UI accordingly.
+
+***
+***
 
 ### React Query Devtools
 
@@ -2457,47 +2739,54 @@ Advantages:-
 
     Syntax:-
 
-    ```terminal
-        npm install @tanstack/react-query-devtools
-    ```
+        ```Terminal
+
+            npm install @tanstack/react-query-devtools
+            
+        ```
 
 #### Usage
 
     Then, you can use the Devtools in your application to view details of queries and their states on browser with React Query Devtools icon at the bottom right corner by including below jsx like this:
 
-    ```jsx
-    import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+        Syntax:-
 
-    const App = () => {
-        return (
-            <>
-                <YourAppComponents />
-                <ReactQueryDevtools initialIsOpen={false} />
-            </>
-        );
-    };
-    ```
+            ```JSX
+            
+                import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+
+                const App = () => {
+                    return (
+                        <>
+                            <YourAppComponents />
+                            <ReactQueryDevtools initialIsOpen={false} />
+                        </>
+                    );
+                };
+
+            ```
     Devtools in browser shows 2 tabs Queries and Mutations.
-    1. Queries: This tab displays all the active queries, their status (loading, error, success), and the data they have fetched using useQuery hook. You can inspect each query's details, including its key, variables, and response data.
+
+    - Queries: This tab displays all the active queries, their status (loading, error, success), and the data they have fetched using useQuery hook. You can inspect each query's details, including its key, variables, and response data.
 
         API Request details such as:-
-        a. Query Details: This includes information about the query's key, variables, and the data it has fetched.And also provides Stale Time, Fetch Time, and other metadata.
+        - Query Details: This includes information about the query's key, variables, and the data it has fetched.And also provides Stale Time, Fetch Time, and other metadata.
 
-        b. Actions: This includes information about the actions that have been dispatched related to the query, such as refetching or invalidating the query.
+        - Actions: This includes information about the actions that have been dispatched related to the query, such as refetching or invalidating the query.
 
-        c. Data Explorer: This allows you to explore the data returned by your queries in a more visual way, making it easier to understand the structure and contents of the data.
+        - Data Explorer: This allows you to explore the data returned by your queries in a more visual way, making it easier to understand the structure and contents of the data.
 
-        d. Query Explorer: This provides a way to inspect the query's variables, status, and other metadata in a more detailed manner.
+        - Query Explorer: This provides a way to inspect the query's variables, status, and other metadata in a more detailed manner.
 
-           d.1. gcTime: This shows the time taken for garbage collection time during the query's lifecycle.Also know as data cache time.
+           1. gcTime: This shows the time taken for garbage collection time during the query's lifecycle.Also know as data cache time.
            (Default value of gcTime is 5 minutes)
            (Scenario:- When the query is no longer needed, it will be garbage collected after this time.)
 
-           d.2. staleTime: This shows the time after which the cached data is considered stale/old. The default value is 0 seconds, meaning the data is fresh until it is fetched again.
+           2. staleTime: This shows the time after which the cached data is considered stale/old. The default value is 0 seconds, meaning the data is fresh until it is fetched again.
            (Default value of staleTime is 0 seconds)
            (Scenario:- When the query data is became stale/old, it will be need to refetch updated data after this time.)
 
-           d.3. Polling :- Keep data up-to-date by automatically refetching it at a specified interval.This can be achieved using the refetchInterval option when tab is active or refetchIntervalInBackground when tab is inactive.
+           3. Polling :- Keep data up-to-date by automatically refetching it at a specified interval.This can be achieved using the refetchInterval option when tab is active or refetchIntervalInBackground when tab is inactive.
            (Scenarios:- Real-time applications, dashboards, etc.)
 
            refetchInterval: This shows the time interval at which the query will automatically refetch data. The default value is 0 seconds, meaning the query will not refetch automatically.
@@ -2506,11 +2795,13 @@ Advantages:-
            refetchIntervalInBackground: This shows the time interval at which the query will automatically refetch data when the tab is inactive. The default value is 0 seconds, meaning the query will not refetch automatically in the background.
            (Default value of refetchIntervalInBackground is 0 seconds means not applied)
 
-    2. Mutations: This tab shows all the mutations(means updates on data based on insert,put/patch,delete api call using useMutation hook) that have been triggered in your application. You can see their status, any errors that occurred, and the data they have modified.  
+    - Mutations: This tab shows all the mutations(means updates on data based on insert,put/patch,delete api call using useMutation hook) that have been triggered in your application. You can see their status, any errors that occurred, and the data they have modified.  
 
-+++++++++++++++++++++++++++++++++++++++++
+***
+***
+
 ### REDUX / REDUX TOOLKIT(RTK) / Zustand
-+++++++++++++++++++++++++++++++++++++++++++
+
 
 #### REDUX :-
 

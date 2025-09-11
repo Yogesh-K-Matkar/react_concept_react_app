@@ -1293,8 +1293,6 @@ This is known as the Syntactic Event Handler Function.
 
     - Controlled Data Hooks (Reflect changes immediately in DOM and on UI onChange - Sync Data - Operations:- Input value):- useState
 
-***
-
     - UnControlled Data Hooks (Does not reflect changes in DOM and not on UI onChange - Non-Sync Data - Operations:- Background values,timer):- useRefs
 
 - The 'use' prefixes in a function name is all React Hooks.

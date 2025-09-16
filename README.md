@@ -897,7 +897,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
             ```
 
-    (Note:- As per ECMAScript (ES6) rule, if in an object structure like { Name: Name }, when key and value are the same, then define the object like this {Name})
+    **Note**:- As per ECMAScript (ES6) rule, if in an object structure like { Name: Name }, when key and value are the same, then define the object like this {Name})
 
 - To pass HTML content as JSX/string within opening and closing component tags, then a special prop is used, denoted as children, to access those elements.
 
@@ -911,15 +911,15 @@ If you are developing a production application, we recommend using TypeScript wi
 
         ```
 
-- CSS Style- grid or flex-box. CSS always give it to the parent tag.
+- **CSS Style** - grid or flex-box. CSS always give it to the parent tag.
   
     Instead of defining a class prop for applying a CSS class, use the className prop.
 
-    Types of CSS:-
+    **Types of CSS**:-
 
-    - Normal CSS consider using the className prop.
+    - **Normal CSS** consider using the className prop.
 
-    - Inline CSS consider value as an object defined within { object } for the style prop
+    - **Inline CSS** consider value as an object defined within { object } for the style prop
 
         E.g.
 
@@ -942,7 +942,7 @@ If you are developing a production application, we recommend using TypeScript wi
             ```
 ***
 
-    - Conditionally applying CSS
+    - **Conditionally applying CSS**
 
         - Based on the Ternary operator, apply styling
 
@@ -965,9 +965,9 @@ If you are developing a production application, we recommend using TypeScript wi
                 ```
 ***
 
-    - ModuleCSS:-
+    - **ModuleCSS**:-
     
-        Module CSS is a component-specific style and extension of a file is <filename>.module.css
+        **Module CSS** is a component-specific style and extension of a file is <filename>.module.css
 
         In Module CSS, each className is treated as a property of that specific module.css object
 
@@ -998,7 +998,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ***
 
-    - Using Tailwind v4 CSS (Third Party):-
+    - **Using Tailwind v4 CSS (Third Party)**:-
 
         - Install through Terminal cmd:-
 
@@ -1037,7 +1037,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
             ```
 
-        (Notes:- In TailwindCSS,
+        **Notes**:- In TailwindCSS,
 
         1. Need to you can set dynamic values within [], such as
 
@@ -1051,11 +1051,11 @@ If you are developing a production application, we recommend using TypeScript wi
 
                 !py-6
 
-        )
+        
 
-- Different Source of UI Controls :
+- **Different Source of UI Controls**:-
 
-    - Styled-Components (Third Party):-
+    - **Styled-Components (Third Party)**:-
     In styled-component, first need to install using the Terminal cmd
 
         E.g.:-
@@ -1108,7 +1108,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
             style.button --> button is a tag, eg p, h, button, span
 
-- Custom Error:-
+- **Custom Error**:-
     To show custom error message, use the below syntax
 
         E.g.:-
@@ -1119,13 +1119,13 @@ If you are developing a production application, we recommend using TypeScript wi
 
             ```
 
-- Event Handler in JS, such as onClick, onChange, onSubmit, etc, which then call Syntactic Event Handler Function in React, should be written as a function name such as handleClick, handleChange,handleSubmit, etc
+- **Event Handler** in JS, such as onClick, onChange, onSubmit, etc, which then call Syntactic Event Handler Function in React, should be written as a function name such as handleClick, handleChange,handleSubmit, etc
 
 This is known as the Syntactic Event Handler Function.
 
-    - Type Of Function:-
+    - **Type Of Function**:-
 
-      - Named Function is only calling the function name, not the function.
+      - **Named Function** is only calling the function name, not the function.
             
            onClick={handleButtonClick} (Not like this onClick={handleButtonClick()})
         
@@ -1137,7 +1137,7 @@ This is known as the Syntactic Event Handler Function.
 
             ```
 
-      - Arrow Function with event as parameter to get Syntactic Event object
+      - ***Arrow Function with event** as parameter to get Syntactic Event object
 
         E.g.:-        
 
@@ -1147,7 +1147,7 @@ This is known as the Syntactic Event Handler Function.
 
             ```
 
-      - Inline Function With Syntactic Event Object
+      - **Inline Function With Syntactic Event Object**
 
         E.g.:-        
 
@@ -1157,7 +1157,7 @@ This is known as the Syntactic Event Handler Function.
 
             ```
 
-      - Inline Arrow Normal Function
+      - **Inline Arrow Normal Function**
 
         E.g.:-        
 
@@ -1167,7 +1167,7 @@ This is known as the Syntactic Event Handler Function.
 
             ```
 
-      - Arrow function passing parameters/arguments
+      - **Arrow function passing parameters/arguments**
 
         E.g.:-       
 
@@ -1177,21 +1177,21 @@ This is known as the Syntactic Event Handler Function.
 
             ```
 
-- Event Handler passing as props can be used in concepts such as Form Handling, User Interaction, State Management, and Callback Function.
+- **Event Handler** passing as props can be used in concepts such as Form Handling, User Interaction, State Management, and Callback Function.
 
-- Event Function is defined in Parent Component & passed as Props to Child Component, & then Child Component decides when to call Parent Component Event Function.
+- **Event Function** is defined in Parent Component & passed as Props to Child Component, & then Child Component decides when to call Parent Component Event Function.
  
     So Parent Component pass Event Function as Props as Event Handler to the Child Component.
 
-- Event Propagation, propagate means moving & Event Propagation means moving each element and the occurrence of the event until it reaches the target event.
+- **Event Propagation**, propagate means moving & Event Propagation means moving each element and the occurrence of the event until it reaches the target event.
 
     Event Propagation has 3 components (Capture, Target & Bubbling)
 
-    - Phases of Event Propagation:-
+    - **Phases of Event Propagation**:-
 
-        - Event Capture means propagating/moving from the Parent Element to the Target Action Element and triggering all occurrence event functions in the path while moving.
+        - **Event Capture** means propagating/moving from the Parent Element to the Target Action Element and triggering all occurrence event functions in the path while moving.
 
-        - Event Bubbling means propagating/moving from Target Action Element to Parent Element and triggering all occurrence event functions in the path while moving.
+        - **Event Bubbling** means propagating/moving from Target Action Element to Parent Element and triggering all occurrence event functions in the path while moving.
 
         But to avoid the unwanted bubbling of event functions we have to use
 
@@ -1230,9 +1230,9 @@ This is known as the Syntactic Event Handler Function.
 
             ```
 
-- Derived State means a variable value comes from a State Variable.
+- **Derived State** means a variable value comes from a State Variable.
 
-- LiftingStateUp means when the state is defined in children and the same is needed by children at the same node level.
+- **LiftingStateUp** means when the state is defined in children and the same is needed by children at the same node level.
   
     So we need to move the state to its parent, where both children are calling. This can be done through passing a function as a prop to the child,
     where the value from the child is passed to the parent via the parent function passed as a prop to set the State in the parent.
@@ -1240,7 +1240,7 @@ This is known as the Syntactic Event Handler Function.
 
     That means State is common to multiple states at the same level of the child component.
 
-- React Icons for icons image from multiple sources(Font Awesome icons, Material UI icons, etc) at one place
+- **React Icons** for icons image from multiple sources(Font Awesome icons, Material UI icons, etc) at one place
 
     To access icons, first need to install using 
     
@@ -1270,7 +1270,7 @@ This is known as the Syntactic Event Handler Function.
 
         ```
 
-- Local Storage:-
+- **Local Storage**:-
    To store & retain any value on refresh of the browser without a database.
 
     E.g.:- To set,
@@ -1293,21 +1293,21 @@ This is known as the Syntactic Event Handler Function.
   
   In React, most components are uncontrolled components by default unless their values are bound to a state variable..
 
-    - Controlled Data Hooks (Reflect changes immediately in DOM and on UI onChange - Sync Data - Operations:- Input value):- useState
+    - **Controlled Components** Data is tightly bind to Hooks values (Reflect changes immediately in DOM and on UI onChange - Sync Data - Operations:- Input value):- useState
 
-    - UnControlled Data Hooks (Does not reflect changes in DOM and not on UI onChange - Non-Sync Data - Operations:- Background values,timer):- useRefs
+    - **UnControlled Components** Data not bind with Hooks values (Does not reflect changes in DOM and not on UI onChange - Non-Sync Data - Operations:- Background values,timer):- useRefs
 
 - The 'use' prefixes in a function name is all React Hooks.
 
-    - Types Of Hooks:-
+    - **Types Of Hooks**:-
 
-      - State Management:-
+      - **State Management**:-
 
         - Simple Value State Management(Form simple values not more then 3 controls):-
 
-            1. useState(State Management with re-rendering- Simple, local state mean state value scope remain in same single component where its defined)
+            1. **useState**(State Management with re-rendering- Simple, local state mean state value scope remain in same single component where its defined)
 
-                Scenario :- 
+                **Scenario** :- 
                 
                 Use only when form is simple has not more then 2 to 3 inputs.
                 
@@ -1340,7 +1340,7 @@ This is known as the Syntactic Event Handler Function.
 
                     ```
 
-                    Notes:-
+                    **Notes**:-
 
                     - The effect updates the document title after every render where count changes.
                    
@@ -1350,9 +1350,9 @@ This is known as the Syntactic Event Handler Function.
 
 ***
 
-            2. useRefs(DOM Manipulation without re-rendering) 
+            2. **useRef**(DOM Manipulation without re-rendering) 
           
-                Scenario :- 
+                **Scenario** :- 
                 
                 Use only when form is simple has not more then 2 to 3 inputs.
                 
@@ -1398,21 +1398,21 @@ This is known as the Syntactic Event Handler Function.
                     No re-render is triggered when inputRef.current is mutated.
 
 
-                    (Notes:-
+                    **Notes**:-
                     
                     Passing ref from Parent Component to Child Component
                     
                     --Before React v19 release forwardRef function (props,ref)=>{} is used
                     
-                    --After React v19 release, ref can be accessed as props.)
+                    --After React v19 release, ref can be accessed as props.
 
 ***
 
         - Complex Value State Management(Form Complex Values more then 3 controls and object value which state value update multiple times):-
 
-            3. useReducer(Complex State Logic,Multiple State Values Updated- Operations:- Insert,Update,Delete,Increment,Decrement,Reset)
+            3. **useReducer**(Complex State Logic,Multiple State Values Updated- Operations:- Insert,Update,Delete,Increment,Decrement,Reset)
         
-                Scenario :- 
+                **Scenario** :- 
                 
                 Use only when state undergoes multiple operation for e.g. insert,update,delete,increment,decrement. state value multiple times.
                 
@@ -1470,11 +1470,11 @@ This is known as the Syntactic Event Handler Function.
 
 ***
 
-        - Global Static State Management(Avoid prop drilling by sharing states):-
+        - **Global Static State Management**(Avoid prop drilling by sharing states):-
 
-            4. useContext:
+            4. **useContext**:
 
-                Prop Drilling(Problem which is resolved using useContext hook):-
+                **Prop Drilling**(Problem which is resolved using useContext hook):-
                
                 Passing Props through Source Component to subsequent child components until it reaches to the required destination/target component.
 

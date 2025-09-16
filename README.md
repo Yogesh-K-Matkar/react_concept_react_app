@@ -80,9 +80,9 @@ Color:-
                     var i=20;
                     ```
 
-            **Note:- Due to Hoisting their is inconsistency and unmanageable code,that's why ES6(ES2015) introduced let and const keywords for variable declaration. 
+            **Note**:- Due to Hoisting their is inconsistency and unmanageable code,that's why ES6(ES2015) introduced let and const keywords for variable declaration. 
 
-            ES means ECMAScript is a standard for scripting languages such as JavaScript, JScript, and ActionScript.**
+            ES means ECMAScript is a standard for scripting languages such as JavaScript, JScript, and ActionScript.
 
         2. let
 

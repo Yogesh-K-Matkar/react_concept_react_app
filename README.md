@@ -774,7 +774,9 @@ If you are developing a production application, we recommend using TypeScript wi
 
     ![Lifecycle](public/images/ComponentLifecycle.png)
 
-         **Lifecycle**:- Three main phases:
+
+
+     **Lifecycle**:- Three main phases:
 
          1. **Mounting Phase**
 

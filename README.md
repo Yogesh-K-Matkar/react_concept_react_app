@@ -47,7 +47,7 @@ Color:-
             ```
    - Types of variable declaration in Javascript/JS:-
 
-        1. var
+        1. **var**
 
             - Dynamic means the variable type e.g. var i whose value can be re-declared, and it can be changed at any time based on value assigned.
 

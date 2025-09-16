@@ -1124,13 +1124,15 @@ If you are developing a production application, we recommend using TypeScript wi
 
          - **Type Of Function**:-
 
-              - **Named Function** is only calling the     function name, not the function.
+              - **Named Function** is only calling the function name, not the function.
             
-                       onClick={handleButtonClick} (Not like this onClick={handleButtonClick()})
-        
+                       
                   E.g.:- Like this
 
                        ```JSX
+                            
+                            onClick={handleButtonClick} (Not like this onClick={handleButtonClick()})
+        
             
                             <button onClick={handleButtonClick}>Click Me</button>
 

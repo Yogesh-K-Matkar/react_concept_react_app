@@ -810,9 +810,9 @@ If you are developing a production application, we recommend using TypeScript wi
 
                 3.1. componentWillUnmount(): Called right before the component is removed, where you can clear timers, cancel network requests, or remove event listeners.
 
-***
 
-    - Functional Component:-
+
+    - **Functional Component**:-
   
         JS functions returning JSX. With Hooks, can manage state and effects.Preferred currently in projects.
 
@@ -820,7 +820,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
         useEffect hook replaces componentDidMount, componentDidUpdate, and componentWillUnmount. You can specify when the effect runs and perform cleanup by returning a cleanup function.
 
-        - Types of Functional Component:-
+        - **Types of Functional Component**:-
 
           - Default Functional Component :- In case of importing the Export Default component, then while importing any component name be used without curly braces.
 
@@ -834,7 +834,7 @@ If you are developing a production application, we recommend using TypeScript wi
                 (Where export component name is NetflixSeries)
 
 
-          - Named Functional Component :- In case of importing Export Named component, then while importing the same Component name to be used with curly braces.
+          - **Named Functional Component**:- In case of importing Export Named component, then while importing the same Component name to be used with curly braces.
 
             Syntax:
 
@@ -845,7 +845,7 @@ If you are developing a production application, we recommend using TypeScript wi
                 ```
                 (Where export component name is NetflixSeries)
 
-          - Combining Default and Named Exports: In case of importing Export Default and Named component, then while importing the same Default Component and Named Component name from single same .jsx file.
+          - **Combining Default and Named Exports**: In case of importing Export Default and Named component, then while importing the same Default Component and Named Component name from single same .jsx file.
 
             Syntax:
 

@@ -1125,7 +1125,7 @@ This is known as the Syntactic Event Handler Function.
 
     - **Type Of Function**:-
 
-      - **Named Function** is only calling the function name, not the function.
+      - **Named Function** is only calling the function           name, not the function.
             
            onClick={handleButtonClick} (Not like this onClick={handleButtonClick()})
         
@@ -1137,7 +1137,7 @@ This is known as the Syntactic Event Handler Function.
 
             ```
 
-      - ***Arrow Function with event** as parameter to get Syntactic Event object
+      - **Arrow Function with event** as parameter to get Syntactic Event object
 
         E.g.:-        
 
@@ -1408,7 +1408,7 @@ This is known as the Syntactic Event Handler Function.
 
 ***
 
-        - Complex Value State Management(Form Complex Values more then 3 controls and object value which state value update multiple times):-
+        - **Complex Value State Management**(Form Complex Values more then 3 controls and object value which state value update multiple times):-
 
             3. **useReducer**(Complex State Logic,Multiple State Values Updated- Operations:- Insert,Update,Delete,Increment,Decrement,Reset)
         
@@ -1525,9 +1525,10 @@ This is known as the Syntactic Event Handler Function.
                         }
                     ```
 
-                    (Notes:- <UserContext.Provider value="{data}">children components</UserContext.Provider> 
+                    **Notes**:- <UserContext.Provider value="{data}">children components</UserContext.Provider> 
 
-                    shares the values to children components within <UserContext.Provider> and </UserContext.Provider> then specific components can access value using useContext hook.)
+                    shares the values to children components within <UserContext.Provider> and </UserContext.Provider> then specific components can access value using useContext hook.
+
                     ComponentC accesses the user value directly using useContext, without receiving it as props through intermediate components.
 
                     Changing user with setUser will cause all consuming components to update.
@@ -1563,9 +1564,9 @@ This is known as the Syntactic Event Handler Function.
 
 ***
 
-      - Unique Values/IDs Generate:-
+      - **Unique Values/IDs Generate**:-
 
-            5. useId(Unique IDs):- 
+            5. **useId**(Unique IDs):- 
              
                  useId hook returns unique-id. Don't use it to generate an ID for each field, as it will violate the accessibility rule of the form.
 
@@ -1582,11 +1583,11 @@ This is known as the Syntactic Event Handler Function.
                 ```
 ***
         
-      - Pre-Loaded Logic (Initial Component Binding)/Side Effects State Management:-
+      - **Pre-Loaded Logic** (Initial Component Binding)/Side Effects State Management:-
 
-            6. useEffect(Side Effects):-
+            6. **useEffect**(Side Effects):-
         
-                Scenario :- 
+                **Scenario** :- 
                 
                 Use only when pre-loaded component logic e.g. page_init,page_load.
                 
@@ -1630,9 +1631,9 @@ This is known as the Syntactic Event Handler Function.
             
 ***
 
-      - Performance Optimization & Improvement means no change in logic based on value then fetch existing value from cache
+      - **Performance Optimization & Improvement** means no change in logic based on value then fetch existing value from cache
 
-            7. useMemo(Performance Optimization & Improvement):- 
+            7. **useMemo**(Performance Optimization & Improvement):- 
                 
                Built-in hook that optimize performance by memoizing (caching) the result of expensive calculations so they don't have to be recomputed on every render unless their dependencies change.
 
@@ -1680,7 +1681,7 @@ This is known as the Syntactic Event Handler Function.
 
 ***
 
-            8. useCallBack(Memoized Callbacks):- 
+            8. **useCallBack**(Memoized Callbacks):- 
                 
                 Built-in hook that memoizes a callback function and returns the same function instance between renders unless its dependencies change. 
                  
@@ -1724,7 +1725,7 @@ This is known as the Syntactic Event Handler Function.
 
       - Component Rendering Stage Hook:-
 
-            9 useTransition(Component undergoes various stages such as ideal,isPending,isDone):-
+            9 **useTransition**(Component undergoes various stages such as ideal,isPending,isDone):-
         
                 useTransition is a hook that allows to perform an action asynchronously, such as fetching data or updating state, without blocking the user interface.
 
@@ -1751,8 +1752,8 @@ This is known as the Syntactic Event Handler Function.
                 
                     ```
 
-- Custom Hooks:-
-    Custom hooks are a way to encapsulate and reuse logic across multiple components in React. They allow you to create reusable functions that can use built-in hooks like useState, useEffect, and others.
+- **Custom Hooks**:-
+    **Custom hooks** are a way to encapsulate and reuse logic across multiple components in React. They allow you to create reusable functions that can use built-in hooks like useState, useEffect, and others.
 
     Custom hooks are just JavaScript functions that start with the word "use" and can call other hooks inside them. They can return any value, including state variables, functions, or objects.
 
@@ -1792,33 +1793,33 @@ This is known as the Syntactic Event Handler Function.
 
         ```
 
-- HOC/Higher Order Component:-
+- **HOC/Higher Order Component**:-
   
-    HOC is a function that takes a component and returns a new component with additional functionality or behavior.
+    **HOC** is a function that takes a component and returns a new component with additional functionality or behavior.
 
     HOCs are useful for centralizing shared logic(authentication, authorization), data fetching, error handling, Theming, or analytics and logging across many components.
 
-        - Code Reusability:
+        - **Code Reusability**:
 
             HOCs enable sharing common logic (e.g., authentication, data fetching) across multiple components without repeating code.
 
-        - Separation of Concerns:
+        - **Separation of Concerns**:
 
             They help separate the UI rendering from logic or side effects, improving code organization and maintainability.
 
-        - Cleaner Components:
+        - **Cleaner Components**:
 
             Components remain focused on UI, while HOCs handle behavior, making both easier to manage.
 
-        4 Improved Testing:
+        4 **Improved Testing**:
 
             You can isolate logic in HOCs and test them separately.
 
-        5 Scalability:
+        5 **Scalability**:
 
             HOCs simplify adding or modifying shared behavior as the app grows.
 
-        6 Third-Party Integration:
+        6 **Third-Party Integration**:
             They help inject functionalities like Theming, analytics, or API integration uniformly across components.
 
         Syntax:-
@@ -1840,7 +1841,7 @@ This is known as the Syntactic Event Handler Function.
 
 ***
 
-    - React.Memo:-
+    - **React.Memo**:-
 
         React.Memo is a built-in HOC that memoizes a component, preventing unnecessary re-renders when its props haven't changed.
 

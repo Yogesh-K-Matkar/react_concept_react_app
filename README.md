@@ -940,7 +940,7 @@ If you are developing a production application, we recommend using TypeScript wi
                 <ReactComponent style={btn_style} />
 
             ```
-***
+
 
     - **Conditionally applying CSS**
 
@@ -963,7 +963,6 @@ If you are developing a production application, we recommend using TypeScript wi
                      <ReactComponent className={`className1 ${i > 0 ? "className2" : "className3"}`} />
 
                 ```
-***
 
     - **ModuleCSS**:-
     
@@ -995,8 +994,6 @@ If you are developing a production application, we recommend using TypeScript wi
             ```
 
         Second way of defining classname commonly used.
-
-***
 
     - **Using Tailwind v4 CSS (Third Party)**:-
 
@@ -1056,6 +1053,7 @@ If you are developing a production application, we recommend using TypeScript wi
 - **Different Source of UI Controls**:-
 
     - **Styled-Components (Third Party)**:-
+
     In styled-component, first need to install using the Terminal cmd
 
         E.g.:-
@@ -1080,7 +1078,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
         2 ways to apply styled-components:-
 
-        - Template Literals:-
+        - **Template Literals**:-
         
             E.g.:-
 
@@ -1092,7 +1090,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
                 style.button --> button is a tag, eg p, h, button, span
 
-        - Style Object:-
+        - **Style Object**:-
 
             E.g.:-
 

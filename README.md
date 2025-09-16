@@ -1119,63 +1119,62 @@ If you are developing a production application, we recommend using TypeScript wi
 
 - **Event Handler** in JS, such as onClick, onChange, onSubmit, etc, which then call Syntactic Event Handler Function in React, should be written as a function name such as handleClick, handleChange,handleSubmit, etc
 
-This is known as the Syntactic Event Handler Function.
+    This is known as the Syntactic Event Handler Function.
 
 
+         - **Type Of Function**:-
 
-    - **Type Of Function**:-
-
-      - **Named Function** is only calling the function           name, not the function.
+              - **Named Function** is only calling the     function name, not the function.
             
-           onClick={handleButtonClick} (Not like this onClick={handleButtonClick()})
+                       onClick={handleButtonClick} (Not like this onClick={handleButtonClick()})
         
-        E.g.:- Like this
+                  E.g.:- Like this
 
-            ```JSX
+                       ```JSX
             
-            <button onClick={handleButtonClick}>Click Me</button>
+                            <button onClick={handleButtonClick}>Click Me</button>
 
-            ```
+                       ```
 
-      - **Arrow Function with event** as parameter to get Syntactic Event object
+              - **Arrow Function with event** as parameter to get Syntactic Event object
 
-        E.g.:-        
+                  E.g.:-        
 
-            ```JSX
+                       ```JSX
 
-                <button onClick={(event)=>handleButtonClick(event)}>Click Me</button>
+                            <button onClick={(event)=>handleButtonClick(event)}>Click Me</button>
 
-            ```
+                       ```
 
-      - **Inline Function With Syntactic Event Object**
+              - **Inline Function With Syntactic Event Object**
 
-        E.g.:-        
+                  E.g.:-        
 
-            ```JSX
+                       ```JSX
 
-                <button onClick={(event) => console.log(event)}>Click Me</button>
+                            <button onClick={(event) => console.log(event)}>Click Me</button>
 
-            ```
+                       ```
 
-      - **Inline Arrow Normal Function**
+              - **Inline Arrow Normal Function**
 
-        E.g.:-        
+                  E.g.:-        
 
-            ```JSX
+                       ```JSX
 
-                <button onClick={() =>{ console.log("Hi")}}>Click Me</button>
+                            <button onClick={() =>{ console.log("Hi")}}>Click Me</button>
 
-            ```
+                       ```
 
-      - **Arrow function passing parameters/arguments**
+              - **Arrow function passing parameters/arguments**
 
-        E.g.:-       
+                  E.g.:-       
 
-            ```JSX
+                       ```JSX
 
-                <button onClick={(event) =>{ console.log(event,"Data to pass to Function")}}>Click Me</button>
+                            <button onClick={(event) =>{ console.log(event,"Data to pass to Function")}}>Click Me</button>
 
-            ```
+                        ```
 
 - **Event Handler** passing as props can be used in concepts such as Form Handling, User Interaction, State Management, and Callback Function.
 

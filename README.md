@@ -14,7 +14,7 @@
 
 CSS is the language we use to style an HTML document.
 
-Color:-
+**Color**:-
 
 - [Color Hex Code](https://colorhunt.co/)
 - [Gradient Color](https://mycolor.space/gradient,https://uigradients.com/#DirtyFog)
@@ -80,25 +80,25 @@ Color:-
                     var i=20;
                     ```
 
-            **Note**:- Due to Hoisting their is inconsistency and unmanageable code,that's why ES6(ES2015) introduced let and const keywords for variable declaration. 
+            **NOTE**:- Due to Hoisting their is inconsistency and unmanageable code,that's why ES6(ES2015) introduced let and const keywords for variable declaration. 
 
             ES means ECMAScript is a standard for scripting languages such as JavaScript, JScript, and ActionScript.
 
-        2. let
+        2. **LET**
 
             - Block scope means the variable value is limited to the block in which it is defined.
 
             - Value can be re-assigned but not re-declared. 
             It throws error.
 
-        3. const
+        3. **CONST**
 
             - Block scope means the variable value is limited to the block in which it is defined.
 
             - Value once declared and define cannot be re-assigned nor re-declared. 
             It throws error.
 
-        (Imp:- let and const are same and maximum used for runtime errors)
+        **NOTE**:- let and const are same and maximum used for runtime errors)
 
 
 2. Looping concepts:-
@@ -109,7 +109,7 @@ Color:-
                let arr=[1,2,3,4,5];
             ```
 
-    - for loop
+    - **for loop**
 
         - for...in loop  (looping index of array/collection)
 
@@ -132,7 +132,7 @@ Color:-
                     }
                 ```
 
-    - while loop
+    - **while loop**
 
         E.g.:-
 
@@ -143,7 +143,7 @@ Color:-
                     i++;
                 }
             ```
-    - do...while loop
+    - **do...while loop**
 
         E.g.:-
 

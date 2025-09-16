@@ -873,7 +873,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 - Instead of FOR/FOREACH loop their is map() for looping on collection/array. In React map(), each element must have a key prop to differentiate each element generated while looping using map().
 
-- Props is way of passing attributes as parameter to Component in React, and can be passed from a unidirectional(1-direction) Parent component to calling child components as separate properties and consumed in the child component as props as a parameter that combines all properties of the child component defined by the Parent component while calling the Child component, except the key property.
+- **Props** is way of passing attributes as parameter to Component in React, and can be passed from a unidirectional(1-direction) Parent component to calling child components as separate properties and consumed in the child component as props as a parameter that combines all properties of the child component defined by the Parent component while calling the Child component, except the key property.
 
 - While passing the integer value prop/attribute over the child component, pass it like this
 
@@ -1054,7 +1054,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
     - **Styled-Components (Third Party)**:-
 
-    In styled-component, first need to install using the Terminal cmd
+        In styled-component, first need to install using the Terminal cmd
 
         E.g.:-
 
@@ -1120,6 +1120,8 @@ If you are developing a production application, we recommend using TypeScript wi
 - **Event Handler** in JS, such as onClick, onChange, onSubmit, etc, which then call Syntactic Event Handler Function in React, should be written as a function name such as handleClick, handleChange,handleSubmit, etc
 
 This is known as the Syntactic Event Handler Function.
+
+
 
     - **Type Of Function**:-
 

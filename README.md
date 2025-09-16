@@ -701,7 +701,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ### React Concepts:-
 
-- Evolution:- 
+- **Evolution**:- 
 
     ReactJS is Javascript library used for front-end development by using reusable UI components.
                 
@@ -709,10 +709,10 @@ If you are developing a production application, we recommend using TypeScript wi
                 
     But ReactJS is only Javascript Library so it encapsulated in NextJS framework to form a complete full-stack framework to provide development Speed, Scalability & Simplicity.
 
-- DOM Reconciliation / Diffing Algorithm:  
+- **DOM Reconciliation / Diffing Algorithm**:  
     React uses a Virtual DOM to efficiently update the UI. When a component's state changes, React creates a new Virtual DOM tree by Babel and compares it with the previous one to determine the minimal set of changes needed to update the actual DOM.
 
-- React.StrictMode:-
+- **React.StrictMode**:-
     It is a tool for highlighting potential problems in an application. It activates additional checks and warnings for its descendants.
 
     It helps to identify components with unsafe life-cycles, legacy API usage, and other side effects.
@@ -733,7 +733,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
     React will throw an error.
 
-    Error: Adjacent JSX elements must be wrapped in an enclosing tag.
+    **Error**: Adjacent JSX elements must be wrapped in an enclosing tag.
 
 -  To avoid using a non-required < div > tag to combine multiple elements into one before returning JSX from the component function, and also to avoid DOM to create an unwanted < div > element.
    
@@ -768,31 +768,31 @@ If you are developing a production application, we recommend using TypeScript wi
 
 - Concept of logical variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX based on a Condition using Conditional Operators/Logic such as Ternary, IF-ELSE block, etc.
 
-- Types of Component:- 2 Types of Component Declaration
+- **Types of Component**:- 2 Types of Component Declaration
 
-    - Class Component:- ES6 classes extending React.Component. Uses render method and state.Legacy projects only.
+    - **Class Component**:- ES6 classes extending React.Component. Uses render method and state.Legacy projects only.
 
     ![Lifecycle](public/images/ComponentLifecycle.png)
 
-         Lifecycle:- Three main phases:
+         **Lifecycle**:- Three main phases:
 
-         1. Mounting Phase
+         1. **Mounting Phase**
 
             This phase occurs when a component is first created and inserted into the DOM. It involves initial setup and rendering.
 
-               1.1. constructor(props): Initializes state and binds event handlers (only in class components).
+               1.1. **constructor(props)**: Initializes state and binds event handlers (only in class components).
 
-               1.2. static getDerivedStateFromProps(props, state): Sync state to props before rendering.
+               1.2. **static** getDerivedStateFromProps(props, state): Sync state to props before rendering.
 
-               1.3. render(): Returns the JSX to build the UI.
+               1.3. **render()**: Returns the JSX to build the UI.
 
-               1.4. componentDidMount(): Runs after the component is mounted to the DOM, useful for side effects like data fetching or setting up subscriptions.
+               1.4. **componentDidMount()**: Runs after the component is mounted to the DOM, useful for side effects like data fetching or setting up subscriptions.
 
-         2. Updating Phase
+         2. **Updating Phase**
 
             This happens whenever the component's props or state change, triggering a re-render.
 
-               2.1. static getDerivedStateFromProps(props, state): Called during updates to sync state to new props.
+               2.1. **static getDerivedStateFromProps(props, state)**: Called during updates to sync state to new props.
 
                2.2. shouldComponentUpdate(nextProps, nextState): Determines if component should re-render (returning false skips update).
 

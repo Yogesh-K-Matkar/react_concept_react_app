@@ -1348,9 +1348,8 @@ This is known as the Syntactic Event Handler Function.
              
                     - Passing an empty array [] would run it only once after the initial render.
 
-***
 
-            2. **useRef**(DOM Manipulation without re-rendering) 
+             2. **useRef**(DOM Manipulation without re-rendering) 
           
                 **Scenario** :- 
                 
@@ -1406,7 +1405,6 @@ This is known as the Syntactic Event Handler Function.
                     
                     --After React v19 release, ref can be accessed as props.
 
-***
 
         - **Complex Value State Management**(Form Complex Values more then 3 controls and object value which state value update multiple times):-
 
@@ -1468,7 +1466,6 @@ This is known as the Syntactic Event Handler Function.
 
                     This clearly separates state logic from UI.
 
-***
 
         - **Global Static State Management**(Avoid prop drilling by sharing states):-
 
@@ -1562,7 +1559,6 @@ This is known as the Syntactic Event Handler Function.
                         ```
                 )
 
-***
 
       - **Unique Values/IDs Generate**:-
 
@@ -1629,7 +1625,6 @@ This is known as the Syntactic Event Handler Function.
                             1. When Component Unmount mean component does not render in JSX based on condition
                             2. When dependencies changes useEffect re-render.)   
             
-***
 
       - **Performance Optimization & Improvement** means no change in logic based on value then fetch existing value from cache
 
@@ -1679,7 +1674,6 @@ This is known as the Syntactic Event Handler Function.
 
                     Clicking the button renders the component but the expensive factorial calculation runs only when needed.
 
-***
 
             8. **useCallBack**(Memoized Callbacks):- 
                 
@@ -1721,7 +1715,6 @@ This is known as the Syntactic Event Handler Function.
 
                 With useCallback, the same function instance is called, so Child only re-renders when necessary.
 
-***
 
       - Component Rendering Stage Hook:-
 

@@ -222,7 +222,7 @@ CSS is the language we use to style an HTML document.
             const users=[{ id: 1, name: "Alice", age: 25 },{ id: 2, name: "Bob", age: 35 }]
         ```
 
-    - map():- Used for looping in a collection or array.
+    - **map()**:- Used for looping in a collection or array.
       	
         E.g.
 
@@ -230,7 +230,7 @@ CSS is the language we use to style an HTML document.
                 users.map((u)=><User name={u.name} age={u.age}>)
             ```
 
-    - filter():- It's like a WHERE condition to get a customized collection based on the condition
+    - **filter()**:- It's like a WHERE condition to get a customized collection based on the condition
     
          E.g.
 
@@ -238,7 +238,7 @@ CSS is the language we use to style an HTML document.
                 users.filter((u)=>u.age<35)
             ```
 
-    - reduce():- It does computation on the collection and returns the required value
+    - **reduce()**:- It does computation on the collection and returns the required value
     
        	E.g.
 

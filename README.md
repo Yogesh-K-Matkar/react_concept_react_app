@@ -778,23 +778,23 @@ If you are developing a production application, we recommend using TypeScript wi
 
      **Lifecycle**:- Three main phases:
 
-         1. **Mounting Phase**
+         1. Mounting Phase
 
             This phase occurs when a component is first created and inserted into the DOM. It involves initial setup and rendering.
 
-               1.1. **constructor(props)**: Initializes state and binds event handlers (only in class components).
+               1.1. constructor(props): Initializes state and binds event handlers (only in class components).
 
-               1.2. **static** getDerivedStateFromProps(props, state): Sync state to props before rendering.
+               1.2. static getDerivedStateFromProps(props, state): Sync state to props before rendering.
 
-               1.3. **render()**: Returns the JSX to build the UI.
+               1.3. render(): Returns the JSX to build the UI.
 
-               1.4. **componentDidMount()**: Runs after the component is mounted to the DOM, useful for side effects like data fetching or setting up subscriptions.
+               1.4. componentDidMount(): Runs after the component is mounted to the DOM, useful for side effects like data fetching or setting up subscriptions.
 
-         2. **Updating Phase**
+         2. Updating Phase
 
             This happens whenever the component's props or state change, triggering a re-render.
 
-               2.1. **static getDerivedStateFromProps(props, state)**: Called during updates to sync state to new props.
+               2.1. static getDerivedStateFromProps(props, state)**: Called during updates to sync state to new props.
 
                2.2. shouldComponentUpdate(nextProps, nextState): Determines if component should re-render (returning false skips update).
 

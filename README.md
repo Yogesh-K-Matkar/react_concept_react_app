@@ -157,7 +157,7 @@ CSS is the language we use to style an HTML document.
 
 3.  Working/Processing on Objects
 
-    - Destructuring Object Properties:-
+    - **Destructuring Object Properties**:-
 
         Destructuring is a way to extract properties from an object and assign them to variables.
 
@@ -180,7 +180,7 @@ CSS is the language we use to style an HTML document.
     ***
     ***
 
-    - Spread Operator expand collection, array & object.
+    - **Spread Operator expand collection, array & object.**
 
         - Collection or Array(Merge Element of same type in below case array1 & array2 is type array):-
 

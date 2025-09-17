@@ -735,15 +735,15 @@ If you are developing a production application, we recommend using TypeScript wi
 
     **Error**: Adjacent JSX elements must be wrapped in an enclosing tag.
 
-    **Solution**: Enclosed all elements using 
+    **Solution**: Enclosed all JSX elements then return using 
          
          ```JSX
 
-          <div>{JSX Elements}</div>
+          return(<div>{JSX Elements}</div>)
 
                  OR
           
-          <>{JSX Elements}</>
+          return (<>{JSX Elements}</>)
          
          ```
 

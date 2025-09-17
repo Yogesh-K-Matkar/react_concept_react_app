@@ -735,6 +735,18 @@ If you are developing a production application, we recommend using TypeScript wi
 
     **Error**: Adjacent JSX elements must be wrapped in an enclosing tag.
 
+    **Solution**: Enclosed all elements using 
+         
+         ```JSX
+
+          <div>{JSX Elements}</div>
+
+                 OR
+          
+          <>{JSX Elements}</>
+         
+         ```
+
 -  To avoid using a non-required < div > tag to combine multiple elements into one before returning JSX from the component function, and also to avoid DOM to create an unwanted < div > element.
    
     Then comes the React concept of Fragments,

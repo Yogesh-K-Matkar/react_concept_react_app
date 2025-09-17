@@ -1543,8 +1543,8 @@ If you are developing a production application, we recommend using TypeScript wi
 
                     Changing user with setUser will cause all consuming components to update.
 
-                (
-                Notes:-
+                
+                **Notes**:-
 
                     Limitation of useContext hook conditionally calling useContext hook is not allowed, meaning it has to be defined at the top of the component function.
 
@@ -1570,7 +1570,7 @@ If you are developing a production application, we recommend using TypeScript wi
                             console.log(myName, myAge);
 
                         ```
-                )
+                
 
 
       - **Unique Values/IDs Generate**:-
@@ -1590,7 +1590,7 @@ If you are developing a production application, we recommend using TypeScript wi
                     }
 
                 ```
-***
+
         
       - **Pre-Loaded Logic** (Initial Component Binding)/Side Effects State Management:-
 
@@ -1634,9 +1634,9 @@ If you are developing a production application, we recommend using TypeScript wi
                     Passing an empty array [] would run it only once after the initial render.
 
 
-                    (Notes:- Cleanup Code execute
+                    **Notes**:- Cleanup Code execute
                             1. When Component Unmount mean component does not render in JSX based on condition
-                            2. When dependencies changes useEffect re-render.)   
+                            2. When dependencies changes useEffect re-render.  
             
 
       - **Performance Optimization & Improvement** means no change in logic based on value then fetch existing value from cache

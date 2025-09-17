@@ -2176,9 +2176,9 @@ If you are developing a production application, we recommend using TypeScript wi
                     
             ```
 
-    (Note:- / in path defines the route/home route of the application means it loads the initial component)
+    **Note**:- / in path defines the route/home route of the application means it loads the initial component.
 
-    (Imp:- <RouterProvider router={router} / > react-router-dom inbuilt component that shares the router path/url/links to calling components map to path in createBrowserRouter) in the entire application,
+    **IMP**:- <RouterProvider router={router} / > react-router-dom inbuilt component that shares the router path/url/links to calling components map to path in createBrowserRouter) in the entire application,
     means path call in browser anywhere within the application, that path is checked in the router array object by RouterProvider
     and then navigate to the associated component
 
@@ -2209,24 +2209,24 @@ If you are developing a production application, we recommend using TypeScript wi
 
     Props of createBrowserRouter:-
 
-    - path:- It accepts a navigation path name, which is displayed in the browser URL.
+    - **path**:- It accepts a navigation path name, which is displayed in the browser URL.
 
-    - element:- It holds a component that gets rendered when the associated path is displayed in the browser URL
+    - **element**:- It holds a component that gets rendered when the associated path is displayed in the browser URL
 
-    - children:- It also holds an array of paths along with a child component, which is going to render in the Page Body section.
+    - **children**:- It also holds an array of paths along with a child component, which is going to render in the Page Body section.
 
        - In the above element < AppLayout> is a component that consists of a Header and a Footer section, which is common for the entire application.
       
-       - Children are included dynamically in the Body section between the Header section & Footer section by < Outlet> react router component, based on the associated path, gets called on clicking of the link which is generated using < NavLink> react router component.
+       - **Children** are included dynamically in the Body section between the Header section & Footer section by < Outlet> react router component, based on the associated path, gets called on clicking of the link which is generated using < NavLink> react router component.
         
-       - Loader prop of children takes a function that returns JSON data from the function through fetchAPI() as API data.
+       - **Loader prop** of children takes a function that returns JSON data from the function through fetchAPI() as API data.
           
-       - Action prop of children takes a function that returns JSON data from the function through formData() that is used to UPDATE different fields of data submitted in the component by Form action.
+       - **Action prop** of children takes a function that returns JSON data from the function through formData() that is used to UPDATE different fields of data submitted in the component by Form action.
 
-    - errorElement:- It holds the component that gets rendered when the associated element component's error occurs due to syntax, logic, etc.
+    - **errorElement**:- It holds the component that gets rendered when the associated element component's error occurs due to syntax, logic, etc.
 
     
-    Scenario(To REPLACE < a> tag by < NavLink>):-
+    **Scenario** (To REPLACE < a> tag by < NavLink>):-
 
         Due to the < a> HTML tag, when a link is clicked, there is a full postback of the page, so no use of <a> anchor HTML tags in React.
 
@@ -2288,7 +2288,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
     ```
 
-    1. useRouteError:- This hook provides error details, meaning the cause of the error, which gives details of the Type Of Error and error, status, statusText, etc.
+    1. **useRouteError**:- This hook provides error details, meaning the cause of the error, which gives details of the Type Of Error and error, status, statusText, etc.
 
         Syntax:-
 
@@ -2307,7 +2307,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
         2- Ways of showing an error page
 
-        - Using errorElement key -- Best way
+        - Using **errorElement** key -- Best way
 
             E.g.:-
 
@@ -2335,7 +2335,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ***
 
-        2. Using children's JSON object
+        2. Using **children's** JSON object
 
             E.g.:-
 
@@ -2365,7 +2365,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ***
 
-    2. useNavigate:- This hook is used to navigate, especially to the immediate previous URL/Page. Can also navigate to any URL/Page.
+    2. **useNavigate**:- This hook is used to navigate, especially to the immediate previous URL/Page. Can also navigate to any URL/Page.
 
     Syntax:-    
 
@@ -2390,7 +2390,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ***
 
-    3. useNavigation:- This hook is used to get information about the current navigation state, such as location, action, etc.
+    3. **useNavigation**:- This hook is used to get information about the current navigation state, such as location, action, etc.
 
     Syntax:-
 
@@ -2411,11 +2411,11 @@ If you are developing a production application, we recommend using TypeScript wi
 
             ```
 
-            Note:- navigation.state can be used to check the current state of navigation, such as loading, idle, etc.
+            **Note**:- navigation.state can be used to check the current state of navigation, such as loading, idle, etc.
 
 ***
 
-    4. useLoaderData:- This hook is used to get data from the loader function, which is defined in the route's children array object.State property of the hook is used to know the current state of data loading, such as loading, idle, etc.
+    4. **useLoaderData**:- This hook is used to get data from the loader function, which is defined in the route's children array object.State property of the hook is used to know the current state of data loading, such as loading, idle, etc.
 
     Syntax:-
 
@@ -2431,13 +2431,13 @@ If you are developing a production application, we recommend using TypeScript wi
 
             ```
 
-- Dynamic Route Parameters:-
+- **Dynamic Route Parameters**:-
 
-    Dynamic route parameters are used to access dynamic values from the URL.
+    **Dynamic route parameters** are used to access dynamic values from the URL.
 
     - Calling component in route with a dynamic route parameter in the path use prop object useParams hook
 
-        - useParams(OLD React version below 6.4):- This hook is used to access dynamic route parameters from the URL when using through component call in the loader prop of the route.
+        - **useParams** (OLD React version below 6.4):- This hook is used to access dynamic route parameters from the URL when using through component call in the loader prop of the route.
 
         Syntax:-
 
@@ -2453,9 +2453,9 @@ If you are developing a production application, we recommend using TypeScript wi
 
             ```
 
-            Note:- The params object will contain key-value pairs of dynamic route parameters defined in the path.
+            **Note**:- The params object will contain key-value pairs of dynamic route parameters defined in the path.
 
-            Example: If the path is "/movie/:movieID", then params will be an object like { movieID: "123" }.
+            **Example**: If the path is "/movie/:movieID", then params will be an object like { movieID: "123" }.
 
         - New way of Calling a function in the route with a dynamic route parameter in the loader prop of the route
 
@@ -2471,12 +2471,12 @@ If you are developing a production application, we recommend using TypeScript wi
 
             ```
 
-           Note:- {params} object is passed as a prop to a function where a dynamic route parameter is required.
+           **Note**:- {params} object is passed as a prop to a function where a dynamic route parameter is required.
 
-- .env File:-
+- **.env File**:-
     This file is used to store environment variables such as API keys, URLs, etc. It should not be committed to version control for security reasons.
 
-    (Note:- .env file should be placed at the root of the project directory.)
+    **Note**:- .env file should be placed at the root of the project directory.
 
         Syntax:-
 
@@ -2513,8 +2513,9 @@ If you are developing a production application, we recommend using TypeScript wi
 
             ```
 
-- Dynamic Routing:-
-    Dynamic routing is used to create routes based on data or user input. It allows you to create routes that can change at runtime.
+- **Dynamic Routing**:-
+
+    **Dynamic routing** is used to create routes based on data or user input. It allows you to create routes that can change at runtime.
 
         Syntax:-
 
@@ -2550,7 +2551,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
                     ```
 
-- Form Submission:- 
+- **Form Submission**:- 
 
     Actually form submission in React without React Router concept is like below,
 
@@ -2712,11 +2713,11 @@ Advantages:-
 
         ```
 
-    (Imps:- <QueryClientProvider> is a query provider that makes the query  available to all components pass between <QueryClientProvider> and </QueryClientProvider>, allowing them to access and interact with the query cache and perform data fetching operations.)
+    **IMP**:- <QueryClientProvider> is a query provider that makes the query  available to all components pass between <QueryClientProvider> and </QueryClientProvider>, allowing them to access and interact with the query cache and perform data fetching operations.
 
-    QueryClient:- Core part of ReactQuery that performs manage cache data,background fetch when data is old,data synchronization and other query logic.
+    **QueryClient**:- Core part of ReactQuery that performs manage cache data,background fetch when data is old,data synchronization and other query logic.
 
-    Then use hook useQuery to define queryKey required for while getting Cache data using key and queryFn for calling function that fetches data.
+    Then use hook **useQuery** to define queryKey required for while getting Cache data using key and queryFn for calling function that fetches data.
 
     Syntax:-
 
@@ -2773,35 +2774,35 @@ Advantages:-
             ```
     Devtools in browser shows 2 tabs Queries and Mutations.
 
-    - Queries: This tab displays all the active queries, their status (loading, error, success), and the data they have fetched using useQuery hook. You can inspect each query's details, including its key, variables, and response data.
+    - **Queries**: This tab displays all the active queries, their status (loading, error, success), and the data they have fetched using useQuery hook. You can inspect each query's details, including its key, variables, and response data.
 
         API Request details such as:-
-        - Query Details: This includes information about the query's key, variables, and the data it has fetched.And also provides Stale Time, Fetch Time, and other metadata.
+        - **Query Details**: This includes information about the query's key, variables, and the data it has fetched.And also provides Stale Time, Fetch Time, and other metadata.
 
-        - Actions: This includes information about the actions that have been dispatched related to the query, such as refetching or invalidating the query.
+        - **Actions**: This includes information about the actions that have been dispatched related to the query, such as refetching or invalidating the query.
 
-        - Data Explorer: This allows you to explore the data returned by your queries in a more visual way, making it easier to understand the structure and contents of the data.
+        - **Data Explorer**: This allows you to explore the data returned by your queries in a more visual way, making it easier to understand the structure and contents of the data.
 
-        - Query Explorer: This provides a way to inspect the query's variables, status, and other metadata in a more detailed manner.
+        - **Query Explorer**: This provides a way to inspect the query's variables, status, and other metadata in a more detailed manner.
 
-           1. gcTime: This shows the time taken for garbage collection time during the query's lifecycle.Also know as data cache time.
+           1. **gcTime**: This shows the time taken for garbage collection time during the query's lifecycle.Also know as data cache time.
            (Default value of gcTime is 5 minutes)
            (Scenario:- When the query is no longer needed, it will be garbage collected after this time.)
 
-           2. staleTime: This shows the time after which the cached data is considered stale/old. The default value is 0 seconds, meaning the data is fresh until it is fetched again.
+           2. **staleTime**: This shows the time after which the cached data is considered stale/old. The default value is 0 seconds, meaning the data is fresh until it is fetched again.
            (Default value of staleTime is 0 seconds)
            (Scenario:- When the query data is became stale/old, it will be need to refetch updated data after this time.)
 
-           3. Polling :- Keep data up-to-date by automatically refetching it at a specified interval.This can be achieved using the refetchInterval option when tab is active or refetchIntervalInBackground when tab is inactive.
+           3. **Polling**:- Keep data up-to-date by automatically refetching it at a specified interval.This can be achieved using the refetchInterval option when tab is active or refetchIntervalInBackground when tab is inactive.
            (Scenarios:- Real-time applications, dashboards, etc.)
 
-           refetchInterval: This shows the time interval at which the query will automatically refetch data. The default value is 0 seconds, meaning the query will not refetch automatically.
+           **refetchInterval**: This shows the time interval at which the query will automatically refetch data. The default value is 0 seconds, meaning the query will not refetch automatically.
            (Default value of refetchInterval is 0 seconds means not applied)
 
-           refetchIntervalInBackground: This shows the time interval at which the query will automatically refetch data when the tab is inactive. The default value is 0 seconds, meaning the query will not refetch automatically in the background.
+           **refetchIntervalInBackground**: This shows the time interval at which the query will automatically refetch data when the tab is inactive. The default value is 0 seconds, meaning the query will not refetch automatically in the background.
            (Default value of refetchIntervalInBackground is 0 seconds means not applied)
 
-    - Mutations: This tab shows all the mutations(means updates on data based on insert,put/patch,delete api call using useMutation hook) that have been triggered in your application. You can see their status, any errors that occurred, and the data they have modified.  
+    - **Mutations**: This tab shows all the mutations(means updates on data based on insert,put/patch,delete api call using useMutation hook) that have been triggered in your application. You can see their status, any errors that occurred, and the data they have modified.  
 
 ***
 ***

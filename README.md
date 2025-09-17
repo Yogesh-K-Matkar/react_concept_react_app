@@ -776,7 +776,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
         ```
 
-- Concept of dynamic variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX.
+- Concept of dynamic variable where same is assigned with different types of values such as string,integer,object,array or collection etc.
 
 - Concept of logical variable where we can assign derived value generated from JS function, expression or operations that can be shown at a specific location with JSX based on a Condition using Conditional Operators/Logic such as Ternary, IF-ELSE block, etc.
 

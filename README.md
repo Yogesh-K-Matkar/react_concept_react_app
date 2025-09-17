@@ -2333,9 +2333,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
                 ```
 
-***
-
-        2. Using **children's** JSON object
+        - Using **children's** JSON object
 
             E.g.:-
 
@@ -2363,7 +2361,6 @@ If you are developing a production application, we recommend using TypeScript wi
 
                 ```
 
-***
 
     2. **useNavigate**:- This hook is used to navigate, especially to the immediate previous URL/Page. Can also navigate to any URL/Page.
 
@@ -2388,7 +2385,6 @@ If you are developing a production application, we recommend using TypeScript wi
         Note: -1 means the previous page
               / mean home page
 
-***
 
     3. **useNavigation**:- This hook is used to get information about the current navigation state, such as location, action, etc.
 

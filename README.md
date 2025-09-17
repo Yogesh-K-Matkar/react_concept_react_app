@@ -729,13 +729,13 @@ If you are developing a production application, we recommend using TypeScript wi
             </React.StrictMode>
         ```
 
--  Each JSX element/expression must combine/enclosed using one parent JSX element, which means if you try to return multiple elements
+-  Each element/expression in JSX block must combine/enclosed multiple tags into one parent tag element, which means if you try to return multiple tags seperate elements.
 
     React will throw an error.
 
     **Error**: Adjacent JSX elements must be wrapped in an enclosing tag.
 
-    **Solution**: Enclosed all JSX elements then return using 
+    **Solution**: Enclosed all tag elements into block then return using 
          
          ```JSX
 
@@ -747,7 +747,7 @@ If you are developing a production application, we recommend using TypeScript wi
          
          ```
 
--  To avoid using a non-required < div > tag to combine multiple elements into one before returning JSX from the component function, and also to avoid DOM to create an unwanted < div > element.
+-  To avoid using a non-required < div > tag to combine multiple tags element into one enslocing tag before returning block tag from the component function, and also to avoid DOM to create an unwanted < div > element.
    
     Then comes the React concept of Fragments,
 
@@ -766,7 +766,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
         ```
 
-- Every JSX tag needs to be closed. You can use self-closing tags for elements that don't have children
+- Every tag needs to be closed. You can use self-closing tags for elements that don't have children
 
     E.g.
 

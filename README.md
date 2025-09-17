@@ -868,7 +868,6 @@ If you are developing a production application, we recommend using TypeScript wi
                 ```
                 (Where export default component is Series and named component is NetflixSeries from NetflixSeries.jsx file)
 
-***
 
 - Define/Use imported Components/Component from another JSX(ReactFrameworkApp.jsx) as below
 

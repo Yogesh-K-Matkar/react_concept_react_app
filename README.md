@@ -1544,7 +1544,7 @@ If you are developing a production application, we recommend using TypeScript wi
                     Changing user with setUser will cause all consuming components to update.
 
                 
-                **Notes**:-
+                **Notes** :-
 
                     Limitation of useContext hook conditionally calling useContext hook is not allowed, meaning it has to be defined at the top of the component function.
 

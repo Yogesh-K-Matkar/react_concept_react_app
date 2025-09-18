@@ -2422,11 +2422,13 @@ If you are developing a production application, we recommend using TypeScript wi
 
 - **Dynamic Route Parameters**:-
 
-    - **Dynamic route parameters to Component** are used to access dynamic values from the URL.
+    **Dynamic routing** is used to create routes based on data or user input. It allows you to create routes that can change at runtime.
+    
+    - **Dynamic route parameters of URL access in Component**.
 
-       - Calling component in route with a dynamic route parameter in the path use prop object useParams hook
+       - Calling component in route with a dynamic route parameter in the path use useParams hook
 
-         - **useParams**:- This hook is used to access dynamic route parameters from the URL when using through component call in the loader prop of the route.
+         - **useParams**:- This hook is used to access dynamic route parameters from the URL when using component call.
 
         Syntax:-
 
@@ -2452,9 +2454,8 @@ If you are developing a production application, we recommend using TypeScript wi
             **Example**: If the path is "/movie/:movieID/:movieName", then params will be an object like { movieID: "123", movieName: "Charlie" }.
 
 
-    - **Dynamic route parameters to Loader attribute funtion** are used to access dynamic values from the URL
+    - **Dynamic route parameters of URL access in Loader attribute funtion**.
 
-    **Dynamic routing** is used to create routes based on data or user input. It allows you to create routes that can change at runtime.
 
         Syntax:-
 

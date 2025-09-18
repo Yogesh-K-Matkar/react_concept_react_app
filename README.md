@@ -1844,9 +1844,8 @@ If you are developing a production application, we recommend using TypeScript wi
 
             Here, `WithExtraProps` is a HOC that adds an `extraProp` to the wrapped component `MyComponent`.
 
-***
 
-    - **React.Memo**:-
+- **React.Memo**:-
 
         React.Memo is a built-in HOC that memoizes a component, preventing unnecessary re-renders when its props haven't changed.
 
@@ -1889,7 +1888,6 @@ If you are developing a production application, we recommend using TypeScript wi
 
             ```
 
-***
 
 ##### 1.2 Async-Await
 
@@ -1910,7 +1908,7 @@ If you are developing a production application, we recommend using TypeScript wi
                 };
                 
             ```
-***
+
 
 #### 2. Axios() (Third-Party):-
 
@@ -1918,7 +1916,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
     It simplifies making HTTP requests and handling responses, making it easier to work with APIs.
 
-           Benefits:-
+           **Benefits**:-
 
              1. Easier syntax and cleaner code.
              2. Automatic JSON transformation without extra code.
@@ -2020,7 +2018,6 @@ If you are developing a production application, we recommend using TypeScript wi
                 };
 
             ```
-***
 
 ##### 2.1.2 GET(Read-R):-
 
@@ -2042,7 +2039,6 @@ If you are developing a production application, we recommend using TypeScript wi
                 };
 
             ```
-***
 
 ##### 2.1.3 PUT(Update-U):-
 
@@ -2084,7 +2080,6 @@ If you are developing a production application, we recommend using TypeScript wi
 
             ```
 
-***
 
 ##### 2.1.4. DELETE(Delete-D):-
 
@@ -2113,7 +2108,7 @@ If you are developing a production application, we recommend using TypeScript wi
 ### React/ReactJS Routing/Navigation
 
 
-- REACT ROUTER(v7.6+)(Developed By Michael Jackson and Ryan Florence not Facebook or Google) is another JavaScript(JS) Library/Framework used for implementing Routing in our Web Application using client-side scripting.
+- **REACT ROUTER**(v7.6+)(Developed By Michael Jackson and Ryan Florence not Facebook or Google) is another JavaScript(JS) Library/Framework used for implementing Routing in our Web Application using client-side scripting.
 
 - Install the react-router module.
 
@@ -2127,12 +2122,12 @@ If you are developing a production application, we recommend using TypeScript wi
 
     Then verify the module is installed or not in the package.json within the dependencies key's value, along with the module version
 
-- Routing/Navigation :- Moving through different UI is SPA(Single Page Application) is done through React-Router framework
+- **Routing/Navigation**:- Moving through different UI is SPA(Single Page Application) is done through React-Router framework
     concept.
 
     Syntax:- Two ways to create a route
 
-    - Old (Using helper createRoutesFromElements):
+    - **Old (Using helper createRoutesFromElements)**:
 
         E.g.:-
 
@@ -2155,9 +2150,8 @@ If you are developing a production application, we recommend using TypeScript wi
 
             ```
 
-***
 
-    - New(Best Way):-
+    - **New(Best Way)**:-
             
         e.g.:-
 
@@ -2207,7 +2201,7 @@ If you are developing a production application, we recommend using TypeScript wi
                 }
             ```
 
-    Props of createBrowserRouter:-
+    **Props of createBrowserRouter**:-
 
     - **path**:- It accepts a navigation path name, which is displayed in the browser URL.
 
@@ -2252,7 +2246,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
             ```
 
-- Active Link is a concept of highlighting the current selected Link based on the color of the Link is different from all other non-selected Link colors.
+- **Active Link*" is a concept of highlighting the current selected Link based on the color of the Link is different from all other non-selected Link colors.
 
     There are 3 ways of adding 'active' CssClass with 'nav-link' CssClass
 
@@ -2260,7 +2254,7 @@ If you are developing a production application, we recommend using TypeScript wi
     2. Style with inline function
     3. Style with a function call
 
-- Hooks In React Router:-
+- **Hooks In React Router**:-
 
     E.g.:-
 

@@ -2403,7 +2403,6 @@ If you are developing a production application, we recommend using TypeScript wi
 
             **Note**:- navigation.state can be used to check the current state of navigation, such as loading, idle, etc.
 
-***
 
     4. **useLoaderData**:- This hook is used to get data from the loader function, which is defined in the route's children array object.State property of the hook is used to know the current state of data loading, such as loading, idle, etc.
 

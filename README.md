@@ -2426,41 +2426,31 @@ If you are developing a production application, we recommend using TypeScript wi
 
     - Calling component in route with a dynamic route parameter in the path use prop object useParams hook
 
-        - **useParams** (OLD React version below 6.4):- This hook is used to access dynamic route parameters from the URL when using through component call in the loader prop of the route.
+        - **useParams**:- This hook is used to access dynamic route parameters from the URL when using through component call in the loader prop of the route.
 
         Syntax:-
 
             ```JSX
 
-                    import { useParams } from "react-router-dom";
+                  import { useParams } from "react-router-dom";
 
-                    const ChildComponent=()=>{
-                        const params = useParams();
+                  const ChildComponent=()=>{
+                        
+                     const params = useParams();
 
-                        console.log(params);
+                     console.log(params);
+
+                     const {movieID,movieName}= params;
+
+                     console.log(movieID, movieName);
                     }           
 
             ```
 
             **Note**:- The params object will contain key-value pairs of dynamic route parameters defined in the path.
 
-            **Example**: If the path is "/movie/:movieID", then params will be an object like { movieID: "123" }.
+            **Example**: If the path is "/movie/:movieID/:movieName", then params will be an object like { movieID: "123", movieName: "Charlie" }.
 
-        - New way of Calling a function in the route with a dynamic route parameter in the loader prop of the route
-
-        Syntax:-
-
-            ```JSX
-
-                    import { useParams } from "react-router-dom";
-
-                    const ChildComponent=({params})=>{                    
-                        console.log(params);
-                    }           
-
-            ```
-
-           **Note**:- {params} object is passed as a prop to a function where a dynamic route parameter is required.
 
 - **.env File**:-
     This file is used to store environment variables such as API keys, URLs, etc. It should not be committed to version control for security reasons.

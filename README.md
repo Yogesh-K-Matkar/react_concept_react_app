@@ -2246,7 +2246,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
             ```
 
-- **Active Link*" is a concept of highlighting the current selected Link based on the color of the Link is different from all other non-selected Link colors.
+- **Active Link** is a concept of highlighting the current selected Link based on the color of the Link is different from all other non-selected Link colors.
 
     There are 3 ways of adding 'active' CssClass with 'nav-link' CssClass
 

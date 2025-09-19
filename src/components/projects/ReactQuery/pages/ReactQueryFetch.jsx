@@ -1,6 +1,7 @@
 //import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import fetchPosts from "../api/api.js";
+import { NavLink } from "react-router-dom";
 
 const ReactQueryFetch = () => {
   const { data, isPending, isError, error } = useQuery({
@@ -9,6 +10,7 @@ const ReactQueryFetch = () => {
     gcTime: 2 * 1000, //Garbage Collection Time Till 2sec
     staleTime: 5 * 1000, //Keep Data Fresh Time Till 5sec
     refetchInterval: 6 * 1000, //Refetch Data Every 6sec automatically call api without taking any action
+    refetchIntervalInBackground: true, //Refetch Data Every automatically call api without taking any action when Page/Tab is not active
   });
 
   console.log("API Data:", data);
@@ -34,10 +36,10 @@ const ReactQueryFetch = () => {
       <div className="section-accordion">
         <ol>
           {data?.map((post) => {
-            const { id, title, body } = post;
+            let { id, title, body } = post;
             return (
               <li key={id}>
-                {id}. {title}
+                {id}. <NavLink to={`/fetch/reactquery/${id}`}>{title}</NavLink>
                 <br />
                 <br />
                 {body}

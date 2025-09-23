@@ -2698,23 +2698,166 @@ Advantages:-
 
     **IMP**:- <QueryClientProvider> is a query provider that makes the query  available to all components pass between <QueryClientProvider> and </QueryClientProvider>, allowing them to access and interact with the query cache and perform data fetching operations.
 
-    **QueryClient**:- Core part of ReactQuery that performs manage cache data,background fetch when data is old,data synchronization and other query logic.
+    **QueryClient**:- Core part of ReactQuery that performs manage cache data,background fetch when data is old,data synchronization and other query logic.    
 
-    Then use hook **useQuery** to define queryKey required for while getting Cache data using key and queryFn for calling function that fetches data.
+### Hooks In React Query
 
-    Syntax:-
+    - **useQuery**:- To fetch/get/read data from server.
+   
+          Then use hook **useQuery** to define queryKey required for while getting Cache data using key and queryFn for calling function that fetches data.
 
-            ```JSX
+            Syntax:-
 
-                import { useQuery } from "@tanstack/react-query";
-                
-                const { data, isLoading, isError } = useQuery({
-                        queryKey: ["posts"],
-                        queryFn: fetchPosts
-                    });
+                    ```JSX
 
-            ```
-    useQuery hooks provides different states like isLoading, isError, data etc. to manage your UI accordingly.
+                        import { useQuery, keepPreviousData } from "@tanstack/react-query";
+                        
+                        const { data, isLoading, isError } = useQuery({
+                                queryKey: ["posts"],
+                                queryFn: fetchPosts,
+                                gcTime: 2 * 1000, //Garbage Collection Time Till 2sec
+                                staleTime: 5 * 1000, //Keep Data Fresh Time Till 5sec
+                                refetchInterval: 6 * 1000, //Refetch Data Every 6sec automatically call api without taking any action
+                                refetchIntervalInBackground: true, //Refetch Data Every automatically call api without taking any action when Page/Tab is not active
+                                placeholderData: keepPreviousData, //Use previous data when new data is not available to avoid in-between flicker/loaders
+                            });
+
+                    ```
+            useQuery hooks provides different states like isLoading, isError, data etc. to manage your UI accordingly.
+
+            
+           1. **gcTime**: This shows the time taken for garbage collection time for caching data during request processing.
+           (Default value of gcTime is 5 minutes)
+           (Scenario:- When the query is no longer needed, it will be garbage collected after this time.)
+
+           2. **staleTime**: This shows the time after which fresh cached data gets stale/old. The default value is 0 seconds, meaning the data is fresh until it is fetched again.
+           (Default value of staleTime is 0 seconds)
+           (Scenario:- When the query data is became stale/old, it will be need to refetch updated data after this time.)
+
+           3. **Polling**:- Keep data fresh/up-to-date by automatically refetching it at a specified interval.This can be achieved using the refetchInterval option refetch request only when tab is active or refetchIntervalInBackground option refetch request when tab is inactive.
+           (Scenarios:- Real-time applications, dashboards, etc.)
+
+              - **refetchInterval**: This shows the time interval at which the query will automatically refetch data. The default value is 0 seconds, meaning the query will not refetch automatically.
+              (Default value of refetchInterval is 0 seconds means not applied)
+
+              - **refetchIntervalInBackground**: This shows the time interval at which the query will automatically refetch data when the tab is inactive. The default value is 0 seconds, meaning the query will not refetch automatically in the background.
+              (Default value of refetchIntervalInBackground is 0 seconds means not applied)
+
+   - **useMutation**:- To send/post/update(put,patch)/delete data to server. 
+
+        Then mutation hook **useMutation** to provide data to server using post/put/patch/delete api call and get response back from server and also manage states like isLoading, isError, data etc. to manage your UI accordingly.
+
+            Syntax:-
+
+                    ```JSX
+
+                        import { useMutation } from "@tanstack/react-query";
+
+                        const postDelete = useMutation({
+                            mutationFn: async ()=> await deletePost(),
+                            onSuccess: () => {
+                                // Handle successful mutation
+                            },
+                            onError: (error) => {
+                                // Handle mutation error
+                            },
+                            onSettled: () => {
+                                // Handle mutation completion
+                            }                            
+                        })
+
+                         <button onClick={(id) => postDelete.mutate(id)}>Delete</button>
+
+                    ```
+                    
+                 **Note**:- mutate() method is used to trigger the useMutation hook and execute the mutationFn.
+
+
+            - **onSuccess**:- A callback function that runs when the mutation is successful
+             
+            - **onError**:- A callback function that runs when the mutation fails
+           
+            - **onSettled**:- A callback function that runs when the mutation is either successful or fails
+           
+
+  - **useQueryClient**:- To use cache data from server and update data to server.
+
+        Then data update hook **useQueryClient** uses **setQueryData** method having 2 parameters first parameter queryKey value which is defined in **useQuery** hook to fetch already cached data for further update based on second parameter as id value.
+
+            Syntax:-   
+
+                    ```JSX  
+
+                        import { useQuery, useQueryClient } from "@tanstack/react-query";                        
+
+                        const { data, isLoading, isError } = useQuery({
+                            queryKey: ["posts"],
+                            queryFn: fetchPosts,
+                        })
+
+                        const queryClient = useQueryClient();
+
+                        const deletePostData = async (id) => {
+                            mutationFn: async () => await deletePost(id);
+                            onSuccess: (response,id) => {
+                                // Handle successful mutation
+                                await queryClient.setQueryData(["posts"], (cachedPostsData) => {
+                                    return cachedPostsData?.filter((singleCachePostData) => singleCachePostData.id !== id);
+                                });
+                            }   
+                        }
+
+                    ```
+ - **useInfiniteQuery**:- To fetch data in infinite manner.
+
+        Then infinite query hook **useInfiniteQuery** uses **fetchNextPage** method to fetch data in infinite manner.
+
+            Syntax:-
+
+                    ```JSX
+
+                        import { useInfiniteQuery } from "@tanstack/react-query";
+
+                        const { data, isLoading, isError, fetchNextPage } = useInfiniteQuery({
+                            queryKey: ["posts"],
+                            queryFn: fetchPosts,
+                            getNextPageParam: (lastPage, allPages) => {
+                                return lastPage.length === 0 ? undefined : allPages.length + 1;
+                            },   
+                            initialPageParam: 1,                           
+                        })
+
+                        <button onClick={() => fetchNextPage()}>Load More</button>
+
+                    ```
+  - **useInView** (Optional Hook) :-
+ 
+        This hook automatically capture active page region known as viewport and fixing element at bottom instead of measuring page scroll position done using scroll event listener.
+
+            Syntax:-             
+                    
+                    ```Terminal
+
+                        npm install react-intersection-observer
+
+                    ```
+
+                    ```JSX
+
+                        import { useInView } from "react-intersection-observer";
+
+                        const { ref, inView } = useInView({
+                            threshold: 1,
+                        })
+
+                        if (inView) {
+                            // Fetch data
+                            fetchNextPage()
+                        }
+
+
+                        <div ref={ref}>Capture active page region</div>
+                    ```
 
 ***
 ***
@@ -2768,22 +2911,22 @@ Advantages:-
 
         - **Query Explorer**: This provides a way to inspect the query's variables, status, and other metadata in a more detailed manner.
 
-           1. **gcTime**: This shows the time taken for garbage collection time during the query's lifecycle.Also know as data cache time.
+           1. **gcTime**: This shows the time taken for garbage collection time for caching data during request processing.
            (Default value of gcTime is 5 minutes)
            (Scenario:- When the query is no longer needed, it will be garbage collected after this time.)
 
-           2. **staleTime**: This shows the time after which the cached data is considered stale/old. The default value is 0 seconds, meaning the data is fresh until it is fetched again.
+           2. **staleTime**: This shows the time after which fresh cached data gets stale/old. The default value is 0 seconds, meaning the data is fresh until it is fetched again.
            (Default value of staleTime is 0 seconds)
            (Scenario:- When the query data is became stale/old, it will be need to refetch updated data after this time.)
 
-           3. **Polling**:- Keep data up-to-date by automatically refetching it at a specified interval.This can be achieved using the refetchInterval option when tab is active or refetchIntervalInBackground when tab is inactive.
+           3. **Polling**:- Keep data fresh/up-to-date by automatically refetching it at a specified interval.This can be achieved using the refetchInterval option refetch request only when tab is active or refetchIntervalInBackground option refetch request when tab is inactive.
            (Scenarios:- Real-time applications, dashboards, etc.)
 
-           **refetchInterval**: This shows the time interval at which the query will automatically refetch data. The default value is 0 seconds, meaning the query will not refetch automatically.
-           (Default value of refetchInterval is 0 seconds means not applied)
+              - **refetchInterval**: This shows the time interval at which the query will automatically refetch data. The default value is 0 seconds, meaning the query will not refetch automatically.
+              (Default value of refetchInterval is 0 seconds means not applied)
 
-           **refetchIntervalInBackground**: This shows the time interval at which the query will automatically refetch data when the tab is inactive. The default value is 0 seconds, meaning the query will not refetch automatically in the background.
-           (Default value of refetchIntervalInBackground is 0 seconds means not applied)
+              - **refetchIntervalInBackground**: This shows the time interval at which the query will automatically refetch data when the tab is inactive. The default value is 0 seconds, meaning the query will not refetch automatically in the background.
+              (Default value of refetchIntervalInBackground is 0 seconds means not applied)
 
     - **Mutations**: This tab shows all the mutations(means updates on data based on insert,put/patch,delete api call using useMutation hook) that have been triggered in your application. You can see their status, any errors that occurred, and the data they have modified.  
 

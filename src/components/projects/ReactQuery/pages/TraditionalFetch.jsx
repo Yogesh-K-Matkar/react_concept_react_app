@@ -1,6 +1,6 @@
 //import { useMemo } from "react";
 import { useState, useEffect, useCallback } from "react";
-import fetchPosts from "../api/api.js";
+import { fetchPosts } from "../api/api.js";
 
 const TraditionalFetch = () => {
   const [apiData, setAPIData] = useState([]);

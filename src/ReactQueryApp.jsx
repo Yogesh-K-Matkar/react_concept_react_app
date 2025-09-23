@@ -7,6 +7,8 @@ import TraditionalFetch from "./components/projects/ReactQuery/pages/Traditional
 import ReactQueryFetch from "./components/projects/ReactQuery/pages/ReactQueryFetch";
 import ReactQueryFetchDetails from "./components/projects/ReactQuery/components/UI/ReactQueryFetchDetails";
 
+import ReactQueryInfiniteScrolling from "./components/projects/ReactQuery/pages/ReactQueryInfiniteScrolling";
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
@@ -31,6 +33,10 @@ const routingURLs = createBrowserRouter([
       {
         path: "/fetch/reactquery/:id",
         element: <ReactQueryFetchDetails />,
+      },
+      {
+        path: "/reactqueryinfinitescrolling",
+        element: <ReactQueryInfiniteScrolling />,
       },
     ],
   },

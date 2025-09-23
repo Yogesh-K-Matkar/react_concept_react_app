@@ -18,6 +18,11 @@ const Header = () => {
           <li>
             <NavLink to="/fetch/reactquery">ReactQueryFetch</NavLink>
           </li>
+          <li>
+            <NavLink to="/reactqueryinfinitescrolling">
+              ReactQueryInfiniteScrolling
+            </NavLink>
+          </li>
         </ul>
       </div>
     </header>

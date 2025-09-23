@@ -14,7 +14,7 @@ const ReactQueryFetch = () => {
 
   const { data, isPending, isError, error } = useQuery({
     queryKey: ["posts", pageno], //Like useState
-    queryFn: async (pageno) => await fetchPosts(pageno), //Like useEffect
+    queryFn: async () => await fetchPosts(pageno), //Like useEffect
     gcTime: 2 * 1000, //Garbage Collection Time Till 2sec
     staleTime: 5 * 1000, //Keep Data Fresh Time Till 5sec
     // refetchInterval: 6 * 1000, //Refetch Data Every 6sec automatically call api without taking any action

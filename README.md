@@ -1037,7 +1037,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
             ```
 
-        - Run the dev server.
+        - Run the development server.
 
             ```Terminal
 

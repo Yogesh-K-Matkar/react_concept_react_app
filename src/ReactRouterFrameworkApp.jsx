@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./ReactRouterFrameworkApp.css";
+//import "./ReactRouterFrameworkApp.css";
 import { Home } from "./components/projects/ReactRouter/pages/Home";
 import { About } from "./components/projects/ReactRouter/pages/About";
 import { Movie } from "./components/projects/ReactRouter/pages/Movie";

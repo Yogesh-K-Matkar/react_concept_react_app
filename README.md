@@ -924,15 +924,20 @@ If you are developing a production application, we recommend using TypeScript wi
 
 - **CSS Style** - 
 
-    - **Specificity Calculation:- 
+    - **Specificity Calculation**:- 
         
         **Specificity** is calculated using a point system:
            - **Inline styles** = 1000 pointsEach 
+
            - **ID** = 100 points
+
            - **Each class, attribute, or pseudo-class** = 10 points
+
            - **Each element or pseudo-element** = 1 point
 
-    grid or flex-box. CSS always give it to the parent tag.
+    - **Flexbox** is designed for one-dimensional layouts, aligning items either in a row or a column at a time. It works from the content outwards, ideal when you want to space items evenly in a single direction and let the content size determine spacing. Flexbox containers manage items along either a horizontal or vertical axis but not both simultaneously.
+
+    - **CSS Grid** is designed for two-dimensional layouts, managing both rows and columns at the same time. It works from the layout inward, allowing you to define a grid structure and place items according to this grid. This makes it better suited for complex layouts where alignment in both directions is required, such as full webpage layouts or complex UI components.
   
     Instead of defining a class prop for applying a CSS class, use the className prop.
 

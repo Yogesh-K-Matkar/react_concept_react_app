@@ -922,7 +922,17 @@ If you are developing a production application, we recommend using TypeScript wi
 
         ```
 
-- **CSS Style** - grid or flex-box. CSS always give it to the parent tag.
+- **CSS Style** - 
+
+    - **Specificity Calculation:- 
+        
+        **Specificity** is calculated using a point system:
+           - **Inline styles** = 1000 pointsEach 
+           - **ID** = 100 points
+           - **Each class, attribute, or pseudo-class** = 10 points
+           - **Each element or pseudo-element** = 1 point
+
+    grid or flex-box. CSS always give it to the parent tag.
   
     Instead of defining a class prop for applying a CSS class, use the className prop.
 

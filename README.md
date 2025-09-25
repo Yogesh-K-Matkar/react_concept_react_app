@@ -1177,7 +1177,7 @@ If you are developing a production application, we recommend using TypeScript wi
     When such function also handle Synthetic Method default behaviour of browser and html control/element/tag through event argument such event.preventDefault, event.stopPropagation or event.stopImmediatePropagation.Then they are called as Synthetic Event Handler
 
 
-         - **Type Of Function**:-
+         - **Ways Of Implememting Function**:-
 
               - **Named Function** is only calling the function name, not the function.
             

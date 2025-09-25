@@ -927,6 +927,7 @@ If you are developing a production application, we recommend using TypeScript wi
     - **Specificity Calculation**:- 
         
         **Specificity** is calculated using a point system:
+
            - **Inline styles** = 1000 pointsEach 
 
            - **ID** = 100 points

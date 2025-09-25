@@ -1170,11 +1170,11 @@ If you are developing a production application, we recommend using TypeScript wi
 
             ```
 
-- **Event Handler** in JS, such as onClick, onChange, onSubmit, etc, which then call Syntactic Event Handler Function in React, should be written as a handle function name such as handleClick, handleChange,handleSubmit, etc
+- **Event Handler** in JS, Events such as onClick, onChange, onSubmit, etc, which then call Syntactic Function to handle Event in React, Handle Function should be written as handleClick, handleChange, handleSubmit, etc
 
-    This function handles Form Handling, User Interaction, State Management, and Callback Function.
+    This function handles logic of Form Handling, User Interaction, State Management, and Callback Function.
 
-    This is known as the Syntactic Event Handler Function.
+    This function also handle Syntactic Method proved by browser and html control/element/tag through event argument such event.preventDefault, event.stopPropagation or event.stopImmediatePropagation 
 
 
          - **Type Of Function**:-

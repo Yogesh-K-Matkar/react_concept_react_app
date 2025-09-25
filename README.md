@@ -2497,7 +2497,7 @@ If you are developing a production application, we recommend using TypeScript wi
             **Example**: If the path is "/movie/:movieID/:movieName", then params will be an object like { movieID: "123", movieName: "Charlie" }.
 
 
-    - **Dynamic route parameters of URL access in Loader attribute funtion**.
+    - **Dynamic route parameters of URL access in Loader attribute JS Funtion**.
 
 
         Syntax:-

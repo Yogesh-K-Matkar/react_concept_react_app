@@ -1170,11 +1170,11 @@ If you are developing a production application, we recommend using TypeScript wi
 
             ```
 
-- **Event Handler** in JS, Events such as onClick, onChange, onSubmit, etc, which then call Syntactic Function to handle Event in React, Handle Function should be written as handleClick, handleChange, handleSubmit, etc
+- **Event Handler**  function in JS that handles Events such as onClick, onChange, onSubmit, etc, by calling handler function with prefix of **handle** ahead of each function handleClick, handleChange, handleSubmit, etc
 
     This function handles logic of Form Handling, User Interaction, State Management, and Callback Function.
 
-    This function also handle Syntactic Method proved by browser and html control/element/tag through event argument such event.preventDefault, event.stopPropagation or event.stopImmediatePropagation 
+    When such function also handle Synthetic Method default behaviour of browser and html control/element/tag through event argument such event.preventDefault, event.stopPropagation or event.stopImmediatePropagation.Then they are called as Synthetic Event Handler
 
 
          - **Type Of Function**:-
@@ -1193,7 +1193,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
                        ```
 
-              - **Arrow Function with event** as parameter to get Syntactic Event object
+              - **Arrow Function with parameter event**  which is Syntactic Event object
 
                   E.g.:-        
 
@@ -1203,7 +1203,8 @@ If you are developing a production application, we recommend using TypeScript wi
 
                        ```
 
-              - **Inline Function With Syntactic Event Object**
+              - **Inline Function with parameter event**  which is Syntactic Event object
+
 
                   E.g.:-        
 
@@ -1223,7 +1224,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
                        ```
 
-              - **Arrow function passing parameters/arguments**
+              - **Arrow function passing parameter and Syntactic Event object as arguments**
 
                   E.g.:-       
 

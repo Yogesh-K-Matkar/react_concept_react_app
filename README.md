@@ -1170,7 +1170,9 @@ If you are developing a production application, we recommend using TypeScript wi
 
             ```
 
-- **Event Handler** in JS, such as onClick, onChange, onSubmit, etc, which then call Syntactic Event Handler Function in React, should be written as a function name such as handleClick, handleChange,handleSubmit, etc
+- **Event Handler** in JS, such as onClick, onChange, onSubmit, etc, which then call Syntactic Event Handler Function in React, should be written as a handle function name such as handleClick, handleChange,handleSubmit, etc
+
+    This function handles Form Handling, User Interaction, State Management, and Callback Function.
 
     This is known as the Syntactic Event Handler Function.
 
@@ -1231,9 +1233,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
                         ```
 
-- **Event Handler** passing as props can be used in concepts such as Form Handling, User Interaction, State Management, and Callback Function.
-
-- **Event Function** is defined in Parent Component & passed as Props to Child Component, & then Child Component decides when to call Parent Component Event Function.
+- **Passing Event Handler Function** from Parent Component & passed as Props to Child Component, & then Child Component decides when to call Parent Component Event Function.
  
     So Parent Component pass Event Function as Props as Event Handler to the Child Component.
 

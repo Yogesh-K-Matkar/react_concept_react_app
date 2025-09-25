@@ -938,7 +938,27 @@ If you are developing a production application, we recommend using TypeScript wi
 
     - **Flexbox** is designed for one-dimensional layouts, aligning items either in a row or a column at a time. It works from the content outwards, ideal when you want to space items evenly in a single direction and let the content size determine spacing. Flexbox containers manage items along either a horizontal or vertical axis but not both simultaneously.
 
+          ```css
+
+               .container {
+                       display: flex;
+                       justify-content: space-between;  
+                       align-items: center;
+                }
+
+          ```
+
     - **CSS Grid** is designed for two-dimensional layouts, managing both rows and columns at the same time. It works from the layout inward, allowing you to define a grid structure and place items according to this grid. This makes it better suited for complex layouts where alignment in both directions is required, such as full webpage layouts or complex UI components.
+
+           ```css
+
+                .grid-container {
+                         display: grid;
+                         grid-template-columns: 1fr 1fr 1fr;
+                         grid-template-rows: 1fr 1fr 1fr;
+                         gap: 10px;
+                }
+           ```
   
     Instead of defining a class prop for applying a CSS class, use the className prop.
 

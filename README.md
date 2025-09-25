@@ -935,7 +935,9 @@ If you are developing a production application, we recommend using TypeScript wi
            - **Each class, attribute, or pseudo-class** = 10 points
 
            - **Each element or pseudo-element** = 1 point
+      
 
+    - **Element Design Structure**
     - **Flexbox** is designed for one-dimensional layouts, aligning items either in a row or a column at a time. It works from the content outwards, ideal when you want to space items evenly in a single direction and let the content size determine spacing. Flexbox containers manage items along either a horizontal or vertical axis but not both simultaneously.
 
          Mainly used for navnat,menus and toolbar display.
@@ -966,7 +968,7 @@ If you are developing a production application, we recommend using TypeScript wi
   
     Instead of defining a class prop for applying a CSS class, use the className prop.
 
-    **Types of CSS**:-
+    **Ways of Applying CSS**:-
 
     - **Normal CSS** consider using the className prop.
 

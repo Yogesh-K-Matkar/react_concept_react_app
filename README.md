@@ -3046,10 +3046,24 @@ If you are developing a production application, we recommend using TypeScript wi
 
 
 #### REDUX :-
+   Redux is used mainly for large application having higher number of component hierarchy.
+   In Redux data/state flow in one-direction from Parent to Target Child.
 
-    Redux is a predictable state container for JavaScript applications. It helps you manage the state of your application in a centralized way, making it easier to reason about and debug.
+   **Redux Store**:- Store all data in one places and share share data as per required by components.
 
-    Redux follows a unidirectional data flow, where the state is stored in a single immutable object called the "store". Actions are dispatched to modify the state, and components can subscribe to changes in the state.  
+   Redux works based on 3 parts:-
+      - Store:- All data in one place.
+      - Action:- What different action perform on data such as add,increment,decrement, etc
+      - Reducer:- 
+    
+   
+   
+   
+   It helps you manage the state of your application in a centralized way, making it easier to reason about and debug.
+
+   Redux follows a unidirectional data flow, where the state is stored in a single immutable object called the "store". 
+   
+   Actions are dispatched to modify the state, and components can subscribe to changes in the state.  
 
 #### Redux Toolkit(RTK) :-
 

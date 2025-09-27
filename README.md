@@ -3047,49 +3047,77 @@ If you are developing a production application, we recommend using TypeScript wi
 
 #### REDUX :-
    Redux is used mainly for large application having higher number of component hierarchy.
-   In Redux data/state flow in one-direction from Parent to Target Child.
+   In Redux data/state flow in one-direction from Parent to Target Child so to avoid unwanted travalling of data 
+
 
    **Redux Store**:- Store all data in one places and share share data as per required by components.
 
    Redux works based on 3 parts:-
-      - Store:- All data in one place.
-      - Action:- What different action perform on data such as add,increment,decrement, etc
-      - Reducer:- 
-    
-   
-   
-   
-   It helps you manage the state of your application in a centralized way, making it easier to reason about and debug.
+      - Store:- Where all data is kept in one place.
+      - Action:- What different task/action performed  on data information such as add,increment,decrement, etc
+      - Reducer:- How task/action performed detailed logics are maintained.
 
-   Redux follows a unidirectional data flow, where the state is stored in a single immutable object called the "store". 
+   **Advantages**:-
+      - Centralized storage of all data by Store
+      - Global easy to access from Store
+      - Predictable/Definite update of state by Reducer.
+      - Provides its own Devtools for tracking changes in browser
+      - Support async middleware process by JS scripts libraries such as Thunk or Saga
    
-   Actions are dispatched to modify the state, and components can subscribe to changes in the state.  
+   **Reducer**:-
+   - Always return new state
+   - Never update original state value ,its takes copy by using ...spread operatior then update and return new state.
+
+   The reducer function takes 2 arguments:
+    - **State**:- Current State
+    - **Action**:- This tells the reducer what to do. It has a type and sometimes a payload(which is data to update/add).
+
+   Syntax:-   
+   
+         ```JS
+            const reducerfn = (state = initialState , action) => {
+
+               switch(action.type)
+               {
+                  case 'ACTION_TYPE':
+                     return { ...state, data: action.payload };
+                  default:
+                     return state;               
+               }            
+            }
+
+         ```
+     
+   **Notes**:-
+   1. Action Type:- DomainName/Action   Eg:- task/add OR task/update OR task/delete
+   2. State:- Never directly change the state, but use Spread Operator which creake copy of state then make chages such as add/update/delete items from state copy not the original state.
+   
 
 #### Redux Toolkit(RTK) :-
 
-    Large applications often require a more structured approach to managing global state, especially when dealing with complex data flows and interactions. Redux Toolkit (RTK) is a library that provides a set of tools and best practices for managing global state in React applications.
+   Large applications often require a more structured approach to managing global state, especially when dealing with complex data flows and interactions. Redux Toolkit (RTK) is a library that provides a set of tools and best practices for managing global state in React applications.
 
-    It is built on top of Redux and provides a more efficient and developer-friendly way to work with Redux.
+   It is built on top of Redux and provides a more efficient and developer-friendly way to work with Redux.
 
-    It is designed to reduce boilerplate code, improve performance, and enhance the developer experience.
+   It is designed to reduce boilerplate code, improve performance, and enhance the developer experience.
 
-    It is the standard way to write Redux logic in modern React applications.
+   It is the standard way to write Redux logic in modern React applications.
 
-    It is recommended for managing global state in React applications because it simplifies setup, reduces boilerplate code, and enforces best practices.
+   It is recommended for managing global state in React applications because it simplifies setup, reduces boilerplate code, and enforces best practices.
 
-    Syntax:
+   Syntax:
+   
+   Install Dependencies
 
-        Install Dependencies
-
-            ```js
+   ```JS
             npm install @reduxjs/toolkit react-redux
-            ```
+   ```
 
-        Create a Redux Slice
+   Create a Redux Slice
 
-        Use createSlice to generate actions and reducers for a part of your state.
+   Use createSlice to generate actions and reducers for a part of your state.
 
-            ```js
+   ```JS
             import { createSlice } from '@reduxjs/toolkit';
 
 
@@ -3104,37 +3132,37 @@ If you are developing a production application, we recommend using TypeScript wi
 
             export const { increment, decrement } = counterSlice.actions;
             export default counterSlice.reducer;
-            ```
+   ```
 
-        Configure the Store
+   Configure the Store
 
-        Use configureStore (not createStore).
+   Use configureStore (not createStore).
 
-            ```js
+   ```JS
             import { configureStore } from '@reduxjs/toolkit';
             import counterReducer from './counterSlice';
 
             export const store = configureStore({
                 reducer: { counter: counterReducer }
             });
-            ```
+  ```
 
-        Provide the Store
+  Provide the Store
 
-        Use <Provider store={store}> to wrap your app.
+  Use <Provider store={store}> to wrap your app.
 
-        Use Hooks in Components
+  Use Hooks in Components
 
-        Use useSelector to access state and useDispatch to send actions.
+  Use useSelector to access state and useDispatch to send actions.
 
-            ```js
+  ```JS
             import { useSelector, useDispatch } from 'react-redux';
 
             const count = useSelector(state => state.counter.value);
             const dispatch = useDispatch();
 
             dispatch(increment());
-            ```
+  ```
 
 #### Zustand (Newer Concept) :-
 

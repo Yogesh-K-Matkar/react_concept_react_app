@@ -15,6 +15,8 @@ import { createRoot } from "react-dom/client";
 //import "./CountryAtlasIndex.css";
 //import { ReactQueryApp } from "./components/ReactQueryApp";
 //import "./ReactQueryIndex.css";
+// import { ReactReduxApp } from "./components/ReactReduxApp";
+// import "./ReactReduxIndex.css";
 
 const ReactApp = React.lazy(() => import("./ReactFrameworkApp"));
 const ReactRouterApp = React.lazy(() => import("./ReactRouterFrameworkApp"));
@@ -29,6 +31,8 @@ const ResponsiveNavBarApp = React.lazy(() => import("./ResponsiveNavBarApp"));
 const CountryAtlasApp = React.lazy(() => import("./CountryAtlasApp"));
 
 const ReactQueryApp = React.lazy(() => import("./ReactQueryApp"));
+
+const ReactReduxApp = React.lazy(() => import("./ReactReduxApp"));
 
 let AppConcept = import.meta.env.VITE_APP_CONCEPT;
 
@@ -124,6 +128,18 @@ export const LoadComponent = () => {
           </h1>
           <br />
           <ReactQueryApp />
+        </>
+      );
+
+    case "REACTREDUXAPP":
+      import("./ReactReduxIndex.css");
+      return (
+        <>
+          <h1 style={styleTitle}>
+            <u>Project 8. React Redux Concept</u>
+          </h1>
+          <br />
+          <ReactReduxApp />
         </>
       );
 

@@ -415,6 +415,10 @@ If you are developing a production application, we recommend using TypeScript wi
 
         npm -v           (Node Package Manager Version)
 
+        npm list            (To view all installed packages with version as local packages)
+        
+        npm list -g         (To view all installed packages with version as global packages)
+
         npx npm-check-updates (To verify all packages listed with their current and latest available version)
 
         npx npm-check-updates -u (To update all packages to the latest version, listing with their older version in the previous npx command)
@@ -3075,12 +3079,15 @@ If you are developing a production application, we recommend using TypeScript wi
    Syntax:-   
    
          ```JS
+
+            const initialState = { value: 0 };
+
             const reducerfn = (state = initialState , action) => {
 
                switch(action.type)
                {
                   case 'ACTION_TYPE':
-                     return { ...state, data: action.payload };
+                     return { ...state, value: state.value + action.payload };
                   default:
                      return state;               
                }            
@@ -3092,6 +3099,64 @@ If you are developing a production application, we recommend using TypeScript wi
    1. Action Type:- DomainName/Action   Eg:- task/add OR task/update OR task/delete
    2. State:- Never directly change the state, but use Spread Operator which creake copy of state then make chages such as add/update/delete items from state copy not the original state.
    
+   **Store**:-
+   Store is a global container for the entire application's state. It stores data temporarily and provides a unified way to access and update the state across the entire application.
+
+   Syntax:-
+
+         ```JS
+                    import {createStore} from 'redux';
+                    import {reducerfn} from './reducer';
+
+                    const store = createStore(reducerfn);
+         ```
+
+  **Dispatch**:-
+   Dispatch is a function provided by the Redux store that allows you to send actions to the store. It is used to trigger state changes in the store based on the actions dispatched.
+
+   Syntax:-
+
+         ```JS
+                    import {createStore} from 'redux';
+
+                    const store = createStore(reducerfn);
+
+                    <button onClick={() => store.dispatch({ type: 'ACTION_TYPE', payload: data })}></button>
+         ```
+
+### REACT REDUX (Connect REDUX with REACT):-
+
+   React Redux is a library that provides a way to connect React components to Redux stores, allowing you to access and modify the state within the components.
+
+   It is built on top of React and Redux and provides a more efficient and developer-friendly way to work with Redux in React applications.
+
+   It is designed to reduce boilerplate code, improve performance, and enhance the developer experience.
+
+   It is the standard way to work with Redux in React applications.
+
+   It is recommended for working with Redux in React applications because it simplifies setup, reduces boilerplate code, and enforces best practices.
+       
+   Syntax:-
+
+   Install Dependencies
+
+   ```Terminal
+            npm install react-redux 
+   ```
+
+   Create a Redux Store
+
+   Use createStore to create a Redux store.
+
+   ```JS    
+            import { createStore } from 'redux';
+
+            const store = createStore(reducer);
+
+   ```
+
+   Connect a React Component to the Redux Store
+    
 
 #### Redux Toolkit(RTK) :-
 
@@ -3163,6 +3228,13 @@ If you are developing a production application, we recommend using TypeScript wi
 
             dispatch(increment());
   ```
+
+  **Action Creator**:- 
+  It is a wrapper function over dispatch for better understanding, maintainability and reducing redundant code. 
+  
+  It is used to create actions that can be dispatched to the Redux store instead of directly calling dispatch method.
+
+  
 
 #### Zustand (Newer Concept) :-
 

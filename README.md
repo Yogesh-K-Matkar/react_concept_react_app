@@ -768,6 +768,10 @@ If you are developing a production application, we recommend using TypeScript wi
 - **DOM Reconciliation / Diffing Algorithm**:  
     React uses a Virtual DOM to efficiently update the UI. When a component's state changes, React creates a new Virtual DOM tree by Babel and compares it with the previous one to determine the minimal set of changes needed to update the actual DOM.
 
+- **Browser Dev Tools For REACT** is React Developer Tools (Chrome Extension) that provides 2 more table in developer options as below.
+    - **Component Hierarchy** :- Shows the hierarchy of components in the application. 
+    - **Profiler** :- Displays the time spent by each component in rendering, updates, and layout.
+
 - **React.StrictMode**:-
     It is a tool for highlighting potential problems in an application. It activates additional checks and warnings for its descendants.
 
@@ -782,8 +786,8 @@ If you are developing a production application, we recommend using TypeScript wi
             </React.StrictMode>
     ```
 
-    **Note**:- Wrap the entire application with <React.StrictMode> tag
-  
+    **Note**:- Wrap the entire application with <React.StrictMode> tag    
+
 -  Each element/expression in JSX block must combine/enclosed multiple tags into one parent tag element, which means if you try to return multiple tags seperate elements.
 
     React will throw an error.
@@ -987,9 +991,9 @@ If you are developing a production application, we recommend using TypeScript wi
         
         **Specificity** is calculated using a point system:
 
-         - **Inline styles** = 1000 pointsEach 
+         - **Each Inline styles** = 1000 points 
 
-         - **ID** = 100 points
+         - **Each ID** = 100 points
 
          - **Each class, attribute, or pseudo-class** = 10 points
 
@@ -1433,6 +1437,8 @@ If you are developing a production application, we recommend using TypeScript wi
     - **UnControlled Components** Data not bind with Hooks values (Does not reflect changes in DOM and not on UI onChange - Non-Sync Data - Operations:- Background values,timer):- useRefs
 
 - The 'use' prefixes in a function name is all React Hooks.
+
+  Hooks can only be call/use within Components or inside another hook or custom hook.
 
     - **Types Of Hooks**:-
 
@@ -3050,87 +3056,92 @@ If you are developing a production application, we recommend using TypeScript wi
 
 
 #### REDUX :-
-   Redux is used mainly for large application having higher number of component hierarchy.
-   In Redux data/state flow in one-direction from Parent to Target Child so to avoid unwanted travalling of data 
 
-
-   **Redux Store**:- Store all data in one places and share share data as per required by components.
-
-   Redux works based on 3 parts:-
-      - Store:- Where all data is kept in one place.
-      - Action:- What different task/action performed  on data information such as add,increment,decrement, etc
-      - Reducer:- How task/action performed detailed logics are maintained.
-
-   **Advantages**:-
-      - Centralized storage of all data by Store
-      - Global easy to access from Store
-      - Predictable/Definite update of state by Reducer.
-      - Provides its own Devtools for tracking changes in browser
-      - Support async middleware process by JS scripts libraries such as Thunk or Saga
+  - **Redux** is used mainly for large application having higher number of component hierarchy.
    
-   **Reducer**:-
-   - Always return new state
-   - Never update original state value ,its takes copy by using ...spread operatior then update and return new state.
+    In Redux data/state flow in one-direction from Parent to Target Child so to avoid unwanted traversal/propagation/transmission of data.   
 
-   The reducer function takes 2 arguments:
+    Redux works based on 3 parts:-
+    - **Store**:- Where all data is kept in one place.
+    - **Action**:- What different task/action performed  on data information such as add,increment,decrement, etc
+    - **Reducer**:- How task/action performed detailed logics are maintained.
+
+
+    **Advantages**:-
+    - Easy to understand/structured/manage data flow.
+    - Centralized storage of all data by Store
+    - Global easy to access from Store
+    - Predictable/Definite update of state by Reducer.
+    - Provides its own Devtools for tracking changes in browser
+    - Support async middleware process by JS scripts libraries such as Thunk or Saga
+   
+
+  - **Reducer**:-
+   
+    - Always return new state
+    - Never update original state value ,its takes copy by using ...spread operatior then update and return new state.
+
+    The reducer function takes 2 arguments:
     - **State**:- Current State
     - **Action**:- This tells the reducer what to do. It has a type and sometimes a payload(which is data to update/add).
 
-   Syntax:-   
+    Syntax:-   
+        
+       ```JS
+
+                const initialState = { value: 0 };
+
+                const reducerfn = (state = initialState , action) => {
+
+                    switch(action.type)
+                    {
+                        case 'ACTION_TYPE':
+                        return { ...state, value: state.value + action.payload };
+                        default:
+                        return state;               
+                    }            
+                }
+
+       ```
+        
+    **Notes**:-        
+    1. Action Type:- DomainName/Action   Eg:- task/add OR task/update OR task/delete
+    2. State:- Never directly change the state, but use Spread Operator which create copy of state then make changes such as add/update/delete items from state copy not the original state.
+        
+  - **Store**:-
+    
+    Store is a global container for the entire application's state. It stores data temporarily and provides a unified way to access and update the state across the entire application.
+
+    Syntax:-
+
+       ```JS
+
+                import {createStore} from 'redux';
+                import {reducerfn} from './reducer';
+
+                const store = createStore(reducerfn);
+
+       ```
+
+  - **Dispatch**:-
    
-         ```JS
+    Dispatch is a function provided by the Redux store that allows you to send actions to the store. It is used to trigger state changes in the store based on the actions dispatched.
 
-            const initialState = { value: 0 };
+    Syntax:-
 
-            const reducerfn = (state = initialState , action) => {
+       ```JSX
+                
+                import {createStore} from 'redux';
 
-               switch(action.type)
-               {
-                  case 'ACTION_TYPE':
-                     return { ...state, value: state.value + action.payload };
-                  default:
-                     return state;               
-               }            
-            }
+                const store = createStore(reducerfn);
 
-         ```
-     
-   **Notes**:-
-   1. Action Type:- DomainName/Action   Eg:- task/add OR task/update OR task/delete
-   2. State:- Never directly change the state, but use Spread Operator which creake copy of state then make chages such as add/update/delete items from state copy not the original state.
-   
-   **Store**:-
-   Store is a global container for the entire application's state. It stores data temporarily and provides a unified way to access and update the state across the entire application.
+                <button onClick={() => store.dispatch({ type: 'ACTION_TYPE', payload: data })}></button>
 
-   Syntax:-
-
-         ```JS
-                    import {createStore} from 'redux';
-                    import {reducerfn} from './reducer';
-
-                    const store = createStore(reducerfn);
-         ```
-
-  **Dispatch**:-
-   Dispatch is a function provided by the Redux store that allows you to send actions to the store. It is used to trigger state changes in the store based on the actions dispatched.
-
-   Syntax:-
-
-         ```JS
-                    import {createStore} from 'redux';
-
-                    const store = createStore(reducerfn);
-
-                    <button onClick={() => store.dispatch({ type: 'ACTION_TYPE', payload: data })}></button>
-         ```
+       ```
 
 ### REACT REDUX (Connect REDUX with REACT):-
 
-   React Redux is a library that provides a way to connect React components to Redux stores, allowing you to access and modify the state within the components.
-
-   It is built on top of React and Redux and provides a more efficient and developer-friendly way to work with Redux in React applications.
-
-   It is designed to reduce boilerplate code, improve performance, and enhance the developer experience.
+   **React Redux** is a library that provides a way to connect React components to Redux stores, allowing you to access and modify the state within the components.
 
    It is the standard way to work with Redux in React applications.
 
@@ -3138,25 +3149,105 @@ If you are developing a production application, we recommend using TypeScript wi
        
    Syntax:-
 
-   Install Dependencies
+   **Install Dependencies**
 
-   ```Terminal
+       ```Terminal
+   
             npm install react-redux 
-   ```
 
-   Create a Redux Store
+       ```
+
+   **Create a Redux Store**
 
    Use createStore to create a Redux store.
 
-   ```JS    
+       ```JS    
             import { createStore } from 'redux';
 
-            const store = createStore(reducer);
+            const store = createStore(reducerfn);
 
-   ```
+       ```
 
    Connect a React Component to the Redux Store
+
+   **Provider**
+
+   Use Provider Component to wrap your app and provide the Redux store.
+
+       ```JSX
+            import { Provider } from 'react-redux';
+
+            <Provider store={store}>
+                <App />
+            </Provider>
+       ```
+
+   **Hooks**
+
+   1. **useSelector**
+   
+    Use useSelector hook to access specific store property/state data in React Component.
+
+    Syntax:-
+
+       ```JSX
+            import { useSelector } from 'react-redux';
+
+            const count = useSelector((store) => store.count);
+
+            console.log("Count:-", count);                          
+       ```
+
+   2. **useDispatch**
+   
+    Use useDispatch hook to send actions in React Component.
+
+    Syntax:-
+
+       ```JSX
+            import { useDispatch } from 'react-redux';
+
+            const dispatch = useDispatch();
+
+            const addCount = () => {
+                e.preventDefault();
+                dispatch({ type: 'INCREMENT' })
+            }
+
+            <button onClick={(e) =>addCount(e)}>Add Count
+            </button>
+       ```
+
+   - **Browser Dev Tools For REACT REDUX** is Redux DevTools (Chrome Extension) that provides 1 more tab in developer options as below.
+     1 **Redux** :- Allows to inspect and manage the state of your Redux store in real-time.
     
+     
+     Install Redux DevTools Package
+
+     Syntax:-
+
+        ```Terminal
+
+             npm install @redux-devtools/extension
+
+        ```
+
+     **Use Redux DevTools Extension**
+
+     Syntax:-
+
+        ```JSX
+
+                import { Provider } from 'react-redux';
+                import { composeWithDevTools } from '@redux-devtools/extension';
+
+                const store = createStore(reducerfn, composeWithDevTools());
+
+                <Provider store={store}>
+                    <App />
+                </Provider>
+
+        ```
 
 #### Redux Toolkit(RTK) :-
 
@@ -3172,11 +3263,13 @@ If you are developing a production application, we recommend using TypeScript wi
 
    Syntax:
    
-   Install Dependencies
+   - Install Dependencies
 
-   ```JS
+       ```Terminal
+       
             npm install @reduxjs/toolkit react-redux
-   ```
+
+       ```
 
    Create a Redux Slice
 

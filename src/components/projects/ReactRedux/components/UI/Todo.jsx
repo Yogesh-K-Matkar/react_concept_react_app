@@ -1,92 +1,76 @@
-//import { MdDeleteForever } from "react-icons/md";
-//import { useStore } from "react-redux";
+import { useState } from "react";
+import { MdDeleteForever } from "react-icons/md";
+import { addTask, deleteTask } from "../../store/action";
+
+import { useDispatch, useSelector } from "react-redux";
 
 const Todo = () => {
+  const [newTask, setNewTask] = useState("");
+
+  const tasks = useSelector((store) => store.tasks);
+
+  console.log("State as Task from Store:-", tasks);
+
+  const dispatch = useDispatch();
+
+  const handleSubmitNewTask = (e) => {
+    e.preventDefault();
+
+    dispatch(addTask({ name: newTask }));
+
+    return setNewTask("");
+  };
+
+  const handleTaskDelete = (e, index) => {
+    e.preventDefault();
+    console.log("Index:-", index);
+
+    dispatch(deleteTask({ index: index }));
+
+    return setNewTask("");
+  };
+
   return (
-    <div className="container">
+    <div className="todo-container">
       <div className="todo-app">
         <h1>
-          <i className="fa-regular fa-pen-to-square"></i>To-do List:
+          <i className="fa-regular fa-pen-to-square">To-do List</i>
         </h1>
         <div className="row">
-          <form>
-            <input type="text" id="input-box" placeholder="Add a new task" />
-            <button type="submit">Add</button>
+          <form onSubmit={(e) => handleSubmitNewTask(e)}>
+            <input
+              type="text"
+              id="input-box"
+              placeholder="Add a new task"
+              required
+              value={newTask}
+              onChange={(e) => setNewTask(e.target.value)}
+            />
+            <button type="submit">Add Task</button>
           </form>
         </div>
-        <ul id="list-container"></ul>
+        <ul id="list-container">
+          {tasks.length === 0 ? (
+            <p>No Task Available</p>
+          ) : (
+            tasks?.map((task, index) => (
+              <li key={index}>
+                <p>
+                  {index}: {task}
+                </p>
+                <div>
+                  <MdDeleteForever
+                    className="icon-style"
+                    onClick={(e) => handleTaskDelete(e, index)}
+                  />
+                </div>
+              </li>
+            ))
+          )}
+        </ul>
       </div>
     </div>
   );
-
-  // const taskStore = useStore();
-
-  // console.log("Current Task:-", taskStore.getState());
-
-  // //Action Creator
-  // const addTask = (TaskPayload) => {
-  //   return {
-  //     type: "task/add",
-  //     payload: { taskDetails: TaskPayload },
-  //   };
-
-  //   //console.log("Added Task:-", taskStore.getState());
-  // };
-  // const deleteTask = (TaskPayload) => {
-  //   return {
-  //     type: "task/delete",
-  //     payload: { taskDetails: TaskPayload },
-  //   };
-
-  //   //console.log("Deleted Task:-", taskStore.getState());
-  // };
-
-  // //
-
-  // return (
-  //   <>
-  //     <h1>Content:-</h1>
-  //     <button
-  //       value="add"
-  //       // onClick={() =>
-  //       //   taskStore.dispatch({
-  //       //     type: "task/add",
-  //       //     payload: { formName: "Task", taskDetails: { name: "Task Add-1" } },
-  //       //   })
-  //       // }
-
-  //       onClick={() => taskStore.dispatch(addTask({ name: "Task Add-1" }))}
-  //     >
-  //       Add Task1
-  //     </button>
-  //     <button
-  //       value="add"
-  //       // onClick={() =>
-  //       //   taskStore.dispatch({
-  //       //     type: "task/add",
-  //       //     payload: { formName: "Task", taskDetails: { name: "Task Add-2" } },
-  //       //   })
-  //       // }
-
-  //       onClick={() => taskStore.dispatch(addTask({ name: "Task Add-2" }))}
-  //     >
-  //       Add Task2
-  //     </button>
-  //     <button
-  //       value="delete"
-  //       // onClick={() =>
-  //       //   taskStore.dispatch({
-  //       //     type: "task/delete",
-  //       //     payload: { formName: "Task", taskDetails: { name: "Task Add-1" } },
-  //       //   })
-  //       // }
-
-  //       onClick={() => taskStore.dispatch(deleteTask({ name: "Task Add-1" }))}
-  //     >
-  //       <MdDeleteForever style={{ color: "red" }} />
-  //     </button>
-  //   </>
-  // );
 };
 
 export default Todo;

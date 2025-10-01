@@ -38,8 +38,8 @@ let AppConcept = import.meta.env.VITE_APP_CONCEPT;
 
 export const LoadComponent = () => {
   const styleTitle = {
-    marginTop: "2rem",
-    marginBottom: "5rem",
+    marginTop: "1rem",
+    marginBottom: "1rem",
     color: "Highlight",
   };
 

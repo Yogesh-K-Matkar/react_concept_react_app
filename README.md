@@ -1945,6 +1945,21 @@ If you are developing a production application, we recommend using TypeScript wi
     Pass as dynamic child components as parameter to HOC Component  
   
     ```JSX
+    
+            const WithExtraProps = (WrappedComponent) => {
+                return (props) => {
+                    const extraProps = { extraProp: "value" };
+                    return <WrappedComponent {...props} {...extraProps} />;
+                };
+            };
+
+            export default WithExtraProps(MyComponent);
+
+    ```
+    
+    ```JSX
+            
+            import WithExtraProps from "./HOC.jsx"
 
             const DynamicComponent = (props) => {
                 const { extraProp } = props;
@@ -1957,25 +1972,12 @@ If you are developing a production application, we recommend using TypeScript wi
 
             const PassingDyanmicComponent = WithExtraProps(DynamicComponent);
 
-            <PassingDyanmicComponent />   
+            const ParentComponent = () = {
+
+               return <PassingDyanmicComponent />  
+
+            }
     
-    ```
-
-
-    ```JSX
-    
-
-            const WithExtraProps = (WrappedComponent) => {
-                return (props) => {
-                    const extraProps = { extraProp: "value" };
-                    return <WrappedComponent {...props} {...extraProps} />;
-                };
-            };
-
-            export default WithExtraProps(MyComponent);
-
-             
-
     ```
 
     Here, `WithExtraProps` is a HOC that adds an `extraProp` to the wrapped component `MyComponent`.

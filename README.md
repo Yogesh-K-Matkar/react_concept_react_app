@@ -2262,7 +2262,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
            ```Terminal
 
-                npm install react-router-dom@latest
+                npm install react-router-dom@rc
 
            ```
 

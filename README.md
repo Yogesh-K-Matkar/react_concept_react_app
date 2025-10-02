@@ -2953,7 +2953,7 @@ If you are developing a production application, we recommend using TypeScript wi
       
      - **useInView** (Less config then **useInfiniteQuery hook**) :-
  
-        This hook automatically capture active page region known as viewport and fixing element at bottom instead of measuring page scroll position done using scroll event listener.
+        This hook (Lazy loading call) automatically capture active page region known as viewport and fixing element at bottom instead of measuring page scroll position done using scroll event listener.
 
         Syntax:-             
                     
@@ -3020,7 +3020,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
    ```
 
-   **Devtools** over page position bottom-right icons when click expands abd shows 2 tabs Queries and Mutations that provides details of API reques call.
+   **Devtools** over page position bottom-right icons when click expands abd shows 2 tabs Queries and Mutations that provides details of API request call.
 
    1. **Queries**: This tab displays all the active queries, their status (loading, error, success), and the data they have fetched using useQuery hook. You can inspect each query's details, including its key, variables, and response data.
 
@@ -3079,7 +3079,7 @@ If you are developing a production application, we recommend using TypeScript wi
   - **Reducer**:-
    
     - Always return new state
-    - Never update original state value ,its takes copy by using ...spread operatior then update and return new state.
+    - Never update original state value ,its takes copy by using ...spread operator then update and return new state.
 
     The reducer function takes 2 arguments:
     - **State**:- Current State
@@ -3138,6 +3138,8 @@ If you are developing a production application, we recommend using TypeScript wi
                 <button onClick={() => store.dispatch({ type: 'ACTION_TYPE', payload: data })}></button>
 
        ```
+
+       **Notes**: payload can be any data such as integers, strings, objects, arrays, etc.
 
 ### REACT REDUX (Connect REDUX with REACT):-
 
@@ -3211,12 +3213,13 @@ If you are developing a production application, we recommend using TypeScript wi
 
             const addCount = () => {
                 e.preventDefault();
-                dispatch({ type: 'INCREMENT' })
+                dispatch({ type: 'INCREMENT',payload: 1 });
             }
 
             <button onClick={(e) =>addCount(e)}>Add Count
             </button>
        ```
+     **Notes**: payload can be any data such as integers, strings, objects, arrays, etc.   
 
    - **Browser Dev Tools For REACT REDUX** is Redux DevTools (Chrome Extension) that provides 1 more tab in developer options as below.
      1 **Redux** :- Allows to inspect and manage the state of your Redux store in real-time.

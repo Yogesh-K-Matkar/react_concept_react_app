@@ -2908,7 +2908,7 @@ If you are developing a production application, we recommend using TypeScript wi
                         import { useMutation } from "@tanstack/react-query";
 
                         const postDelete = useMutation({
-                            mutationFn: async ()=> await deletePost(),
+                            mutationFn: async ()=> await deletePost(id),
                             onSuccess: () => {
                                 // Handle successful mutation
                             },

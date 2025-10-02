@@ -1942,7 +1942,28 @@ If you are developing a production application, we recommend using TypeScript wi
 
     Syntax:-
 
+    Pass as dynamic child components as parameter to HOC Component  
+  
     ```JSX
+
+            const DynamicComponent = (props) => {
+                const { extraProp } = props;
+
+                retrun
+                (
+                    <h1> Passes props by HOC Component { extraProp }</h1>    
+                )
+            }
+
+            const PassingDyanmicComponent = WithExtraProps(DynamicComponent);
+
+            <PassingDyanmicComponent />   
+    
+    ```
+
+
+    ```JSX
+    
 
             const WithExtraProps = (WrappedComponent) => {
                 return (props) => {
@@ -1952,6 +1973,8 @@ If you are developing a production application, we recommend using TypeScript wi
             };
 
             export default WithExtraProps(MyComponent);
+
+             
 
     ```
 

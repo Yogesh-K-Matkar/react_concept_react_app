@@ -2019,7 +2019,7 @@ If you are developing a production application, we recommend using TypeScript wi
 ***
 ***
 
-### ReactJS API Access Ways:-
+### React API Access Ways:-
 
 #### 1. fetch():-
 

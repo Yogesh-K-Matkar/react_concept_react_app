@@ -1990,6 +1990,19 @@ If you are developing a production application, we recommend using TypeScript wi
      Syntax:-
 
      ```JSX
+               import ChildComponent from "./memo.jsx"
+          
+               const MemoComponent= memo(Child component);
+               
+               const ParentComponent = () = {
+
+               return <MemoComponent />
+
+               }
+
+     ```
+
+     ```JSX
 
                 import React, { memo } from "react";
 

@@ -110,6 +110,10 @@ button {
  -o-border-radius: 4rem;
 }
 
+ul{
+  padding-top: 2rem ;
+}
+
 ul li{
  list-style: square;
  padding: 1rem 8rem 1rem 5rem;

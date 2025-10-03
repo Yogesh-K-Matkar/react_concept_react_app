@@ -2814,7 +2814,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
    **QueryClient**:- Core part of ReactQuery that performs manage cache data,background fetch when data is old,data synchronization and other query logic.    
 
-### Hooks In React Query
+#### Hooks In React Query
 
  1 **useQuery**:- To fetch/get/read data from server.
    
@@ -2983,9 +2983,9 @@ If you are developing a production application, we recommend using TypeScript wi
 ***
 ***
 
-### React Query Devtools
+#### React Query Devtools
 
-#### Install
+##### Install
 
    React Query provide devtools similar to react devtools for inspecting queries and their states in details in browser developer options similar to components and profiler panels.
 
@@ -2999,7 +2999,7 @@ If you are developing a production application, we recommend using TypeScript wi
             
    ```
 
-#### Usage
+##### Usage
 
    Then, you can use the Devtools in your application to view details of queries and their states on browser with React Query Devtools icon at the bottom right corner by including below jsx like this:
 
@@ -3052,10 +3052,7 @@ If you are developing a production application, we recommend using TypeScript wi
 ***
 ***
 
-### REDUX / REDUX TOOLKIT(RTK) / Zustand
-
-
-#### REDUX :-
+### REDUX 
 
   - **Redux** is used mainly for large application having higher number of component hierarchy.
    
@@ -3141,7 +3138,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
        **Notes**: payload can be any data such as integers, strings, objects, arrays, etc.
 
-### REACT REDUX (Connect REDUX with REACT):-
+#### REACT-REDUX (Connect REDUX with REACT):-
 
    **React Redux** is a library that provides a way to connect React components to Redux stores, allowing you to access and modify the state within the components.
 
@@ -3184,7 +3181,7 @@ If you are developing a production application, we recommend using TypeScript wi
             </Provider>
        ```
 
-   **Hooks**
+##### REACT-REDUX Hooks
 
    1. **useSelector**
    
@@ -3221,6 +3218,8 @@ If you are developing a production application, we recommend using TypeScript wi
        ```
      **Notes**: payload can be any data such as integers, strings, objects, arrays, etc.   
 
+##### REACT REDUX DevTools:-
+
    - **Browser Dev Tools For REACT REDUX** is Redux DevTools (Chrome Extension) that provides 1 more tab in developer options as below.
      1 **Redux** :- Allows to inspect and manage the state of your Redux store in real-time.
     
@@ -3251,6 +3250,93 @@ If you are developing a production application, we recommend using TypeScript wi
                 </Provider>
 
         ```
+
+##### REACT-REDUX THUNK-Middleware(Server-Side Data By Calling API or External Source):-
+
+   **Redux Thunk** is a middleware that allows you to dispatch functions instead of actions in your Redux store.
+
+   It is used to handle asynchronous operations in your Redux application.
+
+   It is recommended for working with Redux in React applications because it simplifies setup, reduces boilerplate code, and enforces best practices.
+
+   Syntax:-
+
+   **Install Dependencies**
+
+       ```Terminal
+   
+            npm install redux-thunk
+
+       ```
+
+   **Create a Redux Store Link With Thunk Middleware**
+
+   Use createStore to create a Redux store in which within Redux Dev Tool method composeWithDevTools is used along with middlerware method of applyMiddleware with parameter as Thunk to be used as middleware .       
+
+       ```JSX
+
+                import { Provider } from 'react-redux';
+                import { composeWithDevTools } from '@redux-devtools/extension';
+                import { thunk } from 'redux-thunk';
+
+                const store = createStore(reducerfn, composeWithDevTools(applyMiddleware(thunk)));
+
+                <Provider store={store}>    
+                    <App />
+                </Provider>                
+       ```
+
+       ```JSX
+            const App = () => {
+
+                const handleTaskFetch = () => {
+    
+                    //API OR Server Call using Redux-Thunk
+                    dispatch(fetchTaskListApi());
+
+                    return setNewTask("");
+                };
+
+                return (
+                    <button onClick={() => handleTaskFetch()}>Fetch Task</button>
+                )
+            }
+
+       ```
+
+       ```JS 
+            export const fetchTaskListApi = () => {
+                return async (dispatch) => {
+                    try {
+                    const resp = await fetchTaskResponse();
+
+                    console.log(resp);
+
+                    if (resp.status === 200) {
+                        console.log(resp.data);
+
+                        const data = resp.data;
+
+                        dispatch(fetchTasks({ tasks: data }));
+                    } else {
+                        return [];
+                    }
+                    } catch (error) {
+                    throw new Error(error);
+                    }
+                };
+            };
+       ```
+
+    **Notes**:- 
+
+       **Redux-Thunk** is used for in-between calling of Server-Side Call such as API or External Sources(is known as middleware) so in JSX file CLICK EVENT call a dispatch function within that a async function call with dispatch as parameter within which Server side API is call and then API response is send for further processing using dispatch action which will then call internally reducer function and update the state according based on API response as shown above.
+
+    **Limitations without Thunk Middleware**:- 
+    
+    - No centralization of sever side calling logic as it mixed with Component logic in complex large application.
+     
+    - As Thunk Middleware provides centralization of server side calling logic with async function having dispatch as parameter for further reducer logic.
 
 #### Redux Toolkit(RTK) :-
 

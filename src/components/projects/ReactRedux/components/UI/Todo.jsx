@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MdDeleteForever } from "react-icons/md";
-import { addTask, deleteTask } from "../../store/action";
+import { fetchTaskListApi, addTask, deleteTask } from "../../store/action";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -12,6 +12,16 @@ const Todo = () => {
   console.log("State as Task from Store:-", tasks);
 
   const dispatch = useDispatch();
+
+  const handleTaskFetch = (e) => {
+    e.preventDefault();
+
+    //API OR Server Call using Redux-Thunk
+
+    dispatch(fetchTaskListApi());
+
+    return setNewTask("");
+  };
 
   const handleSubmitNewTask = (e) => {
     e.preventDefault();
@@ -49,6 +59,9 @@ const Todo = () => {
             <button type="submit">Add Task</button>
           </form>
         </div>
+
+        <button onClick={(e) => handleTaskFetch(e)}>Fetch Task</button>
+
         <ul id="list-container">
           {tasks.length === 0 ? (
             <p>No Task Available</p>

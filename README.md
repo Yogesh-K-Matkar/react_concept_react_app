@@ -3377,6 +3377,9 @@ If you are developing a production application, we recommend using TypeScript wi
      
    - As Thunk Middleware provides centralization of server side calling logic with async function having dispatch as parameter for further reducer logic.
 
+***
+***
+
 #### Redux Toolkit(RTK) :-
 
    Large applications often require a more structured approach to managing global state, especially when dealing with complex data flows and interactions. Redux Toolkit (RTK) is a library that provides a set of tools and best practices for managing global state in React applications.

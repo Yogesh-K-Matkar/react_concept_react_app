@@ -3188,22 +3188,22 @@ If you are developing a production application, we recommend using TypeScript wi
 
    **Install Dependencies**
 
-       ```Terminal
+   ```Terminal
    
             npm install react-redux 
 
-       ```
+   ```
 
    **Create a Redux Store**
 
    Use createStore to create a Redux store.
 
-       ```JS    
+   ```JS    
             import { createStore } from 'redux';
 
             const store = createStore(reducerfn);
 
-       ```
+   ```
 
    Connect a React Component to the Redux Store
 
@@ -3211,37 +3211,37 @@ If you are developing a production application, we recommend using TypeScript wi
 
    Use Provider Component to wrap your app and provide the Redux store.
 
-       ```JSX
+   ```JSX
             import { Provider } from 'react-redux';
 
             <Provider store={store}>
                 <App />
             </Provider>
-       ```
+   ```
 
 ##### REACT-REDUX Hooks
 
    1. **useSelector**
    
-    Use useSelector hook to access specific store property/state data in React Component.
+   Use useSelector hook to access specific store property/state data in React Component.
 
-    Syntax:-
+   Syntax:-
 
-       ```JSX
+   ```JSX
             import { useSelector } from 'react-redux';
 
             const count = useSelector((store) => store.count);
 
             console.log("Count:-", count);                          
-       ```
+   ```
 
    2. **useDispatch**
    
-    Use useDispatch hook to send actions in React Component.
+   Use useDispatch hook to send actions in React Component.
 
-    Syntax:-
+   Syntax:-
 
-       ```JSX
+   ```JSX
             import { useDispatch } from 'react-redux';
 
             const dispatch = useDispatch();
@@ -3253,8 +3253,9 @@ If you are developing a production application, we recommend using TypeScript wi
 
             <button onClick={(e) =>addCount(e)}>Add Count
             </button>
-       ```
-     **Notes**: payload can be any data such as integers, strings, objects, arrays, etc.   
+   ```
+   
+   **Notes**: payload can be any data such as integers, strings, objects, arrays, etc.   
 
 ##### REACT REDUX DevTools:-
 
@@ -3266,17 +3267,17 @@ If you are developing a production application, we recommend using TypeScript wi
 
      Syntax:-
 
-        ```Terminal
+     ```Terminal
 
              npm install @redux-devtools/extension
 
-        ```
+     ```
 
      **Use Redux DevTools Extension**
 
      Syntax:-
 
-        ```JSX
+     ```JSX
 
                 import { Provider } from 'react-redux';
                 import { composeWithDevTools } from '@redux-devtools/extension';
@@ -3287,7 +3288,7 @@ If you are developing a production application, we recommend using TypeScript wi
                     <App />
                 </Provider>
 
-        ```
+     ```
 
 ##### REACT-REDUX THUNK-Middleware(Server-Side Data By Calling API or External Source):-
 
@@ -3301,17 +3302,17 @@ If you are developing a production application, we recommend using TypeScript wi
 
    **Install Dependencies**
 
-       ```Terminal
+   ```Terminal
    
             npm install redux-thunk
 
-       ```
+   ```
 
    **Create a Redux Store Link With Thunk Middleware**
 
    Use createStore to create a Redux store in which within Redux Dev Tool method composeWithDevTools is used along with middlerware method of applyMiddleware with parameter as Thunk to be used as middleware .       
 
-       ```JSX
+   ```JSX
 
                 import { Provider } from 'react-redux';
                 import { composeWithDevTools } from '@redux-devtools/extension';
@@ -3322,9 +3323,9 @@ If you are developing a production application, we recommend using TypeScript wi
                 <Provider store={store}>    
                     <App />
                 </Provider>                
-       ```
+   ```
 
-       ```JSX
+   ```JSX
             const App = () => {
 
                 const handleTaskFetch = () => {
@@ -3340,9 +3341,9 @@ If you are developing a production application, we recommend using TypeScript wi
                 )
             }
 
-       ```
+   ```
 
-       ```JS 
+   ```JS 
             export const fetchTaskListApi = () => {
                 return async (dispatch) => {
                     try {
@@ -3364,17 +3365,17 @@ If you are developing a production application, we recommend using TypeScript wi
                     }
                 };
             };
-       ```
+   ```
 
-    **Notes**:- 
+   **Notes**:- 
 
-       **Redux-Thunk** is used for in-between calling of Server-Side Call such as API or External Sources(is known as middleware) so in JSX file CLICK EVENT call a dispatch function within that a async function call with dispatch as parameter within which Server side API is call and then API response is send for further processing using dispatch action which will then call internally reducer function and update the state according based on API response as shown above.
+   **Redux-Thunk** is used for in-between calling of Server-Side Call such as API or External Sources(is known as middleware) so in JSX file CLICK EVENT call a dispatch function within that a async function call with dispatch as parameter within which Server side API is call and then API response is send for further processing using dispatch action which will then call internally reducer function and update the state according based on API response as shown above.
 
-    **Limitations without Thunk Middleware**:- 
-    
-    - No centralization of sever side calling logic as it mixed with Component logic in complex large application.
+   **Limitations without Thunk Middleware**:- 
+   
+   - No centralization of sever side calling logic as it mixed with Component logic in complex large application.
      
-    - As Thunk Middleware provides centralization of server side calling logic with async function having dispatch as parameter for further reducer logic.
+   - As Thunk Middleware provides centralization of server side calling logic with async function having dispatch as parameter for further reducer logic.
 
 #### Redux Toolkit(RTK) :-
 

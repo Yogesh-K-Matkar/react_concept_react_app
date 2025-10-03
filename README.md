@@ -1942,8 +1942,10 @@ If you are developing a production application, we recommend using TypeScript wi
 
     Syntax:-
 
+    Pass as dynamic child components as parameter to HOC Component  
+  
     ```JSX
-
+    
             const WithExtraProps = (WrappedComponent) => {
                 return (props) => {
                     const extraProps = { extraProp: "value" };
@@ -1953,6 +1955,29 @@ If you are developing a production application, we recommend using TypeScript wi
 
             export default WithExtraProps(MyComponent);
 
+    ```
+    
+    ```JSX
+            
+            import WithExtraProps from "./HOC.jsx"
+
+            const DynamicComponent = (props) => {
+                const { extraProp } = props;
+
+                retrun
+                (
+                    <h1> Passes props by HOC Component { extraProp }</h1>    
+                )
+            }
+
+            const PassingDyanmicComponent = WithExtraProps(DynamicComponent);
+
+            const ParentComponent = () = {
+
+               return <PassingDyanmicComponent />  
+
+            }
+    
     ```
 
     Here, `WithExtraProps` is a HOC that adds an `extraProp` to the wrapped component `MyComponent`.
@@ -1978,10 +2003,23 @@ If you are developing a production application, we recommend using TypeScript wi
 
      ```
 
+     ```JSX
+               import ChildComponent from "./memo.jsx"
+          
+               const MemoComponent = memo(Child Component);
+               
+               const ParentComponent = () = {
+
+                  return <MemoComponent />
+
+               }
+
+     ```
+
 ***
 ***
 
-### ReactJS API Access Ways:-
+### React API Access Ways:-
 
 #### 1. fetch():-
 
@@ -2224,7 +2262,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
            ```Terminal
 
-                npm install react-router-dom@latest
+                npm install react-router-dom@rc
 
            ```
 
@@ -2870,7 +2908,7 @@ If you are developing a production application, we recommend using TypeScript wi
                         import { useMutation } from "@tanstack/react-query";
 
                         const postDelete = useMutation({
-                            mutationFn: async ()=> await deletePost(),
+                            mutationFn: async ()=> await deletePost(id),
                             onSuccess: () => {
                                 // Handle successful mutation
                             },

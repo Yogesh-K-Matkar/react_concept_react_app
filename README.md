@@ -937,9 +937,27 @@ If you are developing a production application, we recommend using TypeScript wi
     Syntax:-
 
     ```JSX
+            import ReactApp from "./ReactFrameworkApp";
 
-            <ReactApp/> (Is a Component)
+            const App = () => {            
+                return (
+                    <div><ReactApp/></div>
+                )
+            }           
 
+    ```
+- Lazy Loading mean loading of Component as per requirement using React.lazy()
+
+    Syntax:-
+
+    ```JSX
+            const ReactApp= React.lazy(() => import("./ReactFrameworkApp")); 
+
+            const App = () => {            
+                return (
+                    <div><ReactApp/></div>
+                )
+            }
     ```
 
 - To avoid rewriting/redundancy of the same code multiple times, create a single component and reuse it multiple times where required in the same JSX or another JSX
@@ -2864,7 +2882,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
                         import { useQuery, keepPreviousData } from "@tanstack/react-query";
                         
-                        const { data, isLoading, isError } = useQuery({
+                        const { data, isLoading, isError, refetch } = useQuery({
                                 queryKey: ["posts"],
                                 queryFn: fetchPosts,
                                 gcTime: 2 * 1000, //Garbage Collection Time Till 2sec
@@ -2872,11 +2890,12 @@ If you are developing a production application, we recommend using TypeScript wi
                                 refetchInterval: 6 * 1000, //Refetch Data Every 6sec automatically call api without taking any action
                                 refetchIntervalInBackground: true, //Refetch Data Every automatically call api without taking any action when Page/Tab is not active
                                 placeholderData: keepPreviousData, //Use previous data when new data is not available to avoid in-between flicker/loaders
+                                
                             });
 
    ```
 
-   useQuery hooks provides different states like isLoading, isError, data etc. to manage your UI accordingly.
+   useQuery hooks provides different states like isLoading, isError, data, refetch method(for calling api on condition manually any time) etc. to manage your UI accordingly.
 
             
    1. **gcTime**: This shows the time taken for garbage collection time for caching data during request processing.
@@ -2944,7 +2963,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
                         const { data, isLoading, isError } = useQuery({
                             queryKey: ["posts"],
-                            queryFn: fetchPosts,
+                            queryFn: fetchPosts,                            
                         })
 
                         const queryClient = useQueryClient();
@@ -3103,7 +3122,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 
     **Advantages**:-
-    - Easy to understand/structured/manage data flow.
+    - Easy to understand and manage data flow.
     - Centralized storage of all data by Store
     - Global easy to access from Store
     - Predictable/Definite update of state by Reducer.
@@ -3310,7 +3329,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
    **Create a Redux Store Link With Thunk Middleware**
 
-   Use createStore to create a Redux store in which within Redux Dev Tool method composeWithDevTools is used along with middlerware method of applyMiddleware with parameter as Thunk to be used as middleware .       
+   Use createStore to create a Redux store in which within Redux Dev Tool method composeWithDevTools is used along with middlewares method of applyMiddleware with parameter as Thunk to be used as middleware .       
 
    ```JSX
 
@@ -3380,17 +3399,22 @@ If you are developing a production application, we recommend using TypeScript wi
 ***
 ***
 
-#### Redux Toolkit(RTK) :-
+##### Redux Toolkit(RTK)(Extra Helper Functionality over React-Redux) :-
+    
+    - Doing everything manually in REDUX like -creating action, reducers and computation over state is a tedious task.
 
-   Large applications often require a more structured approach to managing global state, especially when dealing with complex data flows and interactions. Redux Toolkit (RTK) is a library that provides a set of tools and best practices for managing global state in React applications.
+    - **Redux Toolkit** provides a set of tools and utilities for easier and more efficient management of state and actions in a Redux application. 
+     
+    - React Team has created it and it is a wrapper over Redux.
 
-   It is built on top of Redux and provides a more efficient and developer-friendly way to work with Redux.
+    - Why Redux Toolkit over React-Redux?
+        1. **Less Boilerplate** - In React-Redux need to create separate Action Types, Action Creators and Reducers, but in React-Redux-Toolkit all in one place by a method createSlice.
+          
+        2. **Easier to maintain and manage states** - In React-Redux need to create separate Action Creators and Reducers, but in React-Redux-Toolkit uses a Tool/JS library called Immer to manipulate the state.
+      
+        3. **Built-in Better Async Thunk Middleware** - In React-Redux need to create separate async function with dispatch as parameter which is Middleware as React-Thunk, but in React-Redux-Toolkit provides built-in better async Thunk Middleware method createAsyncThunk that also provide automatic loading, error, and success handling. 
 
-   It is designed to reduce boilerplate code, improve performance, and enhance the developer experience.
-
-   It is the standard way to write Redux logic in modern React applications.
-
-   It is recommended for managing global state in React applications because it simplifies setup, reduces boilerplate code, and enforces best practices.
+        4. **Better DevTools Support** - In React-Redux need to create install and mapping Store to Redux-DevTools, but in React-Redux-Toolkit provides in-built Redux-DevTools support.              
 
    Syntax:
    
@@ -3398,66 +3422,111 @@ If you are developing a production application, we recommend using TypeScript wi
 
        ```Terminal
        
-            npm install @reduxjs/toolkit react-redux
+            npm install @reduxjs/toolkit 
 
        ```
 
-   Create a Redux Slice
+     **React-Redux way of doing Action**:-
 
-   Use createSlice to generate actions and reducers for a part of your state.
+     Syntax:-
+
+     ```JS
+            //action type
+            export const INCREMENT = 'INCREMENT';
+
+            //action creator
+            export const increment = () => ({ type: INCREMENT });
+
+            //initial state
+            export const initialState = 0;
+
+            //reducer
+            export const counterReducer = (state = 0, action) => {
+            
+                switch (action.type) {
+                    case INCREMENT:
+                        return { 
+                                ...state , //spread operator preserves original state
+                                count: state + 1 //updating value 
+                            };
+                    default:
+                        return state;
+                }
+            }
+     ```
+            
+
+   **React-Redux-Toolkit (RTK) way of doing Action**:-
+
+   - Create Slice is structured reducer function of React-Redux
+
+   Use createSlice utility function to create a slice of state and generate actions and reducers of entire state
+   for sharing between components.
 
    ```JS
-            import { createSlice } from '@reduxjs/toolkit';
+            //create slice - slice.js
+            import { createSlice } from '@reduxjs/toolkit';            
 
-
-            const counterSlice = createSlice({
+            export const counterSlice = createSlice({
             name: 'counter',
-            initialState: { value: 0 },
-            reducers: {
-                increment: state => { state.value += 1 },
-                decrement: state => { state.value -= 1 }
+            initialState: { value: 0 },       //initial state
+            reducers: {                       //reducer function 
+                increment: (state,action)=> {state.value += action.payload}, //action-creator 
+                decrement: (state,action)=> {state.value -= action.payload} //action-creator 
             }
             });
 
             export const { increment, decrement } = counterSlice.actions;
-            export default counterSlice.reducer;
-   ```
-
-   Configure the Store
+         
+   ```   
+    
+   - Configure the Store
 
    Use configureStore (not createStore).
 
    ```JS
+            //store.js
             import { configureStore } from '@reduxjs/toolkit';
-            import counterReducer from './counterSlice';
+            import { counterSlice } from './counterSlice';
 
             export const store = configureStore({
-                reducer: { counter: counterReducer }
+                reducer: { counterReducer: counterSlice.reducer }
             });
-  ```
+   ```
 
-  Provide the Store
+   - Access the Store
 
-  Use <Provider store={store}> to wrap your app.
+   ```JSX
+            //Component- main.jsx
+            import { Provider } from 'react-redux';
 
-  Use Hooks in Components
+            <Provider store={store}>
+                <App />
+            </Provider>
 
-  Use useSelector to access state and useDispatch to send actions.
-
-  ```JS
-            import { useSelector, useDispatch } from 'react-redux';
-
-            const count = useSelector(state => state.counter.value);
-            const dispatch = useDispatch();
-
-            dispatch(increment());
-  ```
-
-  **Action Creator**:- 
-  It is a wrapper function over dispatch for better understanding, maintainability and reducing redundant code. 
+   ```
   
-  It is used to create actions that can be dispatched to the Redux store instead of directly calling dispatch method.
+   ```JSX
+            import { useSelector, useDispatch } from 'react-redux';
+            
+            import { increment, decrement } from './counterSlice';
 
+            //Component- App.jsx
+            const App=()=>{
+                const count = useSelector((store) => store.counterReducer.value);
+                
+                const dispatch = useDispatch();
+
+                return (
+                    <>
+                        <h1>{count}</h1>
+                        <button onClick={() => dispatch(increment(1))}>Increment</button>
+                        <button onClick={() => dispatch(decrement(1))}>Decrement</button>
+                    </>
+                )
+            }
+
+   ```
   
 
 #### Zustand (Newer Concept) :-

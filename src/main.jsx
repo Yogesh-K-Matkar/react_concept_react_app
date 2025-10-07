@@ -15,8 +15,12 @@ import { createRoot } from "react-dom/client";
 //import "./CountryAtlasIndex.css";
 //import { ReactQueryApp } from "./components/ReactQueryApp";
 //import "./ReactQueryIndex.css";
+// import { CurrencyConvertorApp } from "./components/CurrencyConvertorApp";
+// import "./CurrencyConvertorIndex.css";
 // import { ReactReduxApp } from "./components/ReactReduxApp";
 // import "./ReactReduxIndex.css";
+// import { ReactReduxToolkitApp } from "./components/ReactReduxToolkitApp";
+// import "./ReactReduxToolkitIndex.css";
 
 const ReactApp = React.lazy(() => import("./ReactFrameworkApp"));
 const ReactRouterApp = React.lazy(() => import("./ReactRouterFrameworkApp"));
@@ -32,11 +36,17 @@ const CountryAtlasApp = React.lazy(() => import("./CountryAtlasApp"));
 
 const ReactQueryApp = React.lazy(() => import("./ReactQueryApp"));
 
+const CurrencyConvertorApp = React.lazy(() => import("./CurrencyConvertorApp"));
+
 const ReactReduxApp = React.lazy(() => import("./ReactReduxApp"));
 
-let AppConcept = import.meta.env.VITE_APP_CONCEPT;
+const ReactReduxToolkitApp = React.lazy(() => import("./ReactReduxToolkitApp"));
 
 export const LoadComponent = () => {
+  const AppConcept = import.meta.env.VITE_APP_CONCEPT;
+
+  const APICallingWay = import.meta.env.VITE_API_CALLING_WAY;
+
   const styleTitle = {
     marginTop: "1rem",
     marginBottom: "1rem",
@@ -109,9 +119,11 @@ export const LoadComponent = () => {
       return (
         <>
           <h1 style={styleTitle}>
+            <u>Project 6. Country Atlas Details Project</u>
+            <br />
             <u>
-              Project 6. React-Router,React Icons, API Calling Using AXIOS
-              Concept
+              (Using React, React Icons, API Calling Using AXIOS, React-Router
+              Concept)
             </u>
           </h1>
           <br />
@@ -131,15 +143,47 @@ export const LoadComponent = () => {
         </>
       );
 
+    case "CURRENCYCONVERTORAPP":
+      import("./CurrencyConvertorIndex.css");
+
+      return (
+        <>
+          <h1 style={styleTitle}>
+            <u>Project 8. Currency Convertor Project</u>
+            <br />
+            <u>
+              {`(Using React,${
+                APICallingWay == "reactquery" ? " React Query" : ""
+              }
+              API Calling Using AXIOS Concept)`}
+            </u>
+          </h1>
+          <br />
+          <CurrencyConvertorApp APICallingWay={APICallingWay} />
+        </>
+      );
+
     case "REACTREDUXAPP":
       import("./ReactReduxIndex.css");
       return (
         <>
           <h1 style={styleTitle}>
-            <u>Project 8. React Redux Concept</u>
+            <u>Project 9. React Redux Concept</u>
           </h1>
           <br />
           <ReactReduxApp />
+        </>
+      );
+
+    case "REACTREDUXTOOLKIT":
+      import("./ReactReduxToolkitIndex.css");
+      return (
+        <>
+          <h1 style={styleTitle}>
+            <u>Project 10. React Redux Toolkit Concept</u>
+          </h1>
+          <br />
+          <ReactReduxToolkitApp />
         </>
       );
 

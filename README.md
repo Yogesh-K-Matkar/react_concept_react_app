@@ -2024,7 +2024,7 @@ If you are developing a production application, we recommend using TypeScript wi
      ```JSX
                import ChildComponent from "./memo.jsx"
           
-               const MemoComponent = memo(Child Component);
+               const MemoComponent = memo(ChildComponent);
                
                const ParentComponent = () = {
 

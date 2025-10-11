@@ -309,7 +309,15 @@ If you are developing a production application, we recommend using TypeScript wi
    ```TERMINAL    
         cd <FolderName>
    ```
+2. List of files and folder
 
+   Syntax:-
+   
+   ```TERMINAL
+       dir        (Windows OS)
+
+       ls         (Linux/Mac OS)
+   ```
 3. Move outside the folder
 
    Syntax:-
@@ -318,7 +326,7 @@ If you are developing a production application, we recommend using TypeScript wi
        cd ..
    ```
 
-5. Create folder
+4. Create folder
 
    Syntax:-
     
@@ -326,7 +334,7 @@ If you are developing a production application, we recommend using TypeScript wi
        mkdir <NewFolderName>
    ```
 
-7. Create any type of file, such as JSX, JSON, CSS, or image.
+5. Create any type of file, such as JSX, JSON, CSS, or image.
 
    Syntax:-
     
@@ -334,7 +342,7 @@ If you are developing a production application, we recommend using TypeScript wi
        code <NewFileName.extension>
    ```
 
-9. To open the current folder in Explorer 
+6. To open the current folder in Explorer 
 
    Syntax:-
    
@@ -671,7 +679,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ***
 
-#### Deploying from GitHub to GitHub-Pages:-
+#### Deploying & Publishing to GitHub-Pages with CI/CD Pipeline Workflow:-
 
    1. To deploy React project in GitHub-Pages, first install the gh-pages package as a dev dependency in the React project.
 
@@ -682,7 +690,7 @@ If you are developing a production application, we recommend using TypeScript wi
             npm install gh-pages --save-dev
 
        ``` 
-       
+
    2. First in React project, go to vite.config.js file, then add the below code
 
        Syntax:-
@@ -702,13 +710,83 @@ If you are developing a production application, we recommend using TypeScript wi
             });
        
        ```
-   2. Then visit to GitHub account-->Select the project repository, and click on the Settings button, then click on the Pages button, then take github-pages project URL.
+
+   3. CI/CD pipeline process:-
+      
+      Step 1:- Create a .github folder in the root directory of the project.
+
+      Step 2:- Create a .github/workflows folder in the .github folder.
+
+      Step 3:- Create a deploy.yml file in the .github/workflows folder.
+
+      Step 4:- Add the below code in the workflow.yml file,
+
+       Syntax:-
+     
+       ```YML
+
+            # CI/CD Pipeline Workflow for Deploying React App to GitHub Pages
+
+            # workflow name
+            name: Deploy React App to GitHub Pages
+
+            # Trigger the workflow
+            on:
+            # Trigger the workflow on push or pull request to the main branch
+            push:
+                branches:
+                - main
+
+            # Define the jobs for this workflow
+            jobs:
+            # Build and Deploy Job
+            build-deploy:
+                # Operating System use to RUN the job
+                runs-on: ubuntu-latest
+
+                # Steps represent a sequence of tasks that will be executed as part of the job
+                steps:
+                # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+                - name: Checkout Code
+                    uses: actions/checkout@latest
+
+                # Setup Node.js environment
+                - name: Setup Node.js
+                    uses: actions/setup-node@latest
+                    with:
+                    node-version: "latest" # Specify the Node.js version
+
+                # Install dependencies
+                - name: Install Dependencies
+                    run: npm install
+
+                # Build Project/App
+                - name: Build Project/App
+                    run: npm run build
+
+                # Deploy Project/App to GitHub Pages
+                - name: Deploy Project/App to GitHub Pages
+                    uses: peaceiris/actions-gh-pages@latest
+                    with:
+                    github_token: ${{ secrets.GITHUB_TOKEN }}
+                    publish_dir: dist
+        
+       ```
+
+       **Note**:- 
+       
+       - secrets.GITHUB_TOKEN is an automatic token provided by GitHub Actions to authenticate and authorize actions within the workflow.
+
+       - dist folder is build folder that is created from npm run build cmd.
+        
+
+   4. Then visit to GitHub account-->Select the project repository, and click on the Settings button, then click on the Pages button, then take github-pages project URL.
 
        Eg:-
 
-        https://yogesh-k-matkar.github.io/react_concept_react_app/
+            https://yogesh-k-matkar.github.io/react_concept_react_app/
 
-   3. Then add this URL in the project PACKAGE.JSON file,
+   5. Then add this URL in the project PACKAGE.JSON file,
 
        Syntax:-
      
@@ -717,7 +795,7 @@ If you are developing a production application, we recommend using TypeScript wi
             "homepage": "https://yogesh-k-matkar.github.io/react_concept_react_app/",
        
        ```
-   4.  Deploy scrips need to add in the PACKAGE.JSON file,
+   6.  Deploy scrips need to add in the PACKAGE.JSON file,
    with predeploy and deploy cmd's,
 
        Syntax:-
@@ -730,9 +808,9 @@ If you are developing a production application, we recommend using TypeScript wi
             }
        
        ```
-   5.  Push code in GitHub repository, then refresh the GitHub repository of the project deployed, to push changes to Github account.
+   7.  Push code in GitHub repository, then refresh the GitHub repository of the project deployed, to push changes to Github account.
 
-   6. Then run npm cmd to deploy the project in github-pages, 
+   8. Then run npm cmd to deploy the project in github-pages, 
    
        Syntax:-
        

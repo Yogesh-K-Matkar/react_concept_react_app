@@ -255,7 +255,6 @@ CSS is the language we use to style an HTML document.
 
 # React Using VS Code With Vite
 
-
 ## Reference Docs 
 
 ### Official Sites
@@ -690,7 +689,7 @@ If you are developing a production application, we recommend using TypeScript wi
             npm install gh-pages --save-dev
 
        ``` 
-       
+
    2. First in React project, go to vite.config.js file, then add the below code
 
        Syntax:-

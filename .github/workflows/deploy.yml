@@ -1,0 +1,45 @@
+# CI/CD Pipeline Workflow for Deploying React App to GitHub Pages
+
+# workflow name
+name: Deploy React App to GitHub Pages
+
+# Trigger the workflow
+on:
+  # Trigger the workflow on push or pull request to the main branch
+  push:
+    branches:
+      - main
+
+# Define the jobs for this workflow
+jobs:
+  # Build and Deploy Job
+  build-deploy:
+    # Operating System use to RUN the job
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout Code
+        uses: actions/checkout@latest
+
+      # Setup Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@latest
+        with:
+          node-version: "latest" # Specify the Node.js version
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Build Project/App
+      - name: Build Project/App
+        run: npm run build
+
+      # Deploy Project/App to GitHub Pages
+      - name: Deploy Project/App to GitHub Pages
+        uses: peaceiris/actions-gh-pages@latest
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist

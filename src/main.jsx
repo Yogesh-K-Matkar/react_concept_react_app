@@ -1,4 +1,4 @@
-import React, { StrictMode } from "react";
+import React, { StrictMode, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 
 // import ReactApp from "./ReactFrameworkApp.jsx";
@@ -62,7 +62,9 @@ export const LoadComponent = () => {
             <u>Project 1. React Concept</u>
           </h1>
           <br />
-          <ReactApp />
+          <Suspense fallback={<div>Loading...</div>}>
+            <ReactApp />
+          </Suspense>
         </>
       );
 
@@ -74,7 +76,9 @@ export const LoadComponent = () => {
             <u>Project 2. React Router Concept</u>
           </h1>
           <br />
-          <ReactRouterApp />
+          <Suspense fallback={<div>Loading...</div>}>
+            <ReactRouterApp />
+          </Suspense>
         </>
       );
 
@@ -86,7 +90,9 @@ export const LoadComponent = () => {
             <u>Project 3. Full Stack CRUD Operation Using Axios Concept</u>
           </h1>
           <br />
-          <CRUDOperationsAxiosApp />
+          <Suspense fallback={<div>Loading...</div>}>
+            <CRUDOperationsAxiosApp />
+          </Suspense>
         </>
       );
 
@@ -98,7 +104,9 @@ export const LoadComponent = () => {
             <u>Project 4. Dynamic Accordion Using Axios Concept</u>
           </h1>
           <br />
-          <DynamicAccordionStaticJSONApp />
+          <Suspense fallback={<div>Loading...</div>}>
+            <DynamicAccordionStaticJSONApp />
+          </Suspense>
         </>
       );
 
@@ -110,7 +118,9 @@ export const LoadComponent = () => {
             <u>Project 5. Responsive Navbar Concept</u>
           </h1>
           <br />
-          <ResponsiveNavBarApp />
+          <Suspense fallback={<div>Loading...</div>}>
+            <ResponsiveNavBarApp />
+          </Suspense>
         </>
       );
 
@@ -127,7 +137,9 @@ export const LoadComponent = () => {
             </u>
           </h1>
           <br />
-          <CountryAtlasApp />
+          <Suspense fallback={<div>Loading...</div>}>
+            <CountryAtlasApp />
+          </Suspense>
         </>
       );
 
@@ -139,7 +151,9 @@ export const LoadComponent = () => {
             <u>Project 7. React Query Concept</u>
           </h1>
           <br />
-          <ReactQueryApp />
+          <Suspense fallback={<div>Loading...</div>}>
+            <ReactQueryApp />
+          </Suspense>
         </>
       );
 
@@ -159,7 +173,9 @@ export const LoadComponent = () => {
             </u>
           </h1>
           <br />
-          <CurrencyConvertorApp APICallingWay={APICallingWay} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <CurrencyConvertorApp APICallingWay={APICallingWay} />
+          </Suspense>
         </>
       );
 
@@ -171,7 +187,9 @@ export const LoadComponent = () => {
             <u>Project 9. React Redux Concept</u>
           </h1>
           <br />
-          <ReactReduxApp />
+          <Suspense fallback={<div>Loading...</div>}>
+            <ReactReduxApp />
+          </Suspense>
         </>
       );
 
@@ -183,7 +201,9 @@ export const LoadComponent = () => {
             <u>Project 10. React Redux Toolkit Concept</u>
           </h1>
           <br />
-          <ReactReduxToolkitApp />
+          <Suspense fallback={<div>Loading...</div>}>
+            <ReactReduxToolkitApp />
+          </Suspense>
         </>
       );
 

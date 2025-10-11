@@ -673,7 +673,17 @@ If you are developing a production application, we recommend using TypeScript wi
 
 #### Deploying from GitHub to GitHub-Pages:-
 
-   1. First in React project, go to vite.config.js file, then add the below code
+   1. To deploy React project in GitHub-Pages, first install the gh-pages package as a dev dependency in the React project.
+
+       Syntax:-
+     
+       ```TERMINAL
+
+            npm install gh-pages --save-dev
+
+       ``` 
+       
+   2. First in React project, go to vite.config.js file, then add the below code
 
        Syntax:-
      
@@ -684,10 +694,11 @@ If you are developing a production application, we recommend using TypeScript wi
 
             // https://vite.dev/config/
             export default defineConfig({            
+              base: "/react_concept_react_app/",
               server: {
-                port: 5173,
-              },
-              base: "/reactv19_app",    // Add this deploy baseUrl
+                open: true,
+                port: 1000,
+              },   // Add this deploy baseUrl
             });
        
        ```

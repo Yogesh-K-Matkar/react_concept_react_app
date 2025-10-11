@@ -668,6 +668,65 @@ If you are developing a production application, we recommend using TypeScript wi
 
      11. Refresh the GitHub repository of the project deployed, and it will show all published files.
 
+
+***
+
+#### Deploying from GitHub to GitHub-Pages:-
+
+   1. First in React project, go to vite.config.js file, then add the below code
+
+       Syntax:-
+     
+       ```JS
+
+            import { defineConfig } from "vite";
+            
+
+            // https://vite.dev/config/
+            export default defineConfig({            
+              server: {
+                port: 5173,
+              },
+              base: "/reactv19_app",    // Add this deploy baseUrl
+            });
+       
+       ```
+   2. Then visit to GitHub account-->Select the project repository, and click on the Settings button, then click on the Pages button, then take github-pages project URL.
+
+       Eg:-
+
+        https://yogesh-k-matkar.github.io/react_concept_react_app/
+
+   3. Then add this URL in the project PACKAGE.JSON file,
+
+       Syntax:-
+     
+       ```JSON
+
+            "homepage": "https://yogesh-k-matkar.github.io/react_concept_react_app/",
+       
+       ```
+   4.  Deploy scrips need to add in the PACKAGE.JSON file,
+   with predeploy and deploy cmd's,
+
+       Syntax:-
+     
+       ```JSON  
+
+            "scripts": {
+              "predeploy": "npm run build",
+              "deploy": "gh-pages -d dist",    //dist is build folder
+            }
+       
+       ```
+   6. 
+
+       
+          
+
+ 
+
+
 ***
 
 #### Deploying from GitHub to Netlify:-

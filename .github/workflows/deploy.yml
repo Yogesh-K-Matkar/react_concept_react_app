@@ -21,11 +21,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout Code
-        uses: actions/checkout@latest
+        uses: actions/checkout@vX
 
       # Setup Node.js environment
       - name: Setup Node.js
-        uses: actions/setup-node@latest
+        uses: actions/setup-node@vX
         with:
           node-version: "latest" # Specify the Node.js version
 
@@ -39,7 +39,7 @@ jobs:
 
       # Deploy Project/App to GitHub Pages
       - name: Deploy Project/App to GitHub Pages
-        uses: peaceiris/actions-gh-pages@latest
+        uses: peaceiris/actions-gh-pages@vX
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: dist

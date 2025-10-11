@@ -719,7 +719,20 @@ If you are developing a production application, we recommend using TypeScript wi
             }
        
        ```
+   5.  Push code in GitHub repository, then refresh the GitHub repository of the project deployed, to push changes to Github account.
+
+   6. Then run npm cmd to deploy the project in github-pages, 
+   
+       Syntax:-
        
+       ```TERMINAL
+
+           npm run deploy
+
+       ```
+
+       **Note**:- Which run above scripts from PACKAGE.JSON file (predeploy and deploy) automatically and deploy the project in github-pages.
+
 ***
 
 #### Deploying from GitHub to Netlify:-

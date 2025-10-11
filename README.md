@@ -710,9 +710,74 @@ If you are developing a production application, we recommend using TypeScript wi
             });
        
        ```
+   3. Then visit to GitHub account-->Select the project repository, and click on the Settings button, then click on the Pages button, then take github-pages project URL.
 
-   3. CI/CD pipeline process:-
-      
+       Eg:-
+
+            https://yogesh-k-matkar.github.io/react_concept_react_app/
+
+   4. Then add this homepage key with Github-Pages URL in the project PACKAGE.JSON file,
+
+       Syntax:-
+     
+       ```JSON
+
+            "homepage": "https://yogesh-k-matkar.github.io/react_concept_react_app/",
+       
+       ```
+   5.  Deploy cmd is added scrips key in the PACKAGE.JSON file
+
+       Syntax:-
+     
+       ```JSON  
+
+            "scripts": {              
+              "deploy": "gh-pages -d dist",    //dist is build folder
+            }      
+   
+       ```
+
+   6. Before running git cmd's in terminal, first check the git version to see git is properly installed and then intialise git in the project folder.
+
+       Syntax:-
+       
+       ```TERMINAL
+
+           git --version
+           
+           git init
+
+       ```
+ 
+   7. Before running stage and commit cmd, first check the git status to see which files are modified, then remove cached submodules folder which is treated as sub-project while deployment of the project if any.
+
+       Syntax:-
+       
+       ```TERMINAL
+
+           git status
+          
+           git rm --cached .github/workflows
+
+       ```
+
+   8. Then run terminal command to stage all files, commit with comments and push to the main branch of the remote repository.
+
+       Syntax:-
+       
+       ```TERMINAL
+
+           git add .
+
+           git commit -m "commit comments"           
+
+       ```
+
+
+   9.  Before push cmd, create/configure workflow for automatic process when push to github repository at the same time publishing of the project in github-pages takes place for that use define steps which is known as **CI/CD pipeline** workflow process. 
+   
+   This is one-time setup not required to do it again and again to avoid manual deploy.
+         
       Step 1:- Create a .github folder in the root directory of the project.
 
       Step 2:- Create a .github/workflows folder in the .github folder.
@@ -777,50 +842,22 @@ If you are developing a production application, we recommend using TypeScript wi
        
        - secrets.GITHUB_TOKEN is an automatic token provided by GitHub Actions to authenticate and authorize actions within the workflow.
 
-       - dist folder is build folder that is created from npm run build cmd.
-        
+       - dist folder is build folder that is created from npm run build cmd.  
 
-   4. Then visit to GitHub account-->Select the project repository, and click on the Settings button, then click on the Pages button, then take github-pages project URL.
+   10. How to run the project using github-pages URL after successful publish.
+
+       Syntax:-
+     
+       ```YML
+
+            https://<github-username>.github.io/<repository-name>/
+
+       ```
 
        Eg:-
 
             https://yogesh-k-matkar.github.io/react_concept_react_app/
 
-   5. Then add this URL in the project PACKAGE.JSON file,
-
-       Syntax:-
-     
-       ```JSON
-
-            "homepage": "https://yogesh-k-matkar.github.io/react_concept_react_app/",
-       
-       ```
-   6.  Deploy scrips need to add in the PACKAGE.JSON file,
-   with predeploy and deploy cmd's,
-
-       Syntax:-
-     
-       ```JSON  
-
-            "scripts": {
-              "predeploy": "npm run build",
-              "deploy": "gh-pages -d dist",    //dist is build folder
-            }
-       
-       ```
-   7.  Push code in GitHub repository, then refresh the GitHub repository of the project deployed, to push changes to Github account.
-
-   8. Then run npm cmd to deploy the project in github-pages, 
-   
-       Syntax:-
-       
-       ```TERMINAL
-
-           npm run deploy
-
-       ```
-
-       **Note**:- Which run above scripts from PACKAGE.JSON file (predeploy and deploy) automatically and deploy the project in github-pages.
 
 ***
 

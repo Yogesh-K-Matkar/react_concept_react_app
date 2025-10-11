@@ -8,5 +8,5 @@ export default defineConfig({
   server: {
     port: 5173,
   },
-  base: "/react_router_query_reduxtoolkit_app",
+  base: "/react_concept_react_app",
 });

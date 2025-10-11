@@ -690,7 +690,7 @@ If you are developing a production application, we recommend using TypeScript wi
             npm install gh-pages --save-dev
 
        ``` 
-
+       
    2. First in React project, go to vite.config.js file, then add the below code
 
        Syntax:-
@@ -710,6 +710,7 @@ If you are developing a production application, we recommend using TypeScript wi
             });
        
        ```
+       
    3. Then visit to GitHub account-->Select the project repository, and click on the Settings button, then click on the Pages button, then take github-pages project URL.
 
        Eg:-
@@ -725,6 +726,7 @@ If you are developing a production application, we recommend using TypeScript wi
             "homepage": "https://yogesh-k-matkar.github.io/react_concept_react_app/",
        
        ```
+
    5.  Deploy cmd is added scrips key in the PACKAGE.JSON file
 
        Syntax:-

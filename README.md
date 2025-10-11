@@ -759,7 +759,7 @@ If you are developing a production application, we recommend using TypeScript wi
           
            git rm --cached .github/workflows
 
-       ```
+       ``` 
 
    8. Then run terminal command to stage all files, commit with comments and push to the main branch of the remote repository.
 

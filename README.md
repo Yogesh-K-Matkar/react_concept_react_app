@@ -313,16 +313,22 @@ If you are developing a production application, we recommend using TypeScript wi
    Syntax:-
    
    ```TERMINAL
-       dir        (Windows OS)
+       dir      (Windows OS)
 
-       ls         (Linux/Mac OS)
+       ls       (Linux/Mac OS)
+
+       ls -a    (List all files including hidden files)
    ```
 3. Move outside the folder
 
    Syntax:-
    
    ```TERMINAL
-       cd ..
+       cd ..  (To move outside of current folder)
+
+       To move to root directory
+       cd \   (Windows OS)
+       cd /   (Linux/Mac OS)
    ```
 
 4. Create folder
@@ -890,11 +896,25 @@ If you are developing a production application, we recommend using TypeScript wi
  
 ### Cloning:-
 
+   **With Extension**:-
+
    1. First, install Extension- GitHub Pull Requests, then through Settings open Command Palette and write GitHub Clone(Clone from GitHub)
 
    2. Then visit to GitHub account-->Select the repository, and copy the  browser URL of the repository, then need to clone it to VS Code.
 
    3. Now, explorer dialogue windows open --> select the folder where we want to clone the repository.
+   
+  **With Git Commands**:-
+
+    1. First, visit to GitHub account-->Select the repository, and copy the  browser URL of the repository, then need to clone it to VS Code.
+    
+    2. Now, open VS Code terminal --> move to the folder where we want to clone the repository using cd command.
+    
+    Syntax:-
+     
+    ```Terminal
+                git clone <repository-url>
+    ``` 
 
 ***
 
